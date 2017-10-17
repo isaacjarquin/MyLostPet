@@ -41,16 +41,17 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 60,
+    width: 360,
     borderColor: '#05A5D1',
     borderWidth: 2,
     backgroundColor: '#333',
-    margin: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonText: {
     color: '#FAFAFA',
     fontSize: 20,
+    margin: 20,
     fontWeight: '600',
   }
 });
