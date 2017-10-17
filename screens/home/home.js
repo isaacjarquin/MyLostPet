@@ -16,7 +16,7 @@ export default class Home extends React.Component {
     return (
       <View style={styles.container}>
           <Image
-                source={require('../assets/images/mascotas_y_personas.jpg')}
+                source={require('../../assets/images/mascotas_y_personas.jpg')}
                 style={{width: 600, height: 300}}
                 resizeMode= { Image.resizeMode.contain }
           />
