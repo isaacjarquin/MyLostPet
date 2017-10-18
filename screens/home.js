@@ -4,10 +4,10 @@ import { StyleSheet, Text, View, Image, TouchableHighlight, Navigator } from 're
 export default class Home extends React.Component {
   constructor (props) {
     super(props)
-    this.onAddStarted = this.onAddStarted.bind(this)
+    this.navigateToSearchForm = this.navigateToSearchForm.bind(this)
   }
 
-  onAddStarted() {
+  navigateToSearchForm() {
       const { navigate } = this.props.navigation;
 
       navigate('SearchForm', { name: 'Jane' })
@@ -22,7 +22,7 @@ export default class Home extends React.Component {
           />
           <TouchableHighlight
               style={styles.button}
-              onPress={this.onAddStarted}>
+              onPress={this.navigateToSearchForm}>
                 <Text style={styles.buttonText} >
                   Buscar Mascota perdida
                 </Text>
@@ -37,14 +37,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   button: {
     height: 60,
-    width: 360,
+    alignSelf: 'stretch',
     borderColor: '#05A5D1',
     borderWidth: 2,
-    margin: 2,
+    margin: 10,
     backgroundColor: '#333',
     justifyContent: 'center',
     alignItems: 'center',
