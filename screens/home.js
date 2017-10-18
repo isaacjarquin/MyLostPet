@@ -17,7 +17,7 @@ export default class Home extends React.Component {
       <View style={styles.container}>
           <Image
                 source={require('../assets/images/mascotas_y_personas.jpg')}
-                style={{width: 600, height: 300}}
+                style={styles.image}
                 resizeMode= { Image.resizeMode.contain }
           />
           <TouchableHighlight
@@ -38,6 +38,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
+  },
+  image: {
+    width: 400,
+    height: 200
   },
   button: {
     height: 60,
