@@ -9,8 +9,16 @@ export default class SearchForm extends React.Component {
   }
 
   getPets() {
-      // const { navigate } = this.props.navigation;
-      // navigate('SearchResull', { name: 'Jane' })
+    // return fetch('https://items-api.herokuapp.com/api/items')
+    // .then((response) => response.json())
+    // .then((responseJson) => {
+    //   return responseJson.pets;
+    // })
+    // .catch((error) => {
+    //   console.error(error);
+    // });
+    const { navigate } = this.props.navigation;
+    navigate('SearchResultPage', { pets: [] })
   }
 
   render() {
