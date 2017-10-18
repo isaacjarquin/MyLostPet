@@ -4,8 +4,8 @@ import {
   StackNavigator,
 } from 'react-navigation';
 
-import Home from './screens/home/home'
-import searchForm from './screens/home/search-form'
+import Home from './screens/home'
+import searchForm from './components/home/search-form'
 
 const App = StackNavigator({
   Home: { screen: Home },
