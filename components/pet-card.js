@@ -7,17 +7,9 @@ export default class PetCard extends React.Component {
     const { kind, info, image } = this.props
     return (
       <View style={styles.container}>
-        <Card
-          title={kind}
-          image={{uri: image}}>
-          <Text style={{marginBottom: 10}}>
-            {info}
-          </Text>
-          <Button
-            icon={{name: 'code'}}
-            backgroundColor='#03A9F4'
-            buttonStyle={styles.button}
-            title='Contactar' />
+        <Card title={kind} image={{uri: image}}>
+          <Text style={{marginBottom: 10}}>{info}</Text>
+          <Button buttonStyle={styles.button} title='Contactar' />
         </Card>
       </View>
     );
