@@ -6,10 +6,40 @@ export default class SearchForm extends React.Component {
   constructor (props, context) {
     super(props, context)
     this.getPets = this.getPets.bind(this)
+
+    this.state = {
+      type: '',
+      autonomousComunity: '',
+      province: ''
+    }
   }
 
-  getPets() {
-    return fetch('https://items-api.herokuapp.com/api/items')
+  bodyParams() {
+    const { type, autonomousComunity, province } = this.state
+
+    if (type !== '' && autonomousComunity !== '' && province !== '') {
+      return `?petType=${type}&autonomousComunity=${autonomousComunity}&province=${province}`
+    } else if (type !== '' && autonomousComunity !== '' && province === '') {
+      return `?petType=${type}&autonomousComunity=${autonomousComunity}`
+    } else if (type !== '' && autonomousComunity === '' && province !== '') {
+      return `?petType=${type}&province=${province}`
+    } else if (type === '' && autonomousComunity !== '' && province !== '') {
+      return `?autonomousComunity=${autonomousComunity}&province=${province}`
+    } else if (type !== '' && autonomousComunity === '' && province === '') {
+      return `?petType=${type}`
+    } else if (type === '' && autonomousComunity === '' && province !== '') {
+      return `?province=${province}`
+    } else if (type === '' && autonomousComunity !== '' && province === '') {
+      return `?autonomousComunity=${autonomousComunity}`
+    } else {
+      return ''
+    }
+  }
+
+  getPets(event) {
+    const url = `https://items-api.herokuapp.com/api/items${this.bodyParams()}`
+
+    return fetch(url)
     .then((response) => response.json())
     .then((responseJson) => {
       const { navigate } = this.props.navigation;
@@ -24,13 +54,25 @@ export default class SearchForm extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.inputLabel}>Tipo de mascota</Text>
-        <TextInput style={styles.input}/>
+        <TextInput
+          style={styles.input}
+          value={this.state.type}
+          onChangeText={(text) => this.setState({type: text})}
+        />
 
         <Text style={styles.inputLabel}>Comunidad autónoma</Text>
-        <TextInput style={styles.input}/>
+        <TextInput
+          style={styles.input}
+          value={this.state.autonomousComunity}
+          onChangeText={(text) => this.setState({autonomousComunity: text})}
+        />
 
         <Text style={styles.inputLabel}>Provincia</Text>
-        <TextInput style={styles.input}/>
+        <TextInput
+          style={styles.input}
+          value={this.state.province}
+          onChangeText={(text) => this.setState({province: text})}
+        />
 
         <TouchableHighlight
             style={styles.button}
