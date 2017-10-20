@@ -9,16 +9,15 @@ export default class SearchForm extends React.Component {
   }
 
   getPets() {
-    // return fetch('https://items-api.herokuapp.com/api/items')
-    // .then((response) => response.json())
-    // .then((responseJson) => {
-    //   return responseJson.pets;
-    // })
-    // .catch((error) => {
-    //   console.error(error);
-    // });
-    const { navigate } = this.props.navigation;
-    navigate('SearchResultPage', { pets: [{name: "Toby"}, {name: "Tirma"}, {name: "Chocolatito"}] })
+    return fetch('https://items-api.herokuapp.com/api/items')
+    .then((response) => response.json())
+    .then((responseJson) => {
+      const { navigate } = this.props.navigation;
+      navigate('SearchResultPage', { pets: responseJson.data })
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 
   render() {
