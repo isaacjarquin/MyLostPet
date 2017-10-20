@@ -1,21 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text } from 'react-native';
+import {
+  StackNavigator,
+} from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
-}
+import Home from './screens/home'
+import SearchResultPage from './screens/search-result-page'
+import searchForm from './components/home/search-form'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const App = StackNavigator({
+  Home: { screen: Home },
+  SearchForm: { screen: searchForm },
+  SearchResultPage: { screen: SearchResultPage },
 });
+
+module.exports = App
