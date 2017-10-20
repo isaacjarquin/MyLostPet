@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableHighlight } from 'react-native';
+import bodyParamsBuilder from '../../utils/http-request.js'
 
 
 export default class SearchForm extends React.Component {
@@ -14,30 +15,8 @@ export default class SearchForm extends React.Component {
     }
   }
 
-  bodyParams() {
-    const { type, autonomousComunity, province } = this.state
-
-    if (type !== '' && autonomousComunity !== '' && province !== '') {
-      return `?petType=${type}&autonomousComunity=${autonomousComunity}&province=${province}`
-    } else if (type !== '' && autonomousComunity !== '' && province === '') {
-      return `?petType=${type}&autonomousComunity=${autonomousComunity}`
-    } else if (type !== '' && autonomousComunity === '' && province !== '') {
-      return `?petType=${type}&province=${province}`
-    } else if (type === '' && autonomousComunity !== '' && province !== '') {
-      return `?autonomousComunity=${autonomousComunity}&province=${province}`
-    } else if (type !== '' && autonomousComunity === '' && province === '') {
-      return `?petType=${type}`
-    } else if (type === '' && autonomousComunity === '' && province !== '') {
-      return `?province=${province}`
-    } else if (type === '' && autonomousComunity !== '' && province === '') {
-      return `?autonomousComunity=${autonomousComunity}`
-    } else {
-      return ''
-    }
-  }
-
   getPets(event) {
-    const url = `https://items-api.herokuapp.com/api/items${this.bodyParams()}`
+    const url = `https://items-api.herokuapp.com/api/items${bodyParamsBuilder(this.state)}`
 
     return fetch(url)
     .then((response) => response.json())
