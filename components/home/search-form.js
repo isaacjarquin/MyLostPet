@@ -18,7 +18,7 @@ export default class SearchForm extends React.Component {
     //   console.error(error);
     // });
     const { navigate } = this.props.navigation;
-    navigate('SearchResultPage', { pets: [] })
+    navigate('SearchResultPage', { pets: [{name: "Toby"}, {name: "Tirma"}, {name: "Chocolatito"}] })
   }
 
   render() {
