@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ListView } from 'react-native';
+import PetCard from '../components/pet-card'
 
 export default class SearchResultPage extends React.Component {
   constructor(props) {
@@ -14,11 +15,10 @@ export default class SearchResultPage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-          <Text>Aqui va el resultado de las busqueda</Text>
-            <ListView
-              dataSource={this.state.dataSource}
-              renderRow={(pet) => <Text>{pet.name}</Text>}
-            />
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={(pet) => <PetCard {...pet} />}
+          />
       </View>
     );
   }

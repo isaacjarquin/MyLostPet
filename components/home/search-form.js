@@ -1,6 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import bodyParamsBuilder from '../../utils/http-request.js'
+import { FormLabel, FormInput } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 
 
 export default class SearchForm extends React.Component {
@@ -32,34 +34,21 @@ export default class SearchForm extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.inputLabel}>Tipo de mascota</Text>
-        <TextInput
-          style={styles.input}
-          value={this.state.type}
-          onChangeText={(text) => this.setState({type: text})}
-        />
+        <FormLabel>Tipo de mascota</FormLabel>
+        <FormInput onChangeText={(text) => this.setState({type: text})}/>
 
-        <Text style={styles.inputLabel}>Comunidad autónoma</Text>
-        <TextInput
-          style={styles.input}
-          value={this.state.autonomousComunity}
-          onChangeText={(text) => this.setState({autonomousComunity: text})}
-        />
+        <FormLabel>Comunidad autónoma</FormLabel>
+        <FormInput onChangeText={(text) => this.setState({autonomousComunity: text})}/>
 
-        <Text style={styles.inputLabel}>Provincia</Text>
-        <TextInput
-          style={styles.input}
-          value={this.state.province}
-          onChangeText={(text) => this.setState({province: text})}
-        />
+        <FormLabel>Provincia</FormLabel>
+        <FormInput onChangeText={(text) => this.setState({province: text})}/>
 
-        <TouchableHighlight
+          <Button
             style={styles.button}
-            onPress={this.getPets}>
-              <Text style={styles.buttonText} >
-                Buscar
-              </Text>
-        </TouchableHighlight>
+            large
+            onPress={this.getPets}
+            title='Buscar' />
+
       </View>
     );
   }
@@ -73,35 +62,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F7F7F7',
     paddingTop: 20,
   },
-  inputLabel: {
-    fontSize: 20,
-    marginLeft: 10,
-    color: '#696969',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#D7D7D7',
-    height: 50,
-    width: 350,
-    margin: 10,
-    padding: 15,
-    borderRadius: 3
-  },
-  picker: {
-    borderWidth: 1,
-    borderColor: '#D7D7D7',
-    height: 60,
-    alignSelf: 'stretch',
-  },
   button: {
-    height: 60,
-    alignSelf: 'stretch',
-    borderColor: '#05A5D1',
-    borderWidth: 2,
-    margin: 10,
-    backgroundColor: '#333',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   buttonText: {
     color: '#FAFAFA',
