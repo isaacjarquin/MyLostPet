@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import bodyParamsBuilder from '../../utils/http-request.js'
+import bodyParamsBuilder from '../utils/http-request.js'
 import { FormLabel, FormInput } from 'react-native-elements'
 import { Button } from 'react-native-elements'
 
