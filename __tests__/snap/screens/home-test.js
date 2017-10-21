@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import Home from '../../screens/home';
+import Home from '../../../screens/home';
 
 import renderer from 'react-test-renderer';
 
