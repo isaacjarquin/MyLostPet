@@ -4,7 +4,7 @@ import PetCard from '../components/pet-card'
 
 export default class SearchResultPage extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     const { pets } = props.navigation.state.params;
 
