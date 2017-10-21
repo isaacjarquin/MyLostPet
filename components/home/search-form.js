@@ -34,21 +34,24 @@ export default class SearchForm extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <FormLabel>Tipo de mascota</FormLabel>
-        <FormInput onChangeText={(text) => this.setState({type: text})}/>
+        <View>
+          <FormLabel>Tipo de mascota</FormLabel>
+          <FormInput onChangeText={(text) => this.setState({type: text})}/>
 
-        <FormLabel>Comunidad autónoma</FormLabel>
-        <FormInput onChangeText={(text) => this.setState({autonomousComunity: text})}/>
+          <FormLabel>Comunidad autónoma</FormLabel>
+          <FormInput onChangeText={(text) => this.setState({autonomousComunity: text})}/>
 
-        <FormLabel>Provincia</FormLabel>
-        <FormInput onChangeText={(text) => this.setState({province: text})}/>
+          <FormLabel>Provincia</FormLabel>
+          <FormInput onChangeText={(text) => this.setState({province: text})}/>
+        </View>
 
+        <View style={styles.innerContainer}>
           <Button
             style={styles.button}
             large
             onPress={this.getPets}
             title='Buscar' />
-
+        </View>
       </View>
     );
   }
@@ -62,8 +65,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#F7F7F7',
     paddingTop: 20,
   },
+  innerContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'flex-end',
+    backgroundColor: '#F7F7F7',
+    paddingTop: 20,
+  },
   button: {
-    justifyContent: 'space-between'
+    marginBottom: 20
   },
   buttonText: {
     color: '#FAFAFA',

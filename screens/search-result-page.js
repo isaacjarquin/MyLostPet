@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ListView } from 'react-native';
 import PetCard from '../components/pet-card'
-import { Grid, Row } from 'react-native-elements'
 
 export default class SearchResultPage extends React.Component {
   constructor(props) {
@@ -16,12 +15,10 @@ export default class SearchResultPage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Grid>
-          <ListView
-            dataSource={this.state.dataSource}
-            renderRow={(pet) => <Row><PetCard {...pet} /></Row>}
-          />
-        </Grid>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(pet) => <PetCard {...pet} />}
+        />
       </View>
     );
   }
