@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableHighlight, Navigator } from 'react-native';
+import { Button } from 'react-native-elements'
 
 export default class Home extends React.Component {
   constructor (props) {
@@ -16,17 +17,22 @@ export default class Home extends React.Component {
     return (
       <View style={styles.container}>
           <Image
-                source={require('../assets/images/mascotas_y_personas.jpg')}
+                source={require('../assets/images/tirma.jpg')}
                 style={styles.image}
-                resizeMode= { Image.resizeMode.contain }
-          />
-          <TouchableHighlight
+          >
+            <Text style={styles.title}>My Lost Pet</Text>
+            <Text style={styles.subTitle}>Te ayudamos a encontrarlo</Text>
+
+            <Image
+                  source={require('../assets/images/pet-care-icon.png')}
+                  style={styles.icon}
+            />
+            <Button
               style={styles.button}
-              onPress={this.navigateToSearchForm}>
-                <Text style={styles.buttonText} >
-                  Buscar Mascota perdida
-                </Text>
-          </TouchableHighlight>
+              large
+              onPress={this.navigateToSearchForm}
+              title='Buscar Mascota perdida' />
+        </Image>
       </View>
     );
   }
@@ -36,27 +42,38 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'flex-start',
   },
-  image: {
-    width: 400,
-    height: 200
+  title: {
+    margin: 20,
+    fontSize: 26,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    color: 'white',
+    backgroundColor: 'transparent'
+  },
+  subTitle: {
+    fontSize: 16,
+    alignSelf: 'center',
+    backgroundColor: 'transparent',
+    marginBottom: 20,
+    color: 'white',
   },
   button: {
-    height: 60,
-    alignSelf: 'stretch',
-    borderColor: '#05A5D1',
-    borderWidth: 2,
-    margin: 10,
-    backgroundColor: '#333',
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: 10,
+    marginBottom: 10,
+    opacity: 0.8
   },
-  buttonText: {
-    color: '#FAFAFA',
-    fontSize: 20,
-    margin: 20,
-    fontWeight: '600',
+  icon: {
+    width: 100,
+    height: 100,
+    marginBottom: 300,
+    alignSelf: 'center'
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    width: "100%",
+    height: "100%"
   }
 });

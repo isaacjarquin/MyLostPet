@@ -16,7 +16,7 @@ export default class SearchForm extends React.Component {
     this.setAutonomousComunity = this.setAutonomousComunity.bind(this)
 
     this.state = {
-      type: '',
+      type: 'perro',
       autonomousComunity: '',
       province: '',
       provincias: []
@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
   select: {
     alignSelf: 'stretch',
     margin: 20,
+    width: '90%',
     borderWidth : 1,
     borderColor : "#d3d5d6"
   },
