@@ -29,6 +29,8 @@ export default class Home extends React.Component {
             />
             <Button
               style={styles.button}
+              borderRadius={3}
+              backgroundColor={'#333333'}
               large
               onPress={this.navigateToSearchForm}
               title='Buscar Mascota perdida' />
@@ -46,14 +48,14 @@ const styles = StyleSheet.create({
   },
   title: {
     margin: 20,
-    fontSize: 26,
+    fontSize: 28,
     fontWeight: 'bold',
     alignSelf: 'center',
     color: 'white',
     backgroundColor: 'transparent'
   },
   subTitle: {
-    fontSize: 16,
+    fontSize: 18,
     alignSelf: 'center',
     backgroundColor: 'transparent',
     marginBottom: 20,

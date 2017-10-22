@@ -99,6 +99,7 @@ export default class SearchForm extends React.Component {
 
           <Button
             style={styles.button}
+            borderRadius={3}
             large
             onPress={this.getPets}
             title='Buscar' />
