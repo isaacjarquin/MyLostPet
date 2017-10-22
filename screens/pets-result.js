@@ -28,8 +28,8 @@ export default class SearchResultPage extends React.Component {
         subtitle={cardSubtitle}
         subtitleNumberOfLines={2}
         avatar={{uri:rowData.image}}
-        avatarStyle={{width: 55, height: 55, marginTop: 20, marginRight: 20, marginLeft: 20}}
-        containerStyle={{marginLeft: 10}}
+        avatarStyle={{width: 55, height: 55, borderRadius:27, marginTop: 20, marginRight: 20, marginLeft: 20}}
+        containerStyle={{paddingLeft: 10}}
         titleContainerStyle={{marginLeft: 10}}
         subtitleContainerStyle={{marginLeft: 10}}
       />
