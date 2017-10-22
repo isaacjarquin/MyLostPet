@@ -11,7 +11,7 @@ export default class Home extends React.Component {
   navigateToSearchForm() {
       const { navigate } = this.props.navigation;
 
-      navigate('SearchForm', { name: 'Jane' })
+      navigate('SearchForm')
   }
   render() {
     return (

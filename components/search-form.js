@@ -16,7 +16,7 @@ export default class SearchForm extends React.Component {
     this.setAutonomousComunity = this.setAutonomousComunity.bind(this)
 
     this.state = {
-      type: 'perro',
+      type: '',
       autonomousComunity: '',
       province: '',
       provincias: []

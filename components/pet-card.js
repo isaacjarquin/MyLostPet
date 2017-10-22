@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Card, Button } from 'react-native-elements'
 
 export default class PetCard extends React.Component {
@@ -10,11 +10,11 @@ export default class PetCard extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Card title={cardTitle} image={{uri: image}}>
-          <Text style={styles.secondaryTitle}>Encontrado en {location}, el {date}</Text>
-          <Text style={styles.description}>{info}</Text>
-          <Button buttonStyle={styles.button} title='Contactar' />
-        </Card>
+          <Card title={cardTitle} image={{uri: image}}>
+            <Text style={styles.secondaryTitle}>Encontrado en {location}, el {date}</Text>
+            <Text style={styles.description}>{info}</Text>
+            <Button buttonStyle={styles.button} title='Contactar' />
+          </Card>
       </View>
     );
   }
@@ -23,7 +23,7 @@ export default class PetCard extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'stretch',
     justifyContent: 'flex-start',
   },
