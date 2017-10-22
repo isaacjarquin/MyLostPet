@@ -56,39 +56,511 @@ exports[`renders correctly 1`] = `
         Tipo de mascota
       </Text>
     </View>
-    <View
-      collapsable={undefined}
-      style={
-        Object {
-          "borderBottomColor": "#bdc6cf",
-          "borderBottomWidth": 1,
-          "marginLeft": 20,
-          "marginRight": 20,
-          "transform": Array [
-            Object {
-              "translateX": 0,
-            },
-          ],
-        }
-      }
-    >
-      <TextInput
-        onChangeText={[Function]}
-        selectionColor="#86939e"
+    <View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
-              "color": "#86939e",
-              "minHeight": 36,
-              "width": 750,
+              "borderColor": "black",
+              "borderWidth": 1,
+              "padding": 10,
+              "width": 200,
             },
             Object {
-              "fontSize": 17.5,
+              "alignSelf": "stretch",
+              "borderColor": "#d3d5d6",
+              "borderWidth": 1,
+              "margin": 20,
             },
-            undefined,
           ]
         }
-      />
+        testID={undefined}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "grey",
+              }
+            }
+          >
+            perro
+          </Text>
+        </View>
+      </View>
+      <Modal
+        animationType="none"
+        hardwareAccelerated={false}
+        onRequestClose={[Function]}
+        supportedOrientations={
+          Array [
+            "portrait",
+            "portrait-upside-down",
+            "landscape",
+            "landscape-left",
+            "landscape-right",
+          ]
+        }
+        transparent={false}
+        visible={false}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+              Object {
+                "backgroundColor": "#d3d5d6",
+              },
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderWidth": 1,
+                  "height": 120,
+                  "width": 300,
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "#F5FCFF",
+                  },
+                ],
+              ]
+            }
+          >
+            <RCTScrollView
+              automaticallyAdjustContentInsets={false}
+              bounces={false}
+            >
+              <View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      perro
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      gato
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      conejo
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      hamster
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      iguana
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      hurón
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      tortuga
+                       
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </RCTScrollView>
+          </View>
+        </View>
+      </Modal>
     </View>
     <View
       style={
@@ -131,42 +603,1108 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Comunidad autónoma
+        Comunidad autonoma
       </Text>
     </View>
-    <View
-      collapsable={undefined}
-      style={
-        Object {
-          "borderBottomColor": "#bdc6cf",
-          "borderBottomWidth": 1,
-          "marginLeft": 20,
-          "marginRight": 20,
-          "transform": Array [
-            Object {
-              "translateX": 0,
-            },
-          ],
-        }
-      }
-    >
-      <TextInput
-        onChangeText={[Function]}
-        selectionColor="#86939e"
+    <View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
-              "color": "#86939e",
-              "minHeight": 36,
-              "width": 750,
+              "borderColor": "black",
+              "borderWidth": 1,
+              "padding": 10,
+              "width": 200,
             },
             Object {
-              "fontSize": 17.5,
+              "alignSelf": "stretch",
+              "borderColor": "#d3d5d6",
+              "borderWidth": 1,
+              "margin": 20,
             },
-            undefined,
           ]
         }
-      />
+        testID={undefined}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "grey",
+              }
+            }
+          >
+            Seleccione la comunidad autonoma
+          </Text>
+        </View>
+      </View>
+      <Modal
+        animationType="none"
+        hardwareAccelerated={false}
+        onRequestClose={[Function]}
+        supportedOrientations={
+          Array [
+            "portrait",
+            "portrait-upside-down",
+            "landscape",
+            "landscape-left",
+            "landscape-right",
+          ]
+        }
+        transparent={false}
+        visible={false}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+              Object {
+                "backgroundColor": "#d3d5d6",
+              },
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderWidth": 1,
+                  "height": 120,
+                  "width": 300,
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "#F5FCFF",
+                  },
+                ],
+              ]
+            }
+          >
+            <RCTScrollView
+              automaticallyAdjustContentInsets={false}
+              bounces={false}
+            >
+              <View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Andalucia
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Aragon
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Canarias
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Cantabria
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Castilla la Mancha
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Castilla y Leon
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Cataluña
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Ceuta
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Comunidad Valenciana
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Extremadura
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Islas Baleares
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Galicia
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Madrid
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Melilla
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Murcia
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Navarra
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      País Vasco
+                       
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderWidth": 0,
+                      },
+                      null,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "padding": 10,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      disabled={false}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 14,
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                       
+                      Principado de asturias
+                       
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </RCTScrollView>
+          </View>
+        </View>
+      </Modal>
     </View>
     <View
       style={
@@ -212,51 +1750,149 @@ exports[`renders correctly 1`] = `
         Provincia
       </Text>
     </View>
-    <View
-      collapsable={undefined}
-      style={
-        Object {
-          "borderBottomColor": "#bdc6cf",
-          "borderBottomWidth": 1,
-          "marginLeft": 20,
-          "marginRight": 20,
-          "transform": Array [
-            Object {
-              "translateX": 0,
-            },
-          ],
-        }
-      }
-    >
-      <TextInput
-        onChangeText={[Function]}
-        selectionColor="#86939e"
+    <View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
-              "color": "#86939e",
-              "minHeight": 36,
-              "width": 750,
+              "borderColor": "black",
+              "borderWidth": 1,
+              "padding": 10,
+              "width": 200,
             },
             Object {
-              "fontSize": 17.5,
+              "alignSelf": "stretch",
+              "borderColor": "#d3d5d6",
+              "borderWidth": 1,
+              "margin": 20,
             },
-            undefined,
           ]
         }
-      />
+        testID={undefined}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "grey",
+              }
+            }
+          >
+            Seleccione la provincia
+          </Text>
+        </View>
+      </View>
+      <Modal
+        animationType="none"
+        hardwareAccelerated={false}
+        onRequestClose={[Function]}
+        supportedOrientations={
+          Array [
+            "portrait",
+            "portrait-upside-down",
+            "landscape",
+            "landscape-left",
+            "landscape-right",
+          ]
+        }
+        transparent={false}
+        visible={false}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+              Object {
+                "backgroundColor": "#d3d5d6",
+              },
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderWidth": 1,
+                  "height": 120,
+                  "width": 300,
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "#F5FCFF",
+                  },
+                ],
+              ]
+            }
+          >
+            <RCTScrollView
+              automaticallyAdjustContentInsets={false}
+              bounces={false}
+            >
+              <View />
+            </RCTScrollView>
+          </View>
+        </View>
+      </Modal>
     </View>
-  </View>
-  <View
-    style={
-      Object {
-        "backgroundColor": "#F7F7F7",
-        "flex": 1,
-        "justifyContent": "flex-end",
-        "paddingTop": 20,
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#e1e8ee",
+            "height": 1,
+          },
+          Object {
+            "backgroundColor": "#d3d5d6",
+            "marginBottom": 20,
+            "marginLeft": 20,
+            "marginRight": 20,
+          },
+        ]
       }
-    }
-  >
+    />
     <View
       style={
         Array [
