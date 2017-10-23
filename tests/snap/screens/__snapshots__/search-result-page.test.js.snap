@@ -25,7 +25,7 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "alignItems": "stretch",
-            "backgroundColor": "#fff",
+            "backgroundColor": "black",
             "flex": 1,
             "justifyContent": "flex-start",
           }
