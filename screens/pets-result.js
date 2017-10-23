@@ -28,7 +28,7 @@ export default class SearchResultPage extends React.Component {
         subtitle={cardSubtitle}
         subtitleNumberOfLines={2}
         avatar={{uri:rowData.image}}
-        avatarStyle={{width: 55, height: 55, borderRadius:27, marginTop: 20, marginRight: 20, marginLeft: 20}}
+        avatarStyle={styles.avatarStyle}
         containerStyle={{paddingLeft: 10}}
         titleContainerStyle={{marginLeft: 10}}
         subtitleContainerStyle={{marginLeft: 10}}
@@ -65,5 +65,13 @@ const styles = StyleSheet.create({
   },
   searchBarGroup: {
     marginTop: 10
+  },
+  avatarStyle: {
+    width: 55,
+    height: 55,
+    borderRadius:27,
+    marginTop: 20,
+    marginRight: 20,
+    marginLeft: 20
   }
 });
