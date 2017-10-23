@@ -7,7 +7,8 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "test": "jest",
-    "lint": "./node_modules/.bin/eslint -c .eslintrc — ext .js src"
+    "lint": "standard",
+    "fixjs": "standard --fix"
   },
   "jest": {
     "preset": "react-native"
@@ -25,9 +26,14 @@
     "babel-eslint": "^8.0.1",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-standard": "^3.0.1",
     "jest": "^21.2.1",
     "react-test-renderer": "^16.0.0"
   }

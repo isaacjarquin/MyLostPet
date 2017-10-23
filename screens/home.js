@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight, Navigator } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View, Image, TouchableHighlight, Navigator } from 'react-native'
 import { Button } from 'react-native-elements'
 
 export default class Home extends React.Component {
@@ -8,35 +8,35 @@ export default class Home extends React.Component {
     this.navigateToSearchForm = this.navigateToSearchForm.bind(this)
   }
 
-  navigateToSearchForm() {
-      const { navigate } = this.props.navigation;
+  navigateToSearchForm () {
+    const { navigate } = this.props.navigation
 
-      navigate('SearchForm')
+    navigate('SearchForm')
   }
-  render() {
+  render () {
     return (
       <View style={styles.container}>
-          <Image
-                source={require('../assets/images/tirma.jpg')}
-                style={styles.image}
+        <Image
+          source={require('../assets/images/tirma.jpg')}
+          style={styles.image}
           >
-            <Text style={styles.title}>My Lost Pet</Text>
-            <Text style={styles.subTitle}>Te ayudamos a encontrarlo</Text>
+          <Text style={styles.title}>My Lost Pet</Text>
+          <Text style={styles.subTitle}>Te ayudamos a encontrarlo</Text>
 
-            <Image
-                  source={require('../assets/images/pet-care-icon.png')}
-                  style={styles.icon}
+          <Image
+            source={require('../assets/images/pet-care-icon.png')}
+            style={styles.icon}
             />
-            <Button
-              style={styles.button}
-              borderRadius={3}
-              backgroundColor={'#333333'}
-              large
-              onPress={this.navigateToSearchForm}
-              title='Buscar Mascota perdida' />
+          <Button
+            style={styles.button}
+            borderRadius={3}
+            backgroundColor={'#333333'}
+            large
+            onPress={this.navigateToSearchForm}
+            title='Buscar Mascota perdida' />
         </Image>
       </View>
-    );
+    )
   }
 }
 
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-start'
   },
   title: {
     margin: 20,
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'transparent',
     marginBottom: 20,
-    color: 'white',
+    color: 'white'
   },
   button: {
     marginTop: 10,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: 'flex-end',
-    width: "100%",
-    height: "100%"
+    width: '100%',
+    height: '100%'
   }
-});
+})

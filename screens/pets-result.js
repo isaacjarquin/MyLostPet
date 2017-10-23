@@ -1,18 +1,18 @@
-import React from 'react';
-import { StyleSheet, Text, View, ListView } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View, ListView } from 'react-native'
 import { List, ListItem, SearchBar } from 'react-native-elements'
 import PetCard from '../components/pet-card'
 
 export default class SearchResultPage extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    const { pets } = props.navigation.state.params;
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+    const { pets } = props.navigation.state.params
 
     this.state = {
-      dataSource: ds.cloneWithRows(pets),
-    };
+      dataSource: ds.cloneWithRows(pets)
+    }
   }
 
   renderRow (rowData, sectionID) {
@@ -27,7 +27,7 @@ export default class SearchResultPage extends React.Component {
         title={cardTitle}
         subtitle={cardSubtitle}
         subtitleNumberOfLines={2}
-        avatar={{uri:rowData.image}}
+        avatar={{uri: rowData.image}}
         avatarStyle={styles.avatarStyle}
         containerStyle={{paddingLeft: 10}}
         titleContainerStyle={{marginLeft: 10}}
@@ -47,11 +47,11 @@ export default class SearchResultPage extends React.Component {
         </List>
         <View style={styles.searchBarGroup}>
           <SearchBar
-          round
-          placeholder='Ciudad/Municipio...' />
+            round
+            placeholder='Ciudad/Municipio...' />
           <SearchBar
-          round
-          placeholder='Raza...' />
+            round
+            placeholder='Raza...' />
         </View>
       </View>
     )
@@ -61,7 +61,7 @@ export default class SearchResultPage extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-end'
   },
   searchBarGroup: {
     marginTop: 10
@@ -69,9 +69,9 @@ const styles = StyleSheet.create({
   avatarStyle: {
     width: 55,
     height: 55,
-    borderRadius:27,
+    borderRadius: 27,
     marginTop: 20,
     marginRight: 20,
     marginLeft: 20
   }
-});
+})

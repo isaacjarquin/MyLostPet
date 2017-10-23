@@ -1,6 +1,6 @@
 {
   // Use the AirBnB JS styleguide - https://github.com/airbnb/javascript
-  "extends": "airbnb",
+  "extends": ["standard", "standard-react"],
   // We use 'babel-eslint' mainly for React Native Classes
   "parser": "babel-eslint",
   // We can add/overwrite custom rules here
