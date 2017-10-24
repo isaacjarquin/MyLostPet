@@ -7,8 +7,8 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "test": "jest",
-    "lint": "standard",
-    "fixjs": "standard --fix"
+    "lint": "eslint ../MyLostPet/",
+    "fixjs": "eslint ../MyLostPet/ --fix"
   },
   "jest": {
     "preset": "react-native"
