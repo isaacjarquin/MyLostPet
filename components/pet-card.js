@@ -10,7 +10,7 @@ export default class PetCard extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Card title={cardTitle} image={{uri: image}}>
+        <Card imageStyle={styles.image} title={cardTitle} image={{uri: image}}>
           <Text style={styles.secondaryTitle}>Encontrado en {location}, el {date}</Text>
           <Text style={styles.description}>{info}</Text>
           <Button buttonStyle={styles.button} title='Contactar' />
@@ -23,9 +23,12 @@ export default class PetCard extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     alignItems: 'stretch',
     justifyContent: 'flex-start'
+  },
+  image: {
+    height: 300
   },
   button: {
     borderRadius: 0,
@@ -38,6 +41,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   description: {
-    marginBottom: 20
+    marginBottom: 20,
+    lineHeight: 25
   }
 })
