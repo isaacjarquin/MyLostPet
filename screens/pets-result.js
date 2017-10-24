@@ -6,6 +6,7 @@ import PetCard from '../components/pet-card'
 export default class SearchResultPage extends React.Component {
   constructor (props) {
     super(props)
+    this.renderRow = this.renderRow.bind(this)
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     const { pets } = props.navigation.state.params
@@ -19,6 +20,7 @@ export default class SearchResultPage extends React.Component {
     const cardTitleWithBreed = `${rowData.kind}, de raza ${rowData.breed}`
     const cardTitle = rowData.breed ? cardTitleWithBreed : rowData.kind
     const cardSubtitle = `Encontrado en ${rowData.location}, el ${rowData.date}. ${rowData.info}`
+    const { navigate } = this.props.navigation
 
     return (
       <ListItem
@@ -29,6 +31,7 @@ export default class SearchResultPage extends React.Component {
         subtitleNumberOfLines={2}
         avatar={{uri: rowData.image}}
         avatarStyle={styles.avatarStyle}
+        onPress={() => navigate('PetCard', {pet: rowData})}
         containerStyle={{paddingLeft: 10}}
         titleContainerStyle={{marginLeft: 10}}
         subtitleContainerStyle={{marginLeft: 10}}

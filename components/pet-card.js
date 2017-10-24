@@ -4,7 +4,7 @@ import { Card, Button } from 'react-native-elements'
 
 export default class PetCard extends React.Component {
   render () {
-    const { kind, info, image, location, date, breed } = this.props
+    const { kind, info, image, location, date, breed } = this.props.navigation.state.params.pet
     const cardTitleWithBreed = `${kind}, de raza ${breed}`
     const cardTitle = breed ? cardTitleWithBreed : kind
 
