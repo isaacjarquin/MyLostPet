@@ -1,80 +1,79 @@
-import React from 'react'
-import { StyleSheet, Text, View, ListView } from 'react-native'
-import { List, ListItem, SearchBar } from 'react-native-elements'
-import PetCard from '../components/pet-card'
+import React from "react"
+import { StyleSheet, View, ListView } from "react-native"
+import { List, ListItem, SearchBar } from "react-native-elements"
 
 export default class SearchResultPage extends React.Component {
-  constructor (props) {
-    super(props)
-    this.renderRow = this.renderRow.bind(this)
+	constructor (props) {
+		super(props)
+		this.renderRow = this.renderRow.bind(this)
 
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
-    const { pets } = props.navigation.state.params
+		const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+		const { pets } = props.navigation.state.params
 
-    this.state = {
-      dataSource: ds.cloneWithRows(pets)
-    }
-  }
+		this.state = {
+			dataSource: ds.cloneWithRows(pets)
+		}
+	}
 
-  renderRow (rowData, sectionID) {
-    const cardTitleWithBreed = `${rowData.kind}, de raza ${rowData.breed}`
-    const cardTitle = rowData.breed ? cardTitleWithBreed : rowData.kind
-    const cardSubtitle = `Encontrado en ${rowData.location}, el ${rowData.date}. ${rowData.info}`
-    const { navigate } = this.props.navigation
+	renderRow (rowData, sectionID) {
+		const cardTitleWithBreed = `${rowData.kind}, de raza ${rowData.breed}`
+		const cardTitle = rowData.breed ? cardTitleWithBreed : rowData.kind
+		const cardSubtitle = `Encontrado en ${rowData.location}, el ${rowData.date}. ${rowData.info}`
+		const { navigate } = this.props.navigation
 
-    return (
-      <ListItem
-        roundAvatar
-        key={sectionID}
-        title={cardTitle}
-        subtitle={cardSubtitle}
-        subtitleNumberOfLines={2}
-        avatar={{uri: rowData.image}}
-        avatarStyle={styles.avatarStyle}
-        onPress={() => navigate('PetCard', {pet: rowData})}
-        containerStyle={{paddingLeft: 10}}
-        titleContainerStyle={{marginLeft: 10}}
-        subtitleContainerStyle={{marginLeft: 10}}
-      />
-    )
-  }
+		return (
+			<ListItem
+				roundAvatar
+				key={sectionID}
+				title={cardTitle}
+				subtitle={cardSubtitle}
+				subtitleNumberOfLines={2}
+				avatar={{uri: rowData.image}}
+				avatarStyle={styles.avatarStyle}
+				onPress={() => navigate("PetCard", {pet: rowData})}
+				containerStyle={{paddingLeft: 10}}
+				titleContainerStyle={{marginLeft: 10}}
+				subtitleContainerStyle={{marginLeft: 10}}
+			/>
+		)
+	}
 
-  render () {
-    return (
-      <View style={styles.container}>
-        <List>
-          <ListView
-            dataSource={this.state.dataSource}
-            renderRow={this.renderRow}
-          />
-        </List>
-        <View style={styles.searchBarGroup}>
-          <SearchBar
-            round
-            placeholder='Ciudad/Municipio...' />
-          <SearchBar
-            round
-            placeholder='Raza...' />
-        </View>
-      </View>
-    )
-  }
+	render () {
+		return (
+			<View style={styles.container}>
+				<List>
+					<ListView
+						dataSource={this.state.dataSource}
+						renderRow={this.renderRow}
+					/>
+				</List>
+				<View style={styles.searchBarGroup}>
+					<SearchBar
+						round
+						placeholder='Ciudad/Municipio...' />
+					<SearchBar
+						round
+						placeholder='Raza...' />
+				</View>
+			</View>
+		)
+	}
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-end'
-  },
-  searchBarGroup: {
-    marginTop: 10
-  },
-  avatarStyle: {
-    width: 55,
-    height: 55,
-    borderRadius: 27,
-    marginTop: 20,
-    marginRight: 20,
-    marginLeft: 20
-  }
+	container: {
+		flex: 1,
+		justifyContent: "flex-end"
+	},
+	searchBarGroup: {
+		marginTop: 10
+	},
+	avatarStyle: {
+		width: 55,
+		height: 55,
+		borderRadius: 27,
+		marginTop: 20,
+		marginRight: 20,
+		marginLeft: 20
+	}
 })
