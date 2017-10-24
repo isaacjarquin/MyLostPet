@@ -1,6 +1,6 @@
 import 'react-native'
 import React from 'react'
-import SearchResultPage from '../../../screens/search-result-page'
+import PetsResult from '../../../screens/pets-result'
 
 import renderer from 'react-test-renderer'
 
@@ -15,7 +15,7 @@ it('renders correctly', () => {
   }
 
   const tree = renderer.create(
-    <SearchResultPage navigation={navigation} />
+    <PetsResult navigation={navigation} />
     ).toJSON()
   expect(tree).toMatchSnapshot()
 })
