@@ -1,12 +1,21 @@
 import "react-native"
 import React from "react"
-import SearchForm from "../../../components/search-form"
+import PetsResult from "../../../screens/pets-result"
 
 import renderer from "react-test-renderer"
 
 it("renders correctly", () => {
+	const pet = {name: "name"}
+	const navigation = {
+		state: {
+			params: {
+				pets: [pet]
+			}
+		}
+	}
+
 	const tree = renderer.create(
-		<SearchForm />
+		<PetsResult navigation={navigation} />
 	).toJSON()
 	expect(tree).toMatchSnapshot()
 })

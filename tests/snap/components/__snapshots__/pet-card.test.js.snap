@@ -5,7 +5,7 @@ exports[`renders correctly 1`] = `
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "#fff",
+      "backgroundColor": "white",
       "flex": 1,
       "justifyContent": "flex-start",
     }
@@ -47,6 +47,44 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#43484d",
+                  "fontSize": 17.5,
+                  "fontWeight": "bold",
+                  "marginBottom": 15,
+                  "textAlign": "center",
+                },
+                Object {
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          kind, de raza breed
+        </Text>
+      </View>
       <View
         style={undefined}
       >
@@ -57,7 +95,9 @@ exports[`renders correctly 1`] = `
                 "height": 150,
                 "width": null,
               },
-              undefined,
+              Object {
+                "height": 300,
+              },
             ]
           }
         >
@@ -65,7 +105,7 @@ exports[`renders correctly 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": undefined,
+                "uri": "image",
               }
             }
             style={
@@ -187,7 +227,9 @@ exports[`renders correctly 1`] = `
             }
           >
             Encontrado en 
+            location
             , el 
+            date
           </Text>
           <Text
             accessible={true}
@@ -196,10 +238,13 @@ exports[`renders correctly 1`] = `
             ellipsizeMode="tail"
             style={
               Object {
+                "lineHeight": 25,
                 "marginBottom": 20,
               }
             }
-          />
+          >
+            info
+          </Text>
           <View
             style={
               Array [

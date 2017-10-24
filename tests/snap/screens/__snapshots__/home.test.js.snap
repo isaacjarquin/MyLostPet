@@ -4,7 +4,6 @@ exports[`renders correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
       "backgroundColor": "#fff",
       "flex": 1,
       "justifyContent": "flex-start",
@@ -12,50 +11,15 @@ exports[`renders correctly 1`] = `
   }
 >
   <Image
-    resizeMode="contain"
     source={1}
     style={
       Object {
-        "height": 200,
-        "width": 400,
+        "flex": 1,
+        "height": "100%",
+        "justifyContent": "flex-end",
+        "width": "100%",
       }
     }
-  />
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        Object {
-          "alignItems": "center",
-          "alignSelf": "stretch",
-          "backgroundColor": "#333",
-          "borderColor": "#05A5D1",
-          "borderWidth": 2,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 10,
-        },
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
       accessible={true}
@@ -64,15 +28,160 @@ exports[`renders correctly 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "color": "#FAFAFA",
-          "fontSize": 20,
-          "fontWeight": "600",
+          "alignSelf": "center",
+          "backgroundColor": "transparent",
+          "color": "white",
+          "fontSize": 28,
+          "fontWeight": "bold",
           "margin": 20,
         }
       }
     >
-      Buscar Mascota perdida
+      My Lost Pet
     </Text>
-  </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "transparent",
+          "color": "white",
+          "fontSize": 18,
+          "marginBottom": 20,
+        }
+      }
+    >
+      Te ayudamos a encontrarlo
+    </Text>
+    <Image
+      source={1}
+      style={
+        Object {
+          "alignSelf": "center",
+          "height": 100,
+          "marginBottom": 300,
+          "width": 100,
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "marginLeft": 15,
+            "marginRight": 15,
+          },
+          undefined,
+          undefined,
+          Object {
+            "borderRadius": 3,
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Object {
+              "marginBottom": 10,
+              "marginTop": 10,
+              "opacity": 0.8,
+            },
+          ]
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#9E9E9E",
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "padding": 19,
+              },
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Object {
+                "backgroundColor": "#333333",
+              },
+              Object {
+                "borderRadius": 3,
+              },
+              false,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {},
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 20,
+                  },
+                  undefined,
+                  false,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Buscar Mascota perdida
+          </Text>
+        </View>
+      </View>
+    </View>
+  </Image>
 </View>
 `;
