@@ -43,6 +43,11 @@ export default class SearchResultPage extends React.Component {
 		const cardTitleWithBreed = `${rowData.kind}, de raza ${rowData.breed}`
 		const cardTitle = rowData.breed ? cardTitleWithBreed : rowData.kind
 		const cardSubtitle = `Encontrado en ${rowData.location}, el ${rowData.date}. ${rowData.info}`
+
+		const imageProperties = 'w_100,h_100,c_fill,g_south'
+		const splitedUrl = rowData.image.split('upload')
+		const builtAvatar = splitedUrl[0] + 'upload/' + imageProperties + splitedUrl[1]
+
 		const { navigate } = this.props.navigation
 
 		return (
@@ -52,7 +57,7 @@ export default class SearchResultPage extends React.Component {
 				title={cardTitle}
 				subtitle={cardSubtitle}
 				subtitleNumberOfLines={2}
-				avatar={{uri: rowData.image}}
+				avatar={{uri: builtAvatar}}
 				avatarStyle={styles.avatarStyle}
 				onPress={() => navigate("PetCard", {pet: rowData})}
 				containerStyle={{paddingLeft: 10}}
