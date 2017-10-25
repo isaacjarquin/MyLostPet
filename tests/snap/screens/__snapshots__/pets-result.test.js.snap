@@ -325,6 +325,7 @@ exports[`renders correctly 1`] = `
       }
     >
       <TextInput
+        onChangeText={[Function]}
         placeholder="Ciudad/Municipio..."
         placeholderTextColor="#86939e"
         selectionColor="#86939e"
@@ -402,6 +403,7 @@ exports[`renders correctly 1`] = `
       }
     >
       <TextInput
+        onChangeText={[Function]}
         placeholder="Raza..."
         placeholderTextColor="#86939e"
         selectionColor="#86939e"

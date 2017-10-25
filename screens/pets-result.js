@@ -15,8 +15,8 @@ export default class SearchResultPage extends React.Component {
 		this.state = {
 			dataSource: ds.cloneWithRows(pets),
 			pets: pets,
-			location: '',
-			breed: '',
+			location: "",
+			breed: "",
 			ds: ds
 		}
 	}
@@ -33,8 +33,8 @@ export default class SearchResultPage extends React.Component {
 
 	filterPets({location, breed}) {
 		const filteredPets = this.state.pets
-																		.filter((pet) => `${pet.location}`.toUpperCase().indexOf(location.toUpperCase()) >= 0)
-																		.filter((pet) => `${pet.breed}`.toUpperCase().indexOf(breed.toUpperCase()) >= 0)
+			.filter((pet) => `${pet.location}`.toUpperCase().indexOf(location.toUpperCase()) >= 0)
+			.filter((pet) => `${pet.breed}`.toUpperCase().indexOf(breed.toUpperCase()) >= 0)
 
 		this.setState({dataSource: this.state.ds.cloneWithRows(filteredPets)})
 	}
