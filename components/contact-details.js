@@ -9,22 +9,24 @@ export default class ContactDetails extends React.Component {
     this.sendDetails = this.sendDetails.bind(this)
 
 		this.state = {
-			name: "",
+      name: {
+        value: "",
+        validationMessage: "",
+        validationMessageColor: "",
+        validationFieldBorderColor: "grey"
+      },
 			email: "",
 			phoneNumber: "",
-			personalInformation: "",
-      nameBorderColor: "grey",
-      placeholderNameTextColor: "grey",
-      nameValidationMessage: ""
+			personalInformation: ""
 		}
 	}
 
 	sendDetails () {
-    this.setState({
-      nameValidationMessage: "El campo nombre es obligatorio",
-      placeholderNameTextColor: "#ff9999",
-      nameBorderColor: "red"
-    })
+    this.setState({name: {
+      validationMessage: "El campo nombre es obligatorio",
+      validationMessageColor: "#ff9999",
+      validationFieldBorderColor: "red"
+    }})
 		// const url = `https://items-api.herokuapp.com/api/items${bodyParamsBuilder(this.state)}`
     //
 		// return fetch(url)
@@ -46,11 +48,11 @@ export default class ContactDetails extends React.Component {
 					<FormLabel>Nombre</FormLabel>
           <TextInput
             style={styles.textInput}
-            placeholder={this.state.nameValidationMessage}
-            placeholderTextColor={this.state.placeholderNameTextColor}
-            borderColor={this.state.nameBorderColor}
-            onChangeText={(text) => this.setState({name: text, nameBorderColor: "grey", placeholderNameTextColor: "grey", nameValidationMessage: ""})}
-            value={this.state.name}
+            placeholder={this.state.name.validationMessage}
+            placeholderTextColor={this.state.name.validationMessageColor}
+            borderColor={this.state.name.validationFieldBorderColor}
+            onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+            value={this.state.name.value}
             />
 
 
