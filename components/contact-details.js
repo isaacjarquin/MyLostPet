@@ -15,9 +15,24 @@ export default class ContactDetails extends React.Component {
         validationMessageColor: "",
         validationFieldBorderColor: "grey"
       },
-			email: "",
-			phoneNumber: "",
-			personalInformation: ""
+			email: {
+        value: "",
+        validationMessage: "",
+        validationMessageColor: "",
+        validationFieldBorderColor: "grey"
+      },
+			phoneNumber: {
+        value: "",
+        validationMessage: "",
+        validationMessageColor: "",
+        validationFieldBorderColor: "grey"
+      },
+			personalInformation: {
+        value: "",
+        validationMessage: "",
+        validationMessageColor: "",
+        validationFieldBorderColor: "grey"
+      }
 		}
 	}
 
@@ -60,16 +75,16 @@ export default class ContactDetails extends React.Component {
           <TextInput
             style={styles.textInput}
             keyboardType={'email-address'}
-            onChangeText={(text) => this.setState({email: text})}
-            value={this.state.email}
+            onChangeText={(text) => this.setState({email: {value: text}})}
+            value={this.state.email.value}
             />
 
 					<FormLabel>Número de teléfono</FormLabel>
           <TextInput
             style={styles.textInput}
             keyboardType={'phone-pad'}
-            onChangeText={(text) => this.setState({phoneNumber: text})}
-            value={this.state.phoneNumber}
+            onChangeText={(text) => this.setState({phoneNumber: {value: text}})}
+            value={this.state.phoneNumber.value}
             />
 
           <FormLabel>Información personal</FormLabel>
@@ -77,8 +92,8 @@ export default class ContactDetails extends React.Component {
             style={styles.blockTextInput}
             multiline= {true}
             numberOfLines= {4}
-            onChangeText={(text) => this.setState({personalInformation: text})}
-            value={this.state.personalInformation}
+            onChangeText={(text) => this.setState({personalInformation: {value: text}})}
+            value={this.state.personalInformation.value}
             />
 
 					<Divider style={styles.divider} />
