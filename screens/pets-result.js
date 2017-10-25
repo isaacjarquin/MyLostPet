@@ -6,13 +6,37 @@ export default class SearchResultPage extends React.Component {
 	constructor (props) {
 		super(props)
 		this.renderRow = this.renderRow.bind(this)
+		this.setAndfilterbyCity = this.setAndfilterbyCity.bind(this)
+		this.setAndfilterbyBreed = this.setAndfilterbyBreed.bind(this)
 
 		const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 		const { pets } = props.navigation.state.params
 
 		this.state = {
-			dataSource: ds.cloneWithRows(pets)
+			dataSource: ds.cloneWithRows(pets),
+			pets: pets,
+			location: '',
+			breed: '',
+			ds: ds
 		}
+	}
+
+	setAndfilterbyCity (value) {
+		this.setState({location: value})
+		this.filterPets({location: this.state.location, breed: this.state.breed })
+	}
+
+	setAndfilterbyBreed (value) {
+		this.setState({breed: value})
+		this.filterPets({location: this.state.location, breed: this.state.breed })
+	}
+
+	filterPets({location, breed}) {
+		const filteredPets = this.state.pets
+																		.filter((pet) => `${pet.location}`.toUpperCase().indexOf(location.toUpperCase()) >= 0)
+																		.filter((pet) => `${pet.breed}`.toUpperCase().indexOf(breed.toUpperCase()) >= 0)
+
+		this.setState({dataSource: this.state.ds.cloneWithRows(filteredPets)})
 	}
 
 	renderRow (rowData, sectionID) {
@@ -50,9 +74,11 @@ export default class SearchResultPage extends React.Component {
 				<View style={styles.searchBarGroup}>
 					<SearchBar
 						round
+						onChangeText={this.setAndfilterbyCity}
 						placeholder='Ciudad/Municipio...' />
 					<SearchBar
 						round
+						onChangeText={this.setAndfilterbyBreed}
 						placeholder='Raza...' />
 				</View>
 			</View>
