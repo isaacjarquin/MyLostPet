@@ -105,7 +105,7 @@ exports[`renders correctly 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "image",
+                "uri": "imageupload/w_300,h_340,c_fill,g_southundefined",
               }
             }
             style={

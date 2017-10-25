@@ -136,7 +136,7 @@ exports[`renders correctly 1`] = `
                   <Image
                     source={
                       Object {
-                        "uri": undefined,
+                        "uri": "imageupload/w_100,h_100,c_fill,g_southundefined",
                       }
                     }
                     style={
@@ -177,7 +177,40 @@ exports[`renders correctly 1`] = `
                   }
                 }
               >
-                <View />
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  disabled={false}
+                  ellipsizeMode="tail"
+                  numberOfLines={1}
+                  style={
+                    Array [
+                      Object {},
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      Array [
+                        Object {
+                          "color": "#43484d",
+                          "fontSize": 17.5,
+                        },
+                        Object {
+                          "marginLeft": 10,
+                        },
+                        undefined,
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  kind, de raza breed
+                </Text>
               </View>
               <View
                 style={
@@ -220,7 +253,7 @@ exports[`renders correctly 1`] = `
                     ]
                   }
                 >
-                  Encontrado en undefined, el undefined. undefined
+                  Encontrado en location, el date. info
                 </Text>
               </View>
             </View>
@@ -325,6 +358,7 @@ exports[`renders correctly 1`] = `
       }
     >
       <TextInput
+        onChangeText={[Function]}
         placeholder="Ciudad/Municipio..."
         placeholderTextColor="#86939e"
         selectionColor="#86939e"
@@ -402,6 +436,7 @@ exports[`renders correctly 1`] = `
       }
     >
       <TextInput
+        onChangeText={[Function]}
         placeholder="Raza..."
         placeholderTextColor="#86939e"
         selectionColor="#86939e"

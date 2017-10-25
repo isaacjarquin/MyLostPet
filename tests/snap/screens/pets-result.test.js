@@ -5,7 +5,15 @@ import PetsResult from "../../../screens/pets-result"
 import renderer from "react-test-renderer"
 
 it("renders correctly", () => {
-	const pet = {name: "name"}
+	const pet = {
+		kind: "kind",
+		info: "info",
+		image: "image",
+		location: "location",
+		date: "date",
+		breed: "breed"
+	}
+
 	const navigation = {
 		state: {
 			params: {
