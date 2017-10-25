@@ -6,12 +6,14 @@ import Home from "./screens/home"
 import searchForm from "./components/search-form"
 import petsResult from "./screens/pets-result"
 import petCard from "./components/pet-card"
+import contactDetails from "./components/contact-details"
 
 const App = StackNavigator({
 	Home: { screen: Home },
 	SearchForm: { screen: searchForm },
 	SearchResultPage: { screen: petsResult },
-	PetCard: { screen: petCard }
+	PetCard: { screen: petCard },
+	ContactDetails: { screen: contactDetails }
 })
 
 module.exports = App

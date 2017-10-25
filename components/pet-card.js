@@ -3,11 +3,22 @@ import { StyleSheet, Text, View } from "react-native"
 import { Card, Button } from "react-native-elements"
 
 export default class PetCard extends React.Component {
+	constructor (props) {
+		super(props)
+		this.navigateToPersonalDetails = this.navigateToPersonalDetails.bind(this)
+	}
+
 	mobileImageUrl (url) {
 		const imageProperties = "w_300,h_340,c_fill,g_south"
 		const splitedUrl = url.split("upload")
 
 		return (splitedUrl[0] + "upload/" + imageProperties + splitedUrl[1])
+	}
+
+	navigateToPersonalDetails () {
+		const { navigate } = this.props.navigation
+
+		navigate("ContactDetails")
 	}
 
 	render () {
@@ -20,7 +31,10 @@ export default class PetCard extends React.Component {
 				<Card imageStyle={styles.image} title={cardTitle} image={{uri: this.mobileImageUrl(image)}}>
 					<Text style={styles.secondaryTitle}>Encontrado en {location}, el {date}</Text>
 					<Text style={styles.description}>{info}</Text>
-					<Button buttonStyle={styles.button} title='Contactar' />
+					<Button
+						buttonStyle={styles.button}
+						onPress={this.navigateToPersonalDetails}
+						title='Contactar'/>
 				</Card>
 			</View>
 		)
