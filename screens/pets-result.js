@@ -44,9 +44,9 @@ export default class SearchResultPage extends React.Component {
 		const cardTitle = rowData.breed ? cardTitleWithBreed : rowData.kind
 		const cardSubtitle = `Encontrado en ${rowData.location}, el ${rowData.date}. ${rowData.info}`
 
-		const imageProperties = 'w_100,h_100,c_fill,g_south'
-		const splitedUrl = rowData.image.split('upload')
-		const builtAvatar = splitedUrl[0] + 'upload/' + imageProperties + splitedUrl[1]
+		const imageProperties = "w_100,h_100,c_fill,g_south"
+		const splitedUrl = rowData.image.split("upload")
+		const builtAvatar = splitedUrl[0] + "upload/" + imageProperties + splitedUrl[1]
 
 		const { navigate } = this.props.navigation
 

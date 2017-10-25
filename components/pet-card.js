@@ -4,11 +4,11 @@ import { Card, Button } from "react-native-elements"
 
 export default class PetCard extends React.Component {
 	mobileImageUrl (url) {
-    const imageProperties = 'w_300,h_340,c_fill,g_south'
-    const splitedUrl = url.split('upload')
+		const imageProperties = "w_300,h_340,c_fill,g_south"
+		const splitedUrl = url.split("upload")
 
-    return (splitedUrl[0] + 'upload/' + imageProperties + splitedUrl[1])
-  }
+		return (splitedUrl[0] + "upload/" + imageProperties + splitedUrl[1])
+	}
 
 	render () {
 		const { kind, info, image, location, date, breed } = this.props.navigation.state.params.pet
