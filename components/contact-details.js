@@ -37,11 +37,30 @@ export default class ContactDetails extends React.Component {
 	}
 
 	sendDetails () {
-    this.setState({name: {
-      validationMessage: "El campo nombre es obligatorio",
-      validationMessageColor: "#ff9999",
-      validationFieldBorderColor: "red"
-    }})
+    this.setState(
+      {
+        name: {
+          validationMessage: "El campo nombre es obligatorio",
+          validationMessageColor: "#ff9999",
+          validationFieldBorderColor: "red"
+        },
+        email: {
+          validationMessage: "El campo nombre es obligatorio",
+          validationMessageColor: "#ff9999",
+          validationFieldBorderColor: "red"
+        },
+        phoneNumber: {
+          validationMessage: "El campo nombre es obligatorio",
+          validationMessageColor: "#ff9999",
+          validationFieldBorderColor: "red"
+        },
+        personalInformation: {
+          validationMessage: "El campo nombre es obligatorio",
+          validationMessageColor: "#ff9999",
+          validationFieldBorderColor: "red"
+        }
+      }
+    )
 		// const url = `https://items-api.herokuapp.com/api/items${bodyParamsBuilder(this.state)}`
     //
 		// return fetch(url)
@@ -74,16 +93,20 @@ export default class ContactDetails extends React.Component {
 					<FormLabel>Correo</FormLabel>
           <TextInput
             style={styles.textInput}
-            keyboardType={'email-address'}
-            onChangeText={(text) => this.setState({email: {value: text}})}
+            placeholder={this.state.email.validationMessage}
+            placeholderTextColor={this.state.email.validationMessageColor}
+            borderColor={this.state.email.validationFieldBorderColor}
+            onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
             value={this.state.email.value}
             />
 
 					<FormLabel>Número de teléfono</FormLabel>
           <TextInput
             style={styles.textInput}
-            keyboardType={'phone-pad'}
-            onChangeText={(text) => this.setState({phoneNumber: {value: text}})}
+            placeholder={this.state.phoneNumber.validationMessage}
+            placeholderTextColor={this.state.phoneNumber.validationMessageColor}
+            borderColor={this.state.phoneNumber.validationFieldBorderColor}
+            onChangeText={(text) => this.setState({phoneNumber: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
             value={this.state.phoneNumber.value}
             />
 
@@ -92,7 +115,10 @@ export default class ContactDetails extends React.Component {
             style={styles.blockTextInput}
             multiline= {true}
             numberOfLines= {4}
-            onChangeText={(text) => this.setState({personalInformation: {value: text}})}
+            placeholder={this.state.personalInformation.validationMessage}
+            placeholderTextColor={this.state.personalInformation.validationMessageColor}
+            borderColor={this.state.personalInformation.validationFieldBorderColor}
+            onChangeText={(text) => this.setState({personalInformation: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
             value={this.state.personalInformation.value}
             />
 
