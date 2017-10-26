@@ -12,25 +12,25 @@ export default class ContactDetails extends React.Component {
       name: {
         value: "",
         validationMessage: "",
-        validationMessageColor: "",
+        validationMessageColor: "transparent",
         validationFieldBorderColor: "grey"
       },
 			email: {
         value: "",
         validationMessage: "",
-        validationMessageColor: "",
+        validationMessageColor: "transparent",
         validationFieldBorderColor: "grey"
       },
 			phoneNumber: {
         value: "",
         validationMessage: "",
-        validationMessageColor: "",
+        validationMessageColor: "transparent",
         validationFieldBorderColor: "grey"
       },
 			personalInformation: {
         value: "",
         validationMessage: "",
-        validationMessageColor: "",
+        validationMessageColor: "transparent",
         validationFieldBorderColor: "grey"
       }
 		}
@@ -45,17 +45,17 @@ export default class ContactDetails extends React.Component {
           validationFieldBorderColor: "red"
         },
         email: {
-          validationMessage: "El campo nombre es obligatorio",
+          validationMessage: "El campo correo es obligatorio",
           validationMessageColor: "#ff9999",
           validationFieldBorderColor: "red"
         },
         phoneNumber: {
-          validationMessage: "El campo nombre es obligatorio",
+          validationMessage: "El campo numero de telefono es obligatorio",
           validationMessageColor: "#ff9999",
           validationFieldBorderColor: "red"
         },
         personalInformation: {
-          validationMessage: "El campo nombre es obligatorio",
+          validationMessage: "El campo informacion personal es obligatorio",
           validationMessageColor: "#ff9999",
           validationFieldBorderColor: "red"
         }
@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
 	},
   textInput: {
     height: 40,
+		fontSize: 14,
     borderWidth: 1,
     margin: 20,
     borderColor: "grey",
@@ -155,6 +156,7 @@ const styles = StyleSheet.create({
   blockTextInput: {
     height: 100,
     borderColor: 'gray',
+		fontSize: 14,
     borderWidth: 1,
     margin: 20,
     paddingLeft: 20,
