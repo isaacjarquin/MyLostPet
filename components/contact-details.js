@@ -2,6 +2,12 @@ import React from "react"
 import { StyleSheet, View, TextInput, Text } from "react-native"
 import { FormLabel, Divider } from "react-native-elements"
 import { Button } from "react-native-elements"
+import {
+	presence,
+	isValidNumber,
+	isValidEmail,
+	setValidation
+} from "../utils/validations"
 
 export default class ContactDetails extends React.Component {
 	constructor (props, context) {
@@ -36,42 +42,55 @@ export default class ContactDetails extends React.Component {
 		}
 	}
 
-	sendDetails () {
-    this.setState(
-      {
-        name: {
-          validationMessage: "El campo nombre es obligatorio",
-          validationMessageColor: "#ff9999",
-          validationFieldBorderColor: "red"
-        },
-        email: {
-          validationMessage: "El campo correo es obligatorio",
-          validationMessageColor: "#ff9999",
-          validationFieldBorderColor: "red"
-        },
-        phoneNumber: {
-          validationMessage: "El campo numero de telefono es obligatorio",
-          validationMessageColor: "#ff9999",
-          validationFieldBorderColor: "red"
-        },
-        personalInformation: {
-          validationMessage: "El campo informacion personal es obligatorio",
-          validationMessageColor: "#ff9999",
-          validationFieldBorderColor: "red"
-        }
-      }
-    )
-		// const url = `https://items-api.herokuapp.com/api/items${bodyParamsBuilder(this.state)}`
-    //
-		// return fetch(url)
-		// 	.then((response) => response.json())
-		// 	.then((responseJson) => {
-		// 		const { navigate } = this.props.navigation
-		// 		navigate("SearchResultPage", { pets: responseJson.data })
-		// 	})
-		// 	.catch((error) => {
-		// 		console.error(error)
-		// 	})
+	formIsInvalid() {
+		const { name, email, phoneNumber, personalInformation } = this.state
+
+		return [
+			presence(name),
+			isValidEmail(email),
+			isValidNumber(phoneNumber),
+			presence(personalInformation)
+		].includes(false)
+	}
+
+	setValidations() {
+		const { name, email, phoneNumber, personalInformation } = this.state
+
+		if (!presence(name)) {
+			this.setState({name: setValidation("El campo nombre es obligatorio")})
+		}
+
+		if (!isValidEmail(email)) {
+			this.setState({email: setValidation("Debes introducir un formato valido de email")})
+		}
+
+		if (!isValidNumber(phoneNumber)) {
+			this.setState({phoneNumber: setValidation("Debes introducir un numero valido de telefono")})
+		}
+
+		if (!presence(personalInformation)) {
+			this.setState({personalInformation: setValidation("El campo informacion personal es obligatorio")})
+		}
+	}
+
+	sendDetails() {
+		if (this.formIsInvalid()) {
+			this.setValidations()
+		} else {
+			// Send details to backend system
+			// const url = `https://items-api.herokuapp.com/api/items${bodyParamsBuilder(this.state)}`
+	    //
+			// return fetch(url)
+			// 	.then((response) => response.json())
+			// 	.then((responseJson) => {
+			// 		const { navigate } = this.props.navigation
+			// 		navigate("SearchResultPage", { pets: responseJson.data })
+			// 	})
+			// 	.catch((error) => {
+			// 		console.error(error)
+			// 	})
+			console.log('form is valid')
+		}
 	}
 
 	render () {
