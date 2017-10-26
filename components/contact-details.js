@@ -74,22 +74,39 @@ export default class ContactDetails extends React.Component {
 	}
 
 	sendDetails() {
+		const { name, email, phoneNumber, personalInformation } = this.state
+		const { pet_id }  = this.props.navigation.state.params
+
 		if (this.formIsInvalid()) {
 			this.setValidations()
 		} else {
-			// Send details to backend system
-			// const url = `https://items-api.herokuapp.com/api/items${bodyParamsBuilder(this.state)}`
-	    //
-			// return fetch(url)
-			// 	.then((response) => response.json())
-			// 	.then((responseJson) => {
-			// 		const { navigate } = this.props.navigation
-			// 		navigate("SearchResultPage", { pets: responseJson.data })
-			// 	})
-			// 	.catch((error) => {
-			// 		console.error(error)
-			// 	})
-			console.log('form is valid')
+			const contactDetailsDecoreted = {
+        name: name.value,
+        email: email.value,
+        phone_number: phoneNumber.value,
+        details: personalInformation.value,
+        item_id: pet_id
+      }
+
+			const headers = { 'Content-Type': 'application/json' }
+			const url = `https://items-api.herokuapp.com/api/contact_details`
+
+			fetch(url, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({ contact_detail: contactDetailsDecoreted })
+      }).then(function (response) {
+				console.log(response)
+        // if (isSuccessfulResponse(response)) {
+        //   showSuccesfullMessage(props)
+				// 	console.log(response)
+        // } else {
+        //   showUnSuccesfullMessage(props, response.status)
+        // }
+      }).catch(function (err) {
+				console.log(err)
+        // showUnSuccesfullMessage(props, err)
+      })
 		}
 	}
 

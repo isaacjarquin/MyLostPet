@@ -18,7 +18,7 @@ export default class PetCard extends React.Component {
 	navigateToPersonalDetails () {
 		const { navigate } = this.props.navigation
 
-		navigate("ContactDetails")
+		navigate("ContactDetails", {pet_id: this.props.navigation.state.params.pet.id})
 	}
 
 	render () {
