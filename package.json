@@ -18,6 +18,7 @@
     "react": "16.0.0-alpha.12",
     "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz",
     "react-native-chooser": "^1.6.3",
+    "react-native-dropdownalert": "^3.1.2",
     "react-native-elements": "^0.17.0",
     "react-native-vector-icons": "^4.4.2",
     "react-navigation": "^1.0.0-beta.14"

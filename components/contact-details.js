@@ -2,6 +2,7 @@ import React from "react"
 import { StyleSheet, View, TextInput, Text } from "react-native"
 import { FormLabel, Divider } from "react-native-elements"
 import { Button } from "react-native-elements"
+import DropdownAlert from 'react-native-dropdownalert'
 import {
 	presence,
 	isValidNumber,
@@ -41,17 +42,21 @@ export default class ContactDetails extends React.Component {
       }
 		}
 	}
+  // ...
+  onClose(data) {}
 
 	isSuccessfulResponse({status}) {
   	return [200, 201, 202, 203, 204].includes(status)
 	}
 
-	showSuccesfullMessage() {
-		return undefined
+	showSuccesfullMessage(response) {
+		const successMessage = "Los datos de contacto se han guardado correctamente"
+		this.dropdown.alertWithType('success', 'La operación se ha completado con éxito', successMessage)
 	}
 
-	showUnSuccesfullMessage() {
-		return undefined
+	showUnSuccesfullMessage(response) {
+		const errorMessage = "No se han podido guardar los datos devido a un error en la comunicación"
+		this.dropdown.alertWithType('error', 'Error de comunicación', errorMessage)
 	}
 
 	formIsInvalid() {
@@ -88,6 +93,7 @@ export default class ContactDetails extends React.Component {
 	sendDetails() {
 		const { name, email, phoneNumber, personalInformation } = this.state
 		const { pet_id }  = this.props.navigation.state.params
+		const self = this
 
 		if (this.formIsInvalid()) {
 			this.setValidations()
@@ -108,13 +114,13 @@ export default class ContactDetails extends React.Component {
         headers: headers,
         body: JSON.stringify({ contact_detail: contactDetailsDecoreted })
       }).then(function (response) {
-        if (this.isSuccessfulResponse(response)) {
-          this.showSuccesfullMessage(response)
+        if (self.isSuccessfulResponse(response)) {
+          self.showSuccesfullMessage(response)
         } else {
-          this.showUnSuccesfullMessage(response)
+          self.showUnSuccesfullMessage(response)
         }
       }).catch(function (err) {
-        showUnSuccesfullMessage(err)
+        self.showUnSuccesfullMessage(err)
       })
 		}
 	}
@@ -176,6 +182,15 @@ export default class ContactDetails extends React.Component {
 						title='Enviar mis datos' />
 
 				</View>
+
+				<DropdownAlert
+					ref={ref => this.dropdown = ref}
+					onClose={data => this.onClose(data)}
+					closeInterval={6000}
+					successColor={"#77DD77"}
+					errorColor={"#ff3333"}
+					/>
+
 			</View>
 		)
 	}
@@ -193,18 +208,24 @@ const styles = StyleSheet.create({
     height: 40,
 		fontSize: 14,
     borderWidth: 1,
-    margin: 20,
-		opacity: 0.4,
+		marginTop: 10,
+		marginRight:20,
+		marginLeft: 20,
+		marginBottom: 20,
+		opacity: 0.6,
     borderColor: "grey",
     paddingLeft: 20,
     paddingRight: 20
   },
   blockTextInput: {
     height: 100,
-    borderColor: 'gray',
+    borderColor: "grey",
 		fontSize: 14,
     borderWidth: 1,
-    margin: 20,
+		marginTop: 10,
+		marginRight:20,
+		marginLeft: 20,
+		marginBottom: 20,
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 20
