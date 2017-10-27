@@ -23,10 +23,6 @@ export default class ContactDetails extends React.Component {
 
   onClose(data) {}
 
-	isSuccessfulResponse({status}) {
-  	return [200, 201, 202, 203, 204].includes(status)
-	}
-
 	showSuccesfullMessage(response) {
 		const successMessage = "Los datos de contacto se han guardado correctamente"
 		this.dropdown.alertWithType('success', 'La operación se ha completado con éxito', successMessage)
