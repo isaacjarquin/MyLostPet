@@ -4,6 +4,7 @@ import { FormLabel, Divider } from "react-native-elements"
 import { Button } from "react-native-elements"
 import DropdownAlert from 'react-native-dropdownalert'
 import { contactDetailsInitialState } from '../state/initialState'
+import { post } from '../services/items_api'
 
 import {
 	presence,
@@ -85,20 +86,13 @@ export default class ContactDetails extends React.Component {
 
 			const headers = { 'Content-Type': 'application/json' }
 			const url = `https://items-api.herokuapp.com/api/contact_details`
+			const response = post(url, headers, { contact_detail: contactDetailsDecoreted })
 
-			fetch(url, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify({ contact_detail: contactDetailsDecoreted })
-      }).then(function (response) {
-        if (self.isSuccessfulResponse(response)) {
-          self.showSuccesfullMessage(response)
-        } else {
-          self.showUnSuccesfullMessage(response)
-        }
-      }).catch(function (err) {
-        self.showUnSuccesfullMessage(err)
-      })
+			if (this.isSuccessfulResponse(response)) {
+				this.showSuccesfullMessage(response)
+			} else {
+				this.showUnSuccesfullMessage(response)
+			}
 		}
 	}
 
