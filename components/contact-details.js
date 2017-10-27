@@ -3,6 +3,8 @@ import { StyleSheet, View, TextInput, Text } from "react-native"
 import { FormLabel, Divider } from "react-native-elements"
 import { Button } from "react-native-elements"
 import DropdownAlert from 'react-native-dropdownalert'
+import { contactDetailsInitialState } from '../state/initialState'
+
 import {
 	presence,
 	isValidNumber,
@@ -15,34 +17,9 @@ export default class ContactDetails extends React.Component {
 		super(props, context)
     this.sendDetails = this.sendDetails.bind(this)
 
-		this.state = {
-      name: {
-        value: "",
-        validationMessage: "",
-        validationMessageColor: "transparent",
-        validationFieldBorderColor: "grey"
-      },
-			email: {
-        value: "",
-        validationMessage: "",
-        validationMessageColor: "transparent",
-        validationFieldBorderColor: "grey"
-      },
-			phoneNumber: {
-        value: "",
-        validationMessage: "",
-        validationMessageColor: "transparent",
-        validationFieldBorderColor: "grey"
-      },
-			personalInformation: {
-        value: "",
-        validationMessage: "",
-        validationMessageColor: "transparent",
-        validationFieldBorderColor: "grey"
-      }
-		}
+		this.state = contactDetailsInitialState
 	}
-  // ...
+
   onClose(data) {}
 
 	isSuccessfulResponse({status}) {
