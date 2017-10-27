@@ -42,6 +42,18 @@ export default class ContactDetails extends React.Component {
 		}
 	}
 
+	isSuccessfulResponse({status}) {
+  	return [200, 201, 202, 203, 204].includes(status)
+	}
+
+	showSuccesfullMessage() {
+		return undefined
+	}
+
+	showUnSuccesfullMessage() {
+		return undefined
+	}
+
 	formIsInvalid() {
 		const { name, email, phoneNumber, personalInformation } = this.state
 
@@ -96,16 +108,13 @@ export default class ContactDetails extends React.Component {
         headers: headers,
         body: JSON.stringify({ contact_detail: contactDetailsDecoreted })
       }).then(function (response) {
-				console.log(response)
-        // if (isSuccessfulResponse(response)) {
-        //   showSuccesfullMessage(props)
-				// 	console.log(response)
-        // } else {
-        //   showUnSuccesfullMessage(props, response.status)
-        // }
+        if (this.isSuccessfulResponse(response)) {
+          this.showSuccesfullMessage(response)
+        } else {
+          this.showUnSuccesfullMessage(response)
+        }
       }).catch(function (err) {
-				console.log(err)
-        // showUnSuccesfullMessage(props, err)
+        showUnSuccesfullMessage(err)
       })
 		}
 	}
@@ -124,7 +133,6 @@ export default class ContactDetails extends React.Component {
             onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
             value={this.state.name.value}
             />
-
 
 					<FormLabel>Correo</FormLabel>
           <TextInput
@@ -166,6 +174,7 @@ export default class ContactDetails extends React.Component {
 						large
 						onPress={this.sendDetails}
 						title='Enviar mis datos' />
+
 				</View>
 			</View>
 		)
@@ -185,6 +194,7 @@ const styles = StyleSheet.create({
 		fontSize: 14,
     borderWidth: 1,
     margin: 20,
+		opacity: 0.4,
     borderColor: "grey",
     paddingLeft: 20,
     paddingRight: 20

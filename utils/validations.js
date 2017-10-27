@@ -15,7 +15,7 @@ const isValidEmail = ({value}) => {
 const setValidation = (message) => {
   return {
     validationMessage: message,
-    validationMessageColor: "#ff9999",
+    validationMessageColor: "red",
     validationFieldBorderColor: "red"
   }
 }
