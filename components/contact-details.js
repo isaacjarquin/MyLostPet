@@ -86,13 +86,11 @@ export default class ContactDetails extends React.Component {
 
 			const headers = { 'Content-Type': 'application/json' }
 			const url = `https://items-api.herokuapp.com/api/contact_details`
-			const response = post(url, headers, { contact_detail: contactDetailsDecoreted })
+			const body = { contact_detail: contactDetailsDecoreted }
 
-			if (this.isSuccessfulResponse(response)) {
-				this.showSuccesfullMessage(response)
-			} else {
-				this.showUnSuccesfullMessage(response)
-			}
+			post(url, headers, body)
+				.then((value) => this.showSuccesfullMessage(value))
+				.catch((reason) => this.showUnSuccesfullMessage(reason))
 		}
 	}
 
