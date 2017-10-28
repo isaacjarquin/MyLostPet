@@ -10,7 +10,8 @@ import {
 	presence,
 	isValidNumber,
 	isValidEmail,
-	setValidation
+	setValidation,
+	formIsInvalid
 } from "../utils/validations"
 
 export default class ContactDetails extends React.Component {
@@ -31,17 +32,6 @@ export default class ContactDetails extends React.Component {
 	showUnSuccesfullMessage(response) {
 		const errorMessage = "No se han podido guardar los datos devido a un error en la comunicación"
 		this.dropdown.alertWithType('error', 'Error de comunicación', errorMessage)
-	}
-
-	formIsInvalid() {
-		const { name, email, phoneNumber, personalInformation } = this.state
-
-		return [
-			presence(name),
-			isValidEmail(email),
-			isValidNumber(phoneNumber),
-			presence(personalInformation)
-		].includes(false)
 	}
 
 	setValidations() {
@@ -69,7 +59,7 @@ export default class ContactDetails extends React.Component {
 		const { pet_id }  = this.props.navigation.state.params
 		const self = this
 
-		if (this.formIsInvalid()) {
+		if (formIsInvalid(this.state)) {
 			this.setValidations()
 		} else {
 			const contactDetailsDecoreted = {
