@@ -11,7 +11,7 @@ import {
 	isValidNumber,
 	isValidEmail,
 	setValidation,
-	formIsInvalid
+	isInvalidForm
 } from "../utils/validations"
 
 export default class ContactDetails extends React.Component {
@@ -59,7 +59,14 @@ export default class ContactDetails extends React.Component {
 		const { pet_id }  = this.props.navigation.state.params
 		const self = this
 
-		if (formIsInvalid(this.state)) {
+		const fields = [
+			{ field: name, validate: presence},
+			{ field: email, validate: isValidEmail},
+			{ field: phoneNumber, validate: isValidNumber},
+			{ field: personalInformation, validate: presence}
+		]
+
+		if (isInvalidForm(fields)) {
 			this.setValidations()
 		} else {
 			const contactDetailsDecoreted = {

@@ -20,13 +20,8 @@ const setValidation = (message) => {
   }
 }
 
-const formIsInvalid = ({ name, email, phoneNumber, personalInformation }) => {
-  return [
-    presence(name),
-    isValidEmail(email),
-    isValidNumber(phoneNumber),
-    presence(personalInformation)
-  ].includes(false)
+const isInvalidForm = (fields) => {
+  return fields.map(({field, validate}) => validate(field)).includes(false)
 }
 
 module.exports = {
@@ -34,5 +29,5 @@ module.exports = {
   isValidNumber,
   isValidEmail,
   setValidation,
-  formIsInvalid
+  isInvalidForm
 }
