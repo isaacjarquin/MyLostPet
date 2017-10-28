@@ -4,7 +4,7 @@ import { FormLabel, Divider } from "react-native-elements"
 import { Button } from "react-native-elements"
 import DropdownAlert from 'react-native-dropdownalert'
 import { contactDetailsInitialState } from '../state/initialState'
-import { post } from '../services/items_api'
+import { post } from '../services/items-api'
 
 import {
 	presence,
