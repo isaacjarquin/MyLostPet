@@ -6,7 +6,7 @@ function getResponse(response) {
 	}
 }
 
-function convertIntoJson(response) {
+function convertToJson(response) {
 	return response.json()
 }
 
@@ -17,7 +17,7 @@ function post(url, headers, body) {
 			headers: headers,
 			body: JSON.stringify(body)})
 			.then(getResponse)
-			.then(convertIntoJson)
+			.then(convertToJson)
 	)
 }
 
