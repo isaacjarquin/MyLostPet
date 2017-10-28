@@ -64,7 +64,7 @@ describe("validations", () => {
     })
   })
 
-  describe("isValiForm", () => {
+  describe("isInvaliForm", () => {
     describe("when is a valid form", () => {
       const name = {value: 'test name'}
       const email = {value: 'test@gmail.com'}
