@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native"
 import bodyParamsBuilder from "../utils/http-request.js"
 import locations from "../data/locations"
 import pets from "../data/pets"
+import { get } from "../services/items-api"
 import { FormLabel, Divider } from "react-native-elements"
 import { Button } from "react-native-elements"
 import {Select, Option} from "react-native-chooser"
@@ -41,15 +42,12 @@ export default class SearchForm extends React.Component {
 	getPets () {
 		const url = `https://items-api.herokuapp.com/api/items${bodyParamsBuilder(this.state)}`
 
-		return fetch(url)
-			.then((response) => response.json())
-			.then((responseJson) => {
+		return get(url)
+			.then((response) => {
 				const { navigate } = this.props.navigation
-				navigate("SearchResultPage", { pets: responseJson.data })
+				navigate("SearchResultPage", { pets: response.data })
 			})
-			.catch((error) => {
-				console.error(error)
-			})
+			.catch((reason) => console.error(reason))
 	}
 
 	render () {

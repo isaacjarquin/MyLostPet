@@ -21,7 +21,13 @@ function post(url, headers, body) {
 	)
 }
 
-const get = () => {}
+function get(url) {
+	return (
+		fetch(url)
+			.then(getResponse)
+			.then(convertToJson)
+	)
+}
 
 
 
