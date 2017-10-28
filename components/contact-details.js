@@ -1,10 +1,10 @@
 import React from "react"
-import { StyleSheet, View, TextInput, Text } from "react-native"
+import { StyleSheet, View, TextInput } from "react-native"
 import { FormLabel, Divider } from "react-native-elements"
 import { Button } from "react-native-elements"
-import DropdownAlert from 'react-native-dropdownalert'
-import { contactDetailsInitialState } from '../state/initialState'
-import { post } from '../services/items-api'
+import DropdownAlert from "react-native-dropdownalert"
+import { contactDetailsInitialState } from "../state/initialState"
+import { post } from "../services/items-api"
 
 import {
 	presence,
@@ -17,21 +17,19 @@ import {
 export default class ContactDetails extends React.Component {
 	constructor (props, context) {
 		super(props, context)
-    this.sendDetails = this.sendDetails.bind(this)
+		this.sendDetails = this.sendDetails.bind(this)
 
 		this.state = contactDetailsInitialState
 	}
 
-  onClose(data) {}
-
-	showSuccesfullMessage(response) {
+	showSuccesfullMessage() {
 		const successMessage = "Los datos de contacto se han guardado correctamente"
-		this.dropdown.alertWithType('success', 'La operación se ha completado con éxito', successMessage)
+		this.dropdown.alertWithType("success", "La operación se ha completado con éxito", successMessage)
 	}
 
-	showUnSuccesfullMessage(response) {
+	showUnSuccesfullMessage() {
 		const errorMessage = "No se han podido guardar los datos devido a un error en la comunicación"
-		this.dropdown.alertWithType('error', 'Error de comunicación', errorMessage)
+		this.dropdown.alertWithType("error", "Error de comunicación", errorMessage)
 	}
 
 	setValidations() {
@@ -57,7 +55,6 @@ export default class ContactDetails extends React.Component {
 	sendDetails() {
 		const { name, email, phoneNumber, personalInformation } = this.state
 		const { pet_id }  = this.props.navigation.state.params
-		const self = this
 
 		const fields = [
 			{ field: name, validate: presence},
@@ -70,20 +67,20 @@ export default class ContactDetails extends React.Component {
 			this.setValidations()
 		} else {
 			const contactDetailsDecoreted = {
-        name: name.value,
-        email: email.value,
-        phone_number: phoneNumber.value,
-        details: personalInformation.value,
-        item_id: pet_id
-      }
+				name: name.value,
+				email: email.value,
+				phone_number: phoneNumber.value,
+				details: personalInformation.value,
+				item_id: pet_id
+			}
 
-			const headers = { 'Content-Type': 'application/json' }
-			const url = `https://items-api.herokuapp.com/api/contact_details`
+			const headers = { "Content-Type": "application/json" }
+			const url = "https://items-api.herokuapp.com/api/contact_details"
 			const body = { contact_detail: contactDetailsDecoreted }
 
 			post(url, headers, body)
-				.then((value) => this.showSuccesfullMessage(value))
-				.catch((reason) => this.showUnSuccesfullMessage(reason))
+				.then(() => this.showSuccesfullMessage())
+				.catch(() => this.showUnSuccesfullMessage())
 		}
 	}
 
@@ -93,46 +90,46 @@ export default class ContactDetails extends React.Component {
 			<View style={styles.container}>
 				<View>
 					<FormLabel>Nombre</FormLabel>
-          <TextInput
-            style={styles.textInput}
-            placeholder={this.state.name.validationMessage}
-            placeholderTextColor={this.state.name.validationMessageColor}
-            borderColor={this.state.name.validationFieldBorderColor}
-            onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
-            value={this.state.name.value}
-            />
+					<TextInput
+						style={styles.textInput}
+						placeholder={this.state.name.validationMessage}
+						placeholderTextColor={this.state.name.validationMessageColor}
+						borderColor={this.state.name.validationFieldBorderColor}
+						onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						value={this.state.name.value}
+					/>
 
 					<FormLabel>Correo</FormLabel>
-          <TextInput
-            style={styles.textInput}
-            placeholder={this.state.email.validationMessage}
-            placeholderTextColor={this.state.email.validationMessageColor}
-            borderColor={this.state.email.validationFieldBorderColor}
-            onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
-            value={this.state.email.value}
-            />
+					<TextInput
+						style={styles.textInput}
+						placeholder={this.state.email.validationMessage}
+						placeholderTextColor={this.state.email.validationMessageColor}
+						borderColor={this.state.email.validationFieldBorderColor}
+						onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						value={this.state.email.value}
+					/>
 
 					<FormLabel>Número de teléfono</FormLabel>
-          <TextInput
-            style={styles.textInput}
-            placeholder={this.state.phoneNumber.validationMessage}
-            placeholderTextColor={this.state.phoneNumber.validationMessageColor}
-            borderColor={this.state.phoneNumber.validationFieldBorderColor}
-            onChangeText={(text) => this.setState({phoneNumber: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
-            value={this.state.phoneNumber.value}
-            />
+					<TextInput
+						style={styles.textInput}
+						placeholder={this.state.phoneNumber.validationMessage}
+						placeholderTextColor={this.state.phoneNumber.validationMessageColor}
+						borderColor={this.state.phoneNumber.validationFieldBorderColor}
+						onChangeText={(text) => this.setState({phoneNumber: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						value={this.state.phoneNumber.value}
+					/>
 
-          <FormLabel>Información personal</FormLabel>
-          <TextInput
-            style={styles.blockTextInput}
-            multiline= {true}
-            numberOfLines= {4}
-            placeholder={this.state.personalInformation.validationMessage}
-            placeholderTextColor={this.state.personalInformation.validationMessageColor}
-            borderColor={this.state.personalInformation.validationFieldBorderColor}
-            onChangeText={(text) => this.setState({personalInformation: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
-            value={this.state.personalInformation.value}
-            />
+					<FormLabel>Información personal</FormLabel>
+					<TextInput
+						style={styles.blockTextInput}
+						multiline= {true}
+						numberOfLines= {4}
+						placeholder={this.state.personalInformation.validationMessage}
+						placeholderTextColor={this.state.personalInformation.validationMessageColor}
+						borderColor={this.state.personalInformation.validationFieldBorderColor}
+						onChangeText={(text) => this.setState({personalInformation: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						value={this.state.personalInformation.value}
+					/>
 
 					<Divider style={styles.divider} />
 
@@ -147,11 +144,10 @@ export default class ContactDetails extends React.Component {
 
 				<DropdownAlert
 					ref={ref => this.dropdown = ref}
-					onClose={data => this.onClose(data)}
 					closeInterval={6000}
 					successColor={"#77DD77"}
 					errorColor={"#ff3333"}
-					/>
+				/>
 
 			</View>
 		)
@@ -166,32 +162,32 @@ const styles = StyleSheet.create({
 		backgroundColor: "#F7F7F7",
 		paddingTop: 20
 	},
-  textInput: {
-    height: 40,
+	textInput: {
+		height: 40,
 		fontSize: 14,
-    borderWidth: 1,
+		borderWidth: 1,
 		marginTop: 10,
 		marginRight:20,
 		marginLeft: 20,
 		marginBottom: 20,
 		opacity: 0.6,
-    borderColor: "grey",
-    paddingLeft: 20,
-    paddingRight: 20
-  },
-  blockTextInput: {
-    height: 100,
-    borderColor: "grey",
+		borderColor: "grey",
+		paddingLeft: 20,
+		paddingRight: 20
+	},
+	blockTextInput: {
+		height: 100,
+		borderColor: "grey",
 		fontSize: 14,
-    borderWidth: 1,
+		borderWidth: 1,
 		marginTop: 10,
 		marginRight:20,
 		marginLeft: 20,
 		marginBottom: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 20
-  },
+		paddingLeft: 20,
+		paddingRight: 20,
+		paddingTop: 20
+	},
 	divider: {
 		marginRight: 20,
 		marginLeft: 20,
