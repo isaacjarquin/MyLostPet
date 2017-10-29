@@ -37,7 +37,7 @@ export default class MissingPetForm extends React.Component {
     //   province: this.props.province.value,
     //   location: this.props.location.value,
     //   info: this.props.description.value,
-    //   image: secure_url
+    //   image: secure_url (upload image to cloudinary and get secure_url from it)
     // }
     //
     // const headers = { "Content-Type": "application/json" }
