@@ -100,7 +100,7 @@ export default class MissingPetForm extends React.Component {
 					placeholderTextColor={this.state.name.validationMessageColor}
 					borderColor={this.state.name.validationFieldBorderColor}
 					onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
-					value={this.state.name.value}
+          value={this.state.name.value}
 				/>
 
 				<TextInput
@@ -154,7 +154,7 @@ export default class MissingPetForm extends React.Component {
           />
 
         <Select
-          defaultText={"Seleccione la comunidad autonoma"}
+          defaultText={this.state.autonomousComunity.validationMessage}
           style={styles.select}
           textStyle={{color: "grey"}}
           backdropStyle={{backgroundColor: "#d3d5d6"}}
@@ -166,7 +166,7 @@ export default class MissingPetForm extends React.Component {
         </Select>
 
         <Select
-          defaultText={"Seleccione la provincia"}
+          defaultText={this.state.province.validationMessage}
           style={styles.select}
           textStyle={{color: "grey"}}
           backdropStyle={{backgroundColor: "#d3d5d6"}}

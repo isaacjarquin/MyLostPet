@@ -34,60 +34,63 @@ const missingPetInitialState = {
 			backgroundColor: "skyblue",
 	},
 	province: {
-		value: "Introduzca aquí su nombre",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		value: "",
+		validationMessage: "Seleccione la provincia",
+		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"
 	},
 	autonomousComunity: {
-		value: "Introduzca aquí su nombre",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		value: "",
+		validationMessage: "Seleccione la comunidad autónoma",
+		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"
 	},
 	name: {
-		value: "Introduzca aquí su nombre",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		value: "",
+		validationMessage: "Introduzca aquí su nombre",
+		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"
 	},
 	email: {
-		value: "Introduzca aquí su número de teléfono",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		value: "",
+		validationMessage: "Introduzca aquí su correo electronico",
+		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"
 	},
 	type: {
-		value: "Introduzca aquí el tipo de mascota encontrado",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		value: "",
+		validationMessage: "Introduzca aquí el tipo de mascota encontrado",
+		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"
 	},
 	breed: {
-		value: "Introduzca aquí la raza del animal encontrado",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		value: "",
+		validationMessage: "Introduzca aquí la raza del animal encontrado",
+		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"
 	},
 	size: {
-		value: "Introduzca aquí el tamaño aprox",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		value: "",
+		validationMessage: "Introduzca aquí el tamaño aproximado",
+		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"
 	},
 	date: {
-		value: "Seleccione el dia que encontro a la mascota"
+		value: "",
+		validationMessage: "Seleccione el dia que encontro a la mascota",
+		validationMessageColor: "grey",
+		validationFieldBorderColor: "grey"
 	},
 	location: {
-		value: "Introduzca aquí el lugar donde encontro la mascota",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		value: "",
+		validationMessage: "Introduzca aquí la ciudad o municipio",
+		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"
 	},
 	description: {
-		value: "Introduzca aquí una description del animal",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		value: "",
+		validationMessage: "Introduzca aquí una description del animal",
+		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"
 	}
 }
