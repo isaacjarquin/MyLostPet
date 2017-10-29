@@ -7,6 +7,7 @@ import { Divider, Button, Icon } from "react-native-elements"
 import {Select, Option} from "react-native-chooser"
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import imagePicker from 'react-native-imagepicker'
+import { missingPetInitialState } from "../state/initialState"
 
 export default class MissingPetForm extends React.Component {
 	constructor (props, context) {
@@ -20,60 +21,32 @@ export default class MissingPetForm extends React.Component {
     this._showDateTimePicker = this._showDateTimePicker.bind(this)
     this._handleImagePicked = this._handleImagePicked.bind(this)
 
-		this.state = {
-      autonomousComunity: "",
-			province: "",
-			provincias: [],
-      isDateTimePickerVisible: false,
-      camaraPhotoImage: {
-          icon: { name: "plus" },
-          text: "Añade una foto de la mascota",
-          backgroundColor: "skyblue",
-      },
-      name: {
-    		value: "Introduzca aquí su nombre",
-    		validationMessage: "",
-    		validationMessageColor: "transparent",
-    		validationFieldBorderColor: "grey"
-    	},
-    	email: {
-    		value: "Introduzca aquí su número de teléfono",
-    		validationMessage: "",
-    		validationMessageColor: "transparent",
-    		validationFieldBorderColor: "grey"
-    	},
-      breed: {
-    		value: "Introduzca aquí la raza del animal encontrado",
-    		validationMessage: "",
-    		validationMessageColor: "transparent",
-    		validationFieldBorderColor: "grey"
-    	},
-    	size: {
-    		value: "Introduzca aquí el tamaño aprox",
-    		validationMessage: "",
-    		validationMessageColor: "transparent",
-    		validationFieldBorderColor: "grey"
-    	},
-      date: {
-        value: "Seleccione el dia que encontro a la mascota"
-      },
-      location: {
-    		value: "Introduzca aquí el lugar donde encontro la mascota",
-    		validationMessage: "",
-    		validationMessageColor: "transparent",
-    		validationFieldBorderColor: "grey"
-    	},
-      description: {
-    		value: "Introduzca aquí una description del animal",
-    		validationMessage: "",
-    		validationMessageColor: "transparent",
-    		validationFieldBorderColor: "grey"
-    	}
-		}
+		this.state = missingPetInitialState
 	}
 
   sendPetData() {
-
+    console.log("this.state", this.state)
+    // const adaptedItem = {
+    //   name: this.props.name.value,
+    //   email: this.props.email.value,
+    //   kind: this.props.type.value,
+    //   breed: this.props.breed.value,
+    //   size: this.props.size.value,
+    //   date: this.props.date.value,
+    //   autonomous_comunity: this.props.autonomousComunity.value,
+    //   province: this.props.province.value,
+    //   location: this.props.location.value,
+    //   info: this.props.description.value,
+    //   image: secure_url
+    // }
+    //
+    // const headers = { "Content-Type": "application/json" }
+    // const url = "https://items-api.herokuapp.com/api/items"
+    // const body = { item: adaptedItem }
+    //
+    // post(url, headers, body)
+    //   .then((response) => console.log('response', response))
+    //   .catch((reason) => console.log('error reason', reason))
   }
 
   setProvince (text) {
@@ -146,7 +119,7 @@ export default class MissingPetForm extends React.Component {
 					textStyle={{color: "grey"}}
 					backdropStyle={{backgroundColor: "#d3d5d6"}}
 					optionListStyle={{backgroundColor: "#F5FCFF"}}
-					onSelect={this.setType}
+					onSelect={(text) => this.setState({type: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
 					selected={() => setSelectedText(this.state.type)}
 				>
 					{pets.map((pet) => <Option key={pet.id} value={pet.value}>{pet.value}</Option>)}
