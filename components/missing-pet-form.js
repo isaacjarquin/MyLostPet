@@ -114,7 +114,7 @@ export default class MissingPetForm extends React.Component {
 				/>
 
         <Select
-					defaultText={"Seleccione el tipo de mascota"}
+					defaultText={this.state.type.validationMessage}
 					style={styles.select}
 					textStyle={{color: "grey"}}
 					backdropStyle={{backgroundColor: "#d3d5d6"}}

@@ -59,7 +59,7 @@ const missingPetInitialState = {
 	},
 	type: {
 		value: "",
-		validationMessage: "Introduzca aquí el tipo de mascota encontrado",
+		validationMessage: "Introduzca aquí el tipo de mascota",
 		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"
 	},
