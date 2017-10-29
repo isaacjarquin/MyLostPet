@@ -76,7 +76,7 @@ const missingPetInitialState = {
 		validationFieldBorderColor: "grey"
 	},
 	date: {
-		value: "",
+		value: "Seleccione el dia que encontro a la mascota",
 		validationMessage: "Seleccione el dia que encontro a la mascota",
 		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey"

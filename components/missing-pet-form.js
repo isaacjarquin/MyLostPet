@@ -144,7 +144,9 @@ export default class MissingPetForm extends React.Component {
 				/>
 
         <TouchableOpacity onPress={this._showDateTimePicker}>
-          <Text style={styles.text}>{this.state.date.value}</Text>
+          <Text style={styles.text} >
+            {this.state.date.value}
+          </Text>
         </TouchableOpacity>
 
         <DateTimePicker
@@ -225,12 +227,15 @@ const styles = StyleSheet.create({
 	},
   text: {
     padding: 10,
+    paddingLeft: 20,
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 10,
     marginTop: 10,
     borderColor: "grey",
+    color: "grey",
     borderWidth: 1,
+    backgroundColor: "#D8D8D8",
   },
   addImage: {
     flex: 1,
@@ -260,7 +265,6 @@ const styles = StyleSheet.create({
 		marginRight:20,
 		marginLeft: 20,
 		marginBottom: 10,
-		opacity: 0.6,
 		borderColor: "grey",
 		paddingLeft: 20,
 		paddingRight: 20
@@ -288,6 +292,7 @@ const styles = StyleSheet.create({
 		paddingRight: 20,
 		width: "90%",
 		borderWidth: 1,
+    backgroundColor: "#D8D8D8",
 		borderColor: "grey"
 	},
 	divider: {
