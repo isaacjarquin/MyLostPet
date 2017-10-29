@@ -50,13 +50,13 @@ export default class MissingPetForm extends React.Component {
   }
 
   setProvince (text) {
-		this.setState({province: text})
+		this.setState({province: {value: text}})
 	}
 
 	setAutonomousComunity (text) {
 		const location = locations.find((location) => location.value === text)
 
-		this.setState({autonomousComunity: text})
+		this.setState({autonomousComunity: { value: text }})
 		this.setState({provincias: location.provincias})
 	}
 
@@ -160,7 +160,7 @@ export default class MissingPetForm extends React.Component {
           backdropStyle={{backgroundColor: "#d3d5d6"}}
           optionListStyle={{backgroundColor: "#F5FCFF"}}
           onSelect={this.setAutonomousComunity}
-          selected={() => setSelectedText(this.state.autonomousComunity)}
+          selected={() => setSelectedText(this.state.autonomousComunity.value)}
         >
           {locations.map((location) => <Option key={location.id} value={location.value}>{location.value}</Option>)}
         </Select>
@@ -172,7 +172,7 @@ export default class MissingPetForm extends React.Component {
           backdropStyle={{backgroundColor: "#d3d5d6"}}
           optionListStyle={{backgroundColor: "#F5FCFF"}}
           onSelect={this.setProvince}
-          selected={() => setSelectedText(this.state.province)}
+          selected={() => setSelectedText(this.state.province.value)}
         >
           {this.state.provincias.map((provincia) => <Option key={provincia.id} value={provincia.value}>{provincia.value}</Option>)}
         </Select>

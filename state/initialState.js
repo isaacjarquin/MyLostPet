@@ -26,14 +26,24 @@ const contactDetailsInitialState = {
 }
 
 const missingPetInitialState = {
-	autonomousComunity: "",
-	province: "",
 	provincias: [],
 	isDateTimePickerVisible: false,
 	camaraPhotoImage: {
 			icon: { name: "plus" },
 			text: "Añade una foto de la mascota",
 			backgroundColor: "skyblue",
+	},
+	province: {
+		value: "Introduzca aquí su nombre",
+		validationMessage: "",
+		validationMessageColor: "transparent",
+		validationFieldBorderColor: "grey"
+	},
+	autonomousComunity: {
+		value: "Introduzca aquí su nombre",
+		validationMessage: "",
+		validationMessageColor: "transparent",
+		validationFieldBorderColor: "grey"
 	},
 	name: {
 		value: "Introduzca aquí su nombre",
