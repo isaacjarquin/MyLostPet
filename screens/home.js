@@ -6,8 +6,14 @@ export default class Home extends React.Component {
 	constructor (props) {
 		super(props)
 		this.navigateToSearchForm = this.navigateToSearchForm.bind(this)
+		this.navigateToMissinPetForm = this.navigateToMissinPetForm.bind(this)
 	}
 
+	navigateToMissinPetForm () {
+		const { navigate } = this.props.navigation
+
+		navigate("MissingPetForm")
+	}
 	navigateToSearchForm () {
 		const { navigate } = this.props.navigation
 
@@ -27,6 +33,14 @@ export default class Home extends React.Component {
 						source={require("../assets/images/pet-care-icon.png")}
 						style={styles.icon}
 					/>
+					<Button
+						style={styles.button}
+						borderRadius={3}
+						backgroundColor={"#333333"}
+						large
+						onPress={this.navigateToMissinPetForm}
+						title='Encontraste una mascota perdida ?' />
+
 					<Button
 						style={styles.button}
 						borderRadius={3}

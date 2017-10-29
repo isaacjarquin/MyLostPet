@@ -7,6 +7,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "test": "jest",
+    "coverage": "jest --coverage",
     "lint": "eslint ../MyLostPet/",
     "fixjs": "eslint ../MyLostPet/ --fix"
   },
@@ -20,6 +21,8 @@
     "react-native-chooser": "^1.6.3",
     "react-native-dropdownalert": "^3.1.2",
     "react-native-elements": "^0.17.0",
+    "react-native-imagepicker": "^2.0.0",
+    "react-native-modal-datetime-picker": "^4.13.0",
     "react-native-vector-icons": "^4.4.2",
     "react-navigation": "^1.0.0-beta.14"
   },
