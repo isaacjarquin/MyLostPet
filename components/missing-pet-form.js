@@ -8,6 +8,13 @@ import {Select, Option} from "react-native-chooser"
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import imagePicker from 'react-native-imagepicker'
 import { missingPetInitialState } from "../state/initialState"
+import {
+	presence,
+	isValidNumber,
+	isValidEmail,
+	setValidation,
+	isInvalidForm
+} from "../utils/validations"
 
 export default class MissingPetForm extends React.Component {
 	constructor (props, context) {
@@ -24,8 +31,88 @@ export default class MissingPetForm extends React.Component {
 		this.state = missingPetInitialState
 	}
 
+	setValidations() {
+		const {
+			name,
+			email,
+			province,
+			autonomousComunity,
+			type,
+			breed,
+			size,
+			location,
+			description
+		} = this.state
+
+		if (!presence(name)) {
+			this.setState({name: setValidation("El campo nombre es obligatorio")})
+		}
+
+		if (!isValidEmail(email)) {
+			this.setState({email: setValidation("Debes introducir un formato valido de email")})
+		}
+
+		if (!presence(province)) {
+			this.setState({province: setValidation("El campo provincia es obligatorio")})
+		}
+
+		if (!presence(autonomousComunity)) {
+			this.setState({autonomousComunity: setValidation("El campo comunidad autonoma es obligatorio")})
+		}
+
+		if (!presence(type)) {
+			this.setState({type: setValidation("El campo tipo de mascota es obligatorio")})
+		}
+
+		if (!presence(breed)) {
+			this.setState({breed: setValidation("El campo raza es obligatorio")})
+		}
+
+		if (!presence(size)) {
+			this.setState({size: setValidation("El campo tamano es obligatorio")})
+		}
+
+		if (!presence(location)) {
+			this.setState({location: setValidation("El campo ciudad o municipio es obligatorio")})
+		}
+
+		if (!presence(description)) {
+			this.setState({description: setValidation("El campo descripcion es obligatorio")})
+		}
+	}
+
   sendPetData() {
-    console.log("this.state", this.state)
+		const {
+			name,
+			email,
+			province,
+			autonomousComunity,
+			type,
+			breed,
+			size,
+			date,
+			location,
+			description
+		} = this.state
+
+		const fields = [
+			{ field: name, validate: presence},
+			{ field: email, validate: isValidEmail},
+			{ field: province, validate: presence},
+			{ field: autonomousComunity, validate: presence},
+			{ field: type, validate: presence},
+			{ field: breed, validate: presence},
+			{ field: size, validate: presence},
+			{ field: location, validate: presence},
+			{ field: description, validate: presence}
+		]
+
+		if (isInvalidForm(fields)) {
+			this.setValidations()
+			// console.log("this.state", this.state)
+		} else {
+			// console.log("everything is alright you should send the data")
+		}
     // const adaptedItem = {
     //   name: this.props.name.value,
     //   email: this.props.email.value,
@@ -115,12 +202,12 @@ export default class MissingPetForm extends React.Component {
 
         <Select
 					defaultText={this.state.type.validationMessage}
-					style={styles.select}
-					textStyle={{color: "grey"}}
+					style={[styles.select, {borderColor: this.state.type.validationFieldBorderColor}]}
+					textStyle={{color: this.state.type.validationMessageColor}}
 					backdropStyle={{backgroundColor: "#d3d5d6"}}
 					optionListStyle={{backgroundColor: "#F5FCFF"}}
 					onSelect={(text) => this.setState({type: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
-					selected={() => setSelectedText(this.state.type)}
+					selected={() => setSelectedText(this.state.type.value)}
 				>
 					{pets.map((pet) => <Option key={pet.id} value={pet.value}>{pet.value}</Option>)}
 				</Select>
@@ -157,8 +244,8 @@ export default class MissingPetForm extends React.Component {
 
         <Select
           defaultText={this.state.autonomousComunity.validationMessage}
-          style={styles.select}
-          textStyle={{color: "grey"}}
+          style={[styles.select, {borderColor: this.state.autonomousComunity.validationFieldBorderColor}]}
+          textStyle={{color: this.state.autonomousComunity.validationMessageColor}}
           backdropStyle={{backgroundColor: "#d3d5d6"}}
           optionListStyle={{backgroundColor: "#F5FCFF"}}
           onSelect={this.setAutonomousComunity}
@@ -169,8 +256,8 @@ export default class MissingPetForm extends React.Component {
 
         <Select
           defaultText={this.state.province.validationMessage}
-          style={styles.select}
-          textStyle={{color: "grey"}}
+          style={[styles.select, {borderColor: this.state.province.validationFieldBorderColor}]}
+          textStyle={{color: this.state.province.validationMessageColor}}
           backdropStyle={{backgroundColor: "#d3d5d6"}}
           optionListStyle={{backgroundColor: "#F5FCFF"}}
           onSelect={this.setProvince}
@@ -292,8 +379,7 @@ const styles = StyleSheet.create({
 		paddingRight: 20,
 		width: "90%",
 		borderWidth: 1,
-    backgroundColor: "#D8D8D8",
-		borderColor: "grey"
+    backgroundColor: "#D8D8D8"
 	},
 	divider: {
     margin: 20,
