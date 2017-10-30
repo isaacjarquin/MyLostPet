@@ -42,6 +42,7 @@ export default class MissingPetForm extends React.Component {
 			size,
 			date,
 			location,
+			camaraPhotoImage,
 			description
 		} = this.state
 
@@ -77,6 +78,10 @@ export default class MissingPetForm extends React.Component {
 			this.setState({date: {value: "Debe seleccionar una fecha válida", validationMessageColor: "red", validationFieldBorderColor: "red"}})
 		}
 
+		if (camaraPhotoImage.text === "Añade una foto de la mascota") {
+			this.setState({camaraPhotoImage: {text: "Añada una foto de la mascota", backgroundColor: "#FF6961", icon: {name: "plus"}}})
+		}
+
 		if (!presence(location)) {
 			this.setState({location: setValidation("El campo ciudad o municipio es obligatorio")})
 		}
@@ -107,6 +112,7 @@ export default class MissingPetForm extends React.Component {
 			{ field: autonomousComunity, validate: presence},
 			{ field: type, validate: presence},
 			{ field: breed, validate: presence},
+			{ field: date, validate: presence},
 			{ field: size, validate: presence},
 			{ field: location, validate: presence},
 			{ field: description, validate: presence}
