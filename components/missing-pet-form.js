@@ -40,6 +40,7 @@ export default class MissingPetForm extends React.Component {
 			type,
 			breed,
 			size,
+			date,
 			location,
 			description
 		} = this.state
@@ -70,6 +71,10 @@ export default class MissingPetForm extends React.Component {
 
 		if (!presence(size)) {
 			this.setState({size: setValidation("El campo tamano es obligatorio")})
+		}
+
+		if (date.value === "Seleccione el dia que encontro a la mascota") {
+			this.setState({date: {value: "Debe seleccionar una fecha válida", validationMessageColor: "red", validationFieldBorderColor: "red"}})
 		}
 
 		if (!presence(location)) {
@@ -231,7 +236,7 @@ export default class MissingPetForm extends React.Component {
 				/>
 
         <TouchableOpacity onPress={this._showDateTimePicker}>
-          <Text style={styles.text} >
+          <Text style={[styles.text, {borderColor: this.state.date.validationFieldBorderColor, color: this.state.date.validationMessageColor}]} >
             {this.state.date.value}
           </Text>
         </TouchableOpacity>
@@ -319,8 +324,6 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginBottom: 10,
     marginTop: 10,
-    borderColor: "grey",
-    color: "grey",
     borderWidth: 1,
     backgroundColor: "#D8D8D8",
   },
