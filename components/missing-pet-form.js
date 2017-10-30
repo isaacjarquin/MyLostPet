@@ -287,7 +287,7 @@ export default class MissingPetForm extends React.Component {
         <TouchableOpacity onPress={this._handleImagePicked}>
           <View style={[styles.addImage, {backgroundColor: this.state.camaraPhotoImage.backgroundColor}]} >
              <Text style={styles.addImageText} >{this.state.camaraPhotoImage.text}</Text>
-             <Icon style={styles.addImageIcon} color='white' type="evilicon" name={this.state.camaraPhotoImage.icon.name} size={50} />
+             <Icon color='white' type="evilicon" name={this.state.camaraPhotoImage.icon.name} size={50} />
          </View>
         </TouchableOpacity>
 
@@ -333,9 +333,6 @@ const styles = StyleSheet.create({
     marginRight: 20,
     borderWidth: 1,
     borderColor: "grey"
-  },
-  addImageIcon: {
-    color:'#517fa4'
   },
   addImageText: {
     fontSize: 18,
