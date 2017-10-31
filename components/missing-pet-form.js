@@ -46,6 +46,32 @@ export default class MissingPetForm extends React.Component {
 			description
 		} = this.state
 
+		if (!presence(type)) {
+				this.setState(
+				{ type: {
+					validationMessage: '"El campo tipo de mascota es obligatorio"',
+					validationMessageColor: 'white',
+					validationBackgroundColor: '#FF6961'
+				}
+			})
+		}
+
+		if (date.value === "Seleccione el dia que encontro a la mascota") {
+			this.setState({date: {value: "Debe seleccionar una fecha válida", validationMessageColor: "white", validationBackgroundColor: '#FF6961'}})
+		}
+
+		if (camaraPhotoImage.text === "Añade una foto de la mascota") {
+			this.setState({camaraPhotoImage: {text: "Añada una foto de la mascota", backgroundColor: "#FF6961", icon: {name: "plus"}}})
+		}
+
+		if (!presence(province)) {
+			this.setState({province: {validationMessage: "El campo provincia es obligatorio", validationMessageColor: 'white', validationBackgroundColor: '#FF6961'}})
+		}
+
+		if (!presence(autonomousComunity)) {
+			this.setState({autonomousComunity: {validationMessage: "El campo comunidad autonoma es obligatorio", validationMessageColor: 'white', validationBackgroundColor: '#FF6961'}})
+		}
+
 		if (!presence(name)) {
 			this.setState({name: setValidation("El campo nombre es obligatorio")})
 		}
@@ -54,32 +80,12 @@ export default class MissingPetForm extends React.Component {
 			this.setState({email: setValidation("Debes introducir un formato valido de email")})
 		}
 
-		if (!presence(province)) {
-			this.setState({province: setValidation("El campo provincia es obligatorio")})
-		}
-
-		if (!presence(autonomousComunity)) {
-			this.setState({autonomousComunity: setValidation("El campo comunidad autonoma es obligatorio")})
-		}
-
-		if (!presence(type)) {
-			this.setState({type: setValidation("El campo tipo de mascota es obligatorio")})
-		}
-
 		if (!presence(breed)) {
 			this.setState({breed: setValidation("El campo raza es obligatorio")})
 		}
 
 		if (!presence(size)) {
 			this.setState({size: setValidation("El campo tamano es obligatorio")})
-		}
-
-		if (date.value === "Seleccione el dia que encontro a la mascota") {
-			this.setState({date: {value: "Debe seleccionar una fecha válida", validationMessageColor: "red", validationFieldBorderColor: "red"}})
-		}
-
-		if (camaraPhotoImage.text === "Añade una foto de la mascota") {
-			this.setState({camaraPhotoImage: {text: "Añada una foto de la mascota", backgroundColor: "#FF6961", icon: {name: "plus"}}})
 		}
 
 		if (!presence(location)) {
@@ -213,8 +219,10 @@ export default class MissingPetForm extends React.Component {
 
         <Select
 					defaultText={this.state.type.validationMessage}
-					style={[styles.select, {borderColor: this.state.type.validationFieldBorderColor}]}
+					style={[styles.select, {borderColor: this.state.type.validationFieldBorderColor, backgroundColor: this.state.type.validationBackgroundColor}]}
 					textStyle={{color: this.state.type.validationMessageColor}}
+					indicator="down"
+					indicatorColor="grey"
 					backdropStyle={{backgroundColor: "#d3d5d6"}}
 					optionListStyle={{backgroundColor: "#F5FCFF"}}
 					onSelect={(text) => this.setState({type: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
@@ -242,9 +250,12 @@ export default class MissingPetForm extends React.Component {
 				/>
 
         <TouchableOpacity onPress={this._showDateTimePicker}>
-          <Text style={[styles.text, {borderColor: this.state.date.validationFieldBorderColor, color: this.state.date.validationMessageColor}]} >
-            {this.state.date.value}
-          </Text>
+					<View style={[styles.calendarSelect, {backgroundColor: this.state.date.validationBackgroundColor}]} >
+						<Text style={[styles.calendarText, {color: this.state.date.validationMessageColor}]} >
+							{this.state.date.value}
+						</Text>
+            <Icon color='grey' type="evilicon" name="calendar" size={30} />
+         </View>
         </TouchableOpacity>
 
         <DateTimePicker
@@ -255,9 +266,11 @@ export default class MissingPetForm extends React.Component {
 
         <Select
           defaultText={this.state.autonomousComunity.validationMessage}
-          style={[styles.select, {borderColor: this.state.autonomousComunity.validationFieldBorderColor}]}
+          style={[styles.select, {borderColor: this.state.autonomousComunity.validationFieldBorderColor, backgroundColor: this.state.autonomousComunity.validationBackgroundColor}]}
           textStyle={{color: this.state.autonomousComunity.validationMessageColor}}
-          backdropStyle={{backgroundColor: "#d3d5d6"}}
+					indicator="down"
+					indicatorColor="grey"
+					backdropStyle={{backgroundColor: "#d3d5d6"}}
           optionListStyle={{backgroundColor: "#F5FCFF"}}
           onSelect={this.setAutonomousComunity}
           selected={() => setSelectedText(this.state.autonomousComunity.value)}
@@ -267,8 +280,10 @@ export default class MissingPetForm extends React.Component {
 
         <Select
           defaultText={this.state.province.validationMessage}
-          style={[styles.select, {borderColor: this.state.province.validationFieldBorderColor}]}
+          style={[styles.select, {borderColor: this.state.province.validationFieldBorderColor, backgroundColor: this.state.province.validationBackgroundColor}]}
           textStyle={{color: this.state.province.validationMessageColor}}
+					indicator="down"
+					indicatorColor="grey"
           backdropStyle={{backgroundColor: "#d3d5d6"}}
           optionListStyle={{backgroundColor: "#F5FCFF"}}
           onSelect={this.setProvince}
@@ -323,16 +338,6 @@ const styles = StyleSheet.create({
 		backgroundColor: "#F7F7F7",
 		paddingTop: 20
 	},
-  text: {
-    padding: 10,
-    paddingLeft: 20,
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 10,
-    marginTop: 10,
-    borderWidth: 1,
-    backgroundColor: "#D8D8D8",
-  },
   addImage: {
     flex: 1,
     padding: 5,
@@ -362,6 +367,19 @@ const styles = StyleSheet.create({
 		paddingLeft: 20,
 		paddingRight: 20
 	},
+	calendarSelect: {
+    flex: 1,
+		marginLeft: 20,
+		marginRight: 20,
+		flexDirection: 'row',
+		borderWidth: 1,
+    borderColor: "grey"
+  },
+	calendarText: {
+    marginLeft: 20,
+    marginBottom: 10,
+    marginTop: 10,
+  },
 	blockTextInput: {
 		height: 100,
 		borderColor: "grey",
@@ -384,8 +402,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
 		paddingRight: 20,
 		width: "90%",
-		borderWidth: 1,
-    backgroundColor: "#D8D8D8"
+		borderWidth: 1
 	},
 	divider: {
     margin: 20,
