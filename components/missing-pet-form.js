@@ -377,6 +377,7 @@ const styles = StyleSheet.create({
   },
 	calendarText: {
     marginLeft: 20,
+		marginRight: 10,
     marginBottom: 10,
     marginTop: 10,
   },
