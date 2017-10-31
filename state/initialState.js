@@ -38,14 +38,14 @@ const missingPetInitialState = {
 		validationMessage: "Seleccione la provincia",
 		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey",
-		validationBackgroundColor: "#D3D3D3"
+		validationBackgroundColor: "transparent"
 	},
 	autonomousComunity: {
 		value: "",
 		validationMessage: "Seleccione la comunidad autónoma",
 		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey",
-		validationBackgroundColor: "#D3D3D3"
+		validationBackgroundColor: "transparent"
 	},
 	name: {
 		value: "",
@@ -64,7 +64,7 @@ const missingPetInitialState = {
 		validationMessage: "Introduzca aquí el tipo de mascota",
 		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey",
-		validationBackgroundColor: "#D3D3D3"
+		validationBackgroundColor: "transparent"
 	},
 	breed: {
 		value: "",
@@ -83,7 +83,7 @@ const missingPetInitialState = {
 		validationMessage: "",
 		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey",
-		validationBackgroundColor: "#D3D3D3"
+		validationBackgroundColor: "transparent"
 	},
 	location: {
 		value: "",
