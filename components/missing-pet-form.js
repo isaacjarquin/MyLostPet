@@ -56,8 +56,14 @@ export default class MissingPetForm extends React.Component {
 			})
 		}
 
-		if (date.value === "Seleccione el dia que encontro a la mascota") {
-			this.setState({date: {value: "Debe seleccionar una fecha válida", validationMessageColor: "white", validationBackgroundColor: '#FF6961'}})
+		if (date.value === "Seleccione cuando encontro a la mascota") {
+			this.setState(
+				{date: {
+					value: "Debe seleccionar una fecha válida",
+					validationMessageColor: "white",
+					validationBackgroundColor: '#FF6961'
+				}
+			})
 		}
 
 		if (camaraPhotoImage.text === "Añade una foto de la mascota") {
