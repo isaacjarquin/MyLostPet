@@ -369,6 +369,7 @@ const styles = StyleSheet.create({
 	},
 	calendarSelect: {
     flex: 1,
+		justifyContent: "space-between",
 		marginLeft: 20,
 		marginRight: 20,
 		flexDirection: 'row',
@@ -377,7 +378,6 @@ const styles = StyleSheet.create({
   },
 	calendarText: {
     marginLeft: 20,
-		marginRight: 10,
     marginBottom: 10,
     marginTop: 10,
   },
