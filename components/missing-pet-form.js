@@ -130,11 +130,13 @@ export default class MissingPetForm extends React.Component {
 			{ field: description, validate: presence}
 		]
 
-		if (isInvalidForm(fields)) {
+		if (false) {
 			this.setValidations()
-			// console.log("this.state", this.state)
 		} else {
-			// console.log("everything is alright you should send the data")
+			this.uploadImageToCloudinary()
+					.then(({secure_url}) => secure_url)
+					.catch((reason) => reason)
+			// this.sendPetDataToItemsAPI()
 		}
     // const adaptedItem = {
     //   name: this.props.name.value,
@@ -158,6 +160,21 @@ export default class MissingPetForm extends React.Component {
     //   .then((response) => console.log('response', response))
     //   .catch((reason) => console.log('error reason', reason))
   }
+
+	uploadImageToCloudinary() {
+	 const headers = {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+	 }
+		const url = "https://api.cloudinary.com/v1_1/my-lost-pet/image/upload"
+		const body = { upload_preset: "ak0f1cnm", file:  this.state.camaraPhotoImage.url}
+
+		return (
+			post(url, headers, body)
+				.then((cloudinaryResponse) => cloudinaryResponse)
+				.catch((cloudinaryErrorResponse) => cloudinaryErrorResponse)
+		)
+	}
 
   setProvince (text) {
 		this.setState({province: {value: text}})
@@ -193,7 +210,8 @@ export default class MissingPetForm extends React.Component {
           camaraPhotoImage: {
             icon: { name: "check" },
             text: "La foto se ha añadido con exito",
-            backgroundColor: "#03C03C"
+            backgroundColor: "#03C03C",
+						url: uri
           }
         })
     }, (error) => {
