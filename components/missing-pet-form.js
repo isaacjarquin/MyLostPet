@@ -425,6 +425,8 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		marginLeft: 20,
 		marginRight: 20,
+		marginTop: 10,
+		marginBottom: 10,
 		flexDirection: 'row',
 		borderWidth: 1,
     borderColor: "grey"
