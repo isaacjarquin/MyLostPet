@@ -6,10 +6,10 @@ export default class Home extends React.Component {
 	constructor (props) {
 		super(props)
 		this.navigateToSearchForm = this.navigateToSearchForm.bind(this)
-		this.navigateToMissinPetForm = this.navigateToMissinPetForm.bind(this)
+		this.navigateToMissingPetForm = this.navigateToMissingPetForm.bind(this)
 	}
 
-	navigateToMissinPetForm () {
+	navigateToMissingPetForm () {
 		const { navigate } = this.props.navigation
 
 		navigate("MissingPetForm")
@@ -38,7 +38,7 @@ export default class Home extends React.Component {
 						borderRadius={3}
 						backgroundColor={"#333333"}
 						large
-						onPress={this.navigateToMissinPetForm}
+						onPress={this.navigateToMissingPetForm}
 						title='Encontraste una mascota perdida ?' />
 
 					<Button
