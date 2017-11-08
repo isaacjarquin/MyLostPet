@@ -17,8 +17,8 @@ function post(url, headers, body) {
 			headers: headers,
 			body: body
 		})
-		.then(getResponse)
-		.then(convertToJson)
+			.then(getResponse)
+			.then(convertToJson)
 	)
 }
 

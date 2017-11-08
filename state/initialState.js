@@ -29,9 +29,9 @@ const missingPetInitialState = {
 	provincias: [],
 	isDateTimePickerVisible: false,
 	camaraPhotoImage: {
-			icon: { name: "plus" },
-			text: "Añade una foto de la mascota",
-			backgroundColor: "skyblue",
+		icon: { name: "plus" },
+		text: "Añade una foto de la mascota",
+		backgroundColor: "skyblue",
 	},
 	province: {
 		value: "",
