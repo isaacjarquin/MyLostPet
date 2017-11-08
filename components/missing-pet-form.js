@@ -162,20 +162,13 @@ export default class MissingPetForm extends React.Component {
   }
 
 	uploadImageToCloudinary() {
-	//  const headers = {
-	// 		'Accept': 'application/json',
-	// 		'Content-Type': 'application/json'
-	//  }
-	const url = "https://api.cloudinary.com/v1_1/my-lost-pet/image/upload"
-	// 	const body = { upload_preset: "ak0f1cnm", file:  this.state.camaraPhotoImage.url}
-	 //
-	// 	return (
-	// 		post(url, headers, body)
-	// 			.then((cloudinaryResponse) => console.log(cloudinaryResponse))
-	// 			.catch((cloudinaryErrorResponse) => console.log(JSON.stringify(cloudinaryErrorResponse)))
-	// 	)
-		const data = new FormData();
+		 const headers = {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+		 }
 
+		const url = "https://api.cloudinary.com/v1_1/my-lost-pet/image/upload"
+		const data = new FormData();
 		var file = {
 		    uri: this.state.camaraPhotoImage.url,
 		    type: 'image/jpeg',
@@ -186,14 +179,8 @@ export default class MissingPetForm extends React.Component {
 		data.append('file', file)
 		data.append('name', 'testName')
 
-		return (
-			fetch(url, {
-			  method: 'post',
-			  body: data
-			}).then(res => {
-			  console.log(res)
-			})
-		)
+
+		return post(url, headers, data).then((response) => response)
 	}
 
   setProvince (text) {
