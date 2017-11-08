@@ -5,9 +5,11 @@ import pets from "../data/pets"
 import locations from "../data/locations"
 import { Divider, Button, Icon } from "react-native-elements"
 import {Select, Option} from "react-native-chooser"
-import DateTimePicker from 'react-native-modal-datetime-picker';
+import DateTimePicker from 'react-native-modal-datetime-picker'
 import imagePicker from 'react-native-imagepicker'
 import { missingPetInitialState } from "../state/initialState"
+import DropdownAlert from "react-native-dropdownalert"
+
 import {
 	presence,
 	isValidNumber,
@@ -29,6 +31,16 @@ export default class MissingPetForm extends React.Component {
     this._handleImagePicked = this._handleImagePicked.bind(this)
 
 		this.state = missingPetInitialState
+	}
+
+	showSuccesfullMessage() {
+		const successMessage = "Los datos de la mascota se han guardado correctamente"
+		this.dropdown.alertWithType("success", "La operación se ha completado con éxito", successMessage)
+	}
+
+	showUnSuccesfullMessage() {
+		const errorMessage = "No se han podido guardar los datos devido a un error en la comunicación"
+		this.dropdown.alertWithType("error", "Error de comunicación", errorMessage)
 	}
 
 	setValidations() {
@@ -159,8 +171,8 @@ export default class MissingPetForm extends React.Component {
     const body = JSON.stringify({ item: adaptedItem })
 
     post(url, headers, body)
-      .then((response) => console.log('response', JSON.stringify(response)))
-      .catch((reason) => console.log('error reason', JSON.stringify(reason)))
+      .then(() => this.showSuccesfullMessage())
+      .catch(() => this.showUnSuccesfullMessage())
 	}
 
 	uploadImageToCloudinary() {
@@ -180,7 +192,6 @@ export default class MissingPetForm extends React.Component {
 		data.append('upload_preset', 'ak0f1cnm')
 		data.append('file', file)
 		data.append('name', 'testName')
-
 
 		return post(url, headers, data).then((response) => response)
 	}
@@ -359,6 +370,14 @@ export default class MissingPetForm extends React.Component {
 					large
 					onPress={this.sendPetData}
 					title='Buscar' />
+
+
+				<DropdownAlert
+					ref={ref => this.dropdown = ref}
+					closeInterval={6000}
+					successColor={"#77DD77"}
+					errorColor={"#ff3333"}
+				/>
       </ScrollView>
 		)
 	}
