@@ -130,36 +130,38 @@ export default class MissingPetForm extends React.Component {
 			{ field: description, validate: presence}
 		]
 
-		if (false) {
+		if (isInvalidForm(fields)) {
 			this.setValidations()
 		} else {
 			this.uploadImageToCloudinary()
-					.then(({secure_url}) => secure_url)
+					.then(({secure_url}) => this.sendPetDataToItemsAPI(secure_url))
 					.catch((error) => error)
-			// this.sendPetDataToItemsAPI()
 		}
-    // const adaptedItem = {
-    //   name: this.props.name.value,
-    //   email: this.props.email.value,
-    //   kind: this.props.type.value,
-    //   breed: this.props.breed.value,
-    //   size: this.props.size.value,
-    //   date: this.props.date.value,
-    //   autonomous_comunity: this.props.autonomousComunity.value,
-    //   province: this.props.province.value,
-    //   location: this.props.location.value,
-    //   info: this.props.description.value,
-    //   image: secure_url (upload image to cloudinary and get secure_url from it)
-    // }
-    //
-    // const headers = { "Content-Type": "application/json" }
-    // const url = "https://items-api.herokuapp.com/api/items"
-    // const body = { item: adaptedItem }
-    //
-    // post(url, headers, body)
-    //   .then((response) => console.log('response', response))
-    //   .catch((reason) => console.log('error reason', reason))
   }
+
+	sendPetDataToItemsAPI(secure_url) {
+		const adaptedItem = {
+      name: this.state.name.value,
+      email: this.state.email.value,
+      kind: this.state.type.value,
+      breed: this.state.breed.value,
+      size: this.state.size.value,
+      date: this.state.date.value,
+      autonomous_comunity: this.state.autonomousComunity.value,
+      province: this.state.province.value,
+      location: this.state.location.value,
+      info: this.state.description.value,
+      image: secure_url
+    }
+
+    const headers = { "Content-Type": "application/json" }
+    const url = "https://items-api.herokuapp.com/api/items"
+    const body = JSON.stringify({ item: adaptedItem })
+
+    post(url, headers, body)
+      .then((response) => console.log('response', JSON.stringify(response)))
+      .catch((reason) => console.log('error reason', JSON.stringify(reason)))
+	}
 
 	uploadImageToCloudinary() {
 		 const headers = {
@@ -172,7 +174,7 @@ export default class MissingPetForm extends React.Component {
 		var file = {
 		    uri: this.state.camaraPhotoImage.url,
 		    type: 'image/jpeg',
-		    name: 'photo.jpg',
+		    name: 'missing-pet.jpg',
 		}
 
 		data.append('upload_preset', 'ak0f1cnm')
@@ -218,7 +220,8 @@ export default class MissingPetForm extends React.Component {
             icon: { name: "check" },
             text: "La foto se ha añadido con exito",
             backgroundColor: "#03C03C",
-						url: uri
+						url: uri,
+						secure_url: ''
           }
         })
     }, (error) => {
