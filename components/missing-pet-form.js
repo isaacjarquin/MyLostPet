@@ -147,7 +147,7 @@ export default class MissingPetForm extends React.Component {
 		} else {
 			this.uploadImageToCloudinary()
 					.then(({secure_url}) => this.sendPetDataToItemsAPI(secure_url))
-					.catch((error) => error)
+					.catch(() => this.showUnSuccesfullMessage())
 		}
   }
 
