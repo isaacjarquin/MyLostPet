@@ -306,6 +306,7 @@ export default class MissingPetForm extends React.Component {
 					isVisible={this.state.isDateTimePickerVisible}
 					onConfirm={this._handleDatePicked}
 					onCancel={this._hideDateTimePicker}
+					date={this.props.date || new Date()}
 				/>
 
 				<Select
