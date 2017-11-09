@@ -15,7 +15,8 @@ function post(url, headers, body) {
 		fetch(url, {
 			method: "POST",
 			headers: headers,
-			body: JSON.stringify(body)})
+			body: body
+		})
 			.then(getResponse)
 			.then(convertToJson)
 	)
