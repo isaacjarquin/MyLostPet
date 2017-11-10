@@ -1,6 +1,7 @@
 import React from "react"
 import { StyleSheet, Text, View, Image } from "react-native"
-import { Button } from "react-native-elements"
+import { Button, SocialIcon } from "react-native-elements"
+import Drawer, { Message } from 'react-native-bottom-drawer'
 
 export default class Home extends React.Component {
 	constructor (props) {
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
 	icon: {
 		width: 100,
 		height: 100,
-		marginBottom: 300,
+		marginBottom: 200,
 		alignSelf: "center"
 	},
 	image: {
