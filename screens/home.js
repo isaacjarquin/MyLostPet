@@ -78,11 +78,11 @@ export default class Home extends React.Component {
 							/>
 							<Image
 								source={require("../assets/icons/telegram.png")}
-								style={{width: 60, height: 60, marginLeft: 8}}
+								style={{width: 55, height: 55, marginLeft: 8}}
 							/>
 							<Image
 								source={require("../assets/icons/mail.png")}
-								style={{width: 60, height: 60, marginLeft: 8}}
+								style={{width: 55, height: 55, marginLeft: 8}}
 							/>
 						</View>
 						<TouchableOpacity style={styles.modalButton} onPress={this._hideModal} >
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		backgroundColor: '#333333',
 		marginTop: 10,
-		marginLeft: 5,
+		marginLeft: 8,
 		borderTopLeftRadius: 3,
 		borderTopRightRadius: 3
 	},
@@ -133,9 +133,6 @@ const styles = StyleSheet.create({
 		alignSelf: "center",
 		color: "white",
 		fontSize: 18
-	},
-	socialIcon: {
-		marginLeft: 10
 	},
 	title: {
 		margin: 20,
