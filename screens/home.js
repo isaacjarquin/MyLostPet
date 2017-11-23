@@ -1,6 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
-import { Button, SocialIcon, Icon } from "react-native-elements"
+import { Button, Icon } from "react-native-elements"
 import Modal from 'react-native-modal'
 
 export default class Home extends React.Component {
@@ -64,14 +64,26 @@ export default class Home extends React.Component {
 
 					<Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
 						<View style={styles.socialIcons}>
-							<SocialIcon style={styles.socialIcon} type='facebook' />
-							<SocialIcon style={styles.socialIcon} type='twitter' />
-							<Icon color='white' type="entypo" name="paper-plane" size={50} />
 							<Image
-								source={require("../assets/icons/whatsapplogo.png")}
-								style={{width: 60, height: 60, marginLeft: 5, marginRight: 5}}
+								source={require("../assets/icons/facebook.png")}
+								style={{width: 55, height: 55, marginLeft: 8}}
 							/>
-							<Icon color='#FF6961' type="entypo" name="mail-with-circle" size={55} />
+							<Image
+								source={require("../assets/icons/twitter.png")}
+								style={{width: 55, height: 55, marginLeft: 8}}
+							/>
+							<Image
+								source={require("../assets/icons/whatsapp.png")}
+								style={{width: 55, height: 55, marginLeft: 8}}
+							/>
+							<Image
+								source={require("../assets/icons/telegram.png")}
+								style={{width: 60, height: 60, marginLeft: 8}}
+							/>
+							<Image
+								source={require("../assets/icons/mail.png")}
+								style={{width: 60, height: 60, marginLeft: 8}}
+							/>
 						</View>
 						<TouchableOpacity style={styles.modalButton} onPress={this._hideModal} >
 								<Text style={styles.shareText} >Cerrar</Text>
@@ -93,7 +105,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		backgroundColor: '#333333',
 		marginTop: 10,
-		marginLeft: 10,
+		marginLeft: 5,
 		borderTopLeftRadius: 3,
 		borderTopRightRadius: 3
 	},
