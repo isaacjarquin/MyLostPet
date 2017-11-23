@@ -64,26 +64,11 @@ export default class Home extends React.Component {
 
 					<Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
 						<View style={styles.socialIcons}>
-							<Image
-								source={require("../assets/icons/facebook.png")}
-								style={{width: 55, height: 55, marginLeft: 8}}
-							/>
-							<Image
-								source={require("../assets/icons/twitter.png")}
-								style={{width: 55, height: 55, marginLeft: 8}}
-							/>
-							<Image
-								source={require("../assets/icons/whatsapp.png")}
-								style={{width: 55, height: 55, marginLeft: 8}}
-							/>
-							<Image
-								source={require("../assets/icons/telegram.png")}
-								style={{width: 55, height: 55, marginLeft: 8}}
-							/>
-							<Image
-								source={require("../assets/icons/mail.png")}
-								style={{width: 55, height: 55, marginLeft: 8}}
-							/>
+							<Image source={require("../assets/icons/facebook.png")} style={styles.socialIcon} />
+							<Image source={require("../assets/icons/twitter.png")} style={styles.socialIcon} />
+							<Image source={require("../assets/icons/whatsapp.png")} style={styles.socialIcon} />
+							<Image source={require("../assets/icons/telegram.png")} style={styles.socialIcon} />
+							<Image source={require("../assets/icons/mail.png")} style={styles.socialIcon} />
 						</View>
 						<TouchableOpacity style={styles.modalButton} onPress={this._hideModal} >
 								<Text style={styles.shareText} >Cerrar</Text>
@@ -108,6 +93,11 @@ const styles = StyleSheet.create({
 		marginLeft: 8,
 		borderTopLeftRadius: 3,
 		borderTopRightRadius: 3
+	},
+	socialIcon: {
+		width: 55,
+		height: 55,
+		marginLeft: 8
 	},
 	modalButton: {
 		marginTop: 10
