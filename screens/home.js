@@ -1,6 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
-import { Button, SocialIcon } from "react-native-elements"
+import { Button, SocialIcon, Icon } from "react-native-elements"
 import Modal from 'react-native-modal'
 
 export default class Home extends React.Component {
@@ -66,12 +66,15 @@ export default class Home extends React.Component {
 						<View style={styles.socialIcons}>
 							<SocialIcon style={styles.socialIcon} type='facebook' />
 							<SocialIcon style={styles.socialIcon} type='twitter' />
-							<SocialIcon style={styles.socialIcon} type='linkedin' />
-							<SocialIcon style={styles.socialIcon} type='twitter' />
-							<SocialIcon style={styles.socialIcon} type='twitter' />
+							<Icon color='white' type="entypo" name="paper-plane" size={50} />
+							<Image
+								source={require("../assets/icons/whatsapplogo.png")}
+								style={{width: 60, height: 60, marginLeft: 5, marginRight: 5}}
+							/>
+							<Icon color='#FF6961' type="entypo" name="mail-with-circle" size={55} />
 						</View>
 						<TouchableOpacity style={styles.modalButton} onPress={this._hideModal} >
-								<Text style={styles.shareText} >Close</Text>
+								<Text style={styles.shareText} >Cerrar</Text>
 						</TouchableOpacity>
 					</Modal>
 				</Image>
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
 		fontSize: 18
 	},
 	socialIcon: {
-		marginLeft: 5
+		marginLeft: 10
 	},
 	title: {
 		margin: 20,
@@ -145,7 +148,7 @@ const styles = StyleSheet.create({
 	icon: {
 		width: 100,
 		height: 100,
-		marginBottom: 300,
+		marginBottom: 190,
 		alignSelf: "center"
 	},
 	image: {
