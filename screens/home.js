@@ -1,12 +1,17 @@
 import React from "react"
-import { StyleSheet, Text, View, Image } from "react-native"
-import { Button } from "react-native-elements"
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
+import { Button, SocialIcon } from "react-native-elements"
+import Modal from 'react-native-modal'
 
 export default class Home extends React.Component {
 	constructor (props) {
 		super(props)
 		this.navigateToSearchForm = this.navigateToSearchForm.bind(this)
 		this.navigateToMissingPetForm = this.navigateToMissingPetForm.bind(this)
+
+		this.state = {
+	    isModalVisible: false
+	  }
 	}
 
 	navigateToMissingPetForm () {
@@ -19,6 +24,10 @@ export default class Home extends React.Component {
 
 		navigate("SearchForm")
 	}
+
+  _showModal = () => this.setState({ isModalVisible: true })
+
+  _hideModal = () => this.setState({ isModalVisible: false })
 	render () {
 		return (
 			<View style={styles.container}>
@@ -48,6 +57,23 @@ export default class Home extends React.Component {
 						large
 						onPress={this.navigateToSearchForm}
 						title='Buscar Mascota perdida' />
+
+					<TouchableOpacity style={styles.share} onPress={this._showModal} >
+							<Text style={styles.shareText} >Share</Text>
+					</TouchableOpacity>
+
+					<Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
+						<View style={styles.socialIcons}>
+							<SocialIcon style={styles.socialIcon} type='facebook' />
+							<SocialIcon style={styles.socialIcon} type='twitter' />
+							<SocialIcon style={styles.socialIcon} type='linkedin' />
+							<SocialIcon style={styles.socialIcon} type='twitter' />
+							<SocialIcon style={styles.socialIcon} type='twitter' />
+						</View>
+						<TouchableOpacity style={styles.modalButton} onPress={this._hideModal} >
+								<Text style={styles.shareText} >Close</Text>
+						</TouchableOpacity>
+					</Modal>
 				</Image>
 			</View>
 		)
@@ -59,6 +85,42 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: "#fff",
 		justifyContent: "flex-start"
+	},
+	socialIcons: {
+		flexDirection: 'row',
+		backgroundColor: '#333333',
+		marginTop: 10,
+		marginLeft: 10,
+		borderTopLeftRadius: 3,
+		borderTopRightRadius: 3
+	},
+	modalButton: {
+		marginTop: 10
+	},
+	socialIconsModal: {
+		flexDirection: 'column',
+		backgroundColor: '#333333',
+		marginTop: 500,
+		borderTopLeftRadius: 3,
+		borderTopRightRadius: 3
+	},
+	share: {
+		backgroundColor: '#333333',
+		opacity: 0.8,
+		marginLeft: 15,
+		marginRight: 15,
+		marginTop: 5,
+		borderTopLeftRadius: 3,
+		borderTopRightRadius: 3,
+		padding: 10
+	},
+	shareText: {
+		alignSelf: "center",
+		color: "white",
+		fontSize: 18
+	},
+	socialIcon: {
+		marginLeft: 5
 	},
 	title: {
 		margin: 20,
