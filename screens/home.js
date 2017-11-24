@@ -1,6 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View, Image } from "react-native"
-import { Button, Icon } from "react-native-elements"
+import { Button } from "react-native-elements"
 import SocialIconsModal from "../components/social-icons-modal"
 
 export default class Home extends React.Component {
