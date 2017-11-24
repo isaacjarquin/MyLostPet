@@ -1,12 +1,17 @@
 import React from "react"
 import { StyleSheet, Text, View, Image } from "react-native"
 import { Button } from "react-native-elements"
+import SocialIconsModal from "../components/social-icons-modal"
 
 export default class Home extends React.Component {
 	constructor (props) {
 		super(props)
 		this.navigateToSearchForm = this.navigateToSearchForm.bind(this)
 		this.navigateToMissingPetForm = this.navigateToMissingPetForm.bind(this)
+
+		this.state = {
+	    isModalVisible: false
+	  }
 	}
 
 	navigateToMissingPetForm () {
@@ -19,6 +24,7 @@ export default class Home extends React.Component {
 
 		navigate("SearchForm")
 	}
+
 	render () {
 		return (
 			<View style={styles.container}>
@@ -48,6 +54,8 @@ export default class Home extends React.Component {
 						large
 						onPress={this.navigateToSearchForm}
 						title='Buscar Mascota perdida' />
+
+					<SocialIconsModal />
 				</Image>
 			</View>
 		)
@@ -83,7 +91,7 @@ const styles = StyleSheet.create({
 	icon: {
 		width: 100,
 		height: 100,
-		marginBottom: 300,
+		marginBottom: 190,
 		alignSelf: "center"
 	},
 	image: {
