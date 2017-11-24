@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
 		marginTop: 5,
 		borderTopLeftRadius: 3,
 		borderTopRightRadius: 3,
-		padding: 10
+		padding: 8
 	},
 	shareText: {
 		alignSelf: "center",
