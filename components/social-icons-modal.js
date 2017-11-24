@@ -23,11 +23,11 @@ export default class SocialIconsModal extends React.Component {
 
 					<Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
 						<View style={styles.socialIcons}>
-							<Image source={require("../assets/icons/facebook.png")} style={styles.socialIcon} />
-							<Image source={require("../assets/icons/twitter.png")} style={styles.socialIcon} />
-							<Image source={require("../assets/icons/whatsapp.png")} style={styles.socialIcon} />
-							<Image source={require("../assets/icons/telegram.png")} style={styles.socialIcon} />
-							<Image source={require("../assets/icons/mail.png")} style={styles.socialIcon} />
+							<Image source={require("../assets/icons/social/facebook.png")} style={styles.socialIcon} />
+							<Image source={require("../assets/icons/social/twitter.png")} style={styles.socialIcon} />
+							<Image source={require("../assets/icons/social/whatsapp.png")} style={styles.socialIcon} />
+							<Image source={require("../assets/icons/social/telegram.png")} style={styles.socialIcon} />
+							<Image source={require("../assets/icons/social/mail.png")} style={styles.socialIcon} />
 						</View>
 						<TouchableOpacity style={styles.modalButton} onPress={this._hideModal} >
 								<Text style={styles.shareText} >Cerrar</Text>
