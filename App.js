@@ -13,7 +13,13 @@ import petCard from "./components/pet-card"
 import contactDetails from "./components/contact-details"
 import { Icon } from "react-native-elements"
 import { Header } from 'native-base';
-import { Text } from "react-native"
+import { Text, Share } from "react-native"
+
+const shareOptions = {
+		message: "http://www.mylostpet.es/",
+		title: "My Lost Pet",
+		url: "http://www.mylostpet.es/"
+}
 
 const App = StackNavigator(
 	{
@@ -21,8 +27,18 @@ const App = StackNavigator(
 			screen: Home,
 			navigationOptions: ({navigation}) => ({
 				title: "My lost pet",
-				headerRight: <Text>lol</Text>,
-				headerLeft: <Icon color='grey' type="Feather" name="menu" size={25} onPress={ () => navigation.navigate("HomeScreenDrawer") }/>,
+				headerRight: <Icon
+					color='grey'
+					type="Feather"
+					name="share"
+					size={25}
+					onPress={ () => Share.share(shareOptions).then(this._showResult).catch(err => console.log(err)) }/>,
+				headerLeft: <Icon
+					color='grey'
+					type="Feather"
+					name="menu"
+					size={25}
+					onPress={ () => navigation.navigate("HomeScreenDrawer") }/>,
 				headerStyle: { padding: 10 }
     	})
 		},

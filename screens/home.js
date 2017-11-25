@@ -2,13 +2,13 @@ import React from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity, Share } from "react-native"
 import { Button, SocialIcon } from "react-native-elements"
 import Drawer, { Message } from 'react-native-bottom-drawer'
+import SecondaryMenuModal from "../components/secondary-menu-modal"
 
 export default class Home extends React.Component {
 	constructor (props) {
 		super(props)
 		this.navigateToSearchForm = this.navigateToSearchForm.bind(this)
 		this.navigateToMissingPetForm = this.navigateToMissingPetForm.bind(this)
-		this._shareMyLostPetWeb = this._shareMyLostPetWeb.bind(this)
 
 		this.state = {
 	    isModalVisible: false
@@ -24,16 +24,6 @@ export default class Home extends React.Component {
 		const { navigate } = this.props.navigation
 
 		navigate("SearchForm")
-	}
-
-	_shareMyLostPetWeb () {
-		Share.share({
-			message: "http://www.mylostpet.es/",
-			title: "My Lost Pet",
-			url: "http://www.mylostpet.es/"
-		})
-			.then(this._showResult)
-			.catch(err => console.log(err))
 	}
 
 	render () {
@@ -56,7 +46,7 @@ export default class Home extends React.Component {
 						backgroundColor={"#333333"}
 						large
 						onPress={this.navigateToMissingPetForm}
-						title='Encontraste una mascota perdida ?' />
+						title='Añadir mascota encontrada' />
 
 					<Button
 						style={styles.button}
@@ -64,11 +54,9 @@ export default class Home extends React.Component {
 						backgroundColor={"#333333"}
 						large
 						onPress={this.navigateToSearchForm}
-						title='Buscar Mascota perdida' />
+						title='Buscar mascota perdida' />
 
-					<TouchableOpacity style={styles.share} onPress={this._shareMyLostPetWeb} >
-						<Text style={styles.shareText} >Share</Text>
-					</TouchableOpacity>
+					<SecondaryMenuModal />
 				</Image>
 			</View>
 		)
