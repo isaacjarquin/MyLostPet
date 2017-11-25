@@ -1,7 +1,12 @@
 import React from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
 import Modal from "react-native-modal"
-import { Button, Icon } from "react-native-elements"
+import bodyParamsBuilder from "../utils/http-request.js"
+import pets from "../data/pets"
+import { get } from "../services/items-api"
+import locations from "../data/locations"
+import { Button, Icon, FormLabel, Divider } from "react-native-elements"
+import {Select, Option} from "react-native-chooser"
 
 export default class SecondaryMenuModal extends React.Component {
 	constructor (props, context) {
@@ -9,11 +14,18 @@ export default class SecondaryMenuModal extends React.Component {
 
 		this._showModal = this._showModal.bind(this)
 		this._hideModal = this._hideModal.bind(this)
-		this._whoWeAre = this._whoWeAre.bind(this)
+		this.getPets = this.getPets.bind(this)
+		this.setType = this.setType.bind(this)
+		this.setProvince = this.setProvince.bind(this)
+		this.setAutonomousComunity = this.setAutonomousComunity.bind(this)
 
 		this.state = {
-	    isModalVisible: false
-	  }
+			isModalVisible: false,
+			type: "",
+			autonomousComunity: "",
+			province: "",
+			provincias: []
+		}
 	}
 
 	_showModal () {
@@ -24,36 +36,92 @@ export default class SecondaryMenuModal extends React.Component {
 		this.setState({ isModalVisible: false })
 	}
 
-	_whoWeAre() {
-		const { navigate } = this.props.navigation
-		navigate("WhoWeAre")
+	setType (text) {
+		this.setState({type: text})
+	}
+
+	setProvince (text) {
+		this.setState({province: text})
+	}
+
+	setAutonomousComunity (text) {
+		const location = locations.find((location) => location.value === text)
+
+		this.setState({autonomousComunity: text})
+		this.setState({provincias: location.provincias})
+	}
+
+	getPets () {
+		const url = `https://items-api.herokuapp.com/api/items${bodyParamsBuilder(this.state)}`
+
+		return get(url)
+			.then((response) => {
+				this._hideModal()
+				const { navigate } = this.props
+				navigate("SearchResultPage", { pets: response.data })
+			})
+			.catch((reason) => console.error(reason))
 	}
 
 	render () {
 		return (
 			<View style={styles.container}>
-				<TouchableOpacity style={styles.share} onPress={this._showModal} >
-          <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-up" size={40} />
+				<TouchableOpacity style={styles.searchHomeButton} onPress={this._showModal} >
+					<Icon style={styles.searchHomeIcon} color='white' type="evilIcons" name="search" size={30} />
+					<Text style={styles.searchButton}>Buscar mascota</Text>
 				</TouchableOpacity>
 
 				<Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
+					<TouchableOpacity style={styles.share} onPress={this._hideModal} >
+	          <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
+					</TouchableOpacity>
 					<View style={styles.socialIcons}>
-            <TouchableOpacity style={styles.modalCloseButton} onPress={this._hideModal} >
-              <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={40} />
-  					</TouchableOpacity>
+						<Select
+							defaultText={"Typo de mascota"}
+							style={styles.select}
+							textStyle={{color: "white"}}
+							indicator="down"
+							indicatorColor="white"
+							backdropStyle={{backgroundColor: "#d3d5d6"}}
+							optionListStyle={{backgroundColor: "#F5FCFF"}}
+							onSelect={this.setType}
+							selected={() => setSelectedText(this.state.type)}
+						>
+							{pets.map((pet) => <Option key={pet.id} value={pet.value}>{pet.value}</Option>)}
+						</Select>
 
-            <TouchableOpacity style={styles.modalOptionsButton} onPress={this._whoWeAre} >
-  						<Text style={styles.shareText} >Quienes somos</Text>
-  					</TouchableOpacity>
-            <TouchableOpacity style={styles.modalOptionsButton} onPress={this._hideModal} >
-  						<Text style={styles.shareText} >Como usar la aplicación</Text>
-  					</TouchableOpacity>
-            <TouchableOpacity style={styles.modalOptionsButton} onPress={this._hideModal} >
-  						<Text style={styles.shareText} >Contacto</Text>
-  					</TouchableOpacity>
-            <TouchableOpacity style={styles.modalOptionsButton} onPress={this._hideModal} >
-  						<Text style={styles.shareText} >Términos y condiciones</Text>
-  					</TouchableOpacity>
+						<Select
+							defaultText={"Comunidad autonoma"}
+							style={styles.select}
+							textStyle={{color: "white"}}
+							indicator="down"
+							indicatorColor="white"
+							backdropStyle={{backgroundColor: "#d3d5d6"}}
+							optionListStyle={{backgroundColor: "#F5FCFF"}}
+							onSelect={this.setAutonomousComunity}
+							selected={() => setSelectedText(this.state.autonomousComunity)}
+						>
+							{locations.map((location) => <Option key={location.id} value={location.value}>{location.value}</Option>)}
+						</Select>
+
+						<Select
+							defaultText={"Provincia"}
+							style={styles.select}
+							textStyle={{color: "white"}}
+							indicator="down"
+							indicatorColor="white"
+							backdropStyle={{backgroundColor: "#d3d5d6"}}
+							optionListStyle={{backgroundColor: "#F5FCFF"}}
+							onSelect={this.setProvince}
+							selected={() => setSelectedText(this.state.province)}
+						>
+							{this.state.provincias.map((provincia) => <Option key={provincia.id} value={provincia.value}>{provincia.value}</Option>)}
+						</Select>
+
+						<TouchableOpacity style={styles.submitButton} onPress={this.getPets} >
+		          <Icon style={styles.searchIcon} color='white' type="evilIcons" name="search" size={30} />
+							<Text style={styles.searchButtonText}>Buscar</Text>
+						</TouchableOpacity>
 
 					</View>
 				</Modal>
@@ -70,27 +138,72 @@ const styles = StyleSheet.create({
 	modalCloseButton: {
 		marginTop: 10
 	},
+	searchButtonText: {
+		color: "white",
+		alignSelf: "center",
+		fontSize: 16
+	},
+	searchButton: {
+		color: "white",
+		alignSelf: "center",
+		fontSize: 18
+	},
+	select: {
+		width: "100%",
+		alignSelf: "center",
+		padding: 15,
+		backgroundColor: "black",
+		opacity: 0.5,
+		borderColor: '#d6d7da',
+		borderWidth: 0.5
+	},
   modalOptionsButton: {
     opacity: 0.6,
 		borderWidth: 0.5,
     padding: 20,
     borderColor: '#d6d7da'
 	},
+	searchHomeButton: {
+		flexDirection: "row",
+		backgroundColor: "#333333",
+		opacity: 0.8,
+		marginLeft: 15,
+		marginRight: 15,
+		marginTop: 5,
+		borderRadius: 3,
+		padding: 15
+	},
 	socialIconsModal: {
 		flexDirection: "column",
 		backgroundColor: "#333333",
-		marginTop: 350,
+		marginTop: 420,
 		borderTopLeftRadius: 3,
 		borderTopRightRadius: 3
 	},
+	searchIcon: {
+		marginLeft: "35%"
+	},
+	searchHomeIcon: {
+		marginLeft: "15%"
+	},
 	share: {
-		backgroundColor: "#333333",
+		flexDirection: "row",
+		alignSelf: "center",
+		backgroundColor: "transparent",
 		opacity: 0.8,
 		marginLeft: 15,
 		marginRight: 15,
 		marginTop: 5,
 		borderTopLeftRadius: 3,
 		borderTopRightRadius: 3
+	},
+	submitButton: {
+		flexDirection: "row",
+		backgroundColor: "grey",
+		opacity: 0.8,
+		padding: 10,
+		borderColor: '#d6d7da',
+		borderWidth: 0.5
 	},
 	shareText: {
 		alignSelf: "center",

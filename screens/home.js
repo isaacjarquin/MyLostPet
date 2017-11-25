@@ -1,6 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity, Share } from "react-native"
-import { Button, SocialIcon } from "react-native-elements"
+import { Button, SocialIcon, Icon } from "react-native-elements"
 import Drawer, { Message } from 'react-native-bottom-drawer'
 import SecondaryMenuModal from "../components/secondary-menu-modal"
 
@@ -9,10 +9,15 @@ export default class Home extends React.Component {
 		super(props)
 		this.navigateToSearchForm = this.navigateToSearchForm.bind(this)
 		this.navigateToMissingPetForm = this.navigateToMissingPetForm.bind(this)
+		this._showModal = this._showModal.bind(this)
 
 		this.state = {
 	    isModalVisible: false
 	  }
+	}
+
+	_showModal () {
+		this.setState({ isModalVisible: true })
 	}
 
 	navigateToMissingPetForm () {
@@ -40,23 +45,13 @@ export default class Home extends React.Component {
 						source={require("../assets/images/pet-care-icon.png")}
 						style={styles.icon}
 					/>
-					<Button
-						style={styles.button}
-						borderRadius={3}
-						backgroundColor={"#333333"}
-						large
-						onPress={this.navigateToMissingPetForm}
-						title='Añadir mascota encontrada' />
 
-					<Button
-						style={styles.button}
-						borderRadius={3}
-						backgroundColor={"#333333"}
-						large
-						onPress={this.navigateToSearchForm}
-						title='Buscar mascota perdida' />
+					<TouchableOpacity style={styles.share} onPress={this.navigateToMissingPetForm} >
+	          <Icon style={styles.searchIcon} color='white' type="entypo" name="plus" size={30} />
+						<Text style={styles.searchButton}>Añadir nueva mascota</Text>
+					</TouchableOpacity>
 
-					<SecondaryMenuModal />
+					<SecondaryMenuModal navigate={ this.props.navigation.navigate}/>
 				</Image>
 			</View>
 		)
@@ -77,6 +72,17 @@ const styles = StyleSheet.create({
 		color: "white",
 		backgroundColor: "transparent"
 	},
+	searchIcon: {
+		alignSelf: "center",
+		marginLeft: "15%"
+	},
+	searchButton: {
+		margin: 10,
+		fontSize: 18,
+		alignSelf: "center",
+		color: "white",
+		backgroundColor: "transparent"
+	},
 	shareIcon: {
 		alignSelf: "center",
 		width: 55,
@@ -90,25 +96,27 @@ const styles = StyleSheet.create({
 		color: "white"
 	},
 	button: {
-		marginTop: 10,
-		marginBottom: 10,
-		opacity: 0.8
+		margin: 10,
+		fontSize: 16,
+		alignSelf: "center",
+		color: "white",
+		backgroundColor: "transparent"
 	},
 	icon: {
 		width: 100,
 		height: 100,
-		marginBottom: 190,
+		marginBottom: "67%",
 		alignSelf: "center"
 	},
 	share: {
+		flexDirection: "row",
 		backgroundColor: "#333333",
 		opacity: 0.8,
 		marginLeft: 15,
 		marginRight: 15,
 		marginTop: 5,
-		borderTopLeftRadius: 3,
-		borderTopRightRadius: 3,
-		padding: 8
+		borderRadius: 3,
+		padding: 10
 	},
 	shareText: {
 		alignSelf: "center",

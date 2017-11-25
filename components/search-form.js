@@ -115,26 +115,4 @@ const styles = StyleSheet.create({
 		backgroundColor: "#F7F7F7",
 		paddingTop: 20
 	},
-	divider: {
-		marginRight: 20,
-		marginLeft: 20,
-		marginBottom: 20,
-		backgroundColor: "#d3d5d6"
-	},
-	button: {
-		marginBottom: 20
-	},
-	select: {
-		alignSelf: "stretch",
-		margin: 20,
-		width: "90%",
-		borderWidth: 1,
-		borderColor: "#d3d5d6"
-	},
-	buttonText: {
-		color: "#FAFAFA",
-		fontSize: 20,
-		margin: 20,
-		fontWeight: "600"
-	}
 })
