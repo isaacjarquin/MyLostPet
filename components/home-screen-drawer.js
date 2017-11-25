@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 	image: {
 		flex: 1,
 		justifyContent: "flex-start",
-		width: "90%",
+		width: "100%",
 		height: "100%"
 	}
 })
