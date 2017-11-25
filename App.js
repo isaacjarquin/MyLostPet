@@ -5,7 +5,6 @@ import {
 } from "react-navigation"
 
 import Home from "./screens/home"
-import searchForm from "./components/search-form"
 import MissingPetForm from "./components/missing-pet-form"
 import HomeScreenDrawer from "./components/home-screen-drawer"
 import petsResult from "./screens/pets-result"
@@ -45,7 +44,6 @@ const App = StackNavigator(
     	})
 		},
 		HomeScreenDrawer: { screen: HomeScreenDrawer },
-		SearchForm: { screen: searchForm },
 		MissingPetForm: { screen: MissingPetForm },
 		SearchResultPage: { screen: petsResult },
 		PetCard: { screen: petCard },
