@@ -13,6 +13,7 @@ import petCard from "./components/pet-card"
 import contactDetails from "./components/contact-details"
 import whoWeAre from "./components/who-we-are"
 import termsAndConditions from "./components/terms-and-conditions"
+import howToUse from "./components/how-to-use"
 import { Icon } from "react-native-elements"
 import { Header } from 'native-base';
 import { Text, Share } from "react-native"
@@ -51,7 +52,8 @@ const App = StackNavigator(
 		PetCard: { screen: petCard },
 		ContactDetails: { screen: contactDetails },
 		WhoWeAre: { screen: whoWeAre },
-		TermsAndConditions: { screen: termsAndConditions }
+		TermsAndConditions: { screen: termsAndConditions },
+		HowToUse: { screen: howToUse }
 	}
 )
 

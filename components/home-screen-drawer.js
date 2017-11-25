@@ -7,6 +7,7 @@ export default class HomeScreenDrawer extends React.Component {
 		super(props)
 		this._whoWeAre = this._whoWeAre.bind(this)
 		this._termsAndConditions = this._termsAndConditions.bind(this)
+		this._howToUse = this._howToUse.bind(this)
 	}
 	_whoWeAre() {
 		const { navigate } = this.props.navigation
@@ -15,6 +16,10 @@ export default class HomeScreenDrawer extends React.Component {
 	_termsAndConditions() {
 		const { navigate } = this.props.navigation
 		navigate("TermsAndConditions")
+	}
+	_howToUse() {
+		const { navigate } = this.props.navigation
+		navigate("HowToUse")
 	}
 	render () {
 		return (
@@ -26,7 +31,7 @@ export default class HomeScreenDrawer extends React.Component {
 						<TouchableOpacity style={styles.modalOptionsButton} onPress={this._whoWeAre} >
 							<Text style={styles.shareText} >Quienes somos</Text>
 						</TouchableOpacity>
-						<TouchableOpacity style={styles.modalOptionsButton} onPress={this._hideModal} >
+						<TouchableOpacity style={styles.modalOptionsButton} onPress={this._howToUse} >
 							<Text style={styles.shareText} >Como usar la aplicación</Text>
 						</TouchableOpacity>
 						<TouchableOpacity style={styles.modalOptionsButton} onPress={this._hideModal} >
