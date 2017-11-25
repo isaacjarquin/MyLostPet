@@ -1,7 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity, Share } from "react-native"
 import { Button } from "react-native-elements"
-import SocialIconsModal from "../components/social-icons-modal"
 
 export default class Home extends React.Component {
 	constructor (props) {
@@ -27,14 +26,14 @@ export default class Home extends React.Component {
 	}
 
 	_shareMyLostPetWeb () {
-    Share.share({
-      message: 'http://www.mylostpet.es/',
-      title: 'My Lost Pet',
-      url: 'http://www.mylostpet.es/'
-    })
-    .then(this._showResult)
-    .catch(err => console.log(err))
-  }
+		Share.share({
+			message: "http://www.mylostpet.es/",
+			title: "My Lost Pet",
+			url: "http://www.mylostpet.es/"
+		})
+			.then(this._showResult)
+			.catch(err => console.log(err))
+	}
 
 	render () {
 		return (
@@ -88,6 +87,11 @@ const styles = StyleSheet.create({
 		alignSelf: "center",
 		color: "white",
 		backgroundColor: "transparent"
+	},
+	shareIcon: {
+		alignSelf: "center",
+		width: 55,
+		height: 55
 	},
 	subTitle: {
 		fontSize: 18,
