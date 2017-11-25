@@ -1,13 +1,13 @@
 import React from "react"
-import { StyleSheet, Text, View, Image } from "react-native"
+import { StyleSheet, Text, View, Image, TouchableOpacity, Share } from "react-native"
 import { Button } from "react-native-elements"
-import SocialIconsModal from "../components/social-icons-modal"
 
 export default class Home extends React.Component {
 	constructor (props) {
 		super(props)
 		this.navigateToSearchForm = this.navigateToSearchForm.bind(this)
 		this.navigateToMissingPetForm = this.navigateToMissingPetForm.bind(this)
+		this._shareMyLostPetWeb = this._shareMyLostPetWeb.bind(this)
 
 		this.state = {
 	    isModalVisible: false
@@ -23,6 +23,16 @@ export default class Home extends React.Component {
 		const { navigate } = this.props.navigation
 
 		navigate("SearchForm")
+	}
+
+	_shareMyLostPetWeb () {
+		Share.share({
+			message: "http://www.mylostpet.es/",
+			title: "My Lost Pet",
+			url: "http://www.mylostpet.es/"
+		})
+			.then(this._showResult)
+			.catch(err => console.log(err))
 	}
 
 	render () {
@@ -55,7 +65,9 @@ export default class Home extends React.Component {
 						onPress={this.navigateToSearchForm}
 						title='Buscar Mascota perdida' />
 
-					<SocialIconsModal />
+					<TouchableOpacity style={styles.share} onPress={this._shareMyLostPetWeb} >
+						<Text style={styles.shareText} >Share</Text>
+					</TouchableOpacity>
 				</Image>
 			</View>
 		)
@@ -76,6 +88,11 @@ const styles = StyleSheet.create({
 		color: "white",
 		backgroundColor: "transparent"
 	},
+	shareIcon: {
+		alignSelf: "center",
+		width: 55,
+		height: 55
+	},
 	subTitle: {
 		fontSize: 18,
 		alignSelf: "center",
@@ -93,6 +110,21 @@ const styles = StyleSheet.create({
 		height: 100,
 		marginBottom: 190,
 		alignSelf: "center"
+	},
+	share: {
+		backgroundColor: "#333333",
+		opacity: 0.8,
+		marginLeft: 15,
+		marginRight: 15,
+		marginTop: 5,
+		borderTopLeftRadius: 3,
+		borderTopRightRadius: 3,
+		padding: 8
+	},
+	shareText: {
+		alignSelf: "center",
+		color: "white",
+		fontSize: 18
 	},
 	image: {
 		flex: 1,

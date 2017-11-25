@@ -1,11 +1,24 @@
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, Text, View, Share, TouchableOpacity, Image, ScrollView } from "react-native"
 import { Card, Button } from "react-native-elements"
 
 export default class PetCard extends React.Component {
 	constructor (props) {
 		super(props)
 		this.navigateToPersonalDetails = this.navigateToPersonalDetails.bind(this)
+		this._shareMyLostPetWeb = this._shareMyLostPetWeb.bind(this)
+	}
+
+	_shareMyLostPetWeb () {
+		const petId = this.props.navigation.state.params.pet.id
+
+		Share.share({
+			message: `http://www.mylostpet.es/search/${petId}`,
+			title: "My Lost Pet",
+			url: "http://www.mylostpet.es/"
+		})
+			.then(this._showResult)
+			.catch(err => console.log(err))
 	}
 
 	mobileImageUrl (url) {
@@ -27,16 +40,21 @@ export default class PetCard extends React.Component {
 		const cardTitle = breed ? cardTitleWithBreed : kind
 
 		return (
-			<View style={styles.container}>
-				<Card imageStyle={styles.image} title={cardTitle} image={{uri: this.mobileImageUrl(image)}}>
-					<Text style={styles.secondaryTitle}>Encontrado en {location}, el {date}</Text>
-					<Text style={styles.description}>{info}</Text>
-					<Button
-						buttonStyle={styles.button}
-						onPress={this.navigateToPersonalDetails}
-						title='Contactar'/>
-				</Card>
-			</View>
+			<ScrollView style={styles.mainContainer}>
+				<View style={styles.container}>
+					<Card imageStyle={styles.image} title={cardTitle} image={{uri: this.mobileImageUrl(image)}}>
+						<Text style={styles.secondaryTitle}>Encontrado en {location}, el {date}</Text>
+						<Text style={styles.description}>{info}</Text>
+						<Button
+							buttonStyle={styles.button}
+							onPress={this.navigateToPersonalDetails}
+							title='Contactar'/>
+					</Card>
+				</View>
+				<TouchableOpacity onPress={this._shareMyLostPetWeb} >
+					<Image source={require("../assets/icons/share.png")} style={styles.shareIcon} />
+				</TouchableOpacity>
+			</ScrollView>
 		)
 	}
 }
@@ -48,6 +66,9 @@ const styles = StyleSheet.create({
 		alignItems: "stretch",
 		justifyContent: "flex-start"
 	},
+	mainContainer: {
+		backgroundColor: "white"
+	},
 	image: {
 		height: 300
 	},
@@ -56,6 +77,13 @@ const styles = StyleSheet.create({
 		marginLeft: 0,
 		marginRight: 0,
 		marginBottom: 0
+	},
+	shareIcon: {
+		alignSelf: "center",
+		width: 60,
+		marginTop: 15,
+		marginBottom: 15,
+		height: 60
 	},
 	secondaryTitle: {
 		marginBottom: 10,
