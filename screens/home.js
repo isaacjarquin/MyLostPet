@@ -1,7 +1,6 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, TouchableOpacity, Share } from "react-native"
-import { Button, SocialIcon, Icon } from "react-native-elements"
-import Drawer, { Message } from 'react-native-bottom-drawer'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
+import { Icon } from "react-native-elements"
 import SecondaryMenuModal from "../components/secondary-menu-modal"
 
 export default class Home extends React.Component {

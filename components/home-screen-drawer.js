@@ -1,6 +1,5 @@
 import React from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
-import { Button } from "react-native-elements"
 
 export default class HomeScreenDrawer extends React.Component {
 	constructor (props) {
@@ -24,23 +23,23 @@ export default class HomeScreenDrawer extends React.Component {
 	render () {
 		return (
 			<View style={styles.container}>
-					<Image
-						source={require("../assets/images/tirma.jpg")}
-						style={styles.image}
-					>
-						<TouchableOpacity style={styles.modalOptionsButton} onPress={this._whoWeAre} >
-							<Text style={styles.shareText} >Quienes somos</Text>
-						</TouchableOpacity>
-						<TouchableOpacity style={styles.modalOptionsButton} onPress={this._howToUse} >
-							<Text style={styles.shareText} >Como usar la aplicación</Text>
-						</TouchableOpacity>
-						<TouchableOpacity style={styles.modalOptionsButton} onPress={this._hideModal} >
-							<Text style={styles.shareText} >Contacto</Text>
-						</TouchableOpacity>
-						<TouchableOpacity style={styles.modalOptionsButton} onPress={this._termsAndConditions} >
-							<Text style={styles.shareText} >Términos y condiciones</Text>
-						</TouchableOpacity>
-					</Image>
+				<Image
+					source={require("../assets/images/tirma.jpg")}
+					style={styles.image}
+				>
+					<TouchableOpacity style={styles.modalOptionsButton} onPress={this._whoWeAre} >
+						<Text style={styles.shareText} >Quienes somos</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={styles.modalOptionsButton} onPress={this._howToUse} >
+						<Text style={styles.shareText} >Como usar la aplicación</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={styles.modalOptionsButton} onPress={this._hideModal} >
+						<Text style={styles.shareText} >Contacto</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={styles.modalOptionsButton} onPress={this._termsAndConditions} >
+						<Text style={styles.shareText} >Términos y condiciones</Text>
+					</TouchableOpacity>
+				</Image>
 			</View>
 		)
 	}
@@ -55,14 +54,14 @@ const styles = StyleSheet.create({
 	button: {
 		opacity: 0.8,
 		borderWidth: 0.5,
-    borderColor: '#d6d7da'
+		borderColor: "#d6d7da"
 	},
 	modalOptionsButton: {
-    opacity: 0.6,
+		opacity: 0.6,
 		borderWidth: 0.5,
-		backgroundColor: 'grey',
-    padding: 20,
-    borderColor: '#d6d7da'
+		backgroundColor: "grey",
+		padding: 20,
+		borderColor: "#d6d7da"
 	},
 	shareText: {
 		alignSelf: "center",

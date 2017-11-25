@@ -1,11 +1,11 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native"
 import Modal from "react-native-modal"
 import bodyParamsBuilder from "../utils/http-request.js"
 import pets from "../data/pets"
 import { get } from "../services/items-api"
 import locations from "../data/locations"
-import { Button, Icon, FormLabel, Divider } from "react-native-elements"
+import { Icon } from "react-native-elements"
 import {Select, Option} from "react-native-chooser"
 
 export default class SecondaryMenuModal extends React.Component {
@@ -154,14 +154,14 @@ const styles = StyleSheet.create({
 		padding: 15,
 		backgroundColor: "black",
 		opacity: 0.5,
-		borderColor: '#d6d7da',
+		borderColor: "#d6d7da",
 		borderWidth: 0.5
 	},
-  modalOptionsButton: {
-    opacity: 0.6,
+	modalOptionsButton: {
+		opacity: 0.6,
 		borderWidth: 0.5,
-    padding: 20,
-    borderColor: '#d6d7da'
+		padding: 20,
+		borderColor: "#d6d7da"
 	},
 	searchHomeButton: {
 		flexDirection: "row",
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "grey",
 		opacity: 0.8,
 		padding: 10,
-		borderColor: '#d6d7da',
+		borderColor: "#d6d7da",
 		borderWidth: 0.5
 	},
 	shareText: {

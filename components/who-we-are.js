@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from "react-native"
+import { StyleSheet, Text, View, Image, ScrollView } from "react-native"
 
 export default class WhoWeAre extends React.Component {
 	constructor (props) {
@@ -9,26 +9,26 @@ export default class WhoWeAre extends React.Component {
 	render () {
 		return (
 
-				<View style={styles.container}>
-          <Image
-            source={require("../assets/images/tirma.jpg")}
-            style={styles.image}
-          >
-						<ScrollView style={styles.contentContainer}>
+			<View style={styles.container}>
+				<Image
+					source={require("../assets/images/tirma.jpg")}
+					style={styles.image}
+				>
+					<ScrollView style={styles.contentContainer}>
 	            <Text style={styles.title}>¿Quiénes somos?</Text>
 	            <Text style={styles.description}>My lost pet es una organización sin fines de lucro compuesta por un grupo de voluntarios unidos por el amor hacia los animales y la convicción de que, juntos, podemos hacer mucho por ellos.</Text>
 	            <Text style={styles.description}>Esta iniciativa fue creada con el objetivo de facilitar todo lo posible la búsqueda de nuestras mascotas cuando éstas se encuentran extraviadas.</Text>
-						</ScrollView>
-          </Image>
-				</View>
+					</ScrollView>
+				</Image>
+			</View>
 		)
 	}
 }
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    backgroundColor: "grey"
-  },
+	mainContainer: {
+		backgroundColor: "grey"
+	},
 	container: {
 		flex: 1,
 		backgroundColor: "grey",
@@ -36,29 +36,29 @@ const styles = StyleSheet.create({
 		justifyContent: "flex-start"
 	},
 	contentContainer: {
-    opacity: 0.8,
-    backgroundColor: 'black'
-  },
+		opacity: 0.8,
+		backgroundColor: "black"
+	},
 	image: {
 		height: 300
 	},
 	title: {
-    color: 'white',
-    margin: 10,
-    fontSize: 20,
+		color: "white",
+		margin: 10,
+		fontSize: 20,
 		marginBottom: 10,
 		fontWeight: "bold",
-    alignSelf: "center",
-    backgroundColor: 'transparent'
+		alignSelf: "center",
+		backgroundColor: "transparent"
 	},
-  description: {
-    margin: 10,
+	description: {
+		margin: 10,
 		marginBottom: 10,
-    backgroundColor: 'transparent',
-    color: 'white',
-    opacity: 0.8,
+		backgroundColor: "transparent",
+		color: "white",
+		opacity: 0.8,
 	},
-  image: {
+	image: {
 		flex: 1,
 		justifyContent: "flex-start",
 		width: "100%",

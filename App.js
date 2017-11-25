@@ -15,13 +15,12 @@ import whoWeAre from "./components/who-we-are"
 import termsAndConditions from "./components/terms-and-conditions"
 import howToUse from "./components/how-to-use"
 import { Icon } from "react-native-elements"
-import { Header } from 'native-base';
-import { Text, Share } from "react-native"
+import { Share } from "react-native"
 
 const shareOptions = {
-		message: "http://www.mylostpet.es/",
-		title: "My Lost Pet",
-		url: "http://www.mylostpet.es/"
+	message: "http://www.mylostpet.es/",
+	title: "My Lost Pet",
+	url: "http://www.mylostpet.es/"
 }
 
 const App = StackNavigator(
