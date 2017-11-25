@@ -11,6 +11,8 @@ import HomeScreenDrawer from "./components/home-screen-drawer"
 import petsResult from "./screens/pets-result"
 import petCard from "./components/pet-card"
 import contactDetails from "./components/contact-details"
+import whoWeAre from "./components/who-we-are"
+import termsAndConditions from "./components/terms-and-conditions"
 import { Icon } from "react-native-elements"
 import { Header } from 'native-base';
 import { Text, Share } from "react-native"
@@ -47,7 +49,9 @@ const App = StackNavigator(
 		MissingPetForm: { screen: MissingPetForm },
 		SearchResultPage: { screen: petsResult },
 		PetCard: { screen: petCard },
-		ContactDetails: { screen: contactDetails }
+		ContactDetails: { screen: contactDetails },
+		WhoWeAre: { screen: whoWeAre },
+		TermsAndConditions: { screen: termsAndConditions }
 	}
 )
 
