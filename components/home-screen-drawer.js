@@ -24,7 +24,7 @@ export default class HomeScreenDrawer extends React.Component {
 		return (
 			<View style={styles.container}>
 				<Image
-					source={require("../assets/images/tirma.jpg")}
+					source={require("../assets/images/xira.jpg")}
 					style={styles.image}
 				>
 					<TouchableOpacity style={styles.modalOptionsButton} onPress={this._whoWeAre} >
