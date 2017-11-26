@@ -1,6 +1,6 @@
 import React from "react"
-import { StyleSheet, Text, View, Share, TouchableOpacity, Image, ScrollView } from "react-native"
-import { Card, Button } from "react-native-elements"
+import { StyleSheet, Text, View, Share, ScrollView } from "react-native"
+import { Card } from "react-native-elements"
 import ContactDetailModal from "./contact-details-modal"
 
 export default class PetCard extends React.Component {

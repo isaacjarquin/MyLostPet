@@ -1,7 +1,6 @@
 import React from "react"
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, Image } from "react-native"
-import { FormLabel, Icon } from "react-native-elements"
-import { Button } from "react-native-elements"
+import { Icon } from "react-native-elements"
 import Modal from "react-native-modal"
 import DropdownAlert from "react-native-dropdownalert"
 import { contactDetailsInitialState } from "../state/initialState"
