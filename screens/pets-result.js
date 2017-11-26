@@ -60,8 +60,9 @@ export default class SearchResultPage extends React.Component {
 				avatar={{uri: builtAvatar}}
 				avatarStyle={styles.avatarStyle}
 				onPress={() => navigate("PetCard", {pet: rowData})}
-				containerStyle={{paddingLeft: 10}}
-				titleContainerStyle={{marginLeft: 10}}
+				containerStyle={styles.listItem}
+				titleContainerStyle={styles.listItemTitle}
+				titleStyle={{color: "white"}}
 				subtitleContainerStyle={{marginLeft: 10}}
 			/>
 		)
@@ -76,14 +77,16 @@ export default class SearchResultPage extends React.Component {
 						renderRow={this.renderRow}
 					/>
 				</List>
-				<View style={styles.searchBarGroup}>
+				<View>
 					<SearchBar
-						round
 						onChangeText={this.setAndfilterbyCity}
+						inputStyle={{height: 50}}
+						noIcon={true}
 						placeholder='Ciudad/Municipio...' />
 					<SearchBar
-						round
 						onChangeText={this.setAndfilterbyBreed}
+						inputStyle={{height: 50}}
+						noIcon={true}
 						placeholder='Raza...' />
 				</View>
 			</View>
@@ -96,8 +99,14 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "flex-end"
 	},
-	searchBarGroup: {
-		marginTop: 10
+	listItem: {
+		paddingLeft: 10,
+		height: 80,
+		backgroundColor: "black",
+		opacity: 0.8
+	},
+	listItemTitle: {
+		marginLeft: 10
 	},
 	avatarStyle: {
 		width: 55,
