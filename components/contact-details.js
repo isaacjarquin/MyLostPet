@@ -184,18 +184,13 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: "white",
 		justifyContent: "flex-start",
-		backgroundColor: "#F7F7F7",
-		paddingTop: 20
+		backgroundColor: "#F7F7F7"
 	},
 	contactButton: {
 		flexDirection: "row",
 		backgroundColor: "#333333",
 		opacity: 0.8,
-		marginLeft: 15,
-		marginRight: 15,
-		marginTop: 5,
-		borderRadius: 3,
-		padding: 15
+		padding: 25
 	},
 	searchButton: {
 		color: "white",

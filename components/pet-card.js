@@ -43,7 +43,7 @@ export default class PetCard extends React.Component {
 		return (
 			<ScrollView>
 				<View style={styles.container}>
-					<Card imageStyle={styles.image} title={cardTitle} image={{uri: this.mobileImageUrl(image)}}>
+					<Card style={styles.petCard} imageStyle={styles.image} title={cardTitle} image={{uri: this.mobileImageUrl(image)}}>
 						<Text style={styles.secondaryTitle}>Encontrado en {location}, el {date}</Text>
 						<Text style={styles.description}>{info}</Text>
 					</Card>
@@ -57,9 +57,12 @@ export default class PetCard extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "transparent",
+		backgroundColor: "white",
 		alignItems: "stretch",
 		justifyContent: "flex-start"
+	},
+	petCard: {
+		width: "100%"
 	},
 	image: {
 		height: 300
@@ -69,13 +72,6 @@ const styles = StyleSheet.create({
 		marginLeft: 0,
 		marginRight: 0,
 		marginBottom: 0
-	},
-	shareIcon: {
-		alignSelf: "center",
-		width: 60,
-		marginTop: 15,
-		marginBottom: 15,
-		height: 60
 	},
 	secondaryTitle: {
 		marginBottom: 10,
