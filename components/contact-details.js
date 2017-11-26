@@ -1,7 +1,8 @@
 import React from "react"
-import { StyleSheet, View, TextInput } from "react-native"
-import { FormLabel, Divider } from "react-native-elements"
+import { StyleSheet, View, TextInput, Text, TouchableOpacity } from "react-native"
+import { FormLabel, Icon } from "react-native-elements"
 import { Button } from "react-native-elements"
+import Modal from "react-native-modal"
 import DropdownAlert from "react-native-dropdownalert"
 import { contactDetailsInitialState } from "../state/initialState"
 import { post } from "../services/items-api"
@@ -18,8 +19,18 @@ export default class ContactDetails extends React.Component {
 	constructor (props, context) {
 		super(props, context)
 		this.sendDetails = this.sendDetails.bind(this)
+		this._showModal = this._showModal.bind(this)
+		this._hideModal = this._hideModal.bind(this)
 
 		this.state = contactDetailsInitialState
+	}
+
+	_showModal () {
+		this.setState({ isModalVisible: true })
+	}
+
+	_hideModal () {
+		this.setState({ isModalVisible: false })
 	}
 
 	showSuccesfullMessage() {
@@ -54,7 +65,7 @@ export default class ContactDetails extends React.Component {
 
 	sendDetails() {
 		const { name, email, phoneNumber, personalInformation } = this.state
-		const { pet_id }  = this.props.navigation.state.params
+		const { petId }  = this.props
 
 		const fields = [
 			{ field: name, validate: presence},
@@ -71,7 +82,7 @@ export default class ContactDetails extends React.Component {
 				email: email.value,
 				phone_number: phoneNumber.value,
 				details: personalInformation.value,
-				item_id: pet_id
+				item_id: petId
 			}
 
 			const headers = { "Content-Type": "application/json" }
@@ -79,8 +90,14 @@ export default class ContactDetails extends React.Component {
 			const body = JSON.stringify({ contact_detail: contactDetailsDecoreted })
 
 			post(url, headers, body)
-				.then(() => this.showSuccesfullMessage())
-				.catch(() => this.showUnSuccesfullMessage())
+				.then(() => {
+					this._hideModal()
+					this.showSuccesfullMessage()
+				})
+				.catch(() => {
+					this._hideModal()
+					this.showUnSuccesfullMessage()
+				})
 		}
 	}
 
@@ -88,59 +105,60 @@ export default class ContactDetails extends React.Component {
 
 		return (
 			<View style={styles.container}>
-				<View>
-					<FormLabel>Nombre</FormLabel>
-					<TextInput
-						style={styles.textInput}
-						placeholder={this.state.name.validationMessage}
-						placeholderTextColor={this.state.name.validationMessageColor}
-						borderColor={this.state.name.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
-						value={this.state.name.value}
-					/>
+				<TouchableOpacity style={styles.contactButton} onPress={this._showModal} >
+					<Text style={styles.searchButton}>Contactar</Text>
+				</TouchableOpacity>
 
-					<FormLabel>Correo</FormLabel>
-					<TextInput
-						style={styles.textInput}
-						placeholder={this.state.email.validationMessage}
-						placeholderTextColor={this.state.email.validationMessageColor}
-						borderColor={this.state.email.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
-						value={this.state.email.value}
-					/>
+				<Modal isVisible={this.state.isModalVisible} style={styles.contactDetailsModalContainer} >
+					<TouchableOpacity onPress={this._hideModal} >
+	          <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
+					</TouchableOpacity>
 
-					<FormLabel>Número de teléfono</FormLabel>
-					<TextInput
-						style={styles.textInput}
-						placeholder={this.state.phoneNumber.validationMessage}
-						placeholderTextColor={this.state.phoneNumber.validationMessageColor}
-						borderColor={this.state.phoneNumber.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({phoneNumber: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
-						value={this.state.phoneNumber.value}
-					/>
+					<View>
+						<TextInput
+							style={styles.textInput}
+							placeholder={this.state.name.validationMessage}
+							placeholderTextColor={this.state.name.validationMessageColor}
+							borderColor={this.state.name.validationFieldBorderColor}
+							onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+							value={this.state.name.value}
+						/>
 
-					<FormLabel>Información personal</FormLabel>
-					<TextInput
-						style={styles.blockTextInput}
-						multiline= {true}
-						numberOfLines= {4}
-						placeholder={this.state.personalInformation.validationMessage}
-						placeholderTextColor={this.state.personalInformation.validationMessageColor}
-						borderColor={this.state.personalInformation.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({personalInformation: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
-						value={this.state.personalInformation.value}
-					/>
+						<TextInput
+							style={styles.textInput}
+							placeholder={this.state.email.validationMessage}
+							placeholderTextColor={this.state.email.validationMessageColor}
+							borderColor={this.state.email.validationFieldBorderColor}
+							onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+							value={this.state.email.value}
+						/>
 
-					<Divider style={styles.divider} />
+						<TextInput
+							style={styles.textInput}
+							placeholder={this.state.phoneNumber.validationMessage}
+							placeholderTextColor={this.state.phoneNumber.validationMessageColor}
+							borderColor={this.state.phoneNumber.validationFieldBorderColor}
+							onChangeText={(text) => this.setState({phoneNumber: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+							value={this.state.phoneNumber.value}
+						/>
 
-					<Button
-						style={styles.button}
-						borderRadius={3}
-						large
-						onPress={this.sendDetails}
-						title='Enviar mis datos' />
+						<TextInput
+							style={styles.blockTextInput}
+							multiline= {true}
+							numberOfLines= {4}
+							placeholder={this.state.personalInformation.validationMessage}
+							placeholderTextColor={this.state.personalInformation.validationMessageColor}
+							borderColor={this.state.personalInformation.validationFieldBorderColor}
+							onChangeText={(text) => this.setState({personalInformation: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+							value={this.state.personalInformation.value}
+						/>
 
-				</View>
+						<TouchableOpacity style={styles.contactDetailSendButton} onPress={this.sendDetails} >
+							<Text style={styles.contactDetailSendButtonText}>Enviar mis datos</Text>
+						</TouchableOpacity>
+
+					</View>
+				</Modal>
 
 				<DropdownAlert
 					ref={ref => this.dropdown = ref}
@@ -155,6 +173,13 @@ export default class ContactDetails extends React.Component {
 }
 
 const styles = StyleSheet.create({
+	contactDetailsModalContainer: {
+		flexDirection: "column",
+		backgroundColor: "#333333",
+		marginTop: 270,
+		borderTopLeftRadius: 3,
+		borderTopRightRadius: 3
+	},
 	container: {
 		flex: 1,
 		backgroundColor: "white",
@@ -162,39 +187,50 @@ const styles = StyleSheet.create({
 		backgroundColor: "#F7F7F7",
 		paddingTop: 20
 	},
+	contactButton: {
+		flexDirection: "row",
+		backgroundColor: "#333333",
+		opacity: 0.8,
+		marginLeft: 15,
+		marginRight: 15,
+		marginTop: 5,
+		borderRadius: 3,
+		padding: 15
+	},
+	searchButton: {
+		color: "white",
+		alignSelf: "center",
+		marginLeft: "35%",
+		fontSize: 18
+	},
 	textInput: {
-		height: 40,
-		fontSize: 14,
+		height: 60,
+		color: "black",
+		fontSize: 16,
 		borderWidth: 1,
-		marginTop: 10,
-		marginRight:20,
-		marginLeft: 20,
-		marginBottom: 20,
-		opacity: 0.6,
-		borderColor: "grey",
+		borderColor: "#333333",
+		backgroundColor: "white",
 		paddingLeft: 20,
 		paddingRight: 20
 	},
 	blockTextInput: {
 		height: 100,
-		borderColor: "grey",
-		fontSize: 14,
+		color: "black",
+		backgroundColor: "white",
+		borderColor: "#333333",
+		fontSize: 16,
 		borderWidth: 1,
-		marginTop: 10,
-		marginRight:20,
-		marginLeft: 20,
-		marginBottom: 20,
 		paddingLeft: 20,
 		paddingRight: 20,
 		paddingTop: 20
 	},
-	divider: {
-		marginRight: 20,
-		marginLeft: 20,
-		marginBottom: 20,
-		backgroundColor: "#d3d5d6"
+	contactDetailSendButton: {
+		backgroundColor: "grey",
+		padding: 20
 	},
-	button: {
-		marginBottom: 20
+	contactDetailSendButtonText: {
+		color: "white",
+		alignSelf: "center",
+		fontSize: 18
 	}
 })

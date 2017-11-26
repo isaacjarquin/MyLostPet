@@ -1,6 +1,7 @@
 import React from "react"
 import { StyleSheet, Text, View, Share, TouchableOpacity, Image, ScrollView } from "react-native"
 import { Card, Button } from "react-native-elements"
+import ContactDetail from "./contact-details"
 
 export default class PetCard extends React.Component {
 	constructor (props) {
@@ -40,20 +41,14 @@ export default class PetCard extends React.Component {
 		const cardTitle = breed ? cardTitleWithBreed : kind
 
 		return (
-			<ScrollView style={styles.mainContainer}>
+			<ScrollView>
 				<View style={styles.container}>
 					<Card imageStyle={styles.image} title={cardTitle} image={{uri: this.mobileImageUrl(image)}}>
 						<Text style={styles.secondaryTitle}>Encontrado en {location}, el {date}</Text>
 						<Text style={styles.description}>{info}</Text>
-						<Button
-							buttonStyle={styles.button}
-							onPress={this.navigateToPersonalDetails}
-							title='Contactar'/>
 					</Card>
+					<ContactDetail petId={ this.props.navigation.state.params.pet.id}/>
 				</View>
-				<TouchableOpacity onPress={this._shareMyLostPetWeb} >
-					<Image source={require("../assets/icons/share.png")} style={styles.shareIcon} />
-				</TouchableOpacity>
 			</ScrollView>
 		)
 	}
@@ -62,12 +57,9 @@ export default class PetCard extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "white",
+		backgroundColor: "transparent",
 		alignItems: "stretch",
 		justifyContent: "flex-start"
-	},
-	mainContainer: {
-		backgroundColor: "white"
 	},
 	image: {
 		height: 300
