@@ -78,7 +78,7 @@ exports[`renders correctly 1`] = `
             }
           }
         >
-          MyLostPet es un sitio web para el intercambio de información sobre mascotas que han sido encontradas y necesitan volver con sus dueños . Al utilizar el sitio de MyLostPet, aceptas y acuerdas estar obligado por los siguientes términos y condiciones. Nada en estas Condiciones debe ser interpretado como una concesión de derechos de terceros beneficiarios.
+          MyLostPet es una applicación para el intercambio de información sobre mascotas que han sido encontradas y necesitan volver con sus dueños . Al utilizar MyLostPet, aceptas y acuerdas estar obligado por los siguientes términos y condiciones. Nada en estas Condiciones debe ser interpretado como una concesión de derechos de terceros beneficiarios.
         </Text>
         <Text
           accessible={true}
@@ -110,7 +110,7 @@ exports[`renders correctly 1`] = `
             }
           }
         >
-          Como parte del proceso de registro de un animal, se pide un email y un numero de telefono. En ningún case este se utilizara para enviar publicidad ni se mostrará a terceros. La web le enviará un correo con los datos personales del dueño de la mascota y será usted el que decidirá cómo, cuando y si quiere ponerse en contacto con la misma.
+          Como parte del proceso de registro de un animal, se pide un email y un numero de telefono. En ningún caso este se utilizará para enviar publicidad ni se mostrará a terceros. La aplicación le enviará un correo con los datos personales del dueño de la mascota y será usted el que decidirá cómo, cuando y si quiere ponerse en contacto con la misma.
         </Text>
         <Text
           accessible={true}
@@ -190,7 +190,7 @@ exports[`renders correctly 1`] = `
             }
           }
         >
-          Al enviar, publicar o mostrar cualquier material en y a través del sitio, automáticamente el usuario nos otorga y autoriza una licencia mundial (permiso) para utilizar de manera gratuita, libre de regalías, con derecho de exhibir públicamente o distribuir estos materiales en cualquier formato que el equipo de MyLostPet considere pertinente y a perpetuidad.
+          Al enviar, publicar o mostrar cualquier material en y a través de la applicación, automáticamente el usuario nos otorga y autoriza una licencia mundial (permiso) para utilizar de manera gratuita, libre de regalías, con derecho de exhibir públicamente o distribuir estos materiales en cualquier formato que el equipo de MyLostPet considere pertinente y a perpetuidad.
         </Text>
         <Text
           accessible={true}
@@ -254,7 +254,7 @@ exports[`renders correctly 1`] = `
             }
           }
         >
-          En MyLostPet declinamos toda responsabilidad u obligación alguna por la exactitud, contenido, integridad, legalidad, fiabilidad, operabilidad o disponibilidad de la información o materiales exhibidos en el sitio web. El equipo de MyLostPet se exime de toda responsabilidad y la responsabilidad por la conducta de cualquier usuario.
+          En MyLostPet declinamos toda responsabilidad u obligación alguna por la exactitud, contenido, integridad, legalidad, fiabilidad, operabilidad o disponibilidad de la información o materiales exhibidos en la aplicación. El equipo de MyLostPet se exime de toda responsabilidad y la responsabilidad por la conducta de cualquier usuario.
         </Text>
         <Text
           accessible={true}
@@ -270,7 +270,7 @@ exports[`renders correctly 1`] = `
             }
           }
         >
-          BAJO NINGUNA CIRCUNSTANCIA MYLOSTPET SERA RESPONSABLE POR DAÑOS INDIRECTOS, INCIDENTAL, CONSECUENTE, ESPECIAL O EJEMPLAR QUE SURJA DE O EN CONEXION CON EL USO DEL SITIO WEB.
+          BAJO NINGUNA CIRCUNSTANCIA MYLOSTPET SERA RESPONSABLE POR DAÑOS INDIRECTOS, INCIDENTAL, CONSECUENTE, ESPECIAL O EJEMPLAR QUE SURJA DE O EN CONEXION CON EL USO DEL SITIO WEB O CUALQUIERA DE SUS APLICACIONES MOBILES O PARA TABLET.
         </Text>
       </View>
     </RCTScrollView>

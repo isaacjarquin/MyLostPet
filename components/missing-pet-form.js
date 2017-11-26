@@ -369,7 +369,7 @@ export default class MissingPetForm extends React.Component {
 					borderRadius={3}
 					large
 					onPress={this.sendPetData}
-					title='Buscar' />
+					title='Guardar datos' />
 
 
 				<DropdownAlert

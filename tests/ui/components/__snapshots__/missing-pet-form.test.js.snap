@@ -2544,7 +2544,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            Buscar
+            Guardar datos
           </Text>
         </View>
       </View>
