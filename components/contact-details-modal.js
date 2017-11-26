@@ -15,7 +15,7 @@ import {
 	isInvalidForm
 } from "../utils/validations"
 
-export default class ContactDetails extends React.Component {
+export default class ContactDetailsModal extends React.Component {
 	constructor (props, context) {
 		super(props, context)
 		this.sendDetails = this.sendDetails.bind(this)

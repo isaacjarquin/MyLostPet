@@ -1,7 +1,7 @@
 import React from "react"
 import { StyleSheet, Text, View, Share, TouchableOpacity, Image, ScrollView } from "react-native"
 import { Card, Button } from "react-native-elements"
-import ContactDetail from "./contact-details"
+import ContactDetailModal from "./contact-details-modal"
 
 export default class PetCard extends React.Component {
 	constructor (props) {
@@ -47,7 +47,7 @@ export default class PetCard extends React.Component {
 						<Text style={styles.secondaryTitle}>Encontrado en {location}, el {date}</Text>
 						<Text style={styles.description}>{info}</Text>
 					</Card>
-					<ContactDetail petId={ this.props.navigation.state.params.pet.id}/>
+					<ContactDetailModal petId={ this.props.navigation.state.params.pet.id}/>
 				</View>
 			</ScrollView>
 		)
