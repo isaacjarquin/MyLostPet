@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, TextInput, Text, TouchableOpacity } from "react-native"
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, Image } from "react-native"
 import { FormLabel, Icon } from "react-native-elements"
 import { Button } from "react-native-elements"
 import Modal from "react-native-modal"
@@ -154,6 +154,7 @@ export default class ContactDetails extends React.Component {
 						/>
 
 						<TouchableOpacity style={styles.contactDetailSendButton} onPress={this.sendDetails} >
+							<Image source={require("../assets/icons/send.png")} style={styles.contactDetailSendButtonIcon} />
 							<Text style={styles.contactDetailSendButtonText}>Enviar mis datos</Text>
 						</TouchableOpacity>
 
@@ -220,12 +221,18 @@ const styles = StyleSheet.create({
 		paddingTop: 20
 	},
 	contactDetailSendButton: {
+		flexDirection: "row",
 		backgroundColor: "grey",
 		padding: 20
 	},
 	contactDetailSendButtonText: {
 		color: "white",
-		alignSelf: "center",
-		fontSize: 18
+		fontSize: 20
+	},
+	contactDetailSendButtonIcon: {
+		marginLeft: "15%",
+		width: 25,
+		height: 25,
+		marginRight: 10
 	}
 })
