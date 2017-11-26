@@ -1,12 +1,12 @@
 import "react-native"
 import React from "react"
-import ContactDetails from "../../../components/contact-details"
+import ContactDetailsModal from "../../../components/contact-details-modal"
 
 import renderer from "react-test-renderer"
 
 it("renders correctly", () => {
 	const tree = renderer.create(
-		<ContactDetails />
+		<ContactDetailsModal />
 	).toJSON()
 	expect(tree).toMatchSnapshot()
 })

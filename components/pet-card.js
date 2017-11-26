@@ -1,6 +1,7 @@
 import React from "react"
-import { StyleSheet, Text, View, Share, TouchableOpacity, Image, ScrollView } from "react-native"
-import { Card, Button } from "react-native-elements"
+import { StyleSheet, Text, View, Share, ScrollView } from "react-native"
+import { Card } from "react-native-elements"
+import ContactDetailModal from "./contact-details-modal"
 
 export default class PetCard extends React.Component {
 	constructor (props) {
@@ -40,20 +41,14 @@ export default class PetCard extends React.Component {
 		const cardTitle = breed ? cardTitleWithBreed : kind
 
 		return (
-			<ScrollView style={styles.mainContainer}>
+			<ScrollView>
 				<View style={styles.container}>
-					<Card imageStyle={styles.image} title={cardTitle} image={{uri: this.mobileImageUrl(image)}}>
+					<Card style={styles.petCard} imageStyle={styles.image} title={cardTitle} image={{uri: this.mobileImageUrl(image)}}>
 						<Text style={styles.secondaryTitle}>Encontrado en {location}, el {date}</Text>
 						<Text style={styles.description}>{info}</Text>
-						<Button
-							buttonStyle={styles.button}
-							onPress={this.navigateToPersonalDetails}
-							title='Contactar'/>
 					</Card>
+					<ContactDetailModal petId={ this.props.navigation.state.params.pet.id}/>
 				</View>
-				<TouchableOpacity onPress={this._shareMyLostPetWeb} >
-					<Image source={require("../assets/icons/share.png")} style={styles.shareIcon} />
-				</TouchableOpacity>
 			</ScrollView>
 		)
 	}
@@ -66,8 +61,8 @@ const styles = StyleSheet.create({
 		alignItems: "stretch",
 		justifyContent: "flex-start"
 	},
-	mainContainer: {
-		backgroundColor: "white"
+	petCard: {
+		width: "100%"
 	},
 	image: {
 		height: 300
@@ -77,13 +72,6 @@ const styles = StyleSheet.create({
 		marginLeft: 0,
 		marginRight: 0,
 		marginBottom: 0
-	},
-	shareIcon: {
-		alignSelf: "center",
-		width: 60,
-		marginTop: 15,
-		marginBottom: 15,
-		height: 60
 	},
 	secondaryTitle: {
 		marginBottom: 10,

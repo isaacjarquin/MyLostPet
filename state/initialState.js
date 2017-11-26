@@ -1,26 +1,27 @@
 const contactDetailsInitialState = {
+	isModalVisible: false,
 	name: {
 		value: "",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		validationMessage: "Nombre",
+		validationMessageColor: "black",
 		validationFieldBorderColor: "grey"
 	},
 	email: {
 		value: "",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		validationMessage: "Correo",
+		validationMessageColor: "black",
 		validationFieldBorderColor: "grey"
 	},
 	phoneNumber: {
 		value: "",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		validationMessage: "Número de teléfono",
+		validationMessageColor: "black",
 		validationFieldBorderColor: "grey"
 	},
 	personalInformation: {
 		value: "",
-		validationMessage: "",
-		validationMessageColor: "transparent",
+		validationMessage: "Información personal",
+		validationMessageColor: "black",
 		validationFieldBorderColor: "grey"
 	}
 }
