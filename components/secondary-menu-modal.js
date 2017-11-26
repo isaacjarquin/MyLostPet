@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
 	select: {
 		width: "100%",
 		alignSelf: "center",
-		padding: 15,
+		padding: 20,
 		backgroundColor: "black",
 		opacity: 0.5,
 		borderColor: "#d6d7da",
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
 	socialIconsModal: {
 		flexDirection: "column",
 		backgroundColor: "#333333",
-		marginTop: 420,
+		marginTop: 385,
 		borderTopLeftRadius: 3,
 		borderTopRightRadius: 3
 	},
