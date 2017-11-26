@@ -26,9 +26,6 @@ export default class WhoWeAre extends React.Component {
 }
 
 const styles = StyleSheet.create({
-	mainContainer: {
-		backgroundColor: "grey"
-	},
 	container: {
 		flex: 1,
 		backgroundColor: "grey",
@@ -38,9 +35,6 @@ const styles = StyleSheet.create({
 	contentContainer: {
 		opacity: 0.8,
 		backgroundColor: "black"
-	},
-	image: {
-		height: 300
 	},
 	title: {
 		color: "white",

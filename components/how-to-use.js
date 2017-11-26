@@ -28,9 +28,6 @@ export default class HowToUse extends React.Component {
 }
 
 const styles = StyleSheet.create({
-	mainContainer: {
-		backgroundColor: "grey"
-	},
 	contentContainer: {
 		opacity: 0.8,
 		backgroundColor: "black"
@@ -46,12 +43,6 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 		fontWeight: "bold",
 		alignSelf: "center",
-		backgroundColor: "transparent"
-	},
-	socondaryTitle: {
-		fontWeight: "bold",
-		color: "white",
-		marginLeft: 10,
 		backgroundColor: "transparent"
 	},
 	description: {

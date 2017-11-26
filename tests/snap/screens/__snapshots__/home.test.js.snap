@@ -443,7 +443,7 @@ exports[`renders correctly 1`] = `
                       }
                     }
                   >
-                    Typo de mascota
+                    Tipo de mascota
                   </Text>
                   <View
                     style={

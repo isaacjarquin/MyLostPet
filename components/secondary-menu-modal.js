@@ -77,7 +77,7 @@ export default class SecondaryMenuModal extends React.Component {
 					</TouchableOpacity>
 					<View style={styles.socialIcons}>
 						<Select
-							defaultText={"Typo de mascota"}
+							defaultText={"Tipo de mascota"}
 							style={styles.select}
 							textStyle={{color: "white"}}
 							indicator="down"
@@ -135,9 +135,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "flex-start"
 	},
-	modalCloseButton: {
-		marginTop: 10
-	},
 	searchButtonText: {
 		color: "white",
 		alignSelf: "center",
@@ -156,12 +153,6 @@ const styles = StyleSheet.create({
 		opacity: 0.5,
 		borderColor: "#d6d7da",
 		borderWidth: 0.5
-	},
-	modalOptionsButton: {
-		opacity: 0.6,
-		borderWidth: 0.5,
-		padding: 20,
-		borderColor: "#d6d7da"
 	},
 	searchHomeButton: {
 		flexDirection: "row",
@@ -204,10 +195,5 @@ const styles = StyleSheet.create({
 		padding: 10,
 		borderColor: "#d6d7da",
 		borderWidth: 0.5
-	},
-	shareText: {
-		alignSelf: "center",
-		color: "white",
-		fontSize: 18
 	}
 })

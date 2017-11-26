@@ -51,11 +51,6 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 		justifyContent: "flex-start"
 	},
-	button: {
-		opacity: 0.8,
-		borderWidth: 0.5,
-		borderColor: "#d6d7da"
-	},
 	modalOptionsButton: {
 		opacity: 0.6,
 		borderWidth: 0.5,

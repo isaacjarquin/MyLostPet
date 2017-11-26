@@ -82,24 +82,12 @@ const styles = StyleSheet.create({
 		color: "white",
 		backgroundColor: "transparent"
 	},
-	shareIcon: {
-		alignSelf: "center",
-		width: 55,
-		height: 55
-	},
 	subTitle: {
 		fontSize: 18,
 		alignSelf: "center",
 		backgroundColor: "transparent",
 		marginBottom: 20,
 		color: "white"
-	},
-	button: {
-		margin: 10,
-		fontSize: 16,
-		alignSelf: "center",
-		color: "white",
-		backgroundColor: "transparent"
 	},
 	icon: {
 		width: 100,
@@ -116,11 +104,6 @@ const styles = StyleSheet.create({
 		marginTop: 5,
 		borderRadius: 3,
 		padding: 10
-	},
-	shareText: {
-		alignSelf: "center",
-		color: "white",
-		fontSize: 18
 	},
 	image: {
 		flex: 1,

@@ -40,9 +40,6 @@ export default class TermsAndConditions extends React.Component {
 }
 
 const styles = StyleSheet.create({
-	mainContainer: {
-		backgroundColor: "grey"
-	},
 	contentContainer: {
 		opacity: 0.8,
 		backgroundColor: "black"
