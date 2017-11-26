@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "grey",
+      "flex": 1,
+    }
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "flex": 1,
+        "height": "100%",
+        "justifyContent": "flex-start",
+        "width": "100%",
+      }
+    }
+  >
+    <RCTScrollView
+      style={
+        Object {
+          "backgroundColor": "black",
+          "opacity": 0.8,
+        }
+      }
+    >
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignSelf": "center",
+              "backgroundColor": "transparent",
+              "color": "white",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "margin": 10,
+              "marginBottom": 10,
+            }
+          }
+        >
+          Como usar la aplicación
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "white",
+              "margin": 10,
+              "marginBottom": 10,
+            }
+          }
+        >
+          El objetivo principal de la aplicación es poner en contacto a la persona que haya perdido su mascota con la persona que la haya encontrado.
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "white",
+              "margin": 10,
+              "marginBottom": 10,
+            }
+          }
+        >
+          La idea principal radica en que cuando nos encontramos un animal abandonado, todo lo que tenemos que hacer es introducir los datos relativos al animal y algunos datos personales de contacto. Tus datos personales en ningún momento se mostrarán a terceros ni serán utilizados para enviarte publicidad. La única finalidad de los mismos es la de poder comunicarte con la persona que haya perdido a su mascota. Una vez que hayas introducido los datos de la mascota encontrada, junto con una foto, que deberá ser inferior a 1Mbyte, debes hacer click en el botón guardar datos, y los datos serán almacenados en nuestra base de datos.
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "white",
+              "margin": 10,
+              "marginBottom": 10,
+            }
+          }
+        >
+          Si por el contrario, lo que deseas es encontrar a tu mascota perdida, debes usar el filtro en la parte superior de la página donde podrás filtrar por tipo de mascota, comunidad autónoma y provincia. Esto te direccionará a una página donde se te mostrarán todas las mascotas perdidas en la provincia seleccionada que coinciden con tu tipo de mascota. En esta segunda página también te encontrarás con otro filtro, con el cual podrás filtrar por ciudad o municipio, raza y tamaño. La combinación de estos 6 filtros nos permitirá una potente búsqueda que debería ser suficiente para encontrar a tu mascota. Una vez hayas encontrado a tu mascota, debes hacer click en el botón de contactar.
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "white",
+              "margin": 10,
+              "marginBottom": 10,
+            }
+          }
+        >
+          Esto desplegará un panel en el que deberás introducir tu información personal de contacto, para que la persona que encontró tu mascota se ponga en contacto contigo.
+        </Text>
+      </View>
+    </RCTScrollView>
+  </Image>
+</View>
+`;
