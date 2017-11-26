@@ -62,7 +62,7 @@ export default class SearchResultPage extends React.Component {
 				onPress={() => navigate("PetCard", {pet: rowData})}
 				containerStyle={styles.listItem}
 				titleContainerStyle={styles.listItemTitle}
-				titleStyle={{color: "white"}}
+				titleStyle={{color: "white", opacity: 0.9, fontWeight: "bold"}}
 				subtitleContainerStyle={{marginLeft: 10}}
 			/>
 		)
