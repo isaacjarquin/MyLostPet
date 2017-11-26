@@ -30,7 +30,7 @@ exports[`renders correctly 1`] = `
         Object {
           "alignSelf": "center",
           "backgroundColor": "transparent",
-          "color": "white",
+          "color": "grey",
           "fontSize": 28,
           "fontWeight": "bold",
           "margin": 20,
@@ -48,7 +48,7 @@ exports[`renders correctly 1`] = `
         Object {
           "alignSelf": "center",
           "backgroundColor": "transparent",
-          "color": "white",
+          "color": "grey",
           "fontSize": 18,
           "marginBottom": 20,
         }

@@ -34,7 +34,7 @@ export default class Home extends React.Component {
 		return (
 			<View style={styles.container}>
 				<Image
-					source={require("../assets/images/tirma.jpg")}
+					source={require("../assets/images/home.jpg")}
 					style={styles.image}
 				>
 					<Text style={styles.title}>My Lost Pet</Text>
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
 		fontSize: 28,
 		fontWeight: "bold",
 		alignSelf: "center",
-		color: "white",
+		color: "grey",
 		backgroundColor: "transparent"
 	},
 	searchIcon: {
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
 		alignSelf: "center",
 		backgroundColor: "transparent",
 		marginBottom: 20,
-		color: "white"
+		color: "grey"
 	},
 	icon: {
 		width: 100,
