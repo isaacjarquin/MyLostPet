@@ -9,7 +9,6 @@ import MissingPetForm from "./components/missing-pet-form"
 import HomeScreenDrawer from "./components/home-screen-drawer"
 import petsResult from "./screens/pets-result"
 import petCard from "./components/pet-card"
-import contactDetails from "./components/contact-details"
 import whoWeAre from "./components/who-we-are"
 import termsAndConditions from "./components/terms-and-conditions"
 import howToUse from "./components/how-to-use"
@@ -47,7 +46,6 @@ const App = StackNavigator(
 		MissingPetForm: { screen: MissingPetForm },
 		SearchResultPage: { screen: petsResult },
 		PetCard: { screen: petCard },
-		ContactDetails: { screen: contactDetails },
 		WhoWeAre: { screen: whoWeAre },
 		TermsAndConditions: { screen: termsAndConditions },
 		HowToUse: { screen: howToUse }
