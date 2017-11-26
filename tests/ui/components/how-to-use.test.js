@@ -1,12 +1,12 @@
 import "react-native"
 import React from "react"
-import SearchForm from "../../../components/search-form"
+import HowToUse from "../../../components/how-to-use"
 
 import renderer from "react-test-renderer"
 
 it("renders correctly", () => {
 	const tree = renderer.create(
-		<SearchForm />
+		<HowToUse />
 	).toJSON()
 	expect(tree).toMatchSnapshot()
 })

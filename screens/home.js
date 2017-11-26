@@ -1,17 +1,22 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, TouchableOpacity, Share } from "react-native"
-import { Button } from "react-native-elements"
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
+import { Icon } from "react-native-elements"
+import SecondaryMenuModal from "../components/secondary-menu-modal"
 
 export default class Home extends React.Component {
 	constructor (props) {
 		super(props)
 		this.navigateToSearchForm = this.navigateToSearchForm.bind(this)
 		this.navigateToMissingPetForm = this.navigateToMissingPetForm.bind(this)
-		this._shareMyLostPetWeb = this._shareMyLostPetWeb.bind(this)
+		this._showModal = this._showModal.bind(this)
 
 		this.state = {
 	    isModalVisible: false
 	  }
+	}
+
+	_showModal () {
+		this.setState({ isModalVisible: true })
 	}
 
 	navigateToMissingPetForm () {
@@ -25,21 +30,11 @@ export default class Home extends React.Component {
 		navigate("SearchForm")
 	}
 
-	_shareMyLostPetWeb () {
-		Share.share({
-			message: "http://www.mylostpet.es/",
-			title: "My Lost Pet",
-			url: "http://www.mylostpet.es/"
-		})
-			.then(this._showResult)
-			.catch(err => console.log(err))
-	}
-
 	render () {
 		return (
 			<View style={styles.container}>
 				<Image
-					source={require("../assets/images/tirma.jpg")}
+					source={require("../assets/images/home.jpg")}
 					style={styles.image}
 				>
 					<Text style={styles.title}>My Lost Pet</Text>
@@ -49,25 +44,13 @@ export default class Home extends React.Component {
 						source={require("../assets/images/pet-care-icon.png")}
 						style={styles.icon}
 					/>
-					<Button
-						style={styles.button}
-						borderRadius={3}
-						backgroundColor={"#333333"}
-						large
-						onPress={this.navigateToMissingPetForm}
-						title='Encontraste una mascota perdida ?' />
 
-					<Button
-						style={styles.button}
-						borderRadius={3}
-						backgroundColor={"#333333"}
-						large
-						onPress={this.navigateToSearchForm}
-						title='Buscar Mascota perdida' />
-
-					<TouchableOpacity style={styles.share} onPress={this._shareMyLostPetWeb} >
-						<Text style={styles.shareText} >Share</Text>
+					<TouchableOpacity style={styles.share} onPress={this.navigateToMissingPetForm} >
+	          <Icon style={styles.searchIcon} color='white' type="entypo" name="plus" size={30} />
+						<Text style={styles.searchButton}>Añadir nueva mascota</Text>
 					</TouchableOpacity>
+
+					<SecondaryMenuModal navigate={ this.props.navigation.navigate}/>
 				</Image>
 			</View>
 		)
@@ -85,46 +68,42 @@ const styles = StyleSheet.create({
 		fontSize: 28,
 		fontWeight: "bold",
 		alignSelf: "center",
-		color: "white",
+		color: "grey",
 		backgroundColor: "transparent"
 	},
-	shareIcon: {
+	searchIcon: {
 		alignSelf: "center",
-		width: 55,
-		height: 55
+		marginLeft: "15%"
+	},
+	searchButton: {
+		margin: 10,
+		fontSize: 18,
+		alignSelf: "center",
+		color: "white",
+		backgroundColor: "transparent"
 	},
 	subTitle: {
 		fontSize: 18,
 		alignSelf: "center",
 		backgroundColor: "transparent",
 		marginBottom: 20,
-		color: "white"
-	},
-	button: {
-		marginTop: 10,
-		marginBottom: 10,
-		opacity: 0.8
+		color: "grey"
 	},
 	icon: {
 		width: 100,
 		height: 100,
-		marginBottom: 190,
+		marginBottom: "67%",
 		alignSelf: "center"
 	},
 	share: {
+		flexDirection: "row",
 		backgroundColor: "#333333",
 		opacity: 0.8,
 		marginLeft: 15,
 		marginRight: 15,
 		marginTop: 5,
-		borderTopLeftRadius: 3,
-		borderTopRightRadius: 3,
-		padding: 8
-	},
-	shareText: {
-		alignSelf: "center",
-		color: "white",
-		fontSize: 18
+		borderRadius: 3,
+		padding: 10
 	},
 	image: {
 		flex: 1,

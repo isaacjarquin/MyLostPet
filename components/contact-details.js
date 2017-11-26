@@ -196,11 +196,5 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		marginBottom: 20
-	},
-	buttonText: {
-		color: "#FAFAFA",
-		fontSize: 20,
-		margin: 20,
-		fontWeight: "600"
 	}
 })

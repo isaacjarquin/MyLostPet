@@ -369,7 +369,7 @@ export default class MissingPetForm extends React.Component {
 					borderRadius={3}
 					large
 					onPress={this.sendPetData}
-					title='Buscar' />
+					title='Guardar datos' />
 
 
 				<DropdownAlert
@@ -384,13 +384,6 @@ export default class MissingPetForm extends React.Component {
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "white",
-		justifyContent: "flex-start",
-		backgroundColor: "#F7F7F7",
-		paddingTop: 20
-	},
 	addImage: {
 		flex: 1,
 		padding: 5,
@@ -436,19 +429,6 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 		marginTop: 10,
 	},
-	blockTextInput: {
-		height: 100,
-		borderColor: "grey",
-		fontSize: 14,
-		borderWidth: 1,
-		marginTop: 10,
-		marginRight:20,
-		marginLeft: 20,
-		marginBottom: 10,
-		paddingLeft: 20,
-		paddingRight: 20,
-		paddingTop: 10
-	},
 	select: {
 		alignSelf: "stretch",
 		marginTop: 10,
@@ -464,24 +444,7 @@ const styles = StyleSheet.create({
 		margin: 20,
 		backgroundColor: "#d3d5d6"
 	},
-	icon: {
-		width: 40,
-		height: 40,
-		borderRadius: 27,
-		marginTop: 20,
-		marginRight: 20,
-		marginLeft: 20
-	},
 	button: {
 		marginBottom: 20
-	},
-	buttonText: {
-		color: "#FAFAFA",
-		fontSize: 20,
-		marginTop: 10,
-		marginBottom: 10,
-		paddingLeft: 20,
-		paddingRight: 20,
-		fontWeight: "600"
 	}
 })

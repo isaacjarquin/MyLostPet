@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "grey",
+      "flex": 1,
+      "justifyContent": "flex-start",
+    }
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "flex": 1,
+        "height": "100%",
+        "justifyContent": "flex-start",
+        "width": "100%",
+      }
+    }
+  >
+    <RCTScrollView
+      style={
+        Object {
+          "backgroundColor": "black",
+          "opacity": 0.8,
+        }
+      }
+    >
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignSelf": "center",
+              "backgroundColor": "transparent",
+              "color": "white",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "margin": 10,
+              "marginBottom": 10,
+            }
+          }
+        >
+          ¿Quiénes somos?
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "white",
+              "margin": 10,
+              "marginBottom": 10,
+              "opacity": 0.8,
+            }
+          }
+        >
+          My lost pet es una organización sin fines de lucro compuesta por un grupo de voluntarios unidos por el amor hacia los animales y la convicción de que, juntos, podemos hacer mucho por ellos.
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "white",
+              "margin": 10,
+              "marginBottom": 10,
+              "opacity": 0.8,
+            }
+          }
+        >
+          Esta iniciativa fue creada con el objetivo de facilitar todo lo posible la búsqueda de nuestras mascotas cuando éstas se encuentran extraviadas.
+        </Text>
+      </View>
+    </RCTScrollView>
+  </Image>
+</View>
+`;
