@@ -82,8 +82,8 @@ export default class SecondaryMenuModal extends React.Component {
 							textStyle={{color: "white"}}
 							indicator="down"
 							indicatorColor="white"
-							backdropStyle={{backgroundColor: "#d3d5d6"}}
-							optionListStyle={{backgroundColor: "#F5FCFF"}}
+							backdropStyle={styles.backdropStyle}
+							optionListStyle={styles.optionListStyle}
 							onSelect={this.setType}
 							selected={() => setSelectedText(this.state.type)}
 						>
@@ -96,8 +96,8 @@ export default class SecondaryMenuModal extends React.Component {
 							textStyle={{color: "white"}}
 							indicator="down"
 							indicatorColor="white"
-							backdropStyle={{backgroundColor: "#d3d5d6"}}
-							optionListStyle={{backgroundColor: "#F5FCFF"}}
+							backdropStyle={styles.backdropStyle}
+							optionListStyle={styles.optionListStyle}
 							onSelect={this.setAutonomousComunity}
 							selected={() => setSelectedText(this.state.autonomousComunity)}
 						>
@@ -110,8 +110,8 @@ export default class SecondaryMenuModal extends React.Component {
 							textStyle={{color: "white"}}
 							indicator="down"
 							indicatorColor="white"
-							backdropStyle={{backgroundColor: "#d3d5d6"}}
-							optionListStyle={{backgroundColor: "#F5FCFF"}}
+							backdropStyle={styles.backdropStyle}
+							optionListStyle={styles.optionListStyle}
 							onSelect={this.setProvince}
 							selected={() => setSelectedText(this.state.province)}
 						>
@@ -134,6 +134,16 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: "flex-start"
+	},
+	optionListStyle: {
+		backgroundColor: "white",
+		borderColor: "black",
+		width: "95%",
+		borderRadius: 5
+	},
+	backdropStyle: {
+		backgroundColor: "black",
+		opacity: 0.8
 	},
 	searchButtonText: {
 		color: "white",
