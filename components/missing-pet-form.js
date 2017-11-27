@@ -196,13 +196,13 @@ export default class MissingPetForm extends React.Component {
 	}
 
 	setProvince (text) {
-		this.setState({province: {value: text}})
+		this.setState({province: {value: text, validationMessageColor: "white", validationFieldBorderColor: "white"}})
 	}
 
 	setAutonomousComunity (text) {
 		const location = locations.find((location) => location.value === text)
 
-		this.setState({autonomousComunity: { value: text }})
+		this.setState({autonomousComunity: { value: text, validationMessageColor: "white", validationFieldBorderColor: "white" }})
 		this.setState({provincias: location.provincias})
 	}
 
@@ -215,7 +215,7 @@ export default class MissingPetForm extends React.Component {
 	}
 
 	_handleDatePicked (date) {
-		this.setState({ date: {value: date.toISOString().split("T")[0]} })
+		this.setState({ date: {value: date.toISOString().split("T")[0], validationMessageColor: "white", validationFieldBorderColor: "white"} })
 		this._hideDateTimePicker()
 	}
 
@@ -248,7 +248,7 @@ export default class MissingPetForm extends React.Component {
 						placeholder={this.state.name.validationMessage}
 						placeholderTextColor={this.state.name.validationMessageColor}
 						borderColor={this.state.name.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.name.value}
 					/>
 
@@ -258,7 +258,7 @@ export default class MissingPetForm extends React.Component {
 						placeholder={this.state.email.validationMessage}
 						placeholderTextColor={this.state.email.validationMessageColor}
 						borderColor={this.state.email.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.email.value}
 					/>
 
@@ -270,7 +270,7 @@ export default class MissingPetForm extends React.Component {
 						indicatorColor="grey"
 						backdropStyle={{backgroundColor: "#d3d5d6"}}
 						optionListStyle={{backgroundColor: "#F5FCFF"}}
-						onSelect={(text) => this.setState({type: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						onSelect={(text) => this.setState({type: {value: text, validationFieldBorderColor: "white", validationMessageColor: "white", validationMessage: ""}})}
 						selected={() => setSelectedText(this.state.type.value)}
 					>
 						{pets.map((pet) => <Option key={pet.id} value={pet.value}>{pet.value}</Option>)}
@@ -281,7 +281,7 @@ export default class MissingPetForm extends React.Component {
 						placeholder={this.state.breed.validationMessage}
 						placeholderTextColor={this.state.breed.validationMessageColor}
 						borderColor={this.state.breed.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({breed: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({breed: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.breed.value}
 					/>
 
@@ -290,16 +290,16 @@ export default class MissingPetForm extends React.Component {
 						placeholder={this.state.size.validationMessage}
 						placeholderTextColor={this.state.size.validationMessageColor}
 						borderColor={this.state.size.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({size: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({size: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.size.value}
 					/>
 
 					<TouchableOpacity onPress={this._showDateTimePicker}>
-						<View style={[styles.calendarSelect, {backgroundColor: this.state.date.validationBackgroundColor}]} >
+						<View style={[styles.calendarSelect, {backgroundColor: this.state.date.validationBackgroundColor, borderColor: this.state.date.validationFieldBorderColor}]} >
 							<Text style={[styles.calendarText, {color: this.state.date.validationMessageColor}]} >
 								{this.state.date.value}
 							</Text>
-							<Icon color='grey' type="evilicon" name="calendar" size={30} />
+							<Icon color={this.state.date.validationFieldBorderColor} type="evilicon" name="calendar" size={30} />
 						</View>
 					</TouchableOpacity>
 
@@ -343,7 +343,7 @@ export default class MissingPetForm extends React.Component {
 						placeholder={this.state.location.validationMessage}
 						placeholderTextColor={this.state.location.validationMessageColor}
 						borderColor={this.state.location.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({location: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({location: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.location.value}
 					/>
 
@@ -352,7 +352,7 @@ export default class MissingPetForm extends React.Component {
 						placeholder={this.state.description.validationMessage}
 						placeholderTextColor={this.state.description.validationMessageColor}
 						borderColor={this.state.description.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({description: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({description: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.description.value}
 					/>
 
@@ -409,6 +409,7 @@ const styles = StyleSheet.create({
 	textInput: {
 		height: 40,
 		fontSize: 14,
+		color: 'white',
 		borderWidth: 1,
 		marginTop: 10,
 		marginRight:20,
@@ -426,8 +427,7 @@ const styles = StyleSheet.create({
 		marginTop: 10,
 		marginBottom: 10,
 		flexDirection: "row",
-		borderWidth: 1,
-		borderColor: "grey"
+		borderWidth: 1
 	},
 	calendarText: {
 		marginLeft: 20,

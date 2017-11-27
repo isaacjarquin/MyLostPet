@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from "react-native"
 import { Icon } from "react-native-elements"
 import SecondaryMenuModal from "../components/secondary-menu-modal"
 
@@ -32,27 +32,29 @@ export default class Home extends React.Component {
 
 	render () {
 		return (
-			<View style={styles.container}>
-				<Image
-					source={require("../assets/images/home.jpg")}
-					style={styles.image}
-				>
-					<Text style={styles.title}>My Lost Pet</Text>
-					<Text style={styles.subTitle}>Te ayudamos a encontrarlo</Text>
-
+			<ScrollView>
+				<View style={styles.container}>
 					<Image
-						source={require("../assets/images/pet-care-icon.png")}
-						style={styles.icon}
-					/>
+						source={require("../assets/images/home.jpg")}
+						style={styles.image}
+					>
+						<Text style={styles.title}>My Lost Pet</Text>
+						<Text style={styles.subTitle}>Te ayudamos a encontrarlo</Text>
 
-					<TouchableOpacity style={styles.share} onPress={this.navigateToMissingPetForm} >
-	          <Icon style={styles.searchIcon} color='white' type="entypo" name="plus" size={30} />
-						<Text style={styles.searchButton}>Añadir nueva mascota</Text>
-					</TouchableOpacity>
+						<Image
+							source={require("../assets/images/pet-care-icon.png")}
+							style={styles.icon}
+						/>
 
-					<SecondaryMenuModal navigate={ this.props.navigation.navigate}/>
-				</Image>
-			</View>
+						<TouchableOpacity style={styles.share} onPress={this.navigateToMissingPetForm} >
+		          <Icon style={styles.searchIcon} color='white' type="entypo" name="plus" size={30} />
+							<Text style={styles.searchButton}>Añadir nueva mascota</Text>
+						</TouchableOpacity>
+
+						<SecondaryMenuModal navigate={ this.props.navigation.navigate}/>
+					</Image>
+				</View>
+			</ScrollView>
 		)
 	}
 }
