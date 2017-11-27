@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, ListView } from "react-native"
+import { StyleSheet, View, ListView, ScrollView } from "react-native"
 import { List, ListItem, SearchBar } from "react-native-elements"
 
 export default class SearchResultPage extends React.Component {
@@ -71,12 +71,14 @@ export default class SearchResultPage extends React.Component {
 	render () {
 		return (
 			<View style={styles.container}>
-				<List>
-					<ListView
-						dataSource={this.state.dataSource}
-						renderRow={this.renderRow}
-					/>
-				</List>
+				<ScrollView>
+					<List>
+						<ListView
+							dataSource={this.state.dataSource}
+							renderRow={this.renderRow}
+						/>
+					</List>
+				</ScrollView>
 				<View>
 					<SearchBar
 						onChangeText={this.setAndfilterbyCity}
