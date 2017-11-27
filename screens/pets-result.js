@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, ListView } from "react-native"
+import { StyleSheet, View, ListView, ScrollView } from "react-native"
 import { List, ListItem, SearchBar } from "react-native-elements"
 
 export default class SearchResultPage extends React.Component {
@@ -60,9 +60,10 @@ export default class SearchResultPage extends React.Component {
 				avatar={{uri: builtAvatar}}
 				avatarStyle={styles.avatarStyle}
 				onPress={() => navigate("PetCard", {pet: rowData})}
-				containerStyle={{paddingLeft: 10}}
-				titleContainerStyle={{marginLeft: 10}}
-				subtitleContainerStyle={{marginLeft: 10}}
+				containerStyle={styles.listItem}
+				titleContainerStyle={styles.listItemTitle}
+				titleStyle={{color: "white", opacity: 0.9, fontWeight: "bold"}}
+				subtitleContainerStyle={{marginLeft: 15}}
 			/>
 		)
 	}
@@ -70,20 +71,24 @@ export default class SearchResultPage extends React.Component {
 	render () {
 		return (
 			<View style={styles.container}>
-				<List>
-					<ListView
-						dataSource={this.state.dataSource}
-						renderRow={this.renderRow}
-					/>
-				</List>
-				<View style={styles.searchBarGroup}>
+				<ScrollView>
+					<List>
+						<ListView
+							dataSource={this.state.dataSource}
+							renderRow={this.renderRow}
+						/>
+					</List>
+				</ScrollView>
+				<View>
 					<SearchBar
-						round
 						onChangeText={this.setAndfilterbyCity}
+						inputStyle={{height: 50}}
+						noIcon={true}
 						placeholder='Ciudad/Municipio...' />
 					<SearchBar
-						round
 						onChangeText={this.setAndfilterbyBreed}
+						inputStyle={{height: 50}}
+						noIcon={true}
 						placeholder='Raza...' />
 				</View>
 			</View>
@@ -96,15 +101,24 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "flex-end"
 	},
-	searchBarGroup: {
-		marginTop: 10
+	listItem: {
+		paddingLeft: 15,
+		paddingRight: 15,
+		height: 90,
+		backgroundColor: "black",
+		opacity: 0.8
+	},
+	listItemTitle: {
+		marginLeft: 15,
+		marginBottom: 5,
+		marginTop: 4
 	},
 	avatarStyle: {
-		width: 55,
-		height: 55,
-		borderRadius: 27,
-		marginTop: 20,
-		marginRight: 20,
-		marginLeft: 20
+		width: 64,
+		height: 64,
+		borderRadius: 32,
+		marginTop: 35,
+		marginRight: 10,
+		marginLeft: 10
 	}
 })

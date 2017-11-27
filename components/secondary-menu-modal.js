@@ -82,8 +82,8 @@ export default class SecondaryMenuModal extends React.Component {
 							textStyle={{color: "white"}}
 							indicator="down"
 							indicatorColor="white"
-							backdropStyle={{backgroundColor: "#d3d5d6"}}
-							optionListStyle={{backgroundColor: "#F5FCFF"}}
+							backdropStyle={styles.backdropStyle}
+							optionListStyle={styles.optionListStyle}
 							onSelect={this.setType}
 							selected={() => setSelectedText(this.state.type)}
 						>
@@ -96,8 +96,8 @@ export default class SecondaryMenuModal extends React.Component {
 							textStyle={{color: "white"}}
 							indicator="down"
 							indicatorColor="white"
-							backdropStyle={{backgroundColor: "#d3d5d6"}}
-							optionListStyle={{backgroundColor: "#F5FCFF"}}
+							backdropStyle={styles.backdropStyle}
+							optionListStyle={styles.optionListStyle}
 							onSelect={this.setAutonomousComunity}
 							selected={() => setSelectedText(this.state.autonomousComunity)}
 						>
@@ -110,8 +110,8 @@ export default class SecondaryMenuModal extends React.Component {
 							textStyle={{color: "white"}}
 							indicator="down"
 							indicatorColor="white"
-							backdropStyle={{backgroundColor: "#d3d5d6"}}
-							optionListStyle={{backgroundColor: "#F5FCFF"}}
+							backdropStyle={styles.backdropStyle}
+							optionListStyle={styles.optionListStyle}
 							onSelect={this.setProvince}
 							selected={() => setSelectedText(this.state.province)}
 						>
@@ -135,6 +135,16 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "flex-start"
 	},
+	optionListStyle: {
+		backgroundColor: "white",
+		borderColor: "black",
+		width: "95%",
+		borderRadius: 5
+	},
+	backdropStyle: {
+		backgroundColor: "black",
+		opacity: 0.8
+	},
 	searchButtonText: {
 		color: "white",
 		alignSelf: "center",
@@ -148,7 +158,7 @@ const styles = StyleSheet.create({
 	select: {
 		width: "100%",
 		alignSelf: "center",
-		padding: 15,
+		padding: 20,
 		backgroundColor: "black",
 		opacity: 0.5,
 		borderColor: "#d6d7da",
@@ -158,16 +168,14 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		backgroundColor: "#333333",
 		opacity: 0.8,
-		marginLeft: 15,
-		marginRight: 15,
-		marginTop: 5,
+		margin: 5,
 		borderRadius: 3,
 		padding: 15
 	},
 	socialIconsModal: {
 		flexDirection: "column",
 		backgroundColor: "#333333",
-		marginTop: 420,
+		marginTop: 385,
 		borderTopLeftRadius: 3,
 		borderTopRightRadius: 3
 	},
@@ -175,7 +183,7 @@ const styles = StyleSheet.create({
 		marginLeft: "35%"
 	},
 	searchHomeIcon: {
-		marginLeft: "15%"
+		marginLeft: "20%"
 	},
 	share: {
 		flexDirection: "row",

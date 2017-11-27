@@ -32,7 +32,7 @@ const missingPetInitialState = {
 	camaraPhotoImage: {
 		icon: { name: "plus" },
 		text: "Añade una foto de la mascota",
-		backgroundColor: "skyblue",
+		backgroundColor: "#49311c",
 	},
 	province: {
 		value: "",
