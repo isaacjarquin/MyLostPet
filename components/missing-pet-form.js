@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
 	textInput: {
 		height: 40,
 		fontSize: 14,
-		color: 'white',
+		color: "white",
 		borderWidth: 1,
 		marginTop: 10,
 		marginRight:20,
