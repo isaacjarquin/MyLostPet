@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		backgroundColor: "#333333",
 		opacity: 0.8,
-		marginLeft: 15,
-		marginRight: 15,
+		marginLeft: 5,
+		marginRight: 5,
 		marginTop: 5,
 		borderRadius: 3,
 		padding: 10

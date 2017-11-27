@@ -158,9 +158,7 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		backgroundColor: "#333333",
 		opacity: 0.8,
-		marginLeft: 15,
-		marginRight: 15,
-		marginTop: 5,
+		margin: 5,
 		borderRadius: 3,
 		padding: 15
 	},
@@ -175,7 +173,7 @@ const styles = StyleSheet.create({
 		marginLeft: "35%"
 	},
 	searchHomeIcon: {
-		marginLeft: "15%"
+		marginLeft: "20%"
 	},
 	share: {
 		flexDirection: "row",
