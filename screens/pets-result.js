@@ -63,7 +63,7 @@ export default class SearchResultPage extends React.Component {
 				containerStyle={styles.listItem}
 				titleContainerStyle={styles.listItemTitle}
 				titleStyle={{color: "white", opacity: 0.9, fontWeight: "bold"}}
-				subtitleContainerStyle={{marginLeft: 10}}
+				subtitleContainerStyle={{marginLeft: 15}}
 			/>
 		)
 	}
@@ -100,20 +100,23 @@ const styles = StyleSheet.create({
 		justifyContent: "flex-end"
 	},
 	listItem: {
-		paddingLeft: 10,
-		height: 80,
+		paddingLeft: 15,
+		paddingRight: 15,
+		height: 90,
 		backgroundColor: "black",
 		opacity: 0.8
 	},
 	listItemTitle: {
-		marginLeft: 10
+		marginLeft: 15,
+		marginBottom: 5,
+		marginTop: 4
 	},
 	avatarStyle: {
-		width: 55,
-		height: 55,
-		borderRadius: 27,
-		marginTop: 20,
-		marginRight: 20,
-		marginLeft: 20
+		width: 64,
+		height: 64,
+		borderRadius: 32,
+		marginTop: 35,
+		marginRight: 10,
+		marginLeft: 10
 	}
 })
