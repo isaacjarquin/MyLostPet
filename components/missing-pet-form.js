@@ -267,9 +267,9 @@ export default class MissingPetForm extends React.Component {
 						style={[styles.select, {borderColor: this.state.type.validationFieldBorderColor, backgroundColor: this.state.type.validationBackgroundColor}]}
 						textStyle={{color: this.state.type.validationMessageColor}}
 						indicator="down"
-						indicatorColor="grey"
-						backdropStyle={{backgroundColor: "#d3d5d6"}}
-						optionListStyle={{backgroundColor: "#F5FCFF"}}
+						indicatorColor={this.state.type.validationFieldBorderColor}
+						backdropStyle={styles.backdropStyle}
+						optionListStyle={styles.optionListStyle}
 						onSelect={(text) => this.setState({type: {value: text, validationFieldBorderColor: "white", validationMessageColor: "white", validationMessage: ""}})}
 						selected={() => setSelectedText(this.state.type.value)}
 					>
@@ -315,9 +315,9 @@ export default class MissingPetForm extends React.Component {
 						style={[styles.select, {borderColor: this.state.autonomousComunity.validationFieldBorderColor, backgroundColor: this.state.autonomousComunity.validationBackgroundColor}]}
 						textStyle={{color: this.state.autonomousComunity.validationMessageColor}}
 						indicator="down"
-						indicatorColor="grey"
-						backdropStyle={{backgroundColor: "#d3d5d6"}}
-						optionListStyle={{backgroundColor: "#F5FCFF"}}
+						indicatorColor={this.state.autonomousComunity.validationFieldBorderColor}
+						backdropStyle={styles.backdropStyle}
+						optionListStyle={styles.optionListStyle}
 						onSelect={this.setAutonomousComunity}
 						selected={() => setSelectedText(this.state.autonomousComunity.value)}
 					>
@@ -329,9 +329,9 @@ export default class MissingPetForm extends React.Component {
 						style={[styles.select, {borderColor: this.state.province.validationFieldBorderColor, backgroundColor: this.state.province.validationBackgroundColor}]}
 						textStyle={{color: this.state.province.validationMessageColor}}
 						indicator="down"
-						indicatorColor="grey"
-						backdropStyle={{backgroundColor: "#d3d5d6"}}
-						optionListStyle={{backgroundColor: "#F5FCFF"}}
+						indicatorColor={this.state.province.validationFieldBorderColor}
+						backdropStyle={styles.backdropStyle}
+						optionListStyle={styles.optionListStyle}
 						onSelect={this.setProvince}
 						selected={() => setSelectedText(this.state.province.value)}
 					>
@@ -386,6 +386,16 @@ export default class MissingPetForm extends React.Component {
 
 const styles = StyleSheet.create({
 	mainContainer: {
+		backgroundColor: "black",
+		opacity: 0.8
+	},
+	optionListStyle: {
+		backgroundColor: "white",
+		borderColor: "black",
+		width: "95%",
+		borderRadius: 5
+	},
+	backdropStyle: {
 		backgroundColor: "black",
 		opacity: 0.8
 	},
