@@ -7,6 +7,7 @@ import { get } from "../services/items-api"
 import locations from "../data/locations"
 import { Icon } from "react-native-elements"
 import {Select, Option} from "react-native-chooser"
+import CustomizedPicker from "./customized-picker"
 
 export default class SecondaryMenuModal extends React.Component {
 	constructor (props, context) {
@@ -84,10 +85,9 @@ export default class SecondaryMenuModal extends React.Component {
 							indicatorColor="white"
 							backdropStyle={styles.backdropStyle}
 							optionListStyle={styles.optionListStyle}
-							onSelect={this.setType}
 							selected={() => setSelectedText(this.state.type)}
 						>
-							{pets.map((pet) => <Option key={pet.id} value={pet.value}>{pet.value}</Option>)}
+							<CustomizedPicker items={pets} handler={this.setType} />
 						</Select>
 
 						<Select
@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "white",
 		borderColor: "black",
 		width: "95%",
+		height: "40%",
 		borderRadius: 5
 	},
 	backdropStyle: {
