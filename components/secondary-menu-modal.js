@@ -90,9 +90,9 @@ export default class SecondaryMenuModal extends React.Component {
 					</TouchableOpacity>
 					<View style={styles.socialIcons}>
 
-						<TouchableOpacity style={styles.searchHomeButton} onPress={this._showPetTypeModal} >
-							<Icon style={styles.searchHomeIcon} color='white' type="evilIcons" name="search" size={30} />
-							<Text style={styles.searchButton}>{this.state.type}</Text>
+						<TouchableOpacity style={styles.select} onPress={this._showPetTypeModal} >
+							<Text style={styles.selectText}>{this.state.type}</Text>
+							<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 						</TouchableOpacity>
 
 						<CustomizedPicker
@@ -168,13 +168,17 @@ const styles = StyleSheet.create({
 		fontSize: 18
 	},
 	select: {
+		flexDirection: "row",
 		width: "100%",
-		alignSelf: "center",
-		padding: 20,
+		padding: 15,
 		backgroundColor: "black",
 		opacity: 0.5,
 		borderColor: "#d6d7da",
 		borderWidth: 0.5
+	},
+	selectText: {
+		color: "white",
+		width: "95%"
 	},
 	searchHomeButton: {
 		flexDirection: "row",
