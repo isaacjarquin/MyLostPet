@@ -34,9 +34,9 @@ export default class SecondaryMenuModal extends React.Component {
 			isPetTypeModalVisible: false,
 			isAutonomousComunityModalVisible: false,
 			isProvinceModalVisible: false,
-			type: "Tipo de mascota",
-			autonomousComunity: "Comunidad autónoma",
-			province: "Provincia",
+			type: "",
+			autonomousComunity: "",
+			province: "",
 			provincias: []
 		}
 	}
@@ -82,10 +82,12 @@ export default class SecondaryMenuModal extends React.Component {
 	}
 
 	setAutonomousComunity (text) {
-		const location = locations.find((location) => location.value === text)
+		if (text) {
+			const location = locations.find((location) => location.value === text)
 
-		this.setState({autonomousComunity: text})
-		this.setState({provincias: location.provincias})
+			this.setState({autonomousComunity: text})
+			this.setState({provincias: location.provincias})
+		}
 	}
 
 	getPets () {
@@ -115,7 +117,7 @@ export default class SecondaryMenuModal extends React.Component {
 					<View style={styles.socialIcons}>
 
 						<TouchableOpacity style={styles.select} onPress={this._showPetTypeModal} >
-							<Text style={styles.selectText}>{this.state.type}</Text>
+							<Text style={styles.selectText}>{this.state.type === "" ? "Tipo de mascota" : this.state.type}</Text>
 							<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 						</TouchableOpacity>
 						<CustomizedPicker
@@ -126,7 +128,7 @@ export default class SecondaryMenuModal extends React.Component {
 						/>
 
 						<TouchableOpacity style={styles.select} onPress={this._showAutonomousComunityModal} >
-							<Text style={styles.selectText}>{this.state.autonomousComunity}</Text>
+							<Text style={styles.selectText}>{this.state.autonomousComunity === "" ? "Comunidad autónoma" : this.state.autonomousComunity}</Text>
 							<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 						</TouchableOpacity>
 						<CustomizedPicker
@@ -137,7 +139,7 @@ export default class SecondaryMenuModal extends React.Component {
 						/>
 
 						<TouchableOpacity style={styles.select} onPress={this._showProvinceModal} >
-							<Text style={styles.selectText}>{this.state.province}</Text>
+							<Text style={styles.selectText}>{this.state.province === "" ? "Provincia" : this.state.province }</Text>
 							<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 						</TouchableOpacity>
 						<CustomizedPicker
