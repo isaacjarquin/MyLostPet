@@ -26,13 +26,17 @@ export default class SecondaryMenuModal extends React.Component {
 		this._showAutonomousComunityModal = this._showAutonomousComunityModal.bind(this)
 		this._hideAutonomousComunityModal = this._hideAutonomousComunityModal.bind(this)
 
+		this._showProvinceModal = this._showProvinceModal.bind(this)
+		this._hideProvinceModal = this._hideProvinceModal.bind(this)
+
 		this.state = {
 			isModalVisible: false,
 			isPetTypeModalVisible: false,
 			isAutonomousComunityModalVisible: false,
+			isProvinceModalVisible: false,
 			type: "Tipo de mascota",
 			autonomousComunity: "Comunidad autónoma",
-			province: "",
+			province: "Provincia",
 			provincias: []
 		}
 	}
@@ -59,6 +63,14 @@ export default class SecondaryMenuModal extends React.Component {
 
 	_hideAutonomousComunityModal () {
 		this.setState({ isAutonomousComunityModalVisible: false })
+	}
+
+	_showProvinceModal () {
+		this.setState({ isProvinceModalVisible: true })
+	}
+
+	_hideProvinceModal () {
+		this.setState({ isProvinceModalVisible: false })
 	}
 
 	setType (text) {
@@ -124,19 +136,16 @@ export default class SecondaryMenuModal extends React.Component {
 							handler={this.setAutonomousComunity}
 						/>
 
-						<Select
-							defaultText={"Provincia"}
-							style={styles.select}
-							textStyle={{color: "white"}}
-							indicator="down"
-							indicatorColor="white"
-							backdropStyle={styles.backdropStyle}
-							optionListStyle={styles.optionListStyle}
-							onSelect={this.setProvince}
-							selected={() => setSelectedText(this.state.province)}
-						>
-							{this.state.provincias.map((provincia) => <Option key={provincia.id} value={provincia.value}>{provincia.value}</Option>)}
-						</Select>
+						<TouchableOpacity style={styles.select} onPress={this._showProvinceModal} >
+							<Text style={styles.selectText}>{this.state.province}</Text>
+							<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+						</TouchableOpacity>
+						<CustomizedPicker
+							items={this.state.provincias}
+							isVisible={this.state.isProvinceModalVisible}
+							hidePetTypeModal={this._hideProvinceModal}
+							handler={this.setProvince}
+						/>
 
 						<TouchableOpacity style={styles.submitButton} onPress={this.getPets} >
 		          <Icon style={styles.searchIcon} color='white' type="evilIcons" name="search" size={30} />
