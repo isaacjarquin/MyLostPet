@@ -23,11 +23,15 @@ export default class SecondaryMenuModal extends React.Component {
 		this._showPetTypeModal = this._showPetTypeModal.bind(this)
 		this._hidePetTypeModal = this._hidePetTypeModal.bind(this)
 
+		this._showAutonomousComunityModal = this._showAutonomousComunityModal.bind(this)
+		this._hideAutonomousComunityModal = this._hideAutonomousComunityModal.bind(this)
+
 		this.state = {
 			isModalVisible: false,
 			isPetTypeModalVisible: false,
+			isAutonomousComunityModalVisible: false,
 			type: "Tipo de mascota",
-			autonomousComunity: "",
+			autonomousComunity: "Comunidad autónoma",
 			province: "",
 			provincias: []
 		}
@@ -47,6 +51,14 @@ export default class SecondaryMenuModal extends React.Component {
 
 	_hidePetTypeModal () {
 		this.setState({ isPetTypeModalVisible: false })
+	}
+
+	_showAutonomousComunityModal () {
+		this.setState({ isAutonomousComunityModalVisible: true })
+	}
+
+	_hideAutonomousComunityModal () {
+		this.setState({ isAutonomousComunityModalVisible: false })
 	}
 
 	setType (text) {
@@ -94,26 +106,23 @@ export default class SecondaryMenuModal extends React.Component {
 							<Text style={styles.selectText}>{this.state.type}</Text>
 							<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 						</TouchableOpacity>
-
 						<CustomizedPicker
 							items={pets}
 							isVisible={this.state.isPetTypeModalVisible}
 							hidePetTypeModal={this._hidePetTypeModal}
-							handler={this.setType} />
+							handler={this.setType}
+						/>
 
-						<Select
-							defaultText={"Comunidad autonoma"}
-							style={styles.select}
-							textStyle={{color: "white"}}
-							indicator="down"
-							indicatorColor="white"
-							backdropStyle={styles.backdropStyle}
-							optionListStyle={styles.optionListStyle}
-							onSelect={this.setAutonomousComunity}
-							selected={() => setSelectedText(this.state.autonomousComunity)}
-						>
-							{locations.map((location) => <Option key={location.id} value={location.value}>{location.value}</Option>)}
-						</Select>
+						<TouchableOpacity style={styles.select} onPress={this._showAutonomousComunityModal} >
+							<Text style={styles.selectText}>{this.state.autonomousComunity}</Text>
+							<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+						</TouchableOpacity>
+						<CustomizedPicker
+							items={locations}
+							isVisible={this.state.isAutonomousComunityModalVisible}
+							hidePetTypeModal={this._hideAutonomousComunityModal}
+							handler={this.setAutonomousComunity}
+						/>
 
 						<Select
 							defaultText={"Provincia"}
