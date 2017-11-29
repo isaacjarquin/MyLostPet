@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
 	socialIconsModal: {
 		flexDirection: "column",
 		backgroundColor: "#333333",
-		marginTop: 385,
+		marginTop: 405,
 		borderTopLeftRadius: 3,
 		borderTopRightRadius: 3
 	},
