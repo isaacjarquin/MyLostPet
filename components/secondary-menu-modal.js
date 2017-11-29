@@ -20,9 +20,13 @@ export default class SecondaryMenuModal extends React.Component {
 		this.setProvince = this.setProvince.bind(this)
 		this.setAutonomousComunity = this.setAutonomousComunity.bind(this)
 
+		this._showPetTypeModal = this._showPetTypeModal.bind(this)
+		this._hidePetTypeModal = this._hidePetTypeModal.bind(this)
+
 		this.state = {
 			isModalVisible: false,
-			type: "",
+			isPetTypeModalVisible: false,
+			type: "Tipo de mascota",
 			autonomousComunity: "",
 			province: "",
 			provincias: []
@@ -35,6 +39,14 @@ export default class SecondaryMenuModal extends React.Component {
 
 	_hideModal () {
 		this.setState({ isModalVisible: false })
+	}
+
+	_showPetTypeModal () {
+		this.setState({ isPetTypeModalVisible: true })
+	}
+
+	_hidePetTypeModal () {
+		this.setState({ isPetTypeModalVisible: false })
 	}
 
 	setType (text) {
@@ -77,18 +89,17 @@ export default class SecondaryMenuModal extends React.Component {
 	          <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
 					</TouchableOpacity>
 					<View style={styles.socialIcons}>
-						<Select
-							defaultText={"Tipo de mascota"}
-							style={styles.select}
-							textStyle={{color: "white"}}
-							indicator="down"
-							indicatorColor="white"
-							backdropStyle={styles.backdropStyle}
-							optionListStyle={styles.optionListStyle}
-							selected={() => setSelectedText(this.state.type)}
-						>
-							<CustomizedPicker items={pets} handler={this.setType} />
-						</Select>
+
+						<TouchableOpacity style={styles.searchHomeButton} onPress={this._showPetTypeModal} >
+							<Icon style={styles.searchHomeIcon} color='white' type="evilIcons" name="search" size={30} />
+							<Text style={styles.searchButton}>{this.state.type}</Text>
+						</TouchableOpacity>
+
+						<CustomizedPicker
+							items={pets}
+							isVisible={this.state.isPetTypeModalVisible}
+							hidePetTypeModal={this._hidePetTypeModal}
+							handler={this.setType} />
 
 						<Select
 							defaultText={"Comunidad autonoma"}
