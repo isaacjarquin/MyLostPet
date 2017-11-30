@@ -31,6 +31,7 @@ const missingPetInitialState = {
 	isDateTimePickerVisible: false,
 	isPetTypeModalVisible: false,
 	isProvinceModalVisible: false,
+	isAutonomousComunityModalVisible: false,
 	camaraPhotoImage: {
 		icon: { name: "plus" },
 		text: "Añade una foto de la mascota",

@@ -34,6 +34,9 @@ export default class MissingPetForm extends React.Component {
 		this._hidePetTypeModal = this._hidePetTypeModal.bind(this)
 		this._showPetTypeModal = this._showPetTypeModal.bind(this)
 
+		this._showAutonomousComunityModal = this._showAutonomousComunityModal.bind(this)
+		this._hideAutonomousComunityModal = this._hideAutonomousComunityModal.bind(this)
+
 		this._showProvinceModal = this._showProvinceModal.bind(this)
 		this._hideProvinceModal = this._hideProvinceModal.bind(this)
 
@@ -236,6 +239,14 @@ export default class MissingPetForm extends React.Component {
 		this.setState({ isPetTypeModalVisible: false })
 	}
 
+	_showAutonomousComunityModal () {
+		this.setState({ isAutonomousComunityModalVisible: true })
+	}
+
+	_hideAutonomousComunityModal () {
+		this.setState({ isAutonomousComunityModalVisible: false })
+	}
+
 	_showProvinceModal () {
 		this.setState({ isProvinceModalVisible: true })
 	}
@@ -337,20 +348,16 @@ export default class MissingPetForm extends React.Component {
 						date={this.props.date || new Date()}
 					/>
 
-					<Select
-						defaultText={this.state.autonomousComunity.validationMessage}
-						style={[styles.select, {borderColor: this.state.autonomousComunity.validationFieldBorderColor, backgroundColor: this.state.autonomousComunity.validationBackgroundColor}]}
-						textStyle={{color: this.state.autonomousComunity.validationMessageColor}}
-						indicator="down"
-						indicatorColor={this.state.autonomousComunity.validationFieldBorderColor}
-						backdropStyle={styles.backdropStyle}
-						optionListStyle={styles.optionListStyle}
-						onSelect={this.setAutonomousComunity}
-						selected={() => setSelectedText(this.state.autonomousComunity.value)}
-					>
-						{locations.map((location) => <Option key={location.id} value={location.value}>{location.value}</Option>)}
-					</Select>
-
+					<TouchableOpacity style={styles.selectM} onPress={this._showAutonomousComunityModal} >
+						<Text style={styles.selectText}>{this.state.autonomousComunity.value === "" ? "Comunidad autónoma" : this.state.autonomousComunity.value}</Text>
+						<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+					</TouchableOpacity>
+					<CustomizedPicker
+						items={locations}
+						isVisible={this.state.isAutonomousComunityModalVisible}
+						hidePetTypeModal={this._hideAutonomousComunityModal}
+						handler={this.setAutonomousComunity}
+					/>
 
 					<TouchableOpacity style={styles.selectM} onPress={this._showProvinceModal} >
 						<Text style={styles.selectText}>{this.state.province.value === "" ? "Provincia" : this.state.province.value }</Text>
@@ -426,8 +433,7 @@ const styles = StyleSheet.create({
 	},
 	selectM: {
 		flexDirection: "row",
-		marginLeft: 10,
-		marginRight: 10,
+		margin: 10,
 		padding: 15,
 		backgroundColor: "black",
 		opacity: 0.5,
@@ -442,9 +448,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		padding: 5,
 		flexDirection: "row",
-		marginTop: 10,
-		marginLeft: 20,
-		marginRight: 20,
+		margin: 10,
 		borderWidth: 1,
 		borderColor: "grey"
 	},
@@ -459,46 +463,34 @@ const styles = StyleSheet.create({
 		height: 40,
 		fontSize: 14,
 		color: "white",
-		borderWidth: 1,
-		marginTop: 10,
-		marginRight:20,
-		marginLeft: 20,
-		marginBottom: 10,
+		borderWidth: 0.5,
+		margin: 10,
 		borderColor: "grey",
-		paddingLeft: 20,
-		paddingRight: 20
+		paddingTop: 25,
+		paddingBottom: 25,
+		paddingLeft: 15,
 	},
 	calendarSelect: {
 		flex: 1,
 		justifyContent: "space-between",
-		marginLeft: 20,
-		marginRight: 20,
-		marginTop: 10,
-		marginBottom: 10,
+		margin: 10,
+		paddingRight: 5,
 		flexDirection: "row",
-		borderWidth: 1
+		borderWidth: 0.5
 	},
 	calendarText: {
-		marginLeft: 20,
+		marginLeft: 15,
 		marginBottom: 10,
 		marginTop: 10,
-	},
-	select: {
-		alignSelf: "stretch",
-		marginTop: 10,
-		marginBottom: 10,
-		marginLeft: 20,
-		marginRight: 20,
-		paddingLeft: 20,
-		paddingRight: 20,
-		width: "90%",
-		borderWidth: 1
+		paddingTop: 5,
+		paddingBottom: 5
 	},
 	divider: {
-		margin: 20,
+		margin: 10,
+		marginBottom: 20,
 		backgroundColor: "#d3d5d6"
 	},
 	button: {
-		marginBottom: 20
+		marginBottom: 15
 	}
 })
