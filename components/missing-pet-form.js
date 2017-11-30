@@ -303,7 +303,7 @@ export default class MissingPetForm extends React.Component {
 						value={this.state.email.value}
 					/>
 
-					<TouchableOpacity style={styles.selectM} onPress={this._showPetTypeModal} >
+					<TouchableOpacity style={styles.select} onPress={this._showPetTypeModal} >
 						<Text style={styles.selectText}>{this.state.type.value === "" ? "Tipo de mascota" : this.state.type.value}</Text>
 						<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 					</TouchableOpacity>
@@ -348,7 +348,7 @@ export default class MissingPetForm extends React.Component {
 						date={this.props.date || new Date()}
 					/>
 
-					<TouchableOpacity style={styles.selectM} onPress={this._showAutonomousComunityModal} >
+					<TouchableOpacity style={styles.select} onPress={this._showAutonomousComunityModal} >
 						<Text style={styles.selectText}>{this.state.autonomousComunity.value === "" ? "Comunidad autónoma" : this.state.autonomousComunity.value}</Text>
 						<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 					</TouchableOpacity>
@@ -359,7 +359,7 @@ export default class MissingPetForm extends React.Component {
 						handler={this.setAutonomousComunity}
 					/>
 
-					<TouchableOpacity style={styles.selectM} onPress={this._showProvinceModal} >
+					<TouchableOpacity style={styles.select} onPress={this._showProvinceModal} >
 						<Text style={styles.selectText}>{this.state.province.value === "" ? "Provincia" : this.state.province.value }</Text>
 						<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 					</TouchableOpacity>
@@ -431,7 +431,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "black",
 		opacity: 0.8
 	},
-	selectM: {
+	select: {
 		flexDirection: "row",
 		margin: 10,
 		padding: 15,
