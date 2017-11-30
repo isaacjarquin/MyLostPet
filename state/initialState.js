@@ -29,6 +29,8 @@ const contactDetailsInitialState = {
 const missingPetInitialState = {
 	provincias: [],
 	isDateTimePickerVisible: false,
+	isPetTypeModalVisible: false,
+	isProvinceModalVisible: false,
 	camaraPhotoImage: {
 		icon: { name: "plus" },
 		text: "Añade una foto de la mascota",

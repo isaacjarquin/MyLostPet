@@ -9,6 +9,7 @@ import DateTimePicker from "react-native-modal-datetime-picker"
 import imagePicker from "react-native-imagepicker"
 import { missingPetInitialState } from "../state/initialState"
 import DropdownAlert from "react-native-dropdownalert"
+import CustomizedPicker from "./customized-picker"
 
 import {
 	presence,
@@ -24,9 +25,18 @@ export default class MissingPetForm extends React.Component {
 		this.sendPetData = this.sendPetData.bind(this)
 		this.setAutonomousComunity = this.setAutonomousComunity.bind(this)
 		this.setProvince = this.setProvince.bind(this)
+		this.setPetType = this.setPetType.bind(this)
+
 		this._handleDatePicked = this._handleDatePicked.bind(this)
 		this._hideDateTimePicker = this._hideDateTimePicker.bind(this)
 		this._showDateTimePicker = this._showDateTimePicker.bind(this)
+
+		this._hidePetTypeModal = this._hidePetTypeModal.bind(this)
+		this._showPetTypeModal = this._showPetTypeModal.bind(this)
+
+		this._showProvinceModal = this._showProvinceModal.bind(this)
+		this._hideProvinceModal = this._hideProvinceModal.bind(this)
+
 		this._handleImagePicked = this._handleImagePicked.bind(this)
 
 		this.state = missingPetInitialState
@@ -206,12 +216,32 @@ export default class MissingPetForm extends React.Component {
 		this.setState({provincias: location.provincias})
 	}
 
+	setPetType(text) {
+		this.setState({type: {value: text, validationFieldBorderColor: "white", validationMessageColor: "white", validationMessage: ""}})
+	}
+
 	_showDateTimePicker () {
 		this.setState({ isDateTimePickerVisible: true })
 	}
 
 	_hideDateTimePicker () {
 		this.setState({ isDateTimePickerVisible: false })
+	}
+
+	_showPetTypeModal () {
+		this.setState({ isPetTypeModalVisible: true })
+	}
+
+	_hidePetTypeModal () {
+		this.setState({ isPetTypeModalVisible: false })
+	}
+
+	_showProvinceModal () {
+		this.setState({ isProvinceModalVisible: true })
+	}
+
+	_hideProvinceModal () {
+		this.setState({ isProvinceModalVisible: false })
 	}
 
 	_handleDatePicked (date) {
@@ -262,19 +292,16 @@ export default class MissingPetForm extends React.Component {
 						value={this.state.email.value}
 					/>
 
-					<Select
-						defaultText={this.state.type.validationMessage}
-						style={[styles.select, {borderColor: this.state.type.validationFieldBorderColor, backgroundColor: this.state.type.validationBackgroundColor}]}
-						textStyle={{color: this.state.type.validationMessageColor}}
-						indicator="down"
-						indicatorColor={this.state.type.validationFieldBorderColor}
-						backdropStyle={styles.backdropStyle}
-						optionListStyle={styles.optionListStyle}
-						onSelect={(text) => this.setState({type: {value: text, validationFieldBorderColor: "white", validationMessageColor: "white", validationMessage: ""}})}
-						selected={() => setSelectedText(this.state.type.value)}
-					>
-						{pets.map((pet) => <Option key={pet.id} value={pet.value}>{pet.value}</Option>)}
-					</Select>
+					<TouchableOpacity style={styles.selectM} onPress={this._showPetTypeModal} >
+						<Text style={styles.selectText}>{this.state.type.value === "" ? "Tipo de mascota" : this.state.type.value}</Text>
+						<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+					</TouchableOpacity>
+					<CustomizedPicker
+						items={pets}
+						isVisible={this.state.isPetTypeModalVisible}
+						hidePetTypeModal={this._hidePetTypeModal}
+						handler={this.setPetType}
+					/>
 
 					<TextInput
 						style={styles.textInput}
@@ -324,19 +351,17 @@ export default class MissingPetForm extends React.Component {
 						{locations.map((location) => <Option key={location.id} value={location.value}>{location.value}</Option>)}
 					</Select>
 
-					<Select
-						defaultText={this.state.province.validationMessage}
-						style={[styles.select, {borderColor: this.state.province.validationFieldBorderColor, backgroundColor: this.state.province.validationBackgroundColor}]}
-						textStyle={{color: this.state.province.validationMessageColor}}
-						indicator="down"
-						indicatorColor={this.state.province.validationFieldBorderColor}
-						backdropStyle={styles.backdropStyle}
-						optionListStyle={styles.optionListStyle}
-						onSelect={this.setProvince}
-						selected={() => setSelectedText(this.state.province.value)}
-					>
-						{this.state.provincias.map((provincia) => <Option key={provincia.id} value={provincia.value}>{provincia.value}</Option>)}
-					</Select>
+
+					<TouchableOpacity style={styles.selectM} onPress={this._showProvinceModal} >
+						<Text style={styles.selectText}>{this.state.province.value === "" ? "Provincia" : this.state.province.value }</Text>
+						<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+					</TouchableOpacity>
+					<CustomizedPicker
+						items={this.state.provincias}
+						isVisible={this.state.isProvinceModalVisible}
+						hidePetTypeModal={this._hideProvinceModal}
+						handler={this.setProvince}
+					/>
 
 					<TextInput
 						style={styles.textInput}
@@ -398,6 +423,20 @@ const styles = StyleSheet.create({
 	backdropStyle: {
 		backgroundColor: "black",
 		opacity: 0.8
+	},
+	selectM: {
+		flexDirection: "row",
+		marginLeft: 10,
+		marginRight: 10,
+		padding: 15,
+		backgroundColor: "black",
+		opacity: 0.5,
+		borderColor: "#d6d7da",
+		borderWidth: 0.5
+	},
+	selectText: {
+		color: "white",
+		width: "95%"
 	},
 	addImage: {
 		flex: 1,
