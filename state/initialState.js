@@ -29,10 +29,13 @@ const contactDetailsInitialState = {
 const missingPetInitialState = {
 	provincias: [],
 	isDateTimePickerVisible: false,
+	isPetTypeModalVisible: false,
+	isProvinceModalVisible: false,
+	isAutonomousComunityModalVisible: false,
 	camaraPhotoImage: {
 		icon: { name: "plus" },
 		text: "Añade una foto de la mascota",
-		backgroundColor: "#49311c",
+		backgroundColor: "#99d1ed",
 	},
 	province: {
 		value: "",
@@ -62,7 +65,7 @@ const missingPetInitialState = {
 	},
 	type: {
 		value: "",
-		validationMessage: "Introduzca aquí el tipo de mascota",
+		validationMessage: "Seleccione el tipo de mascota",
 		validationMessageColor: "grey",
 		validationFieldBorderColor: "grey",
 		validationBackgroundColor: "transparent"
