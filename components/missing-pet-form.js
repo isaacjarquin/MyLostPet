@@ -71,13 +71,7 @@ export default class MissingPetForm extends React.Component {
 		} = this.state
 
 		if (!presence(type)) {
-			this.setState(
-				{ type: {
-					validationMessage: "\"El campo tipo de mascota es obligatorio\"",
-					validationMessageColor: "white",
-					validationBackgroundColor: "#FF6961"
-				}
-				})
+			this.setState({ type: setValidation("El campo tipo de mascota es obligatorio")})
 		}
 
 		if (date.value === "Seleccione cuando encontro a la mascota") {
@@ -87,7 +81,7 @@ export default class MissingPetForm extends React.Component {
 					validationMessageColor: "white",
 					validationBackgroundColor: "#FF6961"
 				}
-				})
+			})
 		}
 
 		if (camaraPhotoImage.text === "Añade una foto de la mascota") {
@@ -95,11 +89,11 @@ export default class MissingPetForm extends React.Component {
 		}
 
 		if (!presence(province)) {
-			this.setState({province: {validationMessage: "El campo provincia es obligatorio", validationMessageColor: "white", validationBackgroundColor: "#FF6961"}})
+			this.setState({province: setValidation("El campo provincia es obligatorio")})
 		}
 
 		if (!presence(autonomousComunity)) {
-			this.setState({autonomousComunity: {validationMessage: "El campo comunidad autonoma es obligatorio", validationMessageColor: "white", validationBackgroundColor: "#FF6961"}})
+			this.setState({autonomousComunity: setValidation("El campo comunidad autónoma es obligatorio")})
 		}
 
 		if (!presence(name)) {
@@ -209,18 +203,18 @@ export default class MissingPetForm extends React.Component {
 	}
 
 	setProvince (text) {
-		this.setState({province: {value: text, validationMessageColor: "white", validationFieldBorderColor: "white"}})
+		this.setState({province: {value: text, validationMessageColor: "#99d1ed", validationFieldBorderColor: "#99d1ed"}})
 	}
 
 	setAutonomousComunity (text) {
 		const location = locations.find((location) => location.value === text)
 
-		this.setState({autonomousComunity: { value: text, validationMessageColor: "white", validationFieldBorderColor: "white" }})
+		this.setState({autonomousComunity: { value: text, validationMessageColor: "#99d1ed", validationFieldBorderColor: "#99d1ed" }})
 		this.setState({provincias: location.provincias})
 	}
 
 	setPetType(text) {
-		this.setState({type: {value: text, validationFieldBorderColor: "white", validationMessageColor: "white", validationMessage: ""}})
+		this.setState({type: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "#99d1ed", validationMessage: ""}})
 	}
 
 	_showDateTimePicker () {
@@ -256,7 +250,7 @@ export default class MissingPetForm extends React.Component {
 	}
 
 	_handleDatePicked (date) {
-		this.setState({ date: {value: date.toISOString().split("T")[0], validationMessageColor: "white", validationFieldBorderColor: "white"} })
+		this.setState({ date: {value: date.toISOString().split("T")[0], validationMessageColor: "#99d1ed", validationFieldBorderColor: "#99d1ed"} })
 		this._hideDateTimePicker()
 	}
 
@@ -285,27 +279,27 @@ export default class MissingPetForm extends React.Component {
 			<ScrollView>
 				<View style={styles.mainContainer}>
 					<TextInput
-						style={styles.textInput}
+						style={[styles.textInput, {color: this.state.name.validationFieldBorderColor}]}
 						placeholder={this.state.name.validationMessage}
 						placeholderTextColor={this.state.name.validationMessageColor}
 						borderColor={this.state.name.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.name.value}
 					/>
 
 					<TextInput
-						style={styles.textInput}
+						style={[styles.textInput, {color: this.state.email.validationFieldBorderColor}]}
 						keyboardType={"email-address"}
 						placeholder={this.state.email.validationMessage}
 						placeholderTextColor={this.state.email.validationMessageColor}
 						borderColor={this.state.email.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.email.value}
 					/>
 
-					<TouchableOpacity style={styles.select} onPress={this._showPetTypeModal} >
-						<Text style={styles.selectText}>{this.state.type.value === "" ? "Tipo de mascota" : this.state.type.value}</Text>
-						<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+					<TouchableOpacity style={[styles.select, {borderColor: this.state.type.validationMessageColor}]} onPress={this._showPetTypeModal} >
+						<Text style={[styles.selectText, {color: this.state.type.validationMessageColor}]} >{this.state.type.value === "" || this.state.type.value === undefined ? this.state.type.validationMessage : this.state.type.value}</Text>
+						<Icon style={styles.selectIcon} color={this.state.type.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 					</TouchableOpacity>
 					<CustomizedPicker
 						items={pets}
@@ -315,20 +309,20 @@ export default class MissingPetForm extends React.Component {
 					/>
 
 					<TextInput
-						style={styles.textInput}
+						style={[styles.textInput, {color: this.state.breed.validationFieldBorderColor}]}
 						placeholder={this.state.breed.validationMessage}
 						placeholderTextColor={this.state.breed.validationMessageColor}
 						borderColor={this.state.breed.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({breed: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({breed: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.breed.value}
 					/>
 
 					<TextInput
-						style={styles.textInput}
+						style={[styles.textInput, {color: this.state.size.validationFieldBorderColor}]}
 						placeholder={this.state.size.validationMessage}
 						placeholderTextColor={this.state.size.validationMessageColor}
 						borderColor={this.state.size.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({size: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({size: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.size.value}
 					/>
 
@@ -337,7 +331,7 @@ export default class MissingPetForm extends React.Component {
 							<Text style={[styles.calendarText, {color: this.state.date.validationMessageColor}]} >
 								{this.state.date.value}
 							</Text>
-							<Icon color={this.state.date.validationFieldBorderColor} type="evilicon" name="calendar" size={30} />
+							<Icon color={this.state.date.validationMessageColor} type="evilicon" name="calendar" size={30} />
 						</View>
 					</TouchableOpacity>
 
@@ -348,9 +342,9 @@ export default class MissingPetForm extends React.Component {
 						date={this.props.date || new Date()}
 					/>
 
-					<TouchableOpacity style={styles.select} onPress={this._showAutonomousComunityModal} >
-						<Text style={styles.selectText}>{this.state.autonomousComunity.value === "" ? "Comunidad autónoma" : this.state.autonomousComunity.value}</Text>
-						<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+					<TouchableOpacity style={[styles.select, {borderColor: this.state.autonomousComunity.validationMessageColor}]} onPress={this._showAutonomousComunityModal} >
+						<Text style={[styles.selectText, {color: this.state.autonomousComunity.validationMessageColor}]}>{this.state.autonomousComunity.value === "" || this.state.autonomousComunity.value === undefined ? "Comunidad autónoma" : this.state.autonomousComunity.value}</Text>
+						<Icon style={styles.selectIcon} color={this.state.autonomousComunity.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 					</TouchableOpacity>
 					<CustomizedPicker
 						items={locations}
@@ -359,9 +353,9 @@ export default class MissingPetForm extends React.Component {
 						handler={this.setAutonomousComunity}
 					/>
 
-					<TouchableOpacity style={styles.select} onPress={this._showProvinceModal} >
-						<Text style={styles.selectText}>{this.state.province.value === "" ? "Provincia" : this.state.province.value }</Text>
-						<Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+					<TouchableOpacity style={[styles.select, {borderColor: this.state.province.validationMessageColor}]} onPress={this._showProvinceModal} >
+						<Text style={[styles.selectText, {color: this.state.province.validationMessageColor}]}>{this.state.province.value === ""  || this.state.province.value === undefined ? "Provincia" : this.state.province.value }</Text>
+						<Icon style={styles.selectIcon} color={this.state.province.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
 					</TouchableOpacity>
 					<CustomizedPicker
 						items={this.state.provincias}
@@ -371,20 +365,20 @@ export default class MissingPetForm extends React.Component {
 					/>
 
 					<TextInput
-						style={styles.textInput}
+						style={[styles.textInput, {color: this.state.location.validationFieldBorderColor}]}
 						placeholder={this.state.location.validationMessage}
 						placeholderTextColor={this.state.location.validationMessageColor}
 						borderColor={this.state.location.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({location: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({location: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.location.value}
 					/>
 
 					<TextInput
-						style={styles.textInput}
+						style={[styles.textInput, {color: this.state.description.validationFieldBorderColor}]}
 						placeholder={this.state.description.validationMessage}
 						placeholderTextColor={this.state.description.validationMessageColor}
 						borderColor={this.state.description.validationFieldBorderColor}
-						onChangeText={(text) => this.setState({description: {value: text, validationFieldBorderColor: "white", validationMessageColor: "grey", validationMessage: ""}})}
+						onChangeText={(text) => this.setState({description: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
 						value={this.state.description.value}
 					/>
 
@@ -400,7 +394,7 @@ export default class MissingPetForm extends React.Component {
 					<Button
 						style={styles.button}
 						borderRadius={3}
-						backgroundColor={"#282828"}
+						backgroundColor={"grey"}
 						large
 						onPress={this.sendPetData}
 						title='Guardar datos' />
@@ -418,30 +412,17 @@ export default class MissingPetForm extends React.Component {
 
 const styles = StyleSheet.create({
 	mainContainer: {
-		backgroundColor: "black",
-		opacity: 0.8
-	},
-	optionListStyle: {
-		backgroundColor: "white",
-		borderColor: "black",
-		width: "95%",
-		borderRadius: 5
-	},
-	backdropStyle: {
-		backgroundColor: "black",
-		opacity: 0.8
+		backgroundColor: "white"
 	},
 	select: {
 		flexDirection: "row",
 		margin: 10,
 		padding: 15,
-		backgroundColor: "black",
-		opacity: 0.5,
+		backgroundColor: "white",
 		borderColor: "#d6d7da",
 		borderWidth: 0.5
 	},
 	selectText: {
-		color: "white",
 		width: "95%"
 	},
 	addImage: {
@@ -460,14 +441,12 @@ const styles = StyleSheet.create({
 		marginRight: 10
 	},
 	textInput: {
-		height: 40,
+		height: 50,
 		fontSize: 14,
-		color: "white",
+		color: "grey",
 		borderWidth: 0.5,
 		margin: 10,
 		borderColor: "grey",
-		paddingTop: 25,
-		paddingBottom: 25,
 		paddingLeft: 15,
 	},
 	calendarSelect: {
