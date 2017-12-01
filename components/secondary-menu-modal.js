@@ -6,7 +6,6 @@ import pets from "../data/pets"
 import { get } from "../services/items-api"
 import locations from "../data/locations"
 import { Icon } from "react-native-elements"
-import {Select, Option} from "react-native-chooser"
 import CustomizedPicker from "./customized-picker"
 
 export default class SecondaryMenuModal extends React.Component {

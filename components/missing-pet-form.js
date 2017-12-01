@@ -4,7 +4,6 @@ import { post } from "../services/items-api"
 import pets from "../data/pets"
 import locations from "../data/locations"
 import { Divider, Button, Icon } from "react-native-elements"
-import {Select, Option} from "react-native-chooser"
 import DateTimePicker from "react-native-modal-datetime-picker"
 import imagePicker from "react-native-imagepicker"
 import { missingPetInitialState } from "../state/initialState"
@@ -81,7 +80,7 @@ export default class MissingPetForm extends React.Component {
 					validationMessageColor: "white",
 					validationBackgroundColor: "#FF6961"
 				}
-			})
+				})
 		}
 
 		if (camaraPhotoImage.text === "Añade una foto de la mascota") {
