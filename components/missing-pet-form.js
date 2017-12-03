@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView } from "react-native"
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, Image } from "react-native"
 import { post } from "../services/items-api"
 import pets from "../data/pets"
 import locations from "../data/locations"
@@ -9,6 +9,8 @@ import imagePicker from "react-native-imagepicker"
 import { missingPetInitialState } from "../state/initialState"
 import DropdownAlert from "react-native-dropdownalert"
 import CustomizedPicker from "./customized-picker"
+import ProgressAnimation from "./progress-animation"
+import request from 'superagent'
 
 import {
 	presence,
@@ -150,9 +152,13 @@ export default class MissingPetForm extends React.Component {
 		if (isInvalidForm(fields)) {
 			this.setValidations()
 		} else {
+			this.setState({showProgressAnimation: true})
 			this.uploadImageToCloudinary()
 				.then(({secure_url}) => this.sendPetDataToItemsAPI(secure_url))
-				.catch(() => this.showUnSuccesfullMessage())
+				.catch(() => {
+					this.setState({showProgressAnimation: false})
+					this.showUnSuccesfullMessage()
+				})
 		}
 	}
 
@@ -176,29 +182,37 @@ export default class MissingPetForm extends React.Component {
 		const body = JSON.stringify({ item: adaptedItem })
 
 		post(url, headers, body)
-			.then(() => this.showSuccesfullMessage())
+			.then(() => {
+				this.setState({showProgressAnimation: false})
+				this.showSuccesfullMessage()
+			})
 			.catch(() => this.showUnSuccesfullMessage())
 	}
 
 	uploadImageToCloudinary() {
-		 const headers = {
-			"Accept": "application/json",
-			"Content-Type": "application/json"
-		 }
-
-		const url = "https://api.cloudinary.com/v1_1/my-lost-pet/image/upload"
-		const data = new FormData()
-		var file = {
-		    uri: this.state.camaraPhotoImage.url,
-		    type: "image/jpeg",
-		    name: "missing-pet.jpg",
-		}
-
-		data.append("upload_preset", "ak0f1cnm")
-		data.append("file", file)
-		data.append("name", "testName")
-
-		return post(url, headers, data).then((response) => response)
+			var file = {
+			    uri: this.state.camaraPhotoImage.url,
+			    type: "image/jpeg",
+			    name: "missing-pet.jpg",
+			}
+			return (
+				new Promise((resolve, reject) => {
+								const self = this
+				        request.post("https://api.cloudinary.com/v1_1/my-lost-pet/image/upload")
+				          .field('upload_preset', "ak0f1cnm")
+				          .field('file', file)
+				          .on('progress', function (e) {
+										self.setState({progress: Math.trunc(e.percent)})
+										console.log("progress", Math.trunc(e.percent))
+				          })
+				          .end((err, response) => {
+										console.log("response.body", response.body)
+										console.log("err", err)
+				            resolve(response.body)
+				            reject(err)
+				          })
+				      }).then((cloudinaryResponse) => cloudinaryResponse)
+			)
 	}
 
 	setProvince (text) {
@@ -274,6 +288,8 @@ export default class MissingPetForm extends React.Component {
 	}
 
 	render () {
+		const { showProgressAnimation, progress } = this.state
+
 		return (
 			<ScrollView>
 				<View style={styles.mainContainer}>
@@ -397,6 +413,9 @@ export default class MissingPetForm extends React.Component {
 						large
 						onPress={this.sendPetData}
 						title='Guardar datos' />
+
+					{showProgressAnimation && <ProgressAnimation progress={progress}/>}
+
 				</View>
 				<DropdownAlert
 					ref={ref => this.dropdown = ref}
@@ -420,6 +439,14 @@ const styles = StyleSheet.create({
 		backgroundColor: "white",
 		borderColor: "#d6d7da",
 		borderWidth: 0.5
+	},
+	loader: {
+		alignSelf: "center"
+	},
+	progressText: {
+		marginTop: 2,
+		alignSelf: "center",
+		fontSize: 14
 	},
 	selectText: {
 		width: "95%"

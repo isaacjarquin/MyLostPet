@@ -32,6 +32,8 @@ const missingPetInitialState = {
 	isPetTypeModalVisible: false,
 	isProvinceModalVisible: false,
 	isAutonomousComunityModalVisible: false,
+	showProgressAnimation: false,
+	progress: 0,
 	camaraPhotoImage: {
 		icon: { name: "plus" },
 		text: "Añade una foto de la mascota",

@@ -18,14 +18,17 @@
     "expo": "^21.0.0",
     "react": "16.0.0-alpha.12",
     "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz",
+    "react-native-background-upload": "^4.1.0",
     "react-native-chooser": "^1.6.3",
     "react-native-dropdownalert": "^3.1.2",
     "react-native-elements": "^0.17.0",
     "react-native-imagepicker": "^2.0.0",
     "react-native-modal": "^4.1.1",
     "react-native-modal-datetime-picker": "^4.13.0",
+    "react-native-percentage-circle": "^1.0.6",
     "react-native-vector-icons": "^4.4.2",
-    "react-navigation": "^1.0.0-beta.14"
+    "react-navigation": "^1.0.0-beta.14",
+    "superagent": "^3.8.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
