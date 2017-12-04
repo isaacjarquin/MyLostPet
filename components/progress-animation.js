@@ -1,6 +1,6 @@
 import React from "react"
 import { StyleSheet, View, Text, Image } from "react-native"
-import PercentageCircle from 'react-native-percentage-circle'
+import ProgressCircle from 'react-native-progress-circle'
 
 export default class ProgressAnimation extends React.Component {
 	constructor (props) {
@@ -12,12 +12,18 @@ export default class ProgressAnimation extends React.Component {
 		return (
 			<View style={styles.container}>
 				<View style={styles.loader}>
-					<PercentageCircle radius={50} percent={progress} color={"#3498db"} borderWidth={1} >
+					<ProgressCircle
+            percent={progress}
+            radius={50}
+            borderWidth={2}
+            color="#3399FF"
+            shadowColor="#999"
+            bgColor="#fff">
 						<Image
 							source={require("../assets/images/loading.png")}
 							style={{width: 65, height: 65}}
 						/>
-					</PercentageCircle>
+        	</ProgressCircle>
 				</View>
 				<Text style={styles.progressText}>{progress}%</Text>
 			</View>
