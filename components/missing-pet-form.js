@@ -183,6 +183,7 @@ export default class MissingPetForm extends React.Component {
 				this.setState({showSuccesfullMessage: true})
 			})
 			.catch(() => {
+				this.setState({showProgressAnimation: false})
 				this.setState({showOperationMessage: true})
 				this.setState({showUnSuccesfullMessage: true})
 			})
