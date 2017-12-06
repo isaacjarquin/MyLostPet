@@ -33,6 +33,9 @@ const missingPetInitialState = {
 	isProvinceModalVisible: false,
 	isAutonomousComunityModalVisible: false,
 	showProgressAnimation: false,
+	showOperationMessage: false,
+	showSuccesfullMessage: false,
+	showUnSuccesfullMessage: false,
 	progress: 0,
 	camaraPhotoImage: {
 		icon: { name: "plus" },

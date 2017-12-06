@@ -7,9 +7,9 @@ import { Divider, Button, Icon } from "react-native-elements"
 import DateTimePicker from "react-native-modal-datetime-picker"
 import imagePicker from "react-native-imagepicker"
 import { missingPetInitialState } from "../state/initialState"
-import DropdownAlert from "react-native-dropdownalert"
 import CustomizedPicker from "./customized-picker"
 import ProgressAnimation from "./progress-animation"
+import OperationMessage from "./operation-message"
 import request from 'superagent'
 
 import {
@@ -27,6 +27,7 @@ export default class MissingPetForm extends React.Component {
 		this.setAutonomousComunity = this.setAutonomousComunity.bind(this)
 		this.setProvince = this.setProvince.bind(this)
 		this.setPetType = this.setPetType.bind(this)
+		this.hideAnimation = this.hideAnimation.bind(this)
 
 		this._handleDatePicked = this._handleDatePicked.bind(this)
 		this._hideDateTimePicker = this._hideDateTimePicker.bind(this)
@@ -46,14 +47,8 @@ export default class MissingPetForm extends React.Component {
 		this.state = missingPetInitialState
 	}
 
-	showSuccesfullMessage() {
-		const successMessage = "Los datos de la mascota se han guardado correctamente"
-		this.dropdown.alertWithType("success", "La operación se ha completado con éxito", successMessage)
-	}
-
-	showUnSuccesfullMessage() {
-		const errorMessage = "No se han podido guardar los datos devido a un error en la comunicación"
-		this.dropdown.alertWithType("error", "Error de comunicación", errorMessage)
+	hideAnimation() {
+		this.setState({showOperationMessage: false})
 	}
 
 	setValidations() {
@@ -184,9 +179,13 @@ export default class MissingPetForm extends React.Component {
 		post(url, headers, body)
 			.then(() => {
 				this.setState({showProgressAnimation: false})
-				this.showSuccesfullMessage()
+				this.setState({showOperationMessage: true})
+				this.setState({showSuccesfullMessage: true})
 			})
-			.catch(() => this.showUnSuccesfullMessage())
+			.catch(() => {
+				this.setState({showOperationMessage: true})
+				this.setState({showUnSuccesfullMessage: true})
+			})
 	}
 
 	uploadImageToCloudinary() {
@@ -288,7 +287,7 @@ export default class MissingPetForm extends React.Component {
 	}
 
 	render () {
-		const { showProgressAnimation, progress } = this.state
+		const { showProgressAnimation, showSuccesfullMessage, showOperationMessage, showUnSuccesfullMessage, progress } = this.state
 
 		return (
 			<ScrollView>
@@ -415,14 +414,8 @@ export default class MissingPetForm extends React.Component {
 						title='Guardar datos' />
 
 					{showProgressAnimation && <ProgressAnimation progress={progress}/>}
-
+					{showOperationMessage && <OperationMessage showSuccesfullMessage={showSuccesfullMessage} showUnSuccesfullMessage={showUnSuccesfullMessage} hideAnimation={this.hideAnimation} />}
 				</View>
-				<DropdownAlert
-					ref={ref => this.dropdown = ref}
-					closeInterval={6000}
-					successColor={"#77DD77"}
-					errorColor={"#ff3333"}
-				/>
 			</ScrollView>
 		)
 	}
