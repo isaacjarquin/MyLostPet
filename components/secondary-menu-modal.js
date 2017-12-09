@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native"
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from "react-native"
 import Modal from "react-native-modal"
 import bodyParamsBuilder from "../utils/http-request.js"
 import pets from "../data/pets"
@@ -111,7 +111,7 @@ export default class SecondaryMenuModal extends React.Component {
 
                 <Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
                     <TouchableOpacity style={styles.share} onPress={this._hideModal} >
-	          <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
+	          			<Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
                     </TouchableOpacity>
                     <View style={styles.socialIcons}>
 
@@ -149,7 +149,7 @@ export default class SecondaryMenuModal extends React.Component {
                         />
 
                         <TouchableOpacity style={styles.submitButton} onPress={this.getPets} >
-		          <Icon style={styles.searchIcon} color='white' type="evilIcons" name="search" size={30} />
+		          			<Icon style={styles.searchIcon} color='white' type="evilIcons" name="search" size={30} />
                             <Text style={styles.searchButtonText}>Buscar</Text>
                         </TouchableOpacity>
 
@@ -160,21 +160,12 @@ export default class SecondaryMenuModal extends React.Component {
     }
 }
 
+const window = Dimensions.get('window')
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "flex-start"
-    },
-    optionListStyle: {
-        backgroundColor: "white",
-        borderColor: "black",
-        width: "95%",
-        height: "40%",
-        borderRadius: 5
-    },
-    backdropStyle: {
-        backgroundColor: "black",
-        opacity: 0.8
     },
     searchButtonText: {
         color: "white",
@@ -210,7 +201,7 @@ const styles = StyleSheet.create({
     socialIconsModal: {
         flexDirection: "column",
         backgroundColor: "#333333",
-        marginTop: 405,
+		marginTop: window.height - 310,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3
     },
@@ -226,8 +217,9 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent",
         opacity: 0.8,
         marginLeft: 15,
-        marginRight: 15,
-        marginTop: 5,
+		marginRight: 15,
+		marginBottom: 10,
+		marginTop: 10,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3
     },
@@ -235,7 +227,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         backgroundColor: "grey",
         opacity: 0.8,
-        padding: 10,
+        padding: 15,
         borderColor: "#d6d7da",
         borderWidth: 0.5
     }
