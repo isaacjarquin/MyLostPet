@@ -13,7 +13,7 @@ import whoWeAre from "./components/who-we-are"
 import termsAndConditions from "./components/terms-and-conditions"
 import howToUse from "./components/how-to-use"
 import { Icon } from "react-native-elements"
-import { Share } from "react-native"
+import { Share, Dimensions } from "react-native"
 
 const shareOptions = {
     message: "http://www.mylostpet.es/",
@@ -21,25 +21,27 @@ const shareOptions = {
     url: "http://www.mylostpet.es/"
 }
 
+const window = Dimensions.get('window')
+const marginTop = (window.height / 100) * 4
+
 const App = StackNavigator(
     {
         Home: {
             screen: Home,
             navigationOptions: ({navigation}) => ({
-                title: "My lost pet",
                 headerRight: <Icon
-                    color='grey'
+                    color='white'
                     type="Feather"
                     name="share"
                     size={25}
                     onPress={ () => Share.share(shareOptions).then(this._showResult).catch(err => console.log(err)) }/>,
                 headerLeft: <Icon
-                    color='grey'
+                    color='white'
                     type="Feather"
                     name="menu"
                     size={25}
                     onPress={ () => navigation.navigate("HomeScreenDrawer") }/>,
-                headerStyle: { padding: 10 }
+                headerStyle: { padding: 10, marginTop: marginTop, backgroundColor: "#333333" }
     	})
         },
         HomeScreenDrawer: { screen: HomeScreenDrawer },

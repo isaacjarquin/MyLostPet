@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 		width: window.width,
 		position: 'absolute',
 		left: 0,
-		top: window.height - 200
+		top: window.height - 225
 	},
     title: {
         margin: 20,
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         justifyContent: "flex-end",
-        width: "100%",
-        height: "100%"
+		width: window.width,
+		height: window.height
     }
 })
