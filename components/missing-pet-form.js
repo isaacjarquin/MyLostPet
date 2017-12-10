@@ -11,6 +11,7 @@ import CustomizedPicker from "./customized-picker"
 import ProgressAnimation from "./progress-animation"
 import OperationMessage from "./operation-message"
 import request from "superagent"
+import { ImagePicker } from 'expo'
 
 import {
     presence,
@@ -268,11 +269,11 @@ export default class MissingPetForm extends React.Component {
     }
 
     _handleImagePicked () {
-        imagePicker.open({
-            takePhoto: true,
-            useLastPhoto: true,
-            chooseFromLibrary: true
-        }).then(({ uri }) => {
+        ImagePicker.launchImageLibraryAsync({
+            allowsEditing: true,
+            quality: 0.5,
+            aspect: [4, 3],
+        }).then(({uri}) => {
             this.setState({
                 camaraPhotoImage: {
                     icon: { name: "check" },
@@ -282,8 +283,16 @@ export default class MissingPetForm extends React.Component {
                     secure_url: ""
                 }
             })
-        }, (error) => {
-            console.log("error", error)
+        }).catch(() => {
+            this.setState({
+                camaraPhotoImage: {
+                    icon: { name: "check" },
+                    text: "La foto no se ha podido añadir",
+                    backgroundColor: "#03C03C",
+                    url: "",
+                    secure_url: ""
+                }
+            })
         })
     }
 
