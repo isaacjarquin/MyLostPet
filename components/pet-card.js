@@ -64,7 +64,8 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end"
     },
     petCard: {
-        width: "100%"
+        width: "100%",
+        minHeight: window.height - 130,
     },
     image: {
         height: 300
@@ -80,7 +81,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     description: {
-        minHeight: (window.height / 5) + 5,
         lineHeight: 25
     }
 })
