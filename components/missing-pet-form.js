@@ -296,6 +296,7 @@ export default class MissingPetForm extends React.Component {
                     <TextInput
                         style={[styles.textInput, {color: this.state.name.validationFieldBorderColor}]}
                         placeholder={this.state.name.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.name.validationMessageColor}
                         borderColor={this.state.name.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -306,6 +307,7 @@ export default class MissingPetForm extends React.Component {
                         style={[styles.textInput, {color: this.state.email.validationFieldBorderColor}]}
                         keyboardType={"email-address"}
                         placeholder={this.state.email.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.email.validationMessageColor}
                         borderColor={this.state.email.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -326,6 +328,7 @@ export default class MissingPetForm extends React.Component {
                     <TextInput
                         style={[styles.textInput, {color: this.state.breed.validationFieldBorderColor}]}
                         placeholder={this.state.breed.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.breed.validationMessageColor}
                         borderColor={this.state.breed.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({breed: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -335,6 +338,7 @@ export default class MissingPetForm extends React.Component {
                     <TextInput
                         style={[styles.textInput, {color: this.state.size.validationFieldBorderColor}]}
                         placeholder={this.state.size.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.size.validationMessageColor}
                         borderColor={this.state.size.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({size: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -382,6 +386,7 @@ export default class MissingPetForm extends React.Component {
                     <TextInput
                         style={[styles.textInput, {color: this.state.location.validationFieldBorderColor}]}
                         placeholder={this.state.location.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.location.validationMessageColor}
                         borderColor={this.state.location.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({location: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -391,6 +396,7 @@ export default class MissingPetForm extends React.Component {
                     <TextInput
                         style={[styles.textInput, {color: this.state.description.validationFieldBorderColor}]}
                         placeholder={this.state.description.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.description.validationMessageColor}
                         borderColor={this.state.description.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({description: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
