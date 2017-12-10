@@ -21,7 +21,7 @@ const shareOptions = {
     url: "http://www.mylostpet.es/"
 }
 
-const window = Dimensions.get('window')
+const window = Dimensions.get("window")
 const marginTop = (window.height / 100) * 4
 
 const App = StackNavigator(

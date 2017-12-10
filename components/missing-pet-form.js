@@ -3,15 +3,14 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView } from 
 import { post } from "../services/items-api"
 import pets from "../data/pets"
 import locations from "../data/locations"
-import { Divider, Button, Icon } from "react-native-elements"
+import { Icon } from "react-native-elements"
 import DateTimePicker from "react-native-modal-datetime-picker"
-import imagePicker from "react-native-imagepicker"
 import { missingPetInitialState } from "../state/initialState"
 import CustomizedPicker from "./customized-picker"
 import ProgressAnimation from "./progress-animation"
 import OperationMessage from "./operation-message"
 import request from "superagent"
-import { ImagePicker } from 'expo'
+import { ImagePicker } from "expo"
 
 import {
     presence,

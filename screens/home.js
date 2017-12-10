@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Dimensions } from "react-native"
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from "react-native"
 import { Icon } from "react-native-elements"
 import SecondaryMenuModal from "../components/secondary-menu-modal"
 
@@ -32,53 +32,53 @@ export default class Home extends React.Component {
 
     render () {
         return (
-			<View style={styles.container}>
-				<Image
-					source={require("../assets/images/home.jpg")}
-					style={styles.image}
-				>
-					<View style={styles.topSection}>
-						<Text style={styles.title}>My Lost Pet</Text>
-						<Text style={styles.subTitle}>Te ayudamos a encontrarlo</Text>
+            <View style={styles.container}>
+                <Image
+                    source={require("../assets/images/home.jpg")}
+                    style={styles.image}
+                >
+                    <View style={styles.topSection}>
+                        <Text style={styles.title}>My Lost Pet</Text>
+                        <Text style={styles.subTitle}>Te ayudamos a encontrarlo</Text>
 
-						<Image
-							source={require("../assets/images/pet-care-icon.png")}
-							style={styles.icon}
-						/>
-					</View>
+                        <Image
+                            source={require("../assets/images/pet-care-icon.png")}
+                            style={styles.icon}
+                        />
+                    </View>
 
-					<View style={styles.bottomSection}>
-						<TouchableOpacity style={styles.share} onPress={this.navigateToMissingPetForm} >
-							<Icon style={styles.searchIcon} color='white' type="entypo" name="plus" size={30} />
-							<Text style={styles.searchButton}>Añadir nueva mascota</Text>
-						</TouchableOpacity>
+                    <View style={styles.bottomSection}>
+                        <TouchableOpacity style={styles.share} onPress={this.navigateToMissingPetForm} >
+                            <Icon style={styles.searchIcon} color='white' type="entypo" name="plus" size={30} />
+                            <Text style={styles.searchButton}>Añadir nueva mascota</Text>
+                        </TouchableOpacity>
 
-						<SecondaryMenuModal navigate={this.props.navigation.navigate} />
-					</View>
-				</Image>
-			</View>
+                        <SecondaryMenuModal navigate={this.props.navigation.navigate} />
+                    </View>
+                </Image>
+            </View>
         )
     }
 }
 
-const window = Dimensions.get('window')
+const window = Dimensions.get("window")
 
 const styles = StyleSheet.create({
     container: {
-		flex: 1,
-		flexDirection: 'column',
-		justifyContent: 'space-between',
-		backgroundColor: "#fff",
-		width: window.width,
-		height: window.height
-	},
-	topSection: {
-		flex: 1,
-		minHeight: window.height - 360
-	},
-	bottomSection: {
-		flex: 1
-	},
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "space-between",
+        backgroundColor: "#fff",
+        width: window.width,
+        height: window.height
+    },
+    topSection: {
+        flex: 1,
+        minHeight: window.height - 360
+    },
+    bottomSection: {
+        flex: 1
+    },
     title: {
         margin: 20,
         fontSize: 28,
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         justifyContent: "flex-end",
-		width: window.width,
-		height: window.height
+        width: window.width,
+        height: window.height
     }
 })

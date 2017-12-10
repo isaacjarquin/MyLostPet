@@ -54,7 +54,7 @@ export default class PetCard extends React.Component {
     }
 }
 
-const window = Dimensions.get('window')
+const window = Dimensions.get("window")
 
 const styles = StyleSheet.create({
     container: {

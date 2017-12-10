@@ -160,7 +160,7 @@ export default class SecondaryMenuModal extends React.Component {
     }
 }
 
-const window = Dimensions.get('window')
+const window = Dimensions.get("window")
 
 const styles = StyleSheet.create({
     container: {
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     socialIconsModal: {
         flexDirection: "column",
         backgroundColor: "#333333",
-		marginTop: window.height - 310,
+        marginTop: window.height - 310,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3
     },
@@ -217,9 +217,9 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent",
         opacity: 0.8,
         marginLeft: 15,
-		marginRight: 15,
-		marginBottom: 10,
-		marginTop: 10,
+        marginRight: 15,
+        marginBottom: 10,
+        marginTop: 10,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3
     },
