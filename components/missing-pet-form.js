@@ -404,15 +404,9 @@ export default class MissingPetForm extends React.Component {
                         </View>
                     </TouchableOpacity>
 
-                    <Divider style={styles.divider} />
-
-                    <Button
-                        style={styles.button}
-                        borderRadius={3}
-                        backgroundColor={"grey"}
-                        large
-                        onPress={this.sendPetData}
-                        title='Guardar datos' />
+                    <TouchableOpacity style={styles.button} onPress={this.sendPetData} >
+                        <Text style={styles.searchButton}>Guardar datos</Text>
+                    </TouchableOpacity>
 
                     {showProgressAnimation && <ProgressAnimation progress={progress}/>}
                     {showOperationMessage && <OperationMessage showSuccesfullMessage={showSuccesfullMessage} showUnSuccesfullMessage={showUnSuccesfullMessage} hideAnimation={this.hideAnimation} />}
@@ -428,7 +422,7 @@ const styles = StyleSheet.create({
     },
     select: {
         flexDirection: "row",
-        margin: 10,
+        margin: 4,
         padding: 15,
         backgroundColor: "white",
         borderColor: "#d6d7da",
@@ -447,9 +441,9 @@ const styles = StyleSheet.create({
     },
     addImage: {
         flex: 1,
-        padding: 5,
+        padding: 10,
         flexDirection: "row",
-        margin: 10,
+        margin: 4,
         borderWidth: 1,
         borderColor: "grey"
     },
@@ -465,7 +459,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: "grey",
         borderWidth: 0.5,
-        margin: 10,
+        margin: 4,
         padding: 10,
         borderColor: "grey",
         paddingLeft: 15,
@@ -473,7 +467,7 @@ const styles = StyleSheet.create({
     calendarSelect: {
         flex: 1,
         justifyContent: "space-between",
-        margin: 10,
+        margin: 4,
         paddingRight: 5,
         flexDirection: "row",
         borderWidth: 0.5
@@ -490,7 +484,14 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         backgroundColor: "#d3d5d6"
     },
+    searchButton: {
+        fontSize: 16,
+        color: "white",
+        alignSelf: "center"
+    },
     button: {
-        marginBottom: 15
+        backgroundColor: "#333333",
+        opacity: 0.8,
+        padding: 25
     }
 })
