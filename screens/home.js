@@ -74,14 +74,10 @@ const styles = StyleSheet.create({
 	},
 	topSection: {
 		flex: 1,
-		width: window.width
+		minHeight: window.height - 360
 	},
 	bottomSection: {
-		flex: 1,
-		width: window.width,
-		position: 'absolute',
-		left: 0,
-		top: window.height - 225
+		flex: 1
 	},
     title: {
         margin: 20,
