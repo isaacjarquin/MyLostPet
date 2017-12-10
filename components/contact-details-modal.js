@@ -126,6 +126,7 @@ export default class ContactDetailsModal extends React.Component {
                         <TextInput
                             style={styles.textInput}
                             placeholder={this.state.email.validationMessage}
+                            keyboardType={'email-address'}
                             placeholderTextColor={this.state.email.validationMessageColor}
                             borderColor={this.state.email.validationFieldBorderColor}
                             onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
@@ -135,6 +136,7 @@ export default class ContactDetailsModal extends React.Component {
                         <TextInput
                             style={styles.textInput}
                             placeholder={this.state.phoneNumber.validationMessage}
+                            keyboardType={'phone-pad'}
                             placeholderTextColor={this.state.phoneNumber.validationMessageColor}
                             borderColor={this.state.phoneNumber.validationFieldBorderColor}
                             onChangeText={(text) => this.setState({phoneNumber: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
