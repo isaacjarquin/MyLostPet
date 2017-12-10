@@ -9,13 +9,14 @@ exports[`renders correctly 1`] = `
           "alignItems": "stretch",
           "backgroundColor": "white",
           "flex": 1,
-          "justifyContent": "flex-start",
+          "justifyContent": "flex-end",
         }
       }
     >
       <View
         style={
           Object {
+            "minHeight": 1204,
             "width": "100%",
           }
         }
@@ -223,7 +224,6 @@ exports[`renders correctly 1`] = `
                 style={
                   Object {
                     "lineHeight": 25,
-                    "marginBottom": 20,
                   }
                 }
               >
@@ -337,7 +337,7 @@ exports[`renders correctly 1`] = `
                 "flexDirection": "column",
                 "justifyContent": "center",
                 "margin": 37.5,
-                "marginTop": 270,
+                "marginTop": 373.52000000000004,
                 "transform": Array [
                   Object {
                     "translateY": 0,
@@ -438,6 +438,7 @@ exports[`renders correctly 1`] = `
               />
               <TextInput
                 borderColor="grey"
+                keyboardType="email-address"
                 onChangeText={[Function]}
                 placeholder="Correo"
                 placeholderTextColor="black"
@@ -457,6 +458,7 @@ exports[`renders correctly 1`] = `
               />
               <TextInput
                 borderColor="grey"
+                keyboardType="phone-pad"
                 onChangeText={[Function]}
                 placeholder="Número de teléfono"
                 placeholderTextColor="black"

@@ -142,7 +142,7 @@ exports[`renders correctly 1`] = `
           "flexDirection": "column",
           "justifyContent": "center",
           "margin": 37.5,
-          "marginTop": 405,
+          "marginTop": 1024,
           "transform": Array [
             Object {
               "translateY": 0,
@@ -174,9 +174,10 @@ exports[`renders correctly 1`] = `
             "borderTopLeftRadius": 3,
             "borderTopRightRadius": 3,
             "flexDirection": "row",
+            "marginBottom": 10,
             "marginLeft": 15,
             "marginRight": 15,
-            "marginTop": 5,
+            "marginTop": 10,
             "opacity": 0.8,
           }
         }
@@ -1241,7 +1242,7 @@ exports[`renders correctly 1`] = `
               "borderWidth": 0.5,
               "flexDirection": "row",
               "opacity": 0.8,
-              "padding": 10,
+              "padding": 15,
             }
           }
           testID={undefined}
