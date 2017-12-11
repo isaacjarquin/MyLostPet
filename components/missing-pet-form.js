@@ -74,8 +74,11 @@ export default class MissingPetForm extends React.Component {
             this.setState(
                 {date: {
                     value: "Debe seleccionar una fecha válida",
-                    validationMessageColor: "white",
-                    validationBackgroundColor: "#FF6961"
+                    validationMessageColor: "red",
+                    validationBackgroundColor: "white",
+                    backgroundColor: "#FF6961",
+                    iconType: "entypo",
+                    icon: "cross"
                 }
                 })
         }
@@ -216,18 +219,18 @@ export default class MissingPetForm extends React.Component {
     }
 
     setProvince (text) {
-        this.setState({province: {value: text, validationMessageColor: "#99d1ed", validationFieldBorderColor: "#99d1ed"}})
+        this.setState({ province: { value: text, validationMessageColor: "green", validationFieldBorderColor: "#99d1ed", backgroundColor: "#77DD77", icon: "check", iconType: "entypo"}})
     }
 
     setAutonomousComunity (text) {
         const location = locations.find((location) => location.value === text)
 
-        this.setState({autonomousComunity: { value: text, validationMessageColor: "#99d1ed", validationFieldBorderColor: "#99d1ed" }})
+        this.setState({ autonomousComunity: { value: text, validationMessageColor: "green", validationFieldBorderColor: "#99d1ed", backgroundColor: "#77DD77", icon: "check", iconType: "entypo" }})
         this.setState({provincias: location.provincias})
     }
 
     setPetType(text) {
-        this.setState({type: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "#99d1ed", validationMessage: ""}})
+        this.setState({ type: { value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "green", validationMessage: "", backgroundColor: "#77DD77", icon: "check", iconType: "entypo"}})
     }
 
     _showDateTimePicker () {
@@ -263,7 +266,7 @@ export default class MissingPetForm extends React.Component {
     }
 
     _handleDatePicked (date) {
-        this.setState({ date: {value: date.toISOString().split("T")[0], validationMessageColor: "#99d1ed", validationFieldBorderColor: "#99d1ed"} })
+        this.setState({ date: { value: date.toISOString().split("T")[0], validationMessageColor: "green", validationFieldBorderColor: "#77DD77", backgroundColor: "#77DD77", icon: "check", iconType: "entypo"} })
         this._hideDateTimePicker()
     }
 
@@ -277,7 +280,7 @@ export default class MissingPetForm extends React.Component {
                 camaraPhotoImage: {
                     icon: { name: "check" },
                     text: "La foto se ha añadido con exito",
-                    backgroundColor: "#03C03C",
+                    backgroundColor: "#77DD77",
                     url: uri,
                     secure_url: ""
                 }
@@ -285,9 +288,9 @@ export default class MissingPetForm extends React.Component {
         }).catch(() => {
             this.setState({
                 camaraPhotoImage: {
-                    icon: { name: "check" },
+                    icon: { name: "plus" },
                     text: "La foto no se ha podido añadir",
-                    backgroundColor: "#03C03C",
+                    backgroundColor: "red",
                     url: "",
                     secure_url: ""
                 }
@@ -301,115 +304,143 @@ export default class MissingPetForm extends React.Component {
         return (
             <ScrollView>
                 <View style={styles.mainContainer}>
-                    <TextInput
-                        style={[styles.textInput, {color: this.state.name.validationFieldBorderColor}]}
-                        placeholder={this.state.name.validationMessage}
-                        underlineColorAndroid={"white"}
-                        placeholderTextColor={this.state.name.validationMessageColor}
-                        borderColor={this.state.name.validationFieldBorderColor}
-                        onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
-                        value={this.state.name.value}
-                    />
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.name.backgroundColor} type={this.state.name.iconType} name={this.state.name.icon} size={30} />
+                        <TextInput
+                            style={[styles.textInput, { color: this.state.name.validationFieldBorderColor }]}
+                            placeholder={this.state.name.validationMessage}
+                            underlineColorAndroid={"white"}
+                            placeholderTextColor={this.state.name.validationMessageColor}
+                            borderColor={this.state.name.validationFieldBorderColor}
+                            onChangeText={(text) => this.setState({ name: { value: text, validationFieldBorderColor: "green", validationMessageColor: "grey", validationMessage: "", backgroundColor: "#77DD77", icon: "check", iconType: "entypo" } })}
+                            value={this.state.name.value}
+                        />
+                    </View>
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.email.backgroundColor} type={this.state.email.iconType} name={this.state.email.icon} size={30} />
+                        <TextInput
+                            style={[styles.textInput, { color: this.state.email.validationFieldBorderColor }]}
+                            keyboardType={"email-address"}
+                            placeholder={this.state.email.validationMessage}
+                            underlineColorAndroid={"white"}
+                            placeholderTextColor={this.state.email.validationMessageColor}
+                            borderColor={this.state.email.validationFieldBorderColor}
+                            onChangeText={(text) => this.setState({ email: { value: text, validationFieldBorderColor: "green", validationMessageColor: "grey", validationMessage: "", backgroundColor: "#77DD77", icon: "check", iconType: "entypo" } })}
+                            value={this.state.email.value}
+                        />
+                    </View>
 
-                    <TextInput
-                        style={[styles.textInput, {color: this.state.email.validationFieldBorderColor}]}
-                        keyboardType={"email-address"}
-                        placeholder={this.state.email.validationMessage}
-                        underlineColorAndroid={"white"}
-                        placeholderTextColor={this.state.email.validationMessageColor}
-                        borderColor={this.state.email.validationFieldBorderColor}
-                        onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
-                        value={this.state.email.value}
-                    />
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.type.backgroundColor} type={this.state.type.iconType} name={this.state.type.icon} size={30} />
+                        <TouchableOpacity style={[styles.select, { borderColor: this.state.type.validationMessageColor }]} onPress={this._showPetTypeModal} >
+                            <Text style={[styles.selectText, { color: this.state.type.validationMessageColor }]} >{this.state.type.value === "" || this.state.type.value === undefined ? this.state.type.validationMessage : this.state.type.value}</Text>
+                            <Icon style={styles.selectIcon} color={this.state.type.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                        </TouchableOpacity>
+                        <CustomizedPicker
+                            items={pets}
+                            isVisible={this.state.isPetTypeModalVisible}
+                            hidePetTypeModal={this._hidePetTypeModal}
+                            handler={this.setPetType}
+                        />
+                    </View>
 
-                    <TouchableOpacity style={[styles.select, {borderColor: this.state.type.validationMessageColor}]} onPress={this._showPetTypeModal} >
-                        <Text style={[styles.selectText, {color: this.state.type.validationMessageColor}]} >{this.state.type.value === "" || this.state.type.value === undefined ? this.state.type.validationMessage : this.state.type.value}</Text>
-                        <Icon style={styles.selectIcon} color={this.state.type.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
-                    </TouchableOpacity>
-                    <CustomizedPicker
-                        items={pets}
-                        isVisible={this.state.isPetTypeModalVisible}
-                        hidePetTypeModal={this._hidePetTypeModal}
-                        handler={this.setPetType}
-                    />
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.breed.backgroundColor} type={this.state.breed.iconType} name={this.state.breed.icon} size={30} />
+                        <TextInput
+                            style={[styles.textInput, { color: this.state.breed.validationFieldBorderColor }]}
+                            placeholder={this.state.breed.validationMessage}
+                            underlineColorAndroid={"white"}
+                            placeholderTextColor={this.state.breed.validationMessageColor}
+                            borderColor={this.state.breed.validationFieldBorderColor}
+                            onChangeText={(text) => this.setState({ breed: { value: text, validationFieldBorderColor: "green", validationMessageColor: "grey", validationMessage: "", backgroundColor: "#77DD77", icon: "check", iconType: "entypo" } })}
+                            value={this.state.breed.value}
+                        />
+                    </View>
 
-                    <TextInput
-                        style={[styles.textInput, {color: this.state.breed.validationFieldBorderColor}]}
-                        placeholder={this.state.breed.validationMessage}
-                        underlineColorAndroid={"white"}
-                        placeholderTextColor={this.state.breed.validationMessageColor}
-                        borderColor={this.state.breed.validationFieldBorderColor}
-                        onChangeText={(text) => this.setState({breed: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
-                        value={this.state.breed.value}
-                    />
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.size.backgroundColor} type={this.state.size.iconType} name={this.state.size.icon} size={30} />
+                        <TextInput
+                            style={[styles.textInput, { color: this.state.size.validationFieldBorderColor }]}
+                            placeholder={this.state.size.validationMessage}
+                            underlineColorAndroid={"white"}
+                            placeholderTextColor={this.state.size.validationMessageColor}
+                            borderColor={this.state.size.validationFieldBorderColor}
+                            onChangeText={(text) => this.setState({ size: { value: text, validationFieldBorderColor: "green", validationMessageColor: "grey", validationMessage: "", backgroundColor: "#77DD77", icon: "check", iconType: "entypo" } })}
+                            value={this.state.size.value}
+                        />
+                    </View>
 
-                    <TextInput
-                        style={[styles.textInput, {color: this.state.size.validationFieldBorderColor}]}
-                        placeholder={this.state.size.validationMessage}
-                        underlineColorAndroid={"white"}
-                        placeholderTextColor={this.state.size.validationMessageColor}
-                        borderColor={this.state.size.validationFieldBorderColor}
-                        onChangeText={(text) => this.setState({size: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
-                        value={this.state.size.value}
-                    />
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.date.backgroundColor} type={this.state.date.iconType} name={this.state.date.icon} size={30} />
+                        <TouchableOpacity onPress={this._showDateTimePicker}>
+                            <View style={[styles.calendarSelect, { backgroundColor: this.state.date.validationBackgroundColor, borderColor: this.state.date.validationMessageColor }]} >
+                                <Text style={[styles.calendarText, { color: this.state.date.validationMessageColor }]} >
+                                    {this.state.date.value}
+                                </Text>
+                                <Icon color={this.state.date.validationMessageColor} type="entypo" name="select-arrows" size={20} />
+                            </View>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity onPress={this._showDateTimePicker}>
-                        <View style={[styles.calendarSelect, {backgroundColor: this.state.date.validationBackgroundColor, borderColor: this.state.date.validationFieldBorderColor}]} >
-                            <Text style={[styles.calendarText, {color: this.state.date.validationMessageColor}]} >
-                                {this.state.date.value}
-                            </Text>
-                            <Icon color={this.state.date.validationMessageColor} type="evilicon" name="calendar" size={30} />
-                        </View>
-                    </TouchableOpacity>
+                        <DateTimePicker
+                            isVisible={this.state.isDateTimePickerVisible}
+                            onConfirm={this._handleDatePicked}
+                            onCancel={this._hideDateTimePicker}
+                            date={this.props.date || new Date()}
+                        />
+                    </View>
 
-                    <DateTimePicker
-                        isVisible={this.state.isDateTimePickerVisible}
-                        onConfirm={this._handleDatePicked}
-                        onCancel={this._hideDateTimePicker}
-                        date={this.props.date || new Date()}
-                    />
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.autonomousComunity.backgroundColor} type={this.state.autonomousComunity.iconType} name={this.state.autonomousComunity.icon} size={30} />
+                        <TouchableOpacity style={[styles.select, {borderColor: this.state.autonomousComunity.validationMessageColor}]} onPress={this._showAutonomousComunityModal} >
+                            <Text style={[styles.selectText, {color: this.state.autonomousComunity.validationMessageColor}]}>{this.state.autonomousComunity.value === "" || this.state.autonomousComunity.value === undefined ? "Comunidad autónoma" : this.state.autonomousComunity.value}</Text>
+                            <Icon style={styles.selectIcon} color={this.state.autonomousComunity.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                        </TouchableOpacity>
+                        <CustomizedPicker
+                            items={locations}
+                            isVisible={this.state.isAutonomousComunityModalVisible}
+                            hidePetTypeModal={this._hideAutonomousComunityModal}
+                            handler={this.setAutonomousComunity}
+                        />
+                    </View>
 
-                    <TouchableOpacity style={[styles.select, {borderColor: this.state.autonomousComunity.validationMessageColor}]} onPress={this._showAutonomousComunityModal} >
-                        <Text style={[styles.selectText, {color: this.state.autonomousComunity.validationMessageColor}]}>{this.state.autonomousComunity.value === "" || this.state.autonomousComunity.value === undefined ? "Comunidad autónoma" : this.state.autonomousComunity.value}</Text>
-                        <Icon style={styles.selectIcon} color={this.state.autonomousComunity.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
-                    </TouchableOpacity>
-                    <CustomizedPicker
-                        items={locations}
-                        isVisible={this.state.isAutonomousComunityModalVisible}
-                        hidePetTypeModal={this._hideAutonomousComunityModal}
-                        handler={this.setAutonomousComunity}
-                    />
-
-                    <TouchableOpacity style={[styles.select, {borderColor: this.state.province.validationMessageColor}]} onPress={this._showProvinceModal} >
-                        <Text style={[styles.selectText, {color: this.state.province.validationMessageColor}]}>{this.state.province.value === ""  || this.state.province.value === undefined ? "Provincia" : this.state.province.value }</Text>
-                        <Icon style={styles.selectIcon} color={this.state.province.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
-                    </TouchableOpacity>
-                    <CustomizedPicker
-                        items={this.state.provincias}
-                        isVisible={this.state.isProvinceModalVisible}
-                        hidePetTypeModal={this._hideProvinceModal}
-                        handler={this.setProvince}
-                    />
-
-                    <TextInput
-                        style={[styles.textInput, {color: this.state.location.validationFieldBorderColor}]}
-                        placeholder={this.state.location.validationMessage}
-                        underlineColorAndroid={"white"}
-                        placeholderTextColor={this.state.location.validationMessageColor}
-                        borderColor={this.state.location.validationFieldBorderColor}
-                        onChangeText={(text) => this.setState({location: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
-                        value={this.state.location.value}
-                    />
-
-                    <TextInput
-                        style={[styles.textInput, {color: this.state.description.validationFieldBorderColor}]}
-                        placeholder={this.state.description.validationMessage}
-                        underlineColorAndroid={"white"}
-                        placeholderTextColor={this.state.description.validationMessageColor}
-                        borderColor={this.state.description.validationFieldBorderColor}
-                        onChangeText={(text) => this.setState({description: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
-                        value={this.state.description.value}
-                    />
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.province.backgroundColor} type={this.state.province.iconType} name={this.state.province.icon} size={30} />
+                        <TouchableOpacity style={[styles.select, {borderColor: this.state.province.validationMessageColor}]} onPress={this._showProvinceModal} >
+                            <Text style={[styles.selectText, {color: this.state.province.validationMessageColor}]}>{this.state.province.value === ""  || this.state.province.value === undefined ? "Provincia" : this.state.province.value }</Text>
+                            <Icon style={styles.selectIcon} color={this.state.province.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                        </TouchableOpacity>
+                        <CustomizedPicker
+                            items={this.state.provincias}
+                            isVisible={this.state.isProvinceModalVisible}
+                            hidePetTypeModal={this._hideProvinceModal}
+                            handler={this.setProvince}
+                        />
+                    </View>
+                    
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.location.backgroundColor} type={this.state.location.iconType} name={this.state.location.icon} size={30} />
+                        <TextInput
+                            style={[styles.textInput, { color: this.state.location.validationFieldBorderColor }]}
+                            placeholder={this.state.location.validationMessage}
+                            underlineColorAndroid={"white"}
+                            placeholderTextColor={this.state.location.validationMessageColor}
+                            borderColor={this.state.location.validationFieldBorderColor}
+                            onChangeText={(text) => this.setState({ location: { value: text, validationFieldBorderColor: "green", validationMessageColor: "grey", validationMessage: "", backgroundColor: "#77DD77", icon: "check", iconType: "entypo" } })}
+                            value={this.state.location.value}
+                        />
+                    </View>
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.description.backgroundColor} type={this.state.description.iconType} name={this.state.description.icon} size={30} />
+                        <TextInput
+                            style={[styles.textInput, {color: this.state.description.validationFieldBorderColor}]}
+                            placeholder={this.state.description.validationMessage}
+                            underlineColorAndroid={"white"}
+                            placeholderTextColor={this.state.description.validationMessageColor}
+                            borderColor={this.state.description.validationFieldBorderColor}
+                            onChangeText={(text) => this.setState({ description: { value: text, validationFieldBorderColor: "green", validationMessageColor: "grey", validationMessage: "", backgroundColor: "#77DD77", icon: "check", iconType: "entypo"}})}
+                            value={this.state.description.value}
+                        />
+                    </View>
 
                     <TouchableOpacity onPress={this._handleImagePicked}>
                         <View style={[styles.addImage, {backgroundColor: this.state.camaraPhotoImage.backgroundColor}]} >
@@ -434,9 +465,25 @@ const styles = StyleSheet.create({
     mainContainer: {
         backgroundColor: "white"
     },
+    textInputBlockElement: {
+        flexDirection: "row"
+    },
+    fieldsIcons: {
+        borderWidth: 0.5,
+        borderColor: "grey",
+        paddingTop: 8,
+        paddingLeft: 4,
+        width: 40,
+        marginLeft: 4,
+        marginTop: 4,
+        marginBottom: 4
+    },
     select: {
+        width: "87%",
         flexDirection: "row",
-        margin: 4,
+        marginRight: 4,
+        marginTop: 4,
+        marginBottom: 4,
         padding: 15,
         backgroundColor: "white",
         borderColor: "#d6d7da",
@@ -470,10 +517,13 @@ const styles = StyleSheet.create({
     },
     textInput: {
         height: 50,
+        width: "87%",
         fontSize: 14,
         color: "grey",
         borderWidth: 0.5,
-        margin: 4,
+        marginRight: 4,
+        marginTop: 4,
+        marginBottom: 4,
         padding: 10,
         borderColor: "grey",
         paddingLeft: 15,
@@ -481,7 +531,10 @@ const styles = StyleSheet.create({
     calendarSelect: {
         flex: 1,
         justifyContent: "space-between",
-        margin: 4,
+        width: "89.5%",
+        marginRight: 4,
+        marginTop: 4,
+        marginBottom: 4,
         paddingRight: 5,
         flexDirection: "row",
         borderWidth: 0.5
