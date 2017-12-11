@@ -95,8 +95,8 @@ const missingPetInitialState = {
         validationMessage: "Introduzca aquí la raza del animal encontrado",
         validationMessageColor: "grey",
         validationFieldBorderColor: "grey",
-        iconType: "entypo",
-        icon: "text",
+        iconType: "MaterialIcons",
+        icon: "pets",
         backgroundColor: "grey"
     },
     size: {
@@ -105,7 +105,7 @@ const missingPetInitialState = {
         validationMessageColor: "grey",
         validationFieldBorderColor: "grey",
         iconType: "entypo",
-        icon: "text",
+        icon: "ruler",
         backgroundColor: "grey"
     },
     date: {
