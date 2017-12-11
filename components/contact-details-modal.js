@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, Image } from "react-native"
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, Image, Dimensions } from "react-native"
 import { Icon } from "react-native-elements"
 import Modal from "react-native-modal"
 import DropdownAlert from "react-native-dropdownalert"
@@ -110,7 +110,7 @@ export default class ContactDetailsModal extends React.Component {
 
                 <Modal isVisible={this.state.isModalVisible} style={styles.contactDetailsModalContainer} >
                     <TouchableOpacity onPress={this._hideModal} >
-	          <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
+	                    <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
                     </TouchableOpacity>
 
                     <View>
@@ -126,6 +126,7 @@ export default class ContactDetailsModal extends React.Component {
                         <TextInput
                             style={styles.textInput}
                             placeholder={this.state.email.validationMessage}
+                            keyboardType={"email-address"}
                             placeholderTextColor={this.state.email.validationMessageColor}
                             borderColor={this.state.email.validationFieldBorderColor}
                             onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
@@ -135,6 +136,7 @@ export default class ContactDetailsModal extends React.Component {
                         <TextInput
                             style={styles.textInput}
                             placeholder={this.state.phoneNumber.validationMessage}
+                            keyboardType={"phone-pad"}
                             placeholderTextColor={this.state.phoneNumber.validationMessageColor}
                             borderColor={this.state.phoneNumber.validationFieldBorderColor}
                             onChangeText={(text) => this.setState({phoneNumber: {value: text, validationFieldBorderColor: "grey", validationMessageColor: "grey", validationMessage: ""}})}
@@ -172,11 +174,13 @@ export default class ContactDetailsModal extends React.Component {
     }
 }
 
+const window = Dimensions.get("window")
+
 const styles = StyleSheet.create({
     contactDetailsModalContainer: {
         flexDirection: "column",
         backgroundColor: "#333333",
-        marginTop: 270,
+        marginTop: window.height * 0.28,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3
     },

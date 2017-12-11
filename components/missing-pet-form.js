@@ -3,14 +3,14 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView } from 
 import { post } from "../services/items-api"
 import pets from "../data/pets"
 import locations from "../data/locations"
-import { Divider, Button, Icon } from "react-native-elements"
+import { Icon } from "react-native-elements"
 import DateTimePicker from "react-native-modal-datetime-picker"
-import imagePicker from "react-native-imagepicker"
 import { missingPetInitialState } from "../state/initialState"
 import CustomizedPicker from "./customized-picker"
 import ProgressAnimation from "./progress-animation"
 import OperationMessage from "./operation-message"
 import request from "superagent"
+import { ImagePicker } from "expo"
 
 import {
     presence,
@@ -268,11 +268,11 @@ export default class MissingPetForm extends React.Component {
     }
 
     _handleImagePicked () {
-        imagePicker.open({
-            takePhoto: true,
-            useLastPhoto: true,
-            chooseFromLibrary: true
-        }).then(({ uri }) => {
+        ImagePicker.launchImageLibraryAsync({
+            allowsEditing: true,
+            quality: 0.5,
+            aspect: [4, 3],
+        }).then(({uri}) => {
             this.setState({
                 camaraPhotoImage: {
                     icon: { name: "check" },
@@ -282,8 +282,16 @@ export default class MissingPetForm extends React.Component {
                     secure_url: ""
                 }
             })
-        }, (error) => {
-            console.log("error", error)
+        }).catch(() => {
+            this.setState({
+                camaraPhotoImage: {
+                    icon: { name: "check" },
+                    text: "La foto no se ha podido añadir",
+                    backgroundColor: "#03C03C",
+                    url: "",
+                    secure_url: ""
+                }
+            })
         })
     }
 
@@ -296,6 +304,7 @@ export default class MissingPetForm extends React.Component {
                     <TextInput
                         style={[styles.textInput, {color: this.state.name.validationFieldBorderColor}]}
                         placeholder={this.state.name.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.name.validationMessageColor}
                         borderColor={this.state.name.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({name: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -306,6 +315,7 @@ export default class MissingPetForm extends React.Component {
                         style={[styles.textInput, {color: this.state.email.validationFieldBorderColor}]}
                         keyboardType={"email-address"}
                         placeholder={this.state.email.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.email.validationMessageColor}
                         borderColor={this.state.email.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({email: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -326,6 +336,7 @@ export default class MissingPetForm extends React.Component {
                     <TextInput
                         style={[styles.textInput, {color: this.state.breed.validationFieldBorderColor}]}
                         placeholder={this.state.breed.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.breed.validationMessageColor}
                         borderColor={this.state.breed.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({breed: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -335,6 +346,7 @@ export default class MissingPetForm extends React.Component {
                     <TextInput
                         style={[styles.textInput, {color: this.state.size.validationFieldBorderColor}]}
                         placeholder={this.state.size.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.size.validationMessageColor}
                         borderColor={this.state.size.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({size: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -382,6 +394,7 @@ export default class MissingPetForm extends React.Component {
                     <TextInput
                         style={[styles.textInput, {color: this.state.location.validationFieldBorderColor}]}
                         placeholder={this.state.location.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.location.validationMessageColor}
                         borderColor={this.state.location.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({location: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -391,6 +404,7 @@ export default class MissingPetForm extends React.Component {
                     <TextInput
                         style={[styles.textInput, {color: this.state.description.validationFieldBorderColor}]}
                         placeholder={this.state.description.validationMessage}
+                        underlineColorAndroid={"white"}
                         placeholderTextColor={this.state.description.validationMessageColor}
                         borderColor={this.state.description.validationFieldBorderColor}
                         onChangeText={(text) => this.setState({description: {value: text, validationFieldBorderColor: "#99d1ed", validationMessageColor: "grey", validationMessage: ""}})}
@@ -404,15 +418,9 @@ export default class MissingPetForm extends React.Component {
                         </View>
                     </TouchableOpacity>
 
-                    <Divider style={styles.divider} />
-
-                    <Button
-                        style={styles.button}
-                        borderRadius={3}
-                        backgroundColor={"grey"}
-                        large
-                        onPress={this.sendPetData}
-                        title='Guardar datos' />
+                    <TouchableOpacity style={styles.button} onPress={this.sendPetData} >
+                        <Text style={styles.searchButton}>Guardar datos</Text>
+                    </TouchableOpacity>
 
                     {showProgressAnimation && <ProgressAnimation progress={progress}/>}
                     {showOperationMessage && <OperationMessage showSuccesfullMessage={showSuccesfullMessage} showUnSuccesfullMessage={showUnSuccesfullMessage} hideAnimation={this.hideAnimation} />}
@@ -428,7 +436,7 @@ const styles = StyleSheet.create({
     },
     select: {
         flexDirection: "row",
-        margin: 10,
+        margin: 4,
         padding: 15,
         backgroundColor: "white",
         borderColor: "#d6d7da",
@@ -447,9 +455,9 @@ const styles = StyleSheet.create({
     },
     addImage: {
         flex: 1,
-        padding: 5,
+        padding: 10,
         flexDirection: "row",
-        margin: 10,
+        margin: 4,
         borderWidth: 1,
         borderColor: "grey"
     },
@@ -465,14 +473,15 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: "grey",
         borderWidth: 0.5,
-        margin: 10,
+        margin: 4,
+        padding: 10,
         borderColor: "grey",
         paddingLeft: 15,
     },
     calendarSelect: {
         flex: 1,
         justifyContent: "space-between",
-        margin: 10,
+        margin: 4,
         paddingRight: 5,
         flexDirection: "row",
         borderWidth: 0.5
@@ -489,7 +498,14 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         backgroundColor: "#d3d5d6"
     },
+    searchButton: {
+        fontSize: 16,
+        color: "white",
+        alignSelf: "center"
+    },
     button: {
-        marginBottom: 15
+        backgroundColor: "#333333",
+        opacity: 0.8,
+        padding: 25
     }
 })

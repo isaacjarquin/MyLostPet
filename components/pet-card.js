@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Share, ScrollView } from "react-native"
+import { StyleSheet, Text, View, Share, ScrollView, Dimensions } from "react-native"
 import { Card } from "react-native-elements"
 import ContactDetailModal from "./contact-details-modal"
 
@@ -54,15 +54,18 @@ export default class PetCard extends React.Component {
     }
 }
 
+const window = Dimensions.get("window")
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "white",
         alignItems: "stretch",
-        justifyContent: "flex-start"
+        justifyContent: "flex-end"
     },
     petCard: {
-        width: "100%"
+        width: "100%",
+        minHeight: window.height - 130,
     },
     image: {
         height: 300
@@ -78,7 +81,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     description: {
-        marginBottom: 20,
         lineHeight: 25
     }
 })
