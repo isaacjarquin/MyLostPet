@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView } from "react-native"
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, Dimensions } from "react-native"
 import { post } from "../services/items-api"
 import pets from "../data/pets"
 import locations from "../data/locations"
@@ -461,6 +461,8 @@ export default class MissingPetForm extends React.Component {
     }
 }
 
+const window = Dimensions.get("window")
+
 const styles = StyleSheet.create({
     mainContainer: {
         backgroundColor: "white"
@@ -531,7 +533,7 @@ const styles = StyleSheet.create({
     calendarSelect: {
         flex: 1,
         justifyContent: "space-between",
-        width: "89.5%",
+        width: window.width - 48,
         marginRight: 4,
         marginTop: 4,
         marginBottom: 4,
