@@ -1,5 +1,6 @@
 import React from "react"
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, Dimensions } from "react-native"
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, Dimensions, Platform } from "react-native"
+import { Select, Option } from "react-native-chooser"
 import { post } from "../services/items-api"
 import pets from "../data/pets"
 import locations from "../data/locations"
@@ -330,7 +331,7 @@ export default class MissingPetForm extends React.Component {
                         />
                     </View>
 
-                    <View style={styles.textInputBlockElement}>
+                    {Platform.OS === 'ios' && <View style={styles.textInputBlockElement}>
                         <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.type.backgroundColor} type={this.state.type.iconType} name={this.state.type.icon} size={30} />
                         <TouchableOpacity style={[styles.select, { borderColor: this.state.type.validationMessageColor }]} onPress={this._showPetTypeModal} >
                             <Text style={[styles.selectText, { color: this.state.type.validationMessageColor }]} >{this.state.type.value === "" || this.state.type.value === undefined ? this.state.type.validationMessage : this.state.type.value}</Text>
@@ -342,7 +343,26 @@ export default class MissingPetForm extends React.Component {
                             hidePetTypeModal={this._hidePetTypeModal}
                             handler={this.setPetType}
                         />
-                    </View>
+                    </View>}
+
+                    {
+                        Platform.OS === 'ios' &&
+                        <View style={styles.textInputBlockElement}>
+                            <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.type.backgroundColor} type={this.state.type.iconType} name={this.state.type.icon} size={30} />
+                            <Select 
+                                defaultText={this.state.type.validationMessage}
+                                style={[styles.androidSelect, { borderColor: this.state.type.validationFieldBorderColor, backgroundColor: this.state.type.validationBackgroundColor }]}
+                                textStyle={{ color: this.state.type.validationMessageColor }}
+                                indicator="down"
+                                indicatorColor={this.state.type.validationFieldBorderColor}
+                                backdropStyle={styles.backdropStyle}
+                                optionListStyle={styles.optionListStyle}
+                                onSelect={(text) => this.setState({ type: { value: text, validationFieldBorderColor: "green", validationMessageColor: "green", validationMessage: "", backgroundColor: "#77DD77", icon: "check", iconType: "entypo" } })}
+                                selected={() => setSelectedText(this.state.type.value)}>
+                                {pets.map((pet) => <Option style={{alignSelf: "center"}} key={pet.id} value={pet.value}>{pet.value}</Option>)}
+                            </Select>
+                        </View>
+                    }
 
                     <View style={styles.textInputBlockElement}>
                         <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.breed.backgroundColor} type={this.state.breed.iconType} name={this.state.breed.icon} size={30} />
@@ -479,6 +499,27 @@ const styles = StyleSheet.create({
         marginLeft: 4,
         marginTop: 4,
         marginBottom: 4
+    },
+    androidSelect: {
+        marginBottom: 4,
+        marginRight: 4,
+        marginTop: 4,
+        padding: 15,
+        width: window.width - 48,
+        backgroundColor: "white",
+        borderColor: "#d6d7da",
+        borderWidth: 0.5
+    },
+    optionListStyle: {
+        backgroundColor: "white",
+        borderColor: "black",
+        width: "98%",
+        height: "30%",
+        borderRadius: 2
+    },
+    backdropStyle: {
+        backgroundColor: "black",
+        opacity: 0.8
     },
     select: {
         width: "87%",
