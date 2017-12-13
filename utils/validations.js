@@ -18,7 +18,10 @@ const setValidation = (message) => {
     return {
         validationMessage: message,
         validationMessageColor: "red",
-        validationFieldBorderColor: "red"
+        validationFieldBorderColor: "red",
+        backgroundColor: "#FF6961",
+        iconType: "entypo",
+        icon: "cross"
     }
 }
 

@@ -57,9 +57,12 @@ describe("validations", () => {
     describe("setValidation", () => {
         test("validation gets set appropiatly", () => {
             expect(setValidation("validation test")).toEqual({
+                backgroundColor: "#FF6961", 
+                icon: "cross",
+                iconType: "entypo",
+                validationFieldBorderColor: "red",
                 validationMessage: "validation test",
-                validationMessageColor: "red",
-                validationFieldBorderColor: "red"
+                validationMessageColor: "red"
             })
         })
     })
