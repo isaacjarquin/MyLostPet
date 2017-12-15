@@ -206,7 +206,7 @@ export default class MissingPetForm extends React.Component {
 				          .field("upload_preset", "ak0f1cnm")
 				          .field("file", file)
 				          .on("progress", function (e) {
-                            self.setState({progress: Math.trunc(e.percent)})
+                        self.setState({progress: Math.trunc(e.percent)})
 				          })
 				          .end((err, response) => {
 				            resolve(response.body)
@@ -341,7 +341,7 @@ export default class MissingPetForm extends React.Component {
                     </View>
 
                     {
-                        Platform.OS === 'ios' &&
+                        Platform.OS === "ios" &&
                         <View style={styles.textInputBlockElement}>
                             <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.type.backgroundColor} type={this.state.type.iconType} name={this.state.type.icon} size={30} />
                             <TouchableOpacity style={[styles.select, { borderColor: this.state.type.validationMessageColor }]} onPress={this._showPetTypeModal} >
@@ -358,7 +358,7 @@ export default class MissingPetForm extends React.Component {
                     }
 
                     {
-                        Platform.OS === 'android' &&
+                        Platform.OS === "android" &&
                         <View style={styles.textInputBlockElement}>
                             <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.type.backgroundColor} type={this.state.type.iconType} name={this.state.type.icon} size={30} />
                             <Select 
@@ -422,7 +422,7 @@ export default class MissingPetForm extends React.Component {
                     </View>
 
                     {
-                        Platform.OS === 'android' &&
+                        Platform.OS === "android" &&
                         <View style={styles.textInputBlockElement}>
                             <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.autonomousComunity.backgroundColor} type={this.state.autonomousComunity.iconType} name={this.state.autonomousComunity.icon} size={30} />
                             <Select 
@@ -442,7 +442,7 @@ export default class MissingPetForm extends React.Component {
                     }
 
                     {
-                        Platform.OS === 'android' &&
+                        Platform.OS === "android" &&
                         <View style={styles.textInputBlockElement}>
                             <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.province.backgroundColor} type={this.state.province.iconType} name={this.state.province.icon} size={30} />
                             <Select
@@ -462,7 +462,7 @@ export default class MissingPetForm extends React.Component {
                     }
 
                     {
-                        Platform.OS === 'ios' &&
+                        Platform.OS === "ios" &&
                         <View style={styles.textInputBlockElement}>
                             <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.autonomousComunity.backgroundColor} type={this.state.autonomousComunity.iconType} name={this.state.autonomousComunity.icon} size={30} />
                             <TouchableOpacity style={[styles.select, {borderColor: this.state.autonomousComunity.validationMessageColor}]} onPress={this._showAutonomousComunityModal} >
@@ -478,7 +478,7 @@ export default class MissingPetForm extends React.Component {
                         </View>}
 
                     {
-                        Platform.OS === 'ios' &&
+                        Platform.OS === "ios" &&
                         <View style={styles.textInputBlockElement}>
                             <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.province.backgroundColor} type={this.state.province.iconType} name={this.state.province.icon} size={30} />
                             <TouchableOpacity style={[styles.select, {borderColor: this.state.province.validationMessageColor}]} onPress={this._showProvinceModal} >

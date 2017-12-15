@@ -110,7 +110,7 @@ export default class SecondaryMenuModal extends React.Component {
                     <Text style={styles.searchButton}>Buscar mascota</Text>
                 </TouchableOpacity>
                 {
-                    Platform.OS === 'ios' &&
+                    Platform.OS === "ios" &&
                     <Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
                         <TouchableOpacity style={styles.share} onPress={this._hideModal} >
                             <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
@@ -160,7 +160,7 @@ export default class SecondaryMenuModal extends React.Component {
                 }
 
                 {
-                    Platform.OS === 'android' &&
+                    Platform.OS === "android" &&
                     <Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
                         <TouchableOpacity style={styles.share} onPress={this._hideModal} >
                             <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
@@ -231,7 +231,7 @@ export default class SecondaryMenuModal extends React.Component {
 }
 
 const window = Dimensions.get("window")
-const socialIconsModalMarginTop= Platform.OS === 'ios' ? 300 : 340
+const socialIconsModalMarginTop= Platform.OS === "ios" ? 300 : 340
 
 const styles = StyleSheet.create({
     container: {
