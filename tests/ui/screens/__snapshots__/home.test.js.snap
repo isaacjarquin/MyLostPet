@@ -28,28 +28,11 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "flex": 1,
-          "minHeight": 974,
+          "marginTop": 30,
+          "minHeight": 944,
         }
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "transparent",
-            "color": "grey",
-            "fontSize": 28,
-            "fontWeight": "bold",
-            "margin": 20,
-          }
-        }
-      >
-        My Lost Pet
-      </Text>
       <Text
         accessible={true}
         allowFontScaling={true}
