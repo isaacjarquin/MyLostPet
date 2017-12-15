@@ -38,7 +38,6 @@ export default class Home extends React.Component {
                     style={styles.image}
                 >
                     <View style={styles.topSection}>
-                        <Text style={styles.title}>My Lost Pet</Text>
                         <Text style={styles.subTitle}>Te ayudamos a encontrarlo</Text>
 
                         <Image
@@ -73,19 +72,12 @@ const styles = StyleSheet.create({
         height: window.height
     },
     topSection: {
+        marginTop: 30,
         flex: 1,
-        minHeight: window.height - 360
+        minHeight: window.height - 390
     },
     bottomSection: {
         flex: 1
-    },
-    title: {
-        margin: 20,
-        fontSize: 28,
-        fontWeight: "bold",
-        alignSelf: "center",
-        color: "grey",
-        backgroundColor: "transparent"
     },
     searchIcon: {
         alignSelf: "center",

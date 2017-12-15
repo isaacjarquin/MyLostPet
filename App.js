@@ -29,6 +29,8 @@ const App = StackNavigator(
         Home: {
             screen: Home,
             navigationOptions: ({navigation}) => ({
+                title: "My lost pet",
+                headerTitleStyle: { color: "white", fontSize: 24, alignSelf: "center"},
                 headerRight: <Icon
                     color='white'
                     type="Feather"
