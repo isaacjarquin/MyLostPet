@@ -1,5 +1,6 @@
 import React from "react"
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, Dimensions } from "react-native"
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, Dimensions, Platform } from "react-native"
+import { Select, Option } from "react-native-chooser"
 import { post } from "../services/items-api"
 import pets from "../data/pets"
 import locations from "../data/locations"
@@ -206,11 +207,8 @@ export default class MissingPetForm extends React.Component {
 				          .field("file", file)
 				          .on("progress", function (e) {
                         self.setState({progress: Math.trunc(e.percent)})
-                        console.log("progress", Math.trunc(e.percent))
 				          })
 				          .end((err, response) => {
-                        console.log("response.body", response.body)
-                        console.log("err", err)
 				            resolve(response.body)
 				            reject(err)
 				          })
@@ -219,14 +217,26 @@ export default class MissingPetForm extends React.Component {
     }
 
     setProvince (text) {
-        this.setState({ province: { value: text, validationMessageColor: "green", validationFieldBorderColor: "#99d1ed", backgroundColor: "#77DD77", icon: "check", iconType: "entypo"}})
+        this.setState({ province: { value: text, validationMessageColor: "green", validationFieldBorderColor: "green", backgroundColor: "#77DD77", icon: "check", iconType: "entypo"}})
     }
 
-    setAutonomousComunity (text) {
+    setAutonomousComunity(text) {
         const location = locations.find((location) => location.value === text)
 
-        this.setState({ autonomousComunity: { value: text, validationMessageColor: "green", validationFieldBorderColor: "#99d1ed", backgroundColor: "#77DD77", icon: "check", iconType: "entypo" }})
-        this.setState({provincias: location.provincias})
+        this.setState({
+            autonomousComunity: {
+                value: text,
+                validationFieldBorderColor: "green",
+                validationMessageColor: "green",
+                validationMessage: "",
+                backgroundColor: "#77DD77",
+                icon: "check",
+                iconType: "entypo"
+            }
+        })
+        this.setState({
+            provincias: location.provincias
+        })
     }
 
     setPetType(text) {
@@ -330,19 +340,41 @@ export default class MissingPetForm extends React.Component {
                         />
                     </View>
 
-                    <View style={styles.textInputBlockElement}>
-                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.type.backgroundColor} type={this.state.type.iconType} name={this.state.type.icon} size={30} />
-                        <TouchableOpacity style={[styles.select, { borderColor: this.state.type.validationMessageColor }]} onPress={this._showPetTypeModal} >
-                            <Text style={[styles.selectText, { color: this.state.type.validationMessageColor }]} >{this.state.type.value === "" || this.state.type.value === undefined ? this.state.type.validationMessage : this.state.type.value}</Text>
-                            <Icon style={styles.selectIcon} color={this.state.type.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
-                        </TouchableOpacity>
-                        <CustomizedPicker
-                            items={pets}
-                            isVisible={this.state.isPetTypeModalVisible}
-                            hidePetTypeModal={this._hidePetTypeModal}
-                            handler={this.setPetType}
-                        />
-                    </View>
+                    {
+                        Platform.OS === "ios" &&
+                        <View style={styles.textInputBlockElement}>
+                            <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.type.backgroundColor} type={this.state.type.iconType} name={this.state.type.icon} size={30} />
+                            <TouchableOpacity style={[styles.select, { borderColor: this.state.type.validationMessageColor }]} onPress={this._showPetTypeModal} >
+                                <Text style={[styles.selectText, { color: this.state.type.validationMessageColor }]} >{this.state.type.value === "" || this.state.type.value === undefined ? this.state.type.validationMessage : this.state.type.value}</Text>
+                                <Icon style={styles.selectIcon} color={this.state.type.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                            </TouchableOpacity>
+                            <CustomizedPicker
+                                items={pets}
+                                isVisible={this.state.isPetTypeModalVisible}
+                                hidePetTypeModal={this._hidePetTypeModal}
+                                handler={this.setPetType}
+                            />
+                        </View>
+                    }
+
+                    {
+                        Platform.OS === "android" &&
+                        <View style={styles.textInputBlockElement}>
+                            <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.type.backgroundColor} type={this.state.type.iconType} name={this.state.type.icon} size={30} />
+                            <Select 
+                                defaultText={this.state.type.validationMessage}
+                                style={[styles.androidSelect, { borderColor: this.state.type.validationFieldBorderColor, backgroundColor: this.state.type.validationBackgroundColor }]}
+                                textStyle={{ color: this.state.type.validationMessageColor }}
+                                indicator="down"
+                                indicatorColor={this.state.type.validationFieldBorderColor}
+                                backdropStyle={styles.backdropStyle}
+                                optionListStyle={styles.optionListStyle}
+                                onSelect={(text) => this.setState({ type: { value: text, validationFieldBorderColor: "green", validationMessageColor: "green", validationMessage: "", backgroundColor: "#77DD77", icon: "check", iconType: "entypo" } })}
+                                selected={() => setSelectedText(this.state.type.value)}>
+                                {pets.map((pet) => <Option style={{alignSelf: "center"}} key={pet.id} value={pet.value}>{pet.value}</Option>)}
+                            </Select>
+                        </View>
+                    }
 
                     <View style={styles.textInputBlockElement}>
                         <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.breed.backgroundColor} type={this.state.breed.iconType} name={this.state.breed.icon} size={30} />
@@ -389,33 +421,78 @@ export default class MissingPetForm extends React.Component {
                         />
                     </View>
 
-                    <View style={styles.textInputBlockElement}>
-                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.autonomousComunity.backgroundColor} type={this.state.autonomousComunity.iconType} name={this.state.autonomousComunity.icon} size={30} />
-                        <TouchableOpacity style={[styles.select, {borderColor: this.state.autonomousComunity.validationMessageColor}]} onPress={this._showAutonomousComunityModal} >
-                            <Text style={[styles.selectText, {color: this.state.autonomousComunity.validationMessageColor}]}>{this.state.autonomousComunity.value === "" || this.state.autonomousComunity.value === undefined ? "Comunidad autónoma" : this.state.autonomousComunity.value}</Text>
-                            <Icon style={styles.selectIcon} color={this.state.autonomousComunity.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
-                        </TouchableOpacity>
-                        <CustomizedPicker
-                            items={locations}
-                            isVisible={this.state.isAutonomousComunityModalVisible}
-                            hidePetTypeModal={this._hideAutonomousComunityModal}
-                            handler={this.setAutonomousComunity}
-                        />
-                    </View>
+                    {
+                        Platform.OS === "android" &&
+                        <View style={styles.textInputBlockElement}>
+                            <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.autonomousComunity.backgroundColor} type={this.state.autonomousComunity.iconType} name={this.state.autonomousComunity.icon} size={30} />
+                            <Select 
+                                defaultText={this.state.autonomousComunity.validationMessage}
+                                style={[styles.androidSelect, { borderColor: this.state.autonomousComunity.validationFieldBorderColor, backgroundColor: this.state.autonomousComunity.validationBackgroundColor }]}
+                                textStyle={{ color: this.state.autonomousComunity.validationMessageColor }}
+                                indicator="down"
+                                indicatorColor={this.state.autonomousComunity.validationFieldBorderColor}
+                                backdropStyle={styles.backdropStyle}
+                                optionListStyle={styles.optionListStyle}
+                                onSelect={this.setAutonomousComunity}
+                                selected={() => setSelectedText(this.state.autonomousComunity.value)} >
 
-                    <View style={styles.textInputBlockElement}>
-                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.province.backgroundColor} type={this.state.province.iconType} name={this.state.province.icon} size={30} />
-                        <TouchableOpacity style={[styles.select, {borderColor: this.state.province.validationMessageColor}]} onPress={this._showProvinceModal} >
-                            <Text style={[styles.selectText, {color: this.state.province.validationMessageColor}]}>{this.state.province.value === ""  || this.state.province.value === undefined ? "Provincia" : this.state.province.value }</Text>
-                            <Icon style={styles.selectIcon} color={this.state.province.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
-                        </TouchableOpacity>
-                        <CustomizedPicker
-                            items={this.state.provincias}
-                            isVisible={this.state.isProvinceModalVisible}
-                            hidePetTypeModal={this._hideProvinceModal}
-                            handler={this.setProvince}
-                        />
-                    </View>
+                                {locations.map((location) => <Option style={{alignSelf: "center"}} key={location.id} value={location.value}>{location.value}</Option>)}
+                            </Select>
+                        </View>
+                    }
+
+                    {
+                        Platform.OS === "android" &&
+                        <View style={styles.textInputBlockElement}>
+                            <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.province.backgroundColor} type={this.state.province.iconType} name={this.state.province.icon} size={30} />
+                            <Select
+                                defaultText={this.state.province.validationMessage}
+                                style={[styles.androidSelect, { borderColor: this.state.province.validationFieldBorderColor, backgroundColor: this.state.province.validationBackgroundColor }]}
+                                textStyle={{ color: this.state.province.validationMessageColor }}
+                                indicator="down"
+                                indicatorColor={this.state.province.validationFieldBorderColor}
+                                backdropStyle={styles.backdropStyle}
+                                optionListStyle={styles.optionListStyle}
+                                onSelect={this.setProvince}
+                                selected={() => setSelectedText(this.state.province.value)} >
+
+                                {this.state.provincias.map((provincia) => <Option style={{ alignSelf: "center" }} key={provincia.id} value={provincia.value}>{provincia.value}</Option>)}
+                            </Select>
+                        </View>
+                    }
+
+                    {
+                        Platform.OS === "ios" &&
+                        <View style={styles.textInputBlockElement}>
+                            <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.autonomousComunity.backgroundColor} type={this.state.autonomousComunity.iconType} name={this.state.autonomousComunity.icon} size={30} />
+                            <TouchableOpacity style={[styles.select, {borderColor: this.state.autonomousComunity.validationMessageColor}]} onPress={this._showAutonomousComunityModal} >
+                                <Text style={[styles.selectText, {color: this.state.autonomousComunity.validationMessageColor}]}>{this.state.autonomousComunity.value === "" || this.state.autonomousComunity.value === undefined ? "Comunidad autónoma" : this.state.autonomousComunity.value}</Text>
+                                <Icon style={styles.selectIcon} color={this.state.autonomousComunity.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                            </TouchableOpacity>
+                            <CustomizedPicker
+                                items={locations}
+                                isVisible={this.state.isAutonomousComunityModalVisible}
+                                hidePetTypeModal={this._hideAutonomousComunityModal}
+                                handler={this.setAutonomousComunity}
+                            />
+                        </View>}
+
+                    {
+                        Platform.OS === "ios" &&
+                        <View style={styles.textInputBlockElement}>
+                            <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.province.backgroundColor} type={this.state.province.iconType} name={this.state.province.icon} size={30} />
+                            <TouchableOpacity style={[styles.select, {borderColor: this.state.province.validationMessageColor}]} onPress={this._showProvinceModal} >
+                                <Text style={[styles.selectText, {color: this.state.province.validationMessageColor}]}>{this.state.province.value === ""  || this.state.province.value === undefined ? "Provincia" : this.state.province.value }</Text>
+                                <Icon style={styles.selectIcon} color={this.state.province.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                            </TouchableOpacity>
+                            <CustomizedPicker
+                                items={this.state.provincias}
+                                isVisible={this.state.isProvinceModalVisible}
+                                hidePetTypeModal={this._hideProvinceModal}
+                                handler={this.setProvince}
+                            />
+                        </View>
+                    }
                     
                     <View style={styles.textInputBlockElement}>
                         <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.location.backgroundColor} type={this.state.location.iconType} name={this.state.location.icon} size={30} />
@@ -479,6 +556,27 @@ const styles = StyleSheet.create({
         marginLeft: 4,
         marginTop: 4,
         marginBottom: 4
+    },
+    androidSelect: {
+        marginBottom: 4,
+        marginRight: 4,
+        marginTop: 4,
+        padding: 15,
+        width: window.width - 48,
+        backgroundColor: "white",
+        borderColor: "#d6d7da",
+        borderWidth: 0.5
+    },
+    optionListStyle: {
+        backgroundColor: "white",
+        borderColor: "black",
+        width: "98%",
+        height: "30%",
+        borderRadius: 2
+    },
+    backdropStyle: {
+        backgroundColor: "black",
+        opacity: 0.8
     },
     select: {
         width: "87%",

@@ -313,7 +313,7 @@ exports[`renders correctly 1`] = `
                 "flexDirection": "column",
                 "justifyContent": "center",
                 "margin": 37.5,
-                "marginTop": 1024,
+                "marginTop": 1034,
                 "transform": Array [
                   Object {
                     "translateY": 0,

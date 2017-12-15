@@ -1,5 +1,6 @@
 import React from "react"
-import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from "react-native"
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Platform } from "react-native"
+import { Select, Option } from "react-native-chooser"
 import Modal from "react-native-modal"
 import bodyParamsBuilder from "../utils/http-request.js"
 import pets from "../data/pets"
@@ -73,18 +74,18 @@ export default class SecondaryMenuModal extends React.Component {
     }
 
     setType (text) {
-        this.setState({type: text})
+        this.setState({ type: text})
     }
 
     setProvince (text) {
-        this.setState({province: text})
+        this.setState({ province: text})
     }
 
     setAutonomousComunity (text) {
         if (text) {
             const location = locations.find((location) => location.value === text)
 
-            this.setState({autonomousComunity: text})
+            this.setState({ autonomousComunity: text })
             this.setState({provincias: location.provincias})
         }
     }
@@ -108,59 +109,129 @@ export default class SecondaryMenuModal extends React.Component {
                     <Icon style={styles.searchHomeIcon} color='white' type="evilIcons" name="search" size={30} />
                     <Text style={styles.searchButton}>Buscar mascota</Text>
                 </TouchableOpacity>
-
-                <Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
-                    <TouchableOpacity style={styles.share} onPress={this._hideModal} >
-	          			<Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
-                    </TouchableOpacity>
-                    <View style={styles.socialIcons}>
-
-                        <TouchableOpacity style={styles.select} onPress={this._showPetTypeModal} >
-                            <Text style={styles.selectText}>{this.state.type === "" ? "Tipo de mascota" : this.state.type}</Text>
-                            <Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                {
+                    Platform.OS === "ios" &&
+                    <Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
+                        <TouchableOpacity style={styles.share} onPress={this._hideModal} >
+                            <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
                         </TouchableOpacity>
-                        <CustomizedPicker
-                            items={pets}
-                            isVisible={this.state.isPetTypeModalVisible}
-                            hidePetTypeModal={this._hidePetTypeModal}
-                            handler={this.setType}
-                        />
+                        <View style={styles.socialIcons}>
 
-                        <TouchableOpacity style={styles.select} onPress={this._showAutonomousComunityModal} >
-                            <Text style={styles.selectText}>{this.state.autonomousComunity === "" ? "Comunidad autónoma" : this.state.autonomousComunity}</Text>
-                            <Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                            <TouchableOpacity style={styles.select} onPress={this._showPetTypeModal} >
+                                <Text style={styles.selectText}>{this.state.type === "" ? "Tipo de mascota" : this.state.type}</Text>
+                                <Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                            </TouchableOpacity>
+                            <CustomizedPicker
+                                items={pets}
+                                isVisible={this.state.isPetTypeModalVisible}
+                                hidePetTypeModal={this._hidePetTypeModal}
+                                handler={this.setType}
+                            />
+
+                            <TouchableOpacity style={styles.select} onPress={this._showAutonomousComunityModal} >
+                                <Text style={styles.selectText}>{this.state.autonomousComunity === "" ? "Comunidad autónoma" : this.state.autonomousComunity}</Text>
+                                <Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                            </TouchableOpacity>
+                            <CustomizedPicker
+                                items={locations}
+                                isVisible={this.state.isAutonomousComunityModalVisible}
+                                hidePetTypeModal={this._hideAutonomousComunityModal}
+                                handler={this.setAutonomousComunity}
+                            />
+
+                            <TouchableOpacity style={styles.select} onPress={this._showProvinceModal} >
+                                <Text style={styles.selectText}>{this.state.province === "" ? "Provincia" : this.state.province }</Text>
+                                <Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                            </TouchableOpacity>
+                            <CustomizedPicker
+                                items={this.state.provincias}
+                                isVisible={this.state.isProvinceModalVisible}
+                                hidePetTypeModal={this._hideProvinceModal}
+                                handler={this.setProvince}
+                            />
+
+                            <TouchableOpacity style={styles.submitButton} onPress={this.getPets} >
+                                <Icon style={styles.searchIcon} color='white' type="evilIcons" name="search" size={30} />
+                                <Text style={styles.searchButtonText}>Buscar</Text>
+                            </TouchableOpacity>
+
+                        </View>
+                    </Modal>
+                }
+
+                {
+                    Platform.OS === "android" &&
+                    <Modal isVisible={this.state.isModalVisible} style={styles.socialIconsModal} >
+                        <TouchableOpacity style={styles.share} onPress={this._hideModal} >
+                            <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
                         </TouchableOpacity>
-                        <CustomizedPicker
-                            items={locations}
-                            isVisible={this.state.isAutonomousComunityModalVisible}
-                            hidePetTypeModal={this._hideAutonomousComunityModal}
-                            handler={this.setAutonomousComunity}
-                        />
+                        <View style={styles.socialIcons}>
 
-                        <TouchableOpacity style={styles.select} onPress={this._showProvinceModal} >
-                            <Text style={styles.selectText}>{this.state.province === "" ? "Provincia" : this.state.province }</Text>
-                            <Icon style={styles.selectIcon} color='white' type="MaterialIcons" name="keyboard-arrow-down" size={20} />
-                        </TouchableOpacity>
-                        <CustomizedPicker
-                            items={this.state.provincias}
-                            isVisible={this.state.isProvinceModalVisible}
-                            hidePetTypeModal={this._hideProvinceModal}
-                            handler={this.setProvince}
-                        />
+                            <View style={styles.textInputBlockElement}>
+                                <Icon style={styles.fieldsIcons} color='white' backgroundColor="black" type="MaterialIcons" name="pets" size={30} />
+                                <Select
+                                    defaultText="Seleccione el tipo de mascota"
+                                    style={styles.androidSelect}
+                                    textStyle={{ color: "white" }}
+                                    indicator="down"
+                                    indicatorColor="white"
+                                    backdropStyle={styles.backdropStyle}
+                                    optionListStyle={styles.optionListStyle}
+                                    onSelect={this.setType}
+                                    selected={this.state.type}>
+                                    {pets.map((pet) => <Option style={{ alignSelf: "center" }} key={pet.id} value={pet.value}>{pet.value}</Option>)}
+                                </Select>
+                            </View>
 
-                        <TouchableOpacity style={styles.submitButton} onPress={this.getPets} >
-		          			<Icon style={styles.searchIcon} color='white' type="evilIcons" name="search" size={30} />
-                            <Text style={styles.searchButtonText}>Buscar</Text>
-                        </TouchableOpacity>
+                            <View style={styles.textInputBlockElement}>
+                                <Icon style={styles.fieldsIcons} color='white' backgroundColor="black" type="MaterialIcons" name="place" size={30} />
+                                <Select
+                                    defaultText="Seleccione la comunidad autónoma"
+                                    style={styles.androidSelect}
+                                    textStyle={{ color: "white" }}
+                                    indicator="down"
+                                    indicatorColor={"white"}
+                                    backdropStyle={styles.backdropStyle}
+                                    optionListStyle={styles.optionListStyle}
+                                    onSelect={this.setAutonomousComunity}
+                                    selected={this.state.autonomousComunity} >
 
-                    </View>
-                </Modal>
+                                    {locations.map((location) => <Option style={{ alignSelf: "center" }} key={location.id} value={location.value}>{location.value}</Option>)}
+                                </Select>
+                            </View>
+
+                            <View style={styles.textInputBlockElement}>
+                                <Icon style={styles.fieldsIcons} color='white' backgroundColor="black" type="MaterialIcons" name="place" size={30} />
+                                <Select
+                                    defaultText="Seleccione la provincia"
+                                    style={styles.androidSelect}
+                                    textStyle={{ color: "white" }}
+                                    indicator="down"
+                                    indicatorColor="white"
+                                    backdropStyle={styles.backdropStyle}
+                                    optionListStyle={styles.optionListStyle}
+                                    onSelect={this.setProvince}
+                                    selected={this.state.province} >
+
+                                    {this.state.provincias.map((provincia) => <Option style={{ alignSelf: "center" }} key={provincia.id} value={provincia.value}>{provincia.value}</Option>)}
+                                </Select>
+                            </View>
+
+                            <TouchableOpacity style={styles.submitButton} onPress={this.getPets} >
+                                <Icon style={styles.searchIcon} color='white' type="evilIcons" name="search" size={30} />
+                                <Text style={styles.searchButtonText}>Buscar</Text>
+                            </TouchableOpacity>
+
+                        </View>
+                    </Modal>
+                }
             </View>
         )
     }
 }
 
 const window = Dimensions.get("window")
+const socialIconsModalMarginTop= Platform.OS === "ios" ? 300 : 340
 
 const styles = StyleSheet.create({
     container: {
@@ -176,6 +247,36 @@ const styles = StyleSheet.create({
         color: "white",
         alignSelf: "center",
         fontSize: 18
+    },
+    textInputBlockElement: {
+        flexDirection: "row"
+    },
+    fieldsIcons: {
+        borderColor: "#d6d7da",
+        borderWidth: 0.5,
+        paddingTop: 14,
+        paddingLeft: 4,
+        width: 40,
+        opacity: 0.5
+    },
+    androidSelect: {
+        padding: 20,
+        backgroundColor: "black",
+        width: window.width - 78,
+        borderColor: "#d6d7da",
+        borderWidth: 0.5,
+        opacity: 0.5
+    },
+    optionListStyle: {
+        backgroundColor: "white",
+        borderColor: "black",
+        width: "98%",
+        height: "30%",
+        borderRadius: 2
+    },
+    backdropStyle: {
+        backgroundColor: "black",
+        opacity: 0.8
     },
     select: {
         flexDirection: "row",
@@ -201,7 +302,7 @@ const styles = StyleSheet.create({
     socialIconsModal: {
         flexDirection: "column",
         backgroundColor: "#333333",
-        marginTop: window.height - 310,
+        marginTop: window.height - socialIconsModalMarginTop,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3
     },
