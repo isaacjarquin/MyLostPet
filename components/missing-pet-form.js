@@ -206,12 +206,9 @@ export default class MissingPetForm extends React.Component {
 				          .field("upload_preset", "ak0f1cnm")
 				          .field("file", file)
 				          .on("progress", function (e) {
-                        self.setState({progress: Math.trunc(e.percent)})
-                        console.log("progress", Math.trunc(e.percent))
+                            self.setState({progress: Math.trunc(e.percent)})
 				          })
 				          .end((err, response) => {
-                        console.log("response.body", response.body)
-                        console.log("err", err)
 				            resolve(response.body)
 				            reject(err)
 				          })
