@@ -26,7 +26,6 @@ export default class MissingPetForm extends React.Component {
 
         this.sendPetData = this.sendPetData.bind(this)
         this.setAutonomousComunity = this.setAutonomousComunity.bind(this)
-        this.setAutonomousComunityAndroid = this.setAutonomousComunityAndroid.bind(this)
         this.setProvince = this.setProvince.bind(this)
         this.setPetType = this.setPetType.bind(this)
         this.hideAnimation = this.hideAnimation.bind(this)
@@ -221,17 +220,10 @@ export default class MissingPetForm extends React.Component {
     }
 
     setProvince (text) {
-        this.setState({ province: { value: text, validationMessageColor: "green", validationFieldBorderColor: "#99d1ed", backgroundColor: "#77DD77", icon: "check", iconType: "entypo"}})
+        this.setState({ province: { value: text, validationMessageColor: "green", validationFieldBorderColor: "green", backgroundColor: "#77DD77", icon: "check", iconType: "entypo"}})
     }
 
-    setAutonomousComunity (text) {
-        const location = locations.find((location) => location.value === text)
-
-        this.setState({ autonomousComunity: { value: text, validationMessageColor: "green", validationFieldBorderColor: "#99d1ed", backgroundColor: "#77DD77", icon: "check", iconType: "entypo" }})
-        this.setState({provincias: location.provincias})
-    }
-
-    setAutonomousComunityAndroid(text) {
+    setAutonomousComunity(text) {
         const location = locations.find((location) => location.value === text)
 
         this.setState({
@@ -444,7 +436,7 @@ export default class MissingPetForm extends React.Component {
                                 indicatorColor={this.state.autonomousComunity.validationFieldBorderColor}
                                 backdropStyle={styles.backdropStyle}
                                 optionListStyle={styles.optionListStyle}
-                                onSelect={this.setAutonomousComunityAndroid}
+                                onSelect={this.setAutonomousComunity}
                                 selected={() => setSelectedText(this.state.autonomousComunity.value)} >
 
                                 {locations.map((location) => <Option style={{alignSelf: "center"}} key={location.id} value={location.value}>{location.value}</Option>)}
@@ -452,7 +444,28 @@ export default class MissingPetForm extends React.Component {
                         </View>
                     }
 
-                    {Platform.OS === 'ios' &&
+                    {
+                        Platform.OS === 'android' &&
+                        <View style={styles.textInputBlockElement}>
+                            <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.province.backgroundColor} type={this.state.province.iconType} name={this.state.province.icon} size={30} />
+                            <Select
+                                defaultText={this.state.province.validationMessage}
+                                style={[styles.androidSelect, { borderColor: this.state.province.validationFieldBorderColor, backgroundColor: this.state.province.validationBackgroundColor }]}
+                                textStyle={{ color: this.state.province.validationMessageColor }}
+                                indicator="down"
+                                indicatorColor={this.state.province.validationFieldBorderColor}
+                                backdropStyle={styles.backdropStyle}
+                                optionListStyle={styles.optionListStyle}
+                                onSelect={this.setProvince}
+                                selected={() => setSelectedText(this.state.province.value)} >
+
+                                {this.state.provincias.map((provincia) => <Option style={{ alignSelf: "center" }} key={provincia.id} value={provincia.value}>{provincia.value}</Option>)}
+                            </Select>
+                        </View>
+                    }
+
+                    {
+                        Platform.OS === 'ios' &&
                         <View style={styles.textInputBlockElement}>
                             <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.autonomousComunity.backgroundColor} type={this.state.autonomousComunity.iconType} name={this.state.autonomousComunity.icon} size={30} />
                             <TouchableOpacity style={[styles.select, {borderColor: this.state.autonomousComunity.validationMessageColor}]} onPress={this._showAutonomousComunityModal} >
@@ -467,19 +480,22 @@ export default class MissingPetForm extends React.Component {
                             />
                         </View>}
 
-                    <View style={styles.textInputBlockElement}>
-                        <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.province.backgroundColor} type={this.state.province.iconType} name={this.state.province.icon} size={30} />
-                        <TouchableOpacity style={[styles.select, {borderColor: this.state.province.validationMessageColor}]} onPress={this._showProvinceModal} >
-                            <Text style={[styles.selectText, {color: this.state.province.validationMessageColor}]}>{this.state.province.value === ""  || this.state.province.value === undefined ? "Provincia" : this.state.province.value }</Text>
-                            <Icon style={styles.selectIcon} color={this.state.province.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
-                        </TouchableOpacity>
-                        <CustomizedPicker
-                            items={this.state.provincias}
-                            isVisible={this.state.isProvinceModalVisible}
-                            hidePetTypeModal={this._hideProvinceModal}
-                            handler={this.setProvince}
-                        />
-                    </View>
+                    {
+                        Platform.OS === 'ios' &&
+                        <View style={styles.textInputBlockElement}>
+                            <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.province.backgroundColor} type={this.state.province.iconType} name={this.state.province.icon} size={30} />
+                            <TouchableOpacity style={[styles.select, {borderColor: this.state.province.validationMessageColor}]} onPress={this._showProvinceModal} >
+                                <Text style={[styles.selectText, {color: this.state.province.validationMessageColor}]}>{this.state.province.value === ""  || this.state.province.value === undefined ? "Provincia" : this.state.province.value }</Text>
+                                <Icon style={styles.selectIcon} color={this.state.province.validationMessageColor} type="MaterialIcons" name="keyboard-arrow-down" size={20} />
+                            </TouchableOpacity>
+                            <CustomizedPicker
+                                items={this.state.provincias}
+                                isVisible={this.state.isProvinceModalVisible}
+                                hidePetTypeModal={this._hideProvinceModal}
+                                handler={this.setProvince}
+                            />
+                        </View>
+                    }
                     
                     <View style={styles.textInputBlockElement}>
                         <Icon style={styles.fieldsIcons} color='white' backgroundColor={this.state.location.backgroundColor} type={this.state.location.iconType} name={this.state.location.icon} size={30} />
