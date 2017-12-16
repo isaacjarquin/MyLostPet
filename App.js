@@ -44,15 +44,55 @@ const App = StackNavigator(
                     size={25}
                     onPress={ () => navigation.navigate("HomeScreenDrawer") }/>,
                 headerStyle: { padding: 10, marginTop: marginTop, backgroundColor: "#333333" }
-    	})
+    	    })
         },
-        HomeScreenDrawer: { screen: HomeScreenDrawer },
-        MissingPetForm: { screen: MissingPetForm },
-        SearchResultPage: { screen: petsResult },
-        PetCard: { screen: petCard },
-        WhoWeAre: { screen: whoWeAre },
-        TermsAndConditions: { screen: termsAndConditions },
-        HowToUse: { screen: howToUse }
+        HomeScreenDrawer: {
+            screen: HomeScreenDrawer,
+            navigationOptions: ({ navigation }) => ({
+                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "white" }
+            })
+        },
+        MissingPetForm: { 
+            screen: MissingPetForm,
+            navigationOptions: ({ navigation }) => ({
+                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "white" }
+            })
+        },
+        SearchResultPage: {
+            screen: petsResult,
+            navigationOptions: ({ navigation }) => ({
+                headerTintColor: 'white',
+                headerStyle: {
+                    paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "#333333" }
+            })
+        },
+        PetCard: {
+            screen: petCard,
+            navigationOptions: ({ navigation }) => ({
+                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "white" }
+            })
+        },
+        WhoWeAre: {
+            screen: whoWeAre,
+            navigationOptions: ({ navigation }) => ({
+                headerTintColor: 'white',
+                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "#333333" }
+            })
+        },
+        TermsAndConditions: {
+            screen: termsAndConditions,
+            navigationOptions: ({ navigation }) => ({
+                headerTintColor: 'white',
+                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "#333333" }
+            })
+        },
+        HowToUse: {
+            screen: howToUse,
+            navigationOptions: ({ navigation }) => ({
+                headerTintColor: 'white',
+                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "#333333" }
+            })
+        }
     }
 )
 
