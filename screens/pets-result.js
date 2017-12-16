@@ -99,7 +99,8 @@ export default class SearchResultPage extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "flex-end"
+        justifyContent: "flex-end",
+        backgroundColor: "#333333"
     },
     listItem: {
         paddingLeft: 15,

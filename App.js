@@ -13,7 +13,7 @@ import whoWeAre from "./components/who-we-are"
 import termsAndConditions from "./components/terms-and-conditions"
 import howToUse from "./components/how-to-use"
 import { Icon } from "react-native-elements"
-import { Share, Dimensions } from "react-native"
+import { Share, Dimensions, Platform } from "react-native"
 
 const shareOptions = {
     message: "http://www.mylostpet.es/",
@@ -23,12 +23,15 @@ const shareOptions = {
 
 const window = Dimensions.get("window")
 const marginTop = (window.height / 100) * 4
+const paddingHeaderBottom = Platform.OS === "ios" ? 25 : 10
 
 const App = StackNavigator(
     {
         Home: {
             screen: Home,
             navigationOptions: ({navigation}) => ({
+                title: "My lost pet",
+                headerTitleStyle: { color: "white", fontSize: 24, alignSelf: "center" },
                 headerRight: <Icon
                     color='white'
                     type="Feather"
@@ -41,16 +44,56 @@ const App = StackNavigator(
                     name="menu"
                     size={25}
                     onPress={ () => navigation.navigate("HomeScreenDrawer") }/>,
-                headerStyle: { padding: 10, marginTop: marginTop, backgroundColor: "#333333" }
-    	})
+                headerStyle: { paddingLeft: 10, paddingRight: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
+    	    })
         },
-        HomeScreenDrawer: { screen: HomeScreenDrawer },
-        MissingPetForm: { screen: MissingPetForm },
-        SearchResultPage: { screen: petsResult },
-        PetCard: { screen: petCard },
-        WhoWeAre: { screen: whoWeAre },
-        TermsAndConditions: { screen: termsAndConditions },
-        HowToUse: { screen: howToUse }
+        HomeScreenDrawer: {
+            screen: HomeScreenDrawer,
+            navigationOptions: () => ({
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "white" }
+            })
+        },
+        MissingPetForm: { 
+            screen: MissingPetForm,
+            navigationOptions: () => ({
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "white" }
+            })
+        },
+        SearchResultPage: {
+            screen: petsResult,
+            navigationOptions: () => ({
+                headerTintColor: "white",
+                headerStyle: {
+                    paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
+            })
+        },
+        PetCard: {
+            screen: petCard,
+            navigationOptions: () => ({
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "white" }
+            })
+        },
+        WhoWeAre: {
+            screen: whoWeAre,
+            navigationOptions: () => ({
+                headerTintColor: "white",
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
+            })
+        },
+        TermsAndConditions: {
+            screen: termsAndConditions,
+            navigationOptions: () => ({
+                headerTintColor: "white",
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
+            })
+        },
+        HowToUse: {
+            screen: howToUse,
+            navigationOptions: () => ({
+                headerTintColor: "white",
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
+            })
+        }
     }
 )
 

@@ -4,6 +4,7 @@ exports[`renders correctly 1`] = `
 <View
   style={
     Object {
+      "backgroundColor": "#333333",
       "flex": 1,
       "justifyContent": "flex-end",
     }
