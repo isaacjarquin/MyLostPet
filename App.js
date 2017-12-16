@@ -13,7 +13,7 @@ import whoWeAre from "./components/who-we-are"
 import termsAndConditions from "./components/terms-and-conditions"
 import howToUse from "./components/how-to-use"
 import { Icon } from "react-native-elements"
-import { Share, Dimensions } from "react-native"
+import { Share, Dimensions, Platform } from "react-native"
 
 const shareOptions = {
     message: "http://www.mylostpet.es/",
@@ -23,6 +23,7 @@ const shareOptions = {
 
 const window = Dimensions.get("window")
 const marginTop = (window.height / 100) * 4
+const paddingHeaderBottom = Platform.OS === "ios" ? 25 : 10
 
 const App = StackNavigator(
     {
@@ -43,19 +44,19 @@ const App = StackNavigator(
                     name="menu"
                     size={25}
                     onPress={ () => navigation.navigate("HomeScreenDrawer") }/>,
-                headerStyle: { padding: 10, marginTop: marginTop, backgroundColor: "#333333" }
+                headerStyle: { paddingLeft: 10, paddingRight: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
     	    })
         },
         HomeScreenDrawer: {
             screen: HomeScreenDrawer,
             navigationOptions: ({ navigation }) => ({
-                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "white" }
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "white" }
             })
         },
         MissingPetForm: { 
             screen: MissingPetForm,
             navigationOptions: ({ navigation }) => ({
-                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "white" }
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "white" }
             })
         },
         SearchResultPage: {
@@ -63,34 +64,34 @@ const App = StackNavigator(
             navigationOptions: ({ navigation }) => ({
                 headerTintColor: 'white',
                 headerStyle: {
-                    paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "#333333" }
+                    paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
             })
         },
         PetCard: {
             screen: petCard,
             navigationOptions: ({ navigation }) => ({
-                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "white" }
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "white" }
             })
         },
         WhoWeAre: {
             screen: whoWeAre,
             navigationOptions: ({ navigation }) => ({
                 headerTintColor: 'white',
-                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "#333333" }
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
             })
         },
         TermsAndConditions: {
             screen: termsAndConditions,
             navigationOptions: ({ navigation }) => ({
                 headerTintColor: 'white',
-                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "#333333" }
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
             })
         },
         HowToUse: {
             screen: howToUse,
             navigationOptions: ({ navigation }) => ({
                 headerTintColor: 'white',
-                headerStyle: { paddingTop: 10, paddingBottom: 10, marginTop: marginTop, backgroundColor: "#333333" }
+                headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
             })
         }
     }
