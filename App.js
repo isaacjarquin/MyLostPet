@@ -49,48 +49,48 @@ const App = StackNavigator(
         },
         HomeScreenDrawer: {
             screen: HomeScreenDrawer,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: () => ({
                 headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "white" }
             })
         },
         MissingPetForm: { 
             screen: MissingPetForm,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: () => ({
                 headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "white" }
             })
         },
         SearchResultPage: {
             screen: petsResult,
-            navigationOptions: ({ navigation }) => ({
-                headerTintColor: 'white',
+            navigationOptions: () => ({
+                headerTintColor: "white",
                 headerStyle: {
                     paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
             })
         },
         PetCard: {
             screen: petCard,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: () => ({
                 headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "white" }
             })
         },
         WhoWeAre: {
             screen: whoWeAre,
-            navigationOptions: ({ navigation }) => ({
-                headerTintColor: 'white',
+            navigationOptions: () => ({
+                headerTintColor: "white",
                 headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
             })
         },
         TermsAndConditions: {
             screen: termsAndConditions,
-            navigationOptions: ({ navigation }) => ({
-                headerTintColor: 'white',
+            navigationOptions: () => ({
+                headerTintColor: "white",
                 headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
             })
         },
         HowToUse: {
             screen: howToUse,
-            navigationOptions: ({ navigation }) => ({
-                headerTintColor: 'white',
+            navigationOptions: () => ({
+                headerTintColor: "white",
                 headerStyle: { paddingTop: 10, paddingBottom: paddingHeaderBottom, marginTop: marginTop, backgroundColor: "#333333" }
             })
         }
