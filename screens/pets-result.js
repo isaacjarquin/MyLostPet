@@ -1,6 +1,6 @@
 import React from "react"
 import { StyleSheet, View, ListView, ScrollView, TextInput, Dimensions } from "react-native"
-import { ListItem, SearchBar, Icon } from "react-native-elements"
+import { ListItem, Icon } from "react-native-elements"
 
 export default class SearchResultPage extends React.Component {
     constructor (props) {
