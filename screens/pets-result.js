@@ -1,6 +1,7 @@
 import React from "react"
 import { StyleSheet, View, ListView, ScrollView, TextInput, Dimensions } from "react-native"
 import { ListItem, Icon } from "react-native-elements"
+import KeyboardSpace from 'react-native-keyboard-space'
 
 export default class SearchResultPage extends React.Component {
     constructor (props) {
@@ -10,8 +11,6 @@ export default class SearchResultPage extends React.Component {
         this.setAndfilterbyBreed = this.setAndfilterbyBreed.bind(this)
         this.onLocationFocus = this.onLocationFocus.bind(this)
         this.onBreedFocus = this.onBreedFocus.bind(this)
-        this.onLocationBlur = this.onLocationBlur.bind(this)
-        this.onBreedBlur = this.onBreedBlur.bind(this)
 
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
         const { pets } = props.navigation.state.params
@@ -31,32 +30,14 @@ export default class SearchResultPage extends React.Component {
     onLocationFocus() {
         this.setState({
             locationFocusColor: "white",
-            breedFocusColor: "grey",
-            onFocusMargin: 190
+            breedFocusColor: "grey"
         })
     }
 
     onBreedFocus() {
         this.setState({
             breedFocusColor: "white",
-            locationFocusColor: "grey",
-            onFocusMargin: 260
-        })
-    }
-
-    onLocationBlur() {
-        this.setState({
-            breedFocusColor: "grey",
-            locationFocusColor: "grey",
-            onFocusMargin: 0
-        })
-    }
-
-    onBreedBlur() {
-        this.setState({
-            breedFocusColor: "grey",
-            locationFocusColor: "grey",
-            onFocusMargin: 0
+            locationFocusColor: "grey"
         })
     }
 
@@ -133,7 +114,6 @@ export default class SearchResultPage extends React.Component {
                         <TextInput
                             style={[styles.textInput, { color: this.state.locationFocusColor } ]}
                             onFocus={this.onLocationFocus}
-                            onBlur={this.onLocationBlur}
                             placeholder='Ciudad/Municipio...'
                             underlineColorAndroid="transparent"
                             placeholderTextColor="grey"
@@ -147,7 +127,6 @@ export default class SearchResultPage extends React.Component {
                         <TextInput
                             style={[styles.textInput, { color: this.state.breedFocusColor }]}
                             onFocus={this.onBreedFocus}
-                            onBlur={this.onBreedBlur}
                             placeholder='Raza...'
                             underlineColorAndroid="transparent"
                             placeholderTextColor="grey"
@@ -157,6 +136,7 @@ export default class SearchResultPage extends React.Component {
                         <Icon style={styles.fieldsIcons} color={this.state.breedFocusColor} type="MaterialIcons" name="place" size={25} />
                     </View>
                 </View>
+                <KeyboardSpace />
             </View>
         )
     }
