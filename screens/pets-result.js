@@ -94,9 +94,8 @@ export default class SearchResultPage extends React.Component {
                     <View style={styles.textInputBlockElement}>
                         <Icon style={styles.rightIcon} color={this.state.locationFocusColor} type="EvilIcons" name="search" size={25} />
                         <TextInput
-                            style={styles.textInput}
+                            style={[styles.textInput, { color: this.state.locationFocusColor } ]}
                             onFocus={() => this.setState({ locationFocusColor: "white", breedFocusColor: "grey"})}
-                            color={this.state.locationFocusColor}
                             placeholder='Ciudad/Municipio...'
                             underlineColorAndroid="transparent"
                             placeholderTextColor="grey"
@@ -108,9 +107,8 @@ export default class SearchResultPage extends React.Component {
                     <View style={styles.textInputBlockElement}>
                         <Icon style={styles.rightIcon} color={this.state.breedFocusColor} type="EvilIcons" name="search" size={25} />
                         <TextInput
-                            style={styles.textInput}
+                            style={[styles.textInput, { color: this.state.breedFocusColor }]}
                             onFocus={() => this.setState({ breedFocusColor: "white", locationFocusColor: "grey" })}
-                            color={this.state.breedFocusColor}
                             placeholder='Raza...'
                             underlineColorAndroid="transparent"
                             placeholderTextColor="grey"
