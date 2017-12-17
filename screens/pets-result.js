@@ -1,6 +1,6 @@
 import React from "react"
-import { StyleSheet, View, ListView, ScrollView, TextInput } from "react-native"
-import { List, ListItem, SearchBar } from "react-native-elements"
+import { StyleSheet, View, ListView, ScrollView } from "react-native"
+import { ListItem, SearchBar } from "react-native-elements"
 
 export default class SearchResultPage extends React.Component {
     constructor (props) {
@@ -46,10 +46,10 @@ export default class SearchResultPage extends React.Component {
             .filter((pet) => `${pet.location}`.toUpperCase().indexOf(location.toUpperCase()) >= 0)
             .filter((pet) => `${pet.breed}`.toUpperCase().indexOf(breed.toUpperCase()) >= 0)
 
-       this.setState({dataSource: this.state.ds.cloneWithRows(filteredPets)})
+        this.setState({dataSource: this.state.ds.cloneWithRows(filteredPets)})
     }
 
-    renderRow(rowData, sectionID, rowID, highlightRow) {
+    renderRow(rowData, sectionID, rowID) {
         const cardTitleWithBreed = `${rowData.kind}, de raza ${rowData.breed}`
         const cardTitle = rowData.breed ? cardTitleWithBreed : rowData.kind
         const cardSubtitle = `Encontrado en ${rowData.location}, el ${rowData.date}. ${rowData.info}`
