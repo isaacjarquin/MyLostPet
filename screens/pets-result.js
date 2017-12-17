@@ -1,6 +1,6 @@
 import React from "react"
-import { StyleSheet, View, ListView, ScrollView } from "react-native"
-import { List, ListItem, SearchBar } from "react-native-elements"
+import { StyleSheet, View, ListView, ScrollView, TextInput, Dimensions } from "react-native"
+import { ListItem, Icon } from "react-native-elements"
 
 export default class SearchResultPage extends React.Component {
     constructor (props) {
@@ -14,6 +14,8 @@ export default class SearchResultPage extends React.Component {
 
         this.state = {
             dataSource: ds.cloneWithRows(pets),
+            locationFocusColor: "grey",
+            breedFocusColor: "grey",
             pets: pets,
             location: "",
             breed: "",
@@ -21,14 +23,24 @@ export default class SearchResultPage extends React.Component {
         }
     }
 
+    componentWillUpdate(_nextProps, nextState) {
+        if (this.state.location !== nextState.location || this.state.breed !== nextState.breed) {
+            this.filterPets(nextState)
+        }
+    }
+
     setAndfilterbyCity (value) {
-        this.setState({location: value})
-        this.filterPets({location: this.state.location, breed: this.state.breed })
+        this.setState({
+            location: value,
+            breed: this.state.breed
+        })
     }
 
     setAndfilterbyBreed (value) {
-        this.setState({breed: value})
-        this.filterPets({location: this.state.location, breed: this.state.breed })
+        this.setState({
+            breed: value,
+            location: this.state.location
+        })
     }
 
     filterPets({location, breed}) {
@@ -39,7 +51,7 @@ export default class SearchResultPage extends React.Component {
         this.setState({dataSource: this.state.ds.cloneWithRows(filteredPets)})
     }
 
-    renderRow (rowData, sectionID) {
+    renderRow(rowData, sectionID, rowID) {
         const cardTitleWithBreed = `${rowData.kind}, de raza ${rowData.breed}`
         const cardTitle = rowData.breed ? cardTitleWithBreed : rowData.kind
         const cardSubtitle = `Encontrado en ${rowData.location}, el ${rowData.date}. ${rowData.info}`
@@ -53,7 +65,7 @@ export default class SearchResultPage extends React.Component {
         return (
             <ListItem
                 roundAvatar
-                key={sectionID}
+                key={rowID}
                 title={cardTitle}
                 subtitle={cardSubtitle}
                 subtitleNumberOfLines={2}
@@ -72,29 +84,48 @@ export default class SearchResultPage extends React.Component {
         return (
             <View style={styles.container}>
                 <ScrollView>
-                    <List>
-                        <ListView
-                            dataSource={this.state.dataSource}
-                            renderRow={this.renderRow}
-                        />
-                    </List>
+                    <ListView
+                        dataSource={this.state.dataSource}
+                        renderRow={this.renderRow}
+                        enableEmptySections={true}
+                    />
                 </ScrollView>
                 <View>
-                    <SearchBar
-                        onChangeText={this.setAndfilterbyCity}
-                        inputStyle={{height: 50}}
-                        noIcon={true}
-                        placeholder='Ciudad/Municipio...' />
-                    <SearchBar
-                        onChangeText={this.setAndfilterbyBreed}
-                        inputStyle={{height: 50}}
-                        noIcon={true}
-                        placeholder='Raza...' />
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.rightIcon} color={this.state.locationFocusColor} type="EvilIcons" name="search" size={25} />
+                        <TextInput
+                            style={styles.textInput}
+                            onFocus={() => this.setState({ locationFocusColor: "white", breedFocusColor: "grey"})}
+                            color={this.state.locationFocusColor}
+                            placeholder='Ciudad/Municipio...'
+                            underlineColorAndroid="transparent"
+                            placeholderTextColor="grey"
+                            onChangeText={this.setAndfilterbyCity}
+                            value={this.state.location}
+                        />
+                        <Icon style={styles.fieldsIcons} color={this.state.locationFocusColor} type="MaterialIcons" name="pets" size={25} />
+                    </View>
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.rightIcon} color={this.state.breedFocusColor} type="EvilIcons" name="search" size={25} />
+                        <TextInput
+                            style={styles.textInput}
+                            onFocus={() => this.setState({ breedFocusColor: "white", locationFocusColor: "grey" })}
+                            color={this.state.breedFocusColor}
+                            placeholder='Raza...'
+                            underlineColorAndroid="transparent"
+                            placeholderTextColor="grey"
+                            onChangeText={this.setAndfilterbyBreed}
+                            value={this.state.breed}
+                        />
+                        <Icon style={styles.fieldsIcons} color={this.state.breedFocusColor} type="MaterialIcons" name="place" size={25} />
+                    </View>
                 </View>
             </View>
         )
     }
 }
+
+const window = Dimensions.get("window")
 
 const styles = StyleSheet.create({
     container: {
@@ -102,12 +133,47 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end",
         backgroundColor: "#333333"
     },
+    textInputBlockElement: {
+        flexDirection: "row"
+    },
+    fieldsIcons: {
+        height: 70,
+        width: 50,
+        opacity: 0.8,
+        backgroundColor: "#333333",
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: "grey",
+        paddingTop: 20,
+    },
+    textInput: {
+        height: 70,
+        backgroundColor: "#333333",
+        opacity: 0.8,
+        width: window.width - 100,
+        fontSize: 18,
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        padding: 10,
+        borderColor: "grey",
+        paddingLeft: 0,
+    },
+    rightIcon: {
+        height: 70,
+        width: 50,
+        opacity: 0.8,
+        backgroundColor: "#333333",
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: "grey",
+        paddingTop: 22,
+        paddingLeft: 12
+    },
     listItem: {
         paddingLeft: 15,
         paddingRight: 15,
         height: 90,
-        backgroundColor: "black",
-        opacity: 0.8
+        backgroundColor: "#333333"
     },
     listItemTitle: {
         marginLeft: 15,
