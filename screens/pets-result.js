@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, ListView, ScrollView, TextInput, Dimensions } from "react-native"
+import { StyleSheet, View, ListView, ScrollView, TextInput, Dimensions, KeyboardAvoidingView } from "react-native"
 import { ListItem, Icon } from "react-native-elements"
 
 export default class SearchResultPage extends React.Component {
@@ -8,6 +8,8 @@ export default class SearchResultPage extends React.Component {
         this.renderRow = this.renderRow.bind(this)
         this.setAndfilterbyCity = this.setAndfilterbyCity.bind(this)
         this.setAndfilterbyBreed = this.setAndfilterbyBreed.bind(this)
+        this.onLocationFocus = this.onLocationFocus.bind(this)
+        this.onBreedFocus = this.onBreedFocus.bind(this)
 
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
         const { pets } = props.navigation.state.params
@@ -16,11 +18,26 @@ export default class SearchResultPage extends React.Component {
             dataSource: ds.cloneWithRows(pets),
             locationFocusColor: "grey",
             breedFocusColor: "grey",
+            onFocusMargin: 0,
             pets: pets,
             location: "",
             breed: "",
             ds: ds
         }
+    }
+
+    onLocationFocus() {
+        this.setState({
+            locationFocusColor: "white",
+            breedFocusColor: "grey"
+        })
+    }
+
+    onBreedFocus() {
+        this.setState({
+            breedFocusColor: "white",
+            locationFocusColor: "grey"
+        })
     }
 
     componentWillUpdate(_nextProps, nextState) {
@@ -82,21 +99,20 @@ export default class SearchResultPage extends React.Component {
 
     render () {
         return (
-            <View style={styles.container}>
-                <ScrollView>
-                    <ListView
-                        dataSource={this.state.dataSource}
-                        renderRow={this.renderRow}
-                        enableEmptySections={true}
-                    />
-                </ScrollView>
-                <View>
+            <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={90} style={{ flex: 1 }}>
+                <View style={styles.container}>
+                    <ScrollView>
+                        <ListView
+                            dataSource={this.state.dataSource}
+                            renderRow={this.renderRow}
+                            enableEmptySections={true}
+                        />
+                    </ScrollView>
                     <View style={styles.textInputBlockElement}>
                         <Icon style={styles.rightIcon} color={this.state.locationFocusColor} type="EvilIcons" name="search" size={25} />
                         <TextInput
-                            style={styles.textInput}
-                            onFocus={() => this.setState({ locationFocusColor: "white", breedFocusColor: "grey"})}
-                            color={this.state.locationFocusColor}
+                            style={[styles.textInput, { color: this.state.locationFocusColor }]}
+                            onFocus={this.onLocationFocus}
                             placeholder='Ciudad/Municipio...'
                             underlineColorAndroid="transparent"
                             placeholderTextColor="grey"
@@ -108,9 +124,8 @@ export default class SearchResultPage extends React.Component {
                     <View style={styles.textInputBlockElement}>
                         <Icon style={styles.rightIcon} color={this.state.breedFocusColor} type="EvilIcons" name="search" size={25} />
                         <TextInput
-                            style={styles.textInput}
-                            onFocus={() => this.setState({ breedFocusColor: "white", locationFocusColor: "grey" })}
-                            color={this.state.breedFocusColor}
+                            style={[styles.textInput, { color: this.state.breedFocusColor }]}
+                            onFocus={this.onBreedFocus}
                             placeholder='Raza...'
                             underlineColorAndroid="transparent"
                             placeholderTextColor="grey"
@@ -120,7 +135,7 @@ export default class SearchResultPage extends React.Component {
                         <Icon style={styles.fieldsIcons} color={this.state.breedFocusColor} type="MaterialIcons" name="place" size={25} />
                     </View>
                 </View>
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
