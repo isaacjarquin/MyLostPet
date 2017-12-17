@@ -8,6 +8,10 @@ export default class SearchResultPage extends React.Component {
         this.renderRow = this.renderRow.bind(this)
         this.setAndfilterbyCity = this.setAndfilterbyCity.bind(this)
         this.setAndfilterbyBreed = this.setAndfilterbyBreed.bind(this)
+        this.onLocationFocus = this.onLocationFocus.bind(this)
+        this.onBreedFocus = this.onBreedFocus.bind(this)
+        this.onLocationBlur = this.onLocationBlur.bind(this)
+        this.onBreedBlur = this.onBreedBlur.bind(this)
 
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
         const { pets } = props.navigation.state.params
@@ -16,11 +20,44 @@ export default class SearchResultPage extends React.Component {
             dataSource: ds.cloneWithRows(pets),
             locationFocusColor: "grey",
             breedFocusColor: "grey",
+            onFocusMargin: 0,
             pets: pets,
             location: "",
             breed: "",
             ds: ds
         }
+    }
+
+    onLocationFocus() {
+        this.setState({
+            locationFocusColor: "white",
+            breedFocusColor: "grey",
+            onFocusMargin: 190
+        })
+    }
+
+    onBreedFocus() {
+        this.setState({
+            breedFocusColor: "white",
+            locationFocusColor: "grey",
+            onFocusMargin: 260
+        })
+    }
+
+    onLocationBlur() {
+        this.setState({
+            breedFocusColor: "grey",
+            locationFocusColor: "grey",
+            onFocusMargin: 0
+        })
+    }
+
+    onBreedBlur() {
+        this.setState({
+            breedFocusColor: "grey",
+            locationFocusColor: "grey",
+            onFocusMargin: 0
+        })
     }
 
     componentWillUpdate(_nextProps, nextState) {
@@ -95,7 +132,8 @@ export default class SearchResultPage extends React.Component {
                         <Icon style={styles.rightIcon} color={this.state.locationFocusColor} type="EvilIcons" name="search" size={25} />
                         <TextInput
                             style={[styles.textInput, { color: this.state.locationFocusColor } ]}
-                            onFocus={() => this.setState({ locationFocusColor: "white", breedFocusColor: "grey"})}
+                            onFocus={this.onLocationFocus}
+                            onBlur={this.onLocationBlur}
                             placeholder='Ciudad/Municipio...'
                             underlineColorAndroid="transparent"
                             placeholderTextColor="grey"
@@ -104,11 +142,12 @@ export default class SearchResultPage extends React.Component {
                         />
                         <Icon style={styles.fieldsIcons} color={this.state.locationFocusColor} type="MaterialIcons" name="pets" size={25} />
                     </View>
-                    <View style={styles.textInputBlockElement}>
+                    <View style={[styles.textInputBlockElement, { marginBottom: this.state.onFocusMargin }]}>
                         <Icon style={styles.rightIcon} color={this.state.breedFocusColor} type="EvilIcons" name="search" size={25} />
                         <TextInput
                             style={[styles.textInput, { color: this.state.breedFocusColor }]}
-                            onFocus={() => this.setState({ breedFocusColor: "white", locationFocusColor: "grey" })}
+                            onFocus={this.onBreedFocus}
+                            onBlur={this.onBreedBlur}
                             placeholder='Raza...'
                             underlineColorAndroid="transparent"
                             placeholderTextColor="grey"
