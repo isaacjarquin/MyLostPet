@@ -1,6 +1,6 @@
 import React from "react"
-import { StyleSheet, View, ListView, ScrollView } from "react-native"
-import { ListItem, SearchBar } from "react-native-elements"
+import { StyleSheet, View, ListView, ScrollView, TextInput, Dimensions } from "react-native"
+import { ListItem, SearchBar, Icon } from "react-native-elements"
 
 export default class SearchResultPage extends React.Component {
     constructor (props) {
@@ -89,27 +89,80 @@ export default class SearchResultPage extends React.Component {
                     />
                 </ScrollView>
                 <View>
-                    <SearchBar
-                        onChangeText={this.setAndfilterbyCity}
-                        inputStyle={{height: 50}}
-                        noIcon={true}
-                        placeholder='Ciudad/Municipio...' />
-                    <SearchBar
-                        onChangeText={this.setAndfilterbyBreed}
-                        inputStyle={{height: 50}}
-                        noIcon={true}
-                        placeholder='Raza...' />
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.rightIcon} color='grey' type="EvilIcons" name="search" size={25} />
+                        <TextInput
+                            style={styles.textInput}
+                            placeholder='Ciudad/Municipio...'
+                            underlineColorAndroid="transparent"
+                            placeholderTextColor="grey"
+                            onChangeText={this.setAndfilterbyCity}
+                            value={this.state.location}
+                        />
+                        <Icon style={styles.fieldsIcons} color='grey' type="MaterialIcons" name="pets" size={25} />
+                    </View>
+                    <View style={styles.textInputBlockElement}>
+                        <Icon style={styles.rightIcon} color='grey' type="EvilIcons" name="search" size={25} />
+                        <TextInput
+                            style={styles.textInput}
+                            placeholder='Raza...'
+                            underlineColorAndroid="transparent"
+                            placeholderTextColor="grey"
+                            onChangeText={this.setAndfilterbyBreed}
+                            value={this.state.breed}
+                        />
+                        <Icon style={styles.fieldsIcons} color='grey' type="MaterialIcons" name="place" size={25} />
+                    </View>
                 </View>
             </View>
         )
     }
 }
 
+const window = Dimensions.get("window")
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "flex-end",
         backgroundColor: "#333333"
+    },
+    textInputBlockElement: {
+        flexDirection: "row"
+    },
+    fieldsIcons: {
+        height: 70,
+        width: 50,
+        opacity: 0.8,
+        backgroundColor: "#333333",
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: "grey",
+        paddingTop: 20,
+    },
+    textInput: {
+        height: 70,
+        backgroundColor: "#333333",
+        opacity: 0.8,
+        width: window.width - 100,
+        fontSize: 18,
+        color: "white",
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        padding: 10,
+        borderColor: "grey",
+        paddingLeft: 0,
+    },
+    rightIcon: {
+        height: 70,
+        width: 50,
+        opacity: 0.8,
+        backgroundColor: "#333333",
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: "grey",
+        paddingTop: 22,
+        paddingLeft: 12
     },
     listItem: {
         paddingLeft: 15,
