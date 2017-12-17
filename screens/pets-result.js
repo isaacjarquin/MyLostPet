@@ -14,6 +14,8 @@ export default class SearchResultPage extends React.Component {
 
         this.state = {
             dataSource: ds.cloneWithRows(pets),
+            locationFocusColor: "grey",
+            breedFocusColor: "grey",
             pets: pets,
             location: "",
             breed: "",
@@ -90,28 +92,32 @@ export default class SearchResultPage extends React.Component {
                 </ScrollView>
                 <View>
                     <View style={styles.textInputBlockElement}>
-                        <Icon style={styles.rightIcon} color='grey' type="EvilIcons" name="search" size={25} />
+                        <Icon style={styles.rightIcon} color={this.state.locationFocusColor} type="EvilIcons" name="search" size={25} />
                         <TextInput
                             style={styles.textInput}
+                            onFocus={() => this.setState({ locationFocusColor: "white", breedFocusColor: "grey"})}
+                            color={this.state.locationFocusColor}
                             placeholder='Ciudad/Municipio...'
                             underlineColorAndroid="transparent"
                             placeholderTextColor="grey"
                             onChangeText={this.setAndfilterbyCity}
                             value={this.state.location}
                         />
-                        <Icon style={styles.fieldsIcons} color='grey' type="MaterialIcons" name="pets" size={25} />
+                        <Icon style={styles.fieldsIcons} color={this.state.locationFocusColor} type="MaterialIcons" name="pets" size={25} />
                     </View>
                     <View style={styles.textInputBlockElement}>
-                        <Icon style={styles.rightIcon} color='grey' type="EvilIcons" name="search" size={25} />
+                        <Icon style={styles.rightIcon} color={this.state.breedFocusColor} type="EvilIcons" name="search" size={25} />
                         <TextInput
                             style={styles.textInput}
+                            onFocus={() => this.setState({ breedFocusColor: "white", locationFocusColor: "grey" })}
+                            color={this.state.breedFocusColor}
                             placeholder='Raza...'
                             underlineColorAndroid="transparent"
                             placeholderTextColor="grey"
                             onChangeText={this.setAndfilterbyBreed}
                             value={this.state.breed}
                         />
-                        <Icon style={styles.fieldsIcons} color='grey' type="MaterialIcons" name="place" size={25} />
+                        <Icon style={styles.fieldsIcons} color={this.state.breedFocusColor} type="MaterialIcons" name="place" size={25} />
                     </View>
                 </View>
             </View>
@@ -146,7 +152,6 @@ const styles = StyleSheet.create({
         opacity: 0.8,
         width: window.width - 100,
         fontSize: 18,
-        color: "white",
         borderTopWidth: 1,
         borderBottomWidth: 1,
         padding: 10,
