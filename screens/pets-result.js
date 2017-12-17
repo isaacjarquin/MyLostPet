@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, ListView, ScrollView } from "react-native"
+import { StyleSheet, View, ListView, ScrollView, TextInput } from "react-native"
 import { List, ListItem, SearchBar } from "react-native-elements"
 
 export default class SearchResultPage extends React.Component {
@@ -21,14 +21,24 @@ export default class SearchResultPage extends React.Component {
         }
     }
 
+    componentWillUpdate(_nextProps, nextState) {
+        if (this.state.location !== nextState.location || this.state.breed !== nextState.breed) {
+            this.filterPets(nextState)
+        }
+    }
+
     setAndfilterbyCity (value) {
-        this.setState({location: value})
-        this.filterPets({location: this.state.location, breed: this.state.breed })
+        this.setState({
+            location: value,
+            breed: this.state.breed
+        })
     }
 
     setAndfilterbyBreed (value) {
-        this.setState({breed: value})
-        this.filterPets({location: this.state.location, breed: this.state.breed })
+        this.setState({
+            breed: value,
+            location: this.state.location
+        })
     }
 
     filterPets({location, breed}) {
@@ -36,10 +46,10 @@ export default class SearchResultPage extends React.Component {
             .filter((pet) => `${pet.location}`.toUpperCase().indexOf(location.toUpperCase()) >= 0)
             .filter((pet) => `${pet.breed}`.toUpperCase().indexOf(breed.toUpperCase()) >= 0)
 
-        this.setState({dataSource: this.state.ds.cloneWithRows(filteredPets)})
+       this.setState({dataSource: this.state.ds.cloneWithRows(filteredPets)})
     }
 
-    renderRow (rowData, sectionID) {
+    renderRow(rowData, sectionID, rowID, highlightRow) {
         const cardTitleWithBreed = `${rowData.kind}, de raza ${rowData.breed}`
         const cardTitle = rowData.breed ? cardTitleWithBreed : rowData.kind
         const cardSubtitle = `Encontrado en ${rowData.location}, el ${rowData.date}. ${rowData.info}`
@@ -53,7 +63,7 @@ export default class SearchResultPage extends React.Component {
         return (
             <ListItem
                 roundAvatar
-                key={sectionID}
+                key={rowID}
                 title={cardTitle}
                 subtitle={cardSubtitle}
                 subtitleNumberOfLines={2}
@@ -72,12 +82,11 @@ export default class SearchResultPage extends React.Component {
         return (
             <View style={styles.container}>
                 <ScrollView>
-                    <List>
-                        <ListView
-                            dataSource={this.state.dataSource}
-                            renderRow={this.renderRow}
-                        />
-                    </List>
+                    <ListView
+                        dataSource={this.state.dataSource}
+                        renderRow={this.renderRow}
+                        enableEmptySections={true}
+                    />
                 </ScrollView>
                 <View>
                     <SearchBar
@@ -106,8 +115,7 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
         paddingRight: 15,
         height: 90,
-        backgroundColor: "black",
-        opacity: 0.8
+        backgroundColor: "#333333"
     },
     listItemTitle: {
         marginLeft: 15,
