@@ -1,7 +1,6 @@
 import React from "react"
-import { StyleSheet, View, ListView, ScrollView, TextInput, Dimensions } from "react-native"
+import { StyleSheet, View, ListView, ScrollView, TextInput, Dimensions, KeyboardAvoidingView } from "react-native"
 import { ListItem, Icon } from "react-native-elements"
-import KeyboardSpace from 'react-native-keyboard-space'
 
 export default class SearchResultPage extends React.Component {
     constructor (props) {
@@ -100,19 +99,19 @@ export default class SearchResultPage extends React.Component {
 
     render () {
         return (
-            <View style={styles.container}>
-                <ScrollView>
-                    <ListView
-                        dataSource={this.state.dataSource}
-                        renderRow={this.renderRow}
-                        enableEmptySections={true}
-                    />
-                </ScrollView>
-                <View>
+            <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={90} style={{ flex: 1 }}>
+                <View style={styles.container}>
+                    <ScrollView>
+                        <ListView
+                            dataSource={this.state.dataSource}
+                            renderRow={this.renderRow}
+                            enableEmptySections={true}
+                        />
+                    </ScrollView>
                     <View style={styles.textInputBlockElement}>
                         <Icon style={styles.rightIcon} color={this.state.locationFocusColor} type="EvilIcons" name="search" size={25} />
                         <TextInput
-                            style={[styles.textInput, { color: this.state.locationFocusColor } ]}
+                            style={[styles.textInput, { color: this.state.locationFocusColor }]}
                             onFocus={this.onLocationFocus}
                             placeholder='Ciudad/Municipio...'
                             underlineColorAndroid="transparent"
@@ -122,7 +121,7 @@ export default class SearchResultPage extends React.Component {
                         />
                         <Icon style={styles.fieldsIcons} color={this.state.locationFocusColor} type="MaterialIcons" name="pets" size={25} />
                     </View>
-                    <View style={[styles.textInputBlockElement, { marginBottom: this.state.onFocusMargin }]}>
+                    <View style={styles.textInputBlockElement}>
                         <Icon style={styles.rightIcon} color={this.state.breedFocusColor} type="EvilIcons" name="search" size={25} />
                         <TextInput
                             style={[styles.textInput, { color: this.state.breedFocusColor }]}
@@ -136,8 +135,7 @@ export default class SearchResultPage extends React.Component {
                         <Icon style={styles.fieldsIcons} color={this.state.breedFocusColor} type="MaterialIcons" name="place" size={25} />
                     </View>
                 </View>
-                <KeyboardSpace />
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
