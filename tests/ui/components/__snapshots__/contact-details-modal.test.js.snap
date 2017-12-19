@@ -105,7 +105,7 @@ exports[`renders correctly 1`] = `
           "flexDirection": "column",
           "justifyContent": "center",
           "margin": 37.5,
-          "marginTop": 373.52000000000004,
+          "marginTop": 200.1,
           "transform": Array [
             Object {
               "translateY": 0,
@@ -184,142 +184,145 @@ exports[`renders correctly 1`] = `
           </Text>
         </View>
       </View>
-      <View>
-        <TextInput
-          borderColor="grey"
-          onChangeText={[Function]}
-          placeholder="Nombre"
-          placeholderTextColor="black"
-          style={
-            Object {
-              "backgroundColor": "white",
-              "borderColor": "#333333",
-              "borderWidth": 1,
-              "color": "black",
-              "fontSize": 16,
-              "height": 60,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-            }
-          }
-          value=""
-        />
-        <TextInput
-          borderColor="grey"
-          keyboardType="email-address"
-          onChangeText={[Function]}
-          placeholder="Correo"
-          placeholderTextColor="black"
-          style={
-            Object {
-              "backgroundColor": "white",
-              "borderColor": "#333333",
-              "borderWidth": 1,
-              "color": "black",
-              "fontSize": 16,
-              "height": 60,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-            }
-          }
-          value=""
-        />
-        <TextInput
-          borderColor="grey"
-          keyboardType="phone-pad"
-          onChangeText={[Function]}
-          placeholder="Número de teléfono"
-          placeholderTextColor="black"
-          style={
-            Object {
-              "backgroundColor": "white",
-              "borderColor": "#333333",
-              "borderWidth": 1,
-              "color": "black",
-              "fontSize": 16,
-              "height": 60,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-            }
-          }
-          value=""
-        />
-        <TextInput
-          borderColor="grey"
-          multiline={true}
-          numberOfLines={4}
-          onChangeText={[Function]}
-          placeholder="Información personal"
-          placeholderTextColor="black"
-          style={
-            Object {
-              "backgroundColor": "white",
-              "borderColor": "#333333",
-              "borderWidth": 1,
-              "color": "black",
-              "fontSize": 16,
-              "height": 100,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-              "paddingTop": 20,
-            }
-          }
-          value=""
-        />
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "grey",
-              "flexDirection": "row",
-              "opacity": 1,
-              "padding": 20,
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <Image
-            source={1}
+      <RCTScrollView>
+        <View>
+          <TextInput
+            borderColor="grey"
+            onChangeText={[Function]}
+            placeholder="Nombre"
+            placeholderTextColor="grey"
             style={
               Object {
-                "height": 25,
-                "marginLeft": "15%",
-                "marginRight": 10,
-                "width": 25,
+                "backgroundColor": "white",
+                "borderColor": "#333333",
+                "borderWidth": 1,
+                "color": "black",
+                "fontSize": 16,
+                "height": 60,
+                "paddingLeft": 20,
+                "paddingRight": 20,
               }
             }
+            underlineColorAndroid="white"
+            value=""
           />
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
+          <TextInput
+            borderColor="grey"
+            keyboardType="email-address"
+            onChangeText={[Function]}
+            placeholder="Correo"
+            placeholderTextColor="grey"
             style={
               Object {
-                "color": "white",
-                "fontSize": 20,
+                "backgroundColor": "white",
+                "borderColor": "#333333",
+                "borderWidth": 1,
+                "color": "black",
+                "fontSize": 16,
+                "height": 60,
+                "paddingLeft": 20,
+                "paddingRight": 20,
               }
             }
+            underlineColorAndroid="white"
+            value=""
+          />
+          <TextInput
+            borderColor="grey"
+            keyboardType="phone-pad"
+            onChangeText={[Function]}
+            placeholder="Número de teléfono"
+            placeholderTextColor="grey"
+            style={
+              Object {
+                "backgroundColor": "white",
+                "borderColor": "#333333",
+                "borderWidth": 1,
+                "color": "black",
+                "fontSize": 16,
+                "height": 60,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+              }
+            }
+            underlineColorAndroid="white"
+            value=""
+          />
+          <TextInput
+            borderColor="grey"
+            onChangeText={[Function]}
+            placeholder="Información personal"
+            placeholderTextColor="grey"
+            style={
+              Object {
+                "backgroundColor": "white",
+                "borderColor": "#333333",
+                "borderWidth": 1,
+                "color": "black",
+                "fontSize": 16,
+                "height": 60,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+              }
+            }
+            underlineColorAndroid="white"
+            value=""
+          />
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            collapsable={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "grey",
+                "flexDirection": "row",
+                "opacity": 1,
+                "padding": 20,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
           >
-            Enviar mis datos
-          </Text>
+            <Image
+              source={1}
+              style={
+                Object {
+                  "height": 25,
+                  "marginLeft": "15%",
+                  "marginRight": 10,
+                  "width": 25,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 20,
+                }
+              }
+            >
+              Enviar mis datos
+            </Text>
+          </View>
         </View>
-      </View>
+      </RCTScrollView>
     </View>
   </Modal>
 </View>
