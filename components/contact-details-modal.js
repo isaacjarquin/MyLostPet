@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, Image, Dimensions } from "react-native"
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, Image, Dimensions, ScrollView } from "react-native"
 import { Icon } from "react-native-elements"
 import Modal from "react-native-modal"
 import DropdownAlert from "react-native-dropdownalert"
@@ -113,9 +113,10 @@ export default class ContactDetailsModal extends React.Component {
 	                    <Icon color='grey' type="MaterialIcons" name="keyboard-arrow-down" size={30} />
                     </TouchableOpacity>
 
-                    <View>
+                    <ScrollView>
                         <TextInput
                             style={styles.textInput}
+                            underlineColorAndroid={"white"}
                             placeholder={this.state.name.validationMessage}
                             placeholderTextColor={this.state.name.validationMessageColor}
                             borderColor={this.state.name.validationFieldBorderColor}
@@ -125,6 +126,7 @@ export default class ContactDetailsModal extends React.Component {
 
                         <TextInput
                             style={styles.textInput}
+                            underlineColorAndroid={"white"}
                             placeholder={this.state.email.validationMessage}
                             keyboardType={"email-address"}
                             placeholderTextColor={this.state.email.validationMessageColor}
@@ -135,6 +137,7 @@ export default class ContactDetailsModal extends React.Component {
 
                         <TextInput
                             style={styles.textInput}
+                            underlineColorAndroid={"white"}
                             placeholder={this.state.phoneNumber.validationMessage}
                             keyboardType={"phone-pad"}
                             placeholderTextColor={this.state.phoneNumber.validationMessageColor}
@@ -144,9 +147,8 @@ export default class ContactDetailsModal extends React.Component {
                         />
 
                         <TextInput
-                            style={styles.blockTextInput}
-                            multiline= {true}
-                            numberOfLines= {4}
+                            style={styles.textInput}
+                            underlineColorAndroid={"white"}
                             placeholder={this.state.personalInformation.validationMessage}
                             placeholderTextColor={this.state.personalInformation.validationMessageColor}
                             borderColor={this.state.personalInformation.validationFieldBorderColor}
@@ -159,7 +161,7 @@ export default class ContactDetailsModal extends React.Component {
                             <Text style={styles.contactDetailSendButtonText}>Enviar mis datos</Text>
                         </TouchableOpacity>
 
-                    </View>
+                    </ScrollView>
                 </Modal>
 
                 <DropdownAlert
@@ -180,7 +182,7 @@ const styles = StyleSheet.create({
     contactDetailsModalContainer: {
         flexDirection: "column",
         backgroundColor: "#333333",
-        marginTop: window.height * 0.28,
+        marginTop: window.height * 0.15,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3
     },
@@ -211,17 +213,6 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         paddingLeft: 20,
         paddingRight: 20
-    },
-    blockTextInput: {
-        height: 100,
-        color: "black",
-        backgroundColor: "white",
-        borderColor: "#333333",
-        fontSize: 16,
-        borderWidth: 1,
-        paddingLeft: 20,
-        paddingRight: 20,
-        paddingTop: 20
     },
     contactDetailSendButton: {
         flexDirection: "row",

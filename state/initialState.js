@@ -3,25 +3,25 @@ const contactDetailsInitialState = {
     name: {
         value: "",
         validationMessage: "Nombre",
-        validationMessageColor: "black",
+        validationMessageColor: "grey",
         validationFieldBorderColor: "grey"
     },
     email: {
         value: "",
         validationMessage: "Correo",
-        validationMessageColor: "black",
+        validationMessageColor: "grey",
         validationFieldBorderColor: "grey"
     },
     phoneNumber: {
         value: "",
         validationMessage: "Número de teléfono",
-        validationMessageColor: "black",
+        validationMessageColor: "grey",
         validationFieldBorderColor: "grey"
     },
     personalInformation: {
         value: "",
         validationMessage: "Información personal",
-        validationMessageColor: "black",
+        validationMessageColor: "grey",
         validationFieldBorderColor: "grey"
     }
 }
