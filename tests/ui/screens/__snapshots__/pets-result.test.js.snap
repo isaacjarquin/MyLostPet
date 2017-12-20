@@ -58,22 +58,9 @@ exports[`renders correctly 1`] = `
                   Object {
                     "backgroundColor": "transparent",
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "borderBottomColor": "#bbb",
-                      "borderBottomWidth": 1,
-                      "paddingBottom": 10,
-                      "paddingRight": 10,
-                      "paddingTop": 10,
-                    },
-                    Object {
-                      "backgroundColor": "#333333",
-                      "height": 90,
-                      "paddingLeft": 15,
-                      "paddingRight": 15,
-                    },
-                  ],
+                  Object {
+                    "width": 750,
+                  },
                 ]
               }
               testID={undefined}
@@ -81,268 +68,117 @@ exports[`renders correctly 1`] = `
             >
               <View
                 style={
-                  Array [
-                    Object {
-                      "flexDirection": "row",
-                      "marginLeft": 10,
-                    },
-                    undefined,
-                  ]
+                  Object {
+                    "backgroundColor": "#333333",
+                    "borderBottomWidth": 1,
+                    "borderColor": "grey",
+                    "borderTopWidth": 1,
+                    "flexDirection": "row",
+                  }
                 }
               >
+                <Image
+                  source={
+                    Object {
+                      "uri": "imageupload/w_100,h_100,c_fill,g_southundefined",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 32,
+                      "height": 64,
+                      "margin": 10,
+                      "paddingBottom": 40,
+                      "width": 64,
+                    }
+                  }
+                />
                 <View
                   style={
                     Object {
-                      "height": 34,
-                      "width": 34,
+                      "width": 630,
                     }
                   }
                 >
-                  <View
-                    activeOpacity={undefined}
-                    onLongPress={undefined}
-                    onPress={undefined}
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                          "height": 34,
-                          "paddingBottom": 10,
-                          "paddingRight": 10,
-                          "paddingTop": 10,
-                          "width": 34,
-                        },
-                        Object {
-                          "borderRadius": 17,
-                        },
-                        undefined,
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "alignItems": "center",
-                            "alignSelf": "stretch",
-                            "backgroundColor": "rgba(0,0,0,0.2)",
-                            "bottom": 0,
-                            "flex": 1,
-                            "justifyContent": "center",
-                            "left": 0,
-                            "position": "absolute",
-                            "right": 0,
-                            "top": 0,
-                          },
-                          Object {
-                            "borderRadius": 17,
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Image
-                        source={
-                          Object {
-                            "uri": "imageupload/w_100,h_100,c_fill,g_southundefined",
-                          }
-                        }
-                        style={
-                          Array [
-                            Object {
-                              "height": 34,
-                              "width": 34,
-                            },
-                            Object {
-                              "borderRadius": 17,
-                            },
-                            Object {
-                              "borderRadius": 32,
-                              "height": 64,
-                              "marginLeft": 10,
-                              "marginRight": 10,
-                              "marginTop": 35,
-                              "width": 64,
-                            },
-                          ]
-                        }
-                      />
-                    </View>
-                  </View>
-                </View>
-                <View
-                  style={
-                    Object {
-                      "flex": 1,
-                      "justifyContent": "center",
-                    }
-                  }
-                >
-                  <View
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    disabled={false}
+                    ellipsizeMode="tail"
+                    fontWeight="bold"
+                    numberOfLines={1}
                     style={
                       Object {
+                        "color": "white",
+                        "fontSize": 16,
                         "marginBottom": 5,
-                        "marginLeft": 15,
-                        "marginTop": 4,
+                        "marginTop": 10,
                       }
                     }
                   >
-                    <Text
-                      accessible={true}
-                      allowFontScaling={true}
-                      disabled={false}
-                      ellipsizeMode="tail"
-                      numberOfLines={1}
-                      style={
-                        Array [
-                          Object {},
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          Array [
-                            Object {
-                              "color": "#43484d",
-                              "fontSize": 17.5,
-                            },
-                            Object {
-                              "marginLeft": 10,
-                            },
-                            Object {
-                              "color": "white",
-                              "fontWeight": "bold",
-                              "opacity": 0.9,
-                            },
-                            undefined,
-                          ],
-                        ]
-                      }
-                    >
-                      kind, de raza breed
-                    </Text>
-                  </View>
-                  <View
+                    kind, de raza breed
+                  </Text>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    disabled={false}
+                    ellipsizeMode="tail"
+                    numberOfLines={2}
                     style={
                       Object {
-                        "marginLeft": 15,
+                        "color": "grey",
+                        "lineHeight": 20,
+                        "marginBottom": 10,
                       }
                     }
                   >
-                    <Text
-                      accessible={true}
-                      allowFontScaling={true}
-                      disabled={false}
-                      ellipsizeMode="tail"
-                      numberOfLines={2}
-                      style={
-                        Array [
-                          Object {},
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          undefined,
-                          Array [
-                            Object {
-                              "color": "#86939e",
-                              "fontSize": 15,
-                              "fontWeight": "600",
-                              "marginTop": 1,
-                            },
-                            Object {
-                              "marginLeft": 10,
-                            },
-                            undefined,
-                            undefined,
-                          ],
-                        ]
-                      }
-                    >
-                      Encontrado en location, el date. info
-                    </Text>
-                  </View>
+                    Encontrado en location, el date. info
+                  </Text>
                 </View>
                 <View
-                  accessibilityComponentType={undefined}
-                  accessibilityLabel={undefined}
-                  accessibilityTraits={undefined}
-                  accessible={true}
-                  collapsable={undefined}
-                  hitSlop={undefined}
-                  isTVSelectable={true}
-                  nativeID={undefined}
-                  onLayout={undefined}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
+                  onPress={undefined}
                   style={
-                    Object {
-                      "alignItems": "flex-end",
-                      "flex": 0.15,
-                      "justifyContent": "center",
-                      "opacity": 1,
-                    }
+                    Array [
+                      false,
+                      false,
+                      false,
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "transparent",
+                        "justifyContent": "center",
+                      },
+                      undefined,
+                    ]
                   }
-                  testID={undefined}
-                  tvParallaxProperties={undefined}
+                  underlayColor="white"
                 >
-                  <View
-                    onPress={undefined}
+                  <Text
+                    accessible={true}
+                    allowFontScaling={false}
+                    disabled={false}
+                    ellipsizeMode="tail"
                     style={
                       Array [
-                        false,
-                        false,
-                        false,
                         Object {
-                          "alignItems": "center",
-                          "backgroundColor": "transparent",
-                          "justifyContent": "center",
+                          "color": "white",
+                          "fontSize": 30,
                         },
-                        undefined,
-                      ]
-                    }
-                    underlayColor="white"
-                  >
-                    <Text
-                      accessible={true}
-                      allowFontScaling={false}
-                      disabled={false}
-                      ellipsizeMode="tail"
-                      style={
                         Array [
                           Object {
-                            "color": "#bdc6cf",
-                            "fontSize": 28,
+                            "backgroundColor": "transparent",
                           },
-                          Array [
-                            Object {
-                              "backgroundColor": "transparent",
-                            },
-                            undefined,
-                          ],
-                          Object {
-                            "fontFamily": "Material Icons",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                          },
-                        ]
-                      }
-                    >
-                      
-                    </Text>
-                  </View>
+                          undefined,
+                        ],
+                        Object {
+                          "fontFamily": "Material Icons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                      ]
+                    }
+                  >
+                    
+                  </Text>
                 </View>
               </View>
             </View>
