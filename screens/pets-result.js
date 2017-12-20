@@ -1,6 +1,8 @@
 import React from "react"
-import { StyleSheet, View, ListView, ScrollView, TextInput, Dimensions, KeyboardAvoidingView } from "react-native"
+import { StyleSheet, View, ListView, Text, ScrollView, TextInput, Dimensions, KeyboardAvoidingView, Image, TouchableOpacity, TouchableHighlight } from "react-native"
 import { ListItem, Icon } from "react-native-elements"
+
+const window = Dimensions.get("window")
 
 export default class SearchResultPage extends React.Component {
     constructor (props) {
@@ -80,20 +82,16 @@ export default class SearchResultPage extends React.Component {
         const { navigate } = this.props.navigation
 
         return (
-            <ListItem
-                roundAvatar
-                key={rowID}
-                title={cardTitle}
-                subtitle={cardSubtitle}
-                subtitleNumberOfLines={2}
-                avatar={{uri: builtAvatar}}
-                avatarStyle={styles.avatarStyle}
-                onPress={() => navigate("PetCard", {pet: rowData})}
-                containerStyle={styles.listItem}
-                titleContainerStyle={styles.listItemTitle}
-                titleStyle={{color: "white", opacity: 0.9, fontWeight: "bold"}}
-                subtitleContainerStyle={{marginLeft: 15}}
-            />
+            <TouchableHighlight style={{width: window.width}} onPress={() => navigate("PetCard", { pet: rowData })}>
+                <View style={styles.listItem}>
+                    <Image style={[styles.avatarStyle, {paddingBottom: 40}]} source={{ uri: builtAvatar }} />
+                    <View style={{width: window.width - 120}}>
+                        <Text style={{ color: "white", fontSize: 16, marginTop: 10, marginBottom: 5 }} numberOfLines={1} fontWeight="bold">{cardTitle}</Text>
+                        <Text style={{ color: "grey" }} numberOfLines={2}>{cardSubtitle}</Text>
+                    </View>
+                    <Icon color='white' type="MaterialIcons" name="keyboard-arrow-right" size={30} />
+                </View>
+            </TouchableHighlight>
         )
     }
 
@@ -140,8 +138,6 @@ export default class SearchResultPage extends React.Component {
     }
 }
 
-const window = Dimensions.get("window")
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -185,9 +181,10 @@ const styles = StyleSheet.create({
         paddingLeft: 12
     },
     listItem: {
-        paddingLeft: 15,
-        paddingRight: 15,
-        height: 90,
+        flexDirection: "row",
+        borderColor: "grey",
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
         backgroundColor: "#333333"
     },
     listItemTitle: {
@@ -199,8 +196,6 @@ const styles = StyleSheet.create({
         width: 64,
         height: 64,
         borderRadius: 32,
-        marginTop: 35,
-        marginRight: 10,
-        marginLeft: 10
+        margin: 10
     }
 })
