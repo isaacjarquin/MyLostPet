@@ -84,7 +84,7 @@ export default class SearchResultPage extends React.Component {
         return (
             <TouchableHighlight style={{width: window.width}} onPress={() => navigate("PetCard", { pet: rowData })}>
                 <View style={styles.listItem}>
-                    <Image style={[styles.avatarStyle, {paddingBottom: 40}]} source={{ uri: builtAvatar }} />
+                    <Image style={styles.avatarStyle} source={{ uri: builtAvatar }} />
                     <View style={{width: window.width - 120}}>
                         <Text style={{ color: "white", fontSize: 16, marginTop: 10, marginBottom: 5 }} numberOfLines={1} fontWeight="bold">{cardTitle}</Text>
                         <Text style={{ color: "grey", lineHeight: 20, marginBottom: 10 }} numberOfLines={2}>{cardSubtitle}</Text>
@@ -196,6 +196,7 @@ const styles = StyleSheet.create({
         width: 64,
         height: 64,
         borderRadius: 32,
-        margin: 10
+        margin: 10,
+        paddingBottom: 40
     }
 })
