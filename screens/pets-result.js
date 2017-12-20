@@ -1,6 +1,6 @@
 import React from "react"
-import { StyleSheet, View, ListView, Text, ScrollView, TextInput, Dimensions, KeyboardAvoidingView, Image, TouchableOpacity, TouchableHighlight } from "react-native"
-import { ListItem, Icon } from "react-native-elements"
+import { StyleSheet, View, ListView, Text, ScrollView, TextInput, Dimensions, KeyboardAvoidingView, Image, TouchableHighlight } from "react-native"
+import { Icon } from "react-native-elements"
 
 const window = Dimensions.get("window")
 
@@ -70,7 +70,7 @@ export default class SearchResultPage extends React.Component {
         this.setState({dataSource: this.state.ds.cloneWithRows(filteredPets)})
     }
 
-    renderRow(rowData, sectionID, rowID) {
+    renderRow(rowData) {
         const cardTitleWithBreed = `${rowData.kind}, de raza ${rowData.breed}`
         const cardTitle = rowData.breed ? cardTitleWithBreed : rowData.kind
         const cardSubtitle = `Encontrado en ${rowData.location}, el ${rowData.date}. ${rowData.info}`
