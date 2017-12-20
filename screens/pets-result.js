@@ -87,7 +87,7 @@ export default class SearchResultPage extends React.Component {
                     <Image style={[styles.avatarStyle, {paddingBottom: 40}]} source={{ uri: builtAvatar }} />
                     <View style={{width: window.width - 120}}>
                         <Text style={{ color: "white", fontSize: 16, marginTop: 10, marginBottom: 5 }} numberOfLines={1} fontWeight="bold">{cardTitle}</Text>
-                        <Text style={{ color: "grey" }} numberOfLines={2}>{cardSubtitle}</Text>
+                        <Text style={{ color: "grey", lineHeight: 20, marginBottom: 10 }} numberOfLines={2}>{cardSubtitle}</Text>
                     </View>
                     <Icon color='white' type="MaterialIcons" name="keyboard-arrow-right" size={30} />
                 </View>
