@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     },
     petCard: {
         width: "100%",
-        minHeight: window.height - 130,
+        minHeight: window.height * 0.72,
     },
     image: {
         height: 300
