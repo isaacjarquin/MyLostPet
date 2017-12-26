@@ -54,7 +54,7 @@ export default class Home extends React.Component {
 
                         <SecondaryMenuModal navigate={this.props.navigation.navigate} />
                     </View>
-                    <SafeAreaView />
+                    <SafeAreaView style={{marginTop: 10}}/>
                 </ImageBackground>
             </View>
         )

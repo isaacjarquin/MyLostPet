@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, Dimensions, Platform, KeyboardAvoidingView } from "react-native"
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, ScrollView, Dimensions, Platform, KeyboardAvoidingView, SafeAreaView } from "react-native"
 import { Select, Option } from "react-native-chooser"
 import { post } from "../services/items-api"
 import pets from "../data/pets"
@@ -535,6 +535,7 @@ export default class MissingPetForm extends React.Component {
                         {showOperationMessage && <OperationMessage showSuccesfullMessage={showSuccesfullMessage} showUnSuccesfullMessage={showUnSuccesfullMessage} hideAnimation={this.hideAnimation} />}
                     </View>
                 </ScrollView>
+                <SafeAreaView />
             </KeyboardAvoidingView>
         )
     }
