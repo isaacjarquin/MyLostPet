@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native"
+import { StyleSheet, Text, View, Image, ScrollView, ImageBackground } from "react-native"
 
 export default class HowToUse extends React.Component {
     constructor (props) {
@@ -10,7 +10,7 @@ export default class HowToUse extends React.Component {
         return (
 
             <View style={styles.container}>
-                <Image
+                <ImageBackground
                     source={require("../assets/images/tirma.jpg")}
                     style={styles.image}
                 >
@@ -21,7 +21,7 @@ export default class HowToUse extends React.Component {
                         <Text style={styles.description}>Si por el contrario, lo que deseas es encontrar a tu mascota perdida, debes usar el filtro que se desplegara al pulsar el botón 'Buscar mascota' en la parte inferior de la página. Aquí podrás filtrar por tipo de mascota, comunidad autónoma y provincia en la que se a extraviado tu mascota. Esto te mostrará una lista con todas las mascotas perdidas en la provincia seleccionada que coinciden con el filtro aplicado. Debido a que esta lista podría ser muy grande en determinados casos, hemos añadido un segundo nivel de filtro que te permitiran hacer una busqueda aun mas selectiva, filtrando por ciudad o municipio, raza y tamaño. La combinación de estos 6 filtros nos permitirá una potente búsqueda que debería ser suficiente para encontrar a tu mascota. Una vez hayas encontrado a tu mascota, debes hacer click sobre ella lo cual te direccionara a una pantalla donde podrás ver información relativa al animal en question.</Text>
                         <Text style={styles.description}>Por último si haces click en el botón 'Contactar' se desplegará un formulario en el que deberás introducir tu información personal de contacto, para que la persona que encontró tu mascota se pueda poner en contacto contigo.</Text>
                     </ScrollView>
-                </Image>
+                </ImageBackground>
             </View>
         )
     }

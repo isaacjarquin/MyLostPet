@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native"
+import { StyleSheet, Text, View, Image, ScrollView, ImageBackground } from "react-native"
 
 export default class TermsAndConditions extends React.Component {
     constructor (props) {
@@ -10,7 +10,7 @@ export default class TermsAndConditions extends React.Component {
         return (
 
             <View style={styles.container}>
-                <Image
+                <ImageBackground
                     source={require("../assets/images/tirma.jpg")}
                     style={styles.image}
                 >
@@ -33,7 +33,7 @@ export default class TermsAndConditions extends React.Component {
                         <Text style={styles.description}>En MyLostPet declinamos toda responsabilidad u obligación alguna por la exactitud, contenido, integridad, legalidad, fiabilidad, operabilidad o disponibilidad de la información o materiales exhibidos en la aplicación. El equipo de MyLostPet se exime de toda responsabilidad y la responsabilidad por la conducta de cualquier usuario.</Text>
                         <Text style={styles.description}>BAJO NINGUNA CIRCUNSTANCIA MYLOSTPET SERA RESPONSABLE POR DAÑOS INDIRECTOS, INCIDENTAL, CONSECUENTE, ESPECIAL O EJEMPLAR QUE SURJA DE O EN CONEXION CON EL USO DEL SITIO WEB O CUALQUIERA DE SUS APLICACIONES MOBILES O PARA TABLET.</Text>
                     </ScrollView>
-                </Image>
+                </ImageBackground>
             </View>
         )
     }
