@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     },
     modalOptionsButton: {
         opacity: 0.6,
-        borderWidth: 0.5,
+        borderWidth: StyleSheet.hairlineWidth,
         backgroundColor: "grey",
         padding: 20,
         borderColor: "#d6d7da"

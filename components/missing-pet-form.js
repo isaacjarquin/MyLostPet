@@ -551,7 +551,7 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     fieldsIcons: {
-        borderWidth: 0.5,
+        borderWidth: StyleSheet.hairlineWidth,
         borderColor: "grey",
         paddingTop: 8,
         paddingLeft: 4,
@@ -568,7 +568,7 @@ const styles = StyleSheet.create({
         width: window.width - 48,
         backgroundColor: "white",
         borderColor: "#d6d7da",
-        borderWidth: 0.5
+        borderWidth: StyleSheet.hairlineWidth
     },
     optionListStyle: {
         backgroundColor: "white",
@@ -590,7 +590,7 @@ const styles = StyleSheet.create({
         padding: 15,
         backgroundColor: "white",
         borderColor: "#d6d7da",
-        borderWidth: 0.5
+        borderWidth: StyleSheet.hairlineWidth
     },
     loader: {
         alignSelf: "center"
@@ -623,7 +623,7 @@ const styles = StyleSheet.create({
         width: "87%",
         fontSize: 14,
         color: "grey",
-        borderWidth: 0.5,
+        borderWidth: StyleSheet.hairlineWidth,
         marginRight: 4,
         marginTop: 4,
         marginBottom: 4,
@@ -640,7 +640,7 @@ const styles = StyleSheet.create({
         marginBottom: 4,
         paddingRight: 5,
         flexDirection: "row",
-        borderWidth: 0.5
+        borderWidth: StyleSheet.hairlineWidth
     },
     calendarText: {
         marginLeft: 15,
