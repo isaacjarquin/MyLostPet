@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ImageBackground, SafeAreaView } from "react-native"
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ImageBackground, SafeAreaView, PixelRatio } from "react-native"
 import { Icon } from "react-native-elements"
 import SecondaryMenuModal from "../components/secondary-menu-modal"
 
@@ -39,7 +39,6 @@ export default class Home extends React.Component {
                 >
                     <View style={styles.topSection}>
                         <Text style={styles.subTitle}>Te ayudamos a encontrarlo</Text>
-
                         <Image
                             source={require("../assets/images/pet-care-icon.png")}
                             style={styles.icon}
