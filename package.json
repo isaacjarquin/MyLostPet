@@ -23,6 +23,7 @@
     "react-native-dropdownalert": "^3.1.2",
     "react-native-elements": "^0.17.0",
     "react-native-imagepicker": "^2.0.0",
+    "react-native-iphone-x-helper": "^1.0.1",
     "react-native-modal": "^4.1.1",
     "react-native-modal-datetime-picker": "^4.13.0",
     "react-native-progress-circle": "^2.0.0",

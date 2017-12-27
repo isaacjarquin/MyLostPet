@@ -2,6 +2,7 @@ import React from "react"
 import { StyleSheet, Text, View, Share, ScrollView, Dimensions } from "react-native"
 import { Card } from "react-native-elements"
 import ContactDetailModal from "./contact-details-modal"
+import { isIphoneX } from "react-native-iphone-x-helper"
 
 export default class PetCard extends React.Component {
     constructor (props) {
@@ -55,6 +56,7 @@ export default class PetCard extends React.Component {
 }
 
 const window = Dimensions.get("window")
+const petCardMinHeight = isIphoneX() ? window.height * 0.77 : window.height * 0.72
 
 const styles = StyleSheet.create({
     container: {
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
     },
     petCard: {
         width: "100%",
-        minHeight: window.height * 0.72,
+        minHeight: petCardMinHeight,
     },
     image: {
         height: 300

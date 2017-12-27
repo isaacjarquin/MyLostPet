@@ -39,7 +39,6 @@ export default class Home extends React.Component {
                 >
                     <View style={styles.topSection}>
                         <Text style={styles.subTitle}>Te ayudamos a encontrarlo</Text>
-
                         <Image
                             source={require("../assets/images/pet-care-icon.png")}
                             style={styles.icon}
