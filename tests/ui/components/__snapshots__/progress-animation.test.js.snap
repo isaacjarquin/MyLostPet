@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressAnimation renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "opacity": 0.9,
+      "paddingBottom": 30,
+      "paddingTop": 30,
+      "position": "absolute",
+      "top": "80%",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+      }
+    }
+  >
+    <PercentageCircle
+      bgColor="#fff"
+      borderWidth={2}
+      color="#3399FF"
+      containerStyle={null}
+      radius={50}
+      shadowColor="#999"
+    >
+      <Image
+        source={1}
+        style={
+          Object {
+            "height": 65,
+            "width": 65,
+          }
+        }
+      />
+    </PercentageCircle>
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "alignSelf": "center",
+        "fontSize": 14,
+        "marginTop": 2,
+      }
+    }
+  >
+    %
+  </Text>
+</View>
+`;
