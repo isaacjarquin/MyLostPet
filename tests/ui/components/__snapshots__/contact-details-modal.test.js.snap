@@ -178,11 +178,7 @@ exports[`ContactDetailsModal renders correctly 1`] = `
         }
       >
         <Image
-          source={
-            Object {
-              "testUri": "../../../assets/icons/send.png",
-            }
-          }
+          source={1}
           style={
             Object {
               "height": 25,
@@ -211,11 +207,7 @@ exports[`ContactDetailsModal renders correctly 1`] = `
   <DropdownAlert
     activeStatusBarBackgroundColor="black"
     activeStatusBarStyle="light-content"
-    cancelBtnImageSrc={
-      Object {
-        "testUri": "../../react-native-dropdownalert/assets/cancel.png",
-      }
-    }
+    cancelBtnImageSrc={1}
     cancelBtnImageStyle={
       Object {
         "alignSelf": "center",

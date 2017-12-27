@@ -11,11 +11,7 @@ exports[`HomeScreenDrawer renders correctly 1`] = `
   }
 >
   <ImageBackground
-    source={
-      Object {
-        "testUri": "../../../assets/images/xira.jpg",
-      }
-    }
+    source={1}
     style={
       Object {
         "flex": 1,

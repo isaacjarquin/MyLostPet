@@ -14,11 +14,7 @@ exports[`Home renders correctly 1`] = `
   }
 >
   <ImageBackground
-    source={
-      Object {
-        "testUri": "../../../assets/images/home.jpg",
-      }
-    }
+    source={1}
     style={
       Object {
         "flex": 1,
@@ -54,11 +50,7 @@ exports[`Home renders correctly 1`] = `
         Te ayudamos a encontrarlo
       </Text>
       <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/pet-care-icon.png",
-          }
-        }
+        source={1}
         style={
           Object {
             "alignSelf": "center",

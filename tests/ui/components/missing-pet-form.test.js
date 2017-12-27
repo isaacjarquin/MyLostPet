@@ -1,10 +1,27 @@
 import "react-native"
 import React from "react"
 import MissingPetForm from "../../../components/missing-pet-form"
-import renderer from "react-test-renderer"
+import { shallow } from "enzyme"
+import toJSON from "enzyme-to-json"
 
-it("renders correctly", () => {
-    const now = new Date("12-01-2017")
-    const tree = renderer.create(<MissingPetForm date={now} />).toJSON()
-    expect(tree).toMatchSnapshot()
+describe("MissingPetForm", () => {
+    const navigate = jest.fn()
+
+    const props = {
+        navigation: {
+            navigate: navigate
+        }
+    }
+
+    beforeEach(() => {
+        wrapper = shallow(<MissingPetForm {...props} />)
+    })
+
+    afterEach(() => {
+        navigate.mockReset()
+    })
+
+    it("renders correctly", () => {
+        expect(wrapper).toBeDefined()
+    })
 })

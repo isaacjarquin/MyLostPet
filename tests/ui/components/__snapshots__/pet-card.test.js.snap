@@ -525,11 +525,7 @@ exports[`renders correctly 1`] = `
                   tvParallaxProperties={undefined}
                 >
                   <Image
-                    source={
-                      Object {
-                        "testUri": "../../../assets/icons/send.png",
-                      }
-                    }
+                    source={1}
                     style={
                       Object {
                         "height": 25,
