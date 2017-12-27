@@ -28,6 +28,12 @@ export default class SearchResultPage extends React.Component {
         }
     }
 
+    componentWillUpdate(_nextProps, nextState) {
+        if (this.state.location !== nextState.location || this.state.breed !== nextState.breed) {
+            this.filterPets(nextState)
+        }
+    }
+
     onLocationFocus() {
         this.setState({
             locationFocusColor: "white",
@@ -40,12 +46,6 @@ export default class SearchResultPage extends React.Component {
             breedFocusColor: "white",
             locationFocusColor: "grey"
         })
-    }
-
-    componentWillUpdate(_nextProps, nextState) {
-        if (this.state.location !== nextState.location || this.state.breed !== nextState.breed) {
-            this.filterPets(nextState)
-        }
     }
 
     setAndfilterbyCity (value) {
