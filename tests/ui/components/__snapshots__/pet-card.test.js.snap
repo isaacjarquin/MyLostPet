@@ -36,7 +36,6 @@ exports[`renders correctly 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              disabled={false}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -132,7 +131,6 @@ exports[`renders correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
-                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [
@@ -161,7 +159,6 @@ exports[`renders correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
-                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [
@@ -202,7 +199,6 @@ exports[`renders correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
-                disabled={false}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -219,7 +215,6 @@ exports[`renders correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
-                disabled={false}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -272,7 +267,6 @@ exports[`renders correctly 1`] = `
           <Text
             accessible={true}
             allowFontScaling={true}
-            disabled={false}
             ellipsizeMode="tail"
             style={
               Object {
@@ -390,7 +384,6 @@ exports[`renders correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={false}
-                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [
@@ -419,6 +412,7 @@ exports[`renders correctly 1`] = `
             <RCTScrollView>
               <View>
                 <TextInput
+                  allowFontScaling={true}
                   borderColor="grey"
                   onChangeText={[Function]}
                   placeholder="Nombre"
@@ -439,6 +433,7 @@ exports[`renders correctly 1`] = `
                   value=""
                 />
                 <TextInput
+                  allowFontScaling={true}
                   borderColor="grey"
                   keyboardType="email-address"
                   onChangeText={[Function]}
@@ -460,6 +455,7 @@ exports[`renders correctly 1`] = `
                   value=""
                 />
                 <TextInput
+                  allowFontScaling={true}
                   borderColor="grey"
                   keyboardType="phone-pad"
                   onChangeText={[Function]}
@@ -481,6 +477,7 @@ exports[`renders correctly 1`] = `
                   value=""
                 />
                 <TextInput
+                  allowFontScaling={true}
                   borderColor="grey"
                   onChangeText={[Function]}
                   placeholder="Información personal"
@@ -528,7 +525,11 @@ exports[`renders correctly 1`] = `
                   tvParallaxProperties={undefined}
                 >
                   <Image
-                    source={1}
+                    source={
+                      Object {
+                        "testUri": "../../../assets/icons/send.png",
+                      }
+                    }
                     style={
                       Object {
                         "height": 25,
@@ -541,7 +542,6 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={true}
-                    disabled={false}
                     ellipsizeMode="tail"
                     style={
                       Object {

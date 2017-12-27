@@ -13,8 +13,7 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <Image
-    source={1}
+  <View
     style={
       Object {
         "flex": 1,
@@ -24,6 +23,29 @@ exports[`renders correctly 1`] = `
       }
     }
   >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/home.jpg",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": 1334,
+            "width": 750,
+          },
+          undefined,
+        ]
+      }
+    />
     <View
       style={
         Object {
@@ -36,7 +58,6 @@ exports[`renders correctly 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
         style={
           Object {
@@ -51,7 +72,11 @@ exports[`renders correctly 1`] = `
         Te ayudamos a encontrarlo
       </Text>
       <Image
-        source={1}
+        source={
+          Object {
+            "testUri": "../../../assets/images/pet-care-icon.png",
+          }
+        }
         style={
           Object {
             "alignSelf": "center",
@@ -112,7 +137,6 @@ exports[`renders correctly 1`] = `
           <Text
             accessible={true}
             allowFontScaling={false}
-            disabled={false}
             ellipsizeMode="tail"
             style={
               Array [
@@ -140,7 +164,6 @@ exports[`renders correctly 1`] = `
         <Text
           accessible={true}
           allowFontScaling={true}
-          disabled={false}
           ellipsizeMode="tail"
           style={
             Object {
@@ -204,7 +227,6 @@ exports[`renders correctly 1`] = `
             <Text
               accessible={true}
               allowFontScaling={false}
-              disabled={false}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -232,7 +254,6 @@ exports[`renders correctly 1`] = `
           <Text
             accessible={true}
             allowFontScaling={true}
-            disabled={false}
             ellipsizeMode="tail"
             style={
               Object {
@@ -358,7 +379,6 @@ exports[`renders correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={false}
-                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [
@@ -420,7 +440,6 @@ exports[`renders correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
-                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Object {
@@ -439,7 +458,6 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={false}
-                    disabled={false}
                     ellipsizeMode="tail"
                     style={
                       Array [
@@ -574,7 +592,6 @@ exports[`renders correctly 1`] = `
                         <Text
                           accessible={true}
                           allowFontScaling={false}
-                          disabled={false}
                           ellipsizeMode="tail"
                           style={
                             Array [
@@ -695,7 +712,6 @@ exports[`renders correctly 1`] = `
                       <Text
                         accessible={true}
                         allowFontScaling={true}
-                        disabled={false}
                         ellipsizeMode="tail"
                         style={
                           Object {
@@ -743,7 +759,6 @@ exports[`renders correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
-                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Object {
@@ -762,7 +777,6 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={false}
-                    disabled={false}
                     ellipsizeMode="tail"
                     style={
                       Array [
@@ -897,7 +911,6 @@ exports[`renders correctly 1`] = `
                         <Text
                           accessible={true}
                           allowFontScaling={false}
-                          disabled={false}
                           ellipsizeMode="tail"
                           style={
                             Array [
@@ -1073,7 +1086,6 @@ exports[`renders correctly 1`] = `
                       <Text
                         accessible={true}
                         allowFontScaling={true}
-                        disabled={false}
                         ellipsizeMode="tail"
                         style={
                           Object {
@@ -1121,7 +1133,6 @@ exports[`renders correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
-                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Object {
@@ -1140,7 +1151,6 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={false}
-                    disabled={false}
                     ellipsizeMode="tail"
                     style={
                       Array [
@@ -1275,7 +1285,6 @@ exports[`renders correctly 1`] = `
                         <Text
                           accessible={true}
                           allowFontScaling={false}
-                          disabled={false}
                           ellipsizeMode="tail"
                           style={
                             Array [
@@ -1358,7 +1367,6 @@ exports[`renders correctly 1`] = `
                       <Text
                         accessible={true}
                         allowFontScaling={true}
-                        disabled={false}
                         ellipsizeMode="tail"
                         style={
                           Object {
@@ -1414,7 +1422,6 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={false}
-                    disabled={false}
                     ellipsizeMode="tail"
                     style={
                       Array [
@@ -1442,7 +1449,6 @@ exports[`renders correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
-                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Object {
@@ -1460,6 +1466,13 @@ exports[`renders correctly 1`] = `
         </Modal>
       </View>
     </View>
-  </Image>
+    <RCTSafeAreaView
+      style={
+        Object {
+          "marginTop": 10,
+        }
+      }
+    />
+  </View>
 </View>
 `;
