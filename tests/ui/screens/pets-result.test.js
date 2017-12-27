@@ -11,7 +11,7 @@ import Adapter from 'enzyme-adapter-react-16'
 
 configure({ adapter: new Adapter() })
 
-describe("HoSearchResultPageme", () => {
+describe("PetsResult", () => {
     const navigate = jest.fn()
 
     const props = {
