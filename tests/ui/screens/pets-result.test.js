@@ -1,11 +1,8 @@
 import "react-native"
-import { ListView, ListViewDataSource } from "react-native"
 import React from "react"
 import PetsResult from "../../../screens/pets-result"
-
-import { shallow } from 'enzyme'
-import toJSON from 'enzyme-to-json'
-import renderer from "react-test-renderer"
+import { shallow } from "enzyme"
+import toJSON from "enzyme-to-json"
 
 describe("PetsResult", () => {
     const navigate = jest.fn()
@@ -19,10 +16,10 @@ describe("PetsResult", () => {
                 }
             }
         }
-    };
+    }
 
     beforeEach(() => {
-        wrapper = shallow(<PetsResult {...props} />);
+        wrapper = shallow(<PetsResult {...props} />)
     })
 
     it("renders correctly", () => {
@@ -38,7 +35,7 @@ describe("PetsResult", () => {
             })
             wrapper.instance().onLocationFocus()
             expect(wrapper.state().locationFocusColor).toBe("white")
-            expect(wrapper.state().breedFocusColor).toBe("grey");
+            expect(wrapper.state().breedFocusColor).toBe("grey")
         })
     })
 
@@ -50,7 +47,7 @@ describe("PetsResult", () => {
             })
             wrapper.instance().onBreedFocus()
             expect(wrapper.state().breedFocusColor).toBe("white")
-            expect(wrapper.state().locationFocusColor).toBe("grey");
+            expect(wrapper.state().locationFocusColor).toBe("grey")
         })
     })
 
@@ -63,7 +60,7 @@ describe("PetsResult", () => {
 
             wrapper.instance().setAndfilterbyCity("location")
             expect(wrapper.state().location).toBe("location")
-            expect(wrapper.state().breed).toBe("");
+            expect(wrapper.state().breed).toBe("")
         })
     })
 
@@ -76,19 +73,19 @@ describe("PetsResult", () => {
 
             wrapper.instance().setAndfilterbyBreed("breed")
             expect(wrapper.state().location).toBe("")
-            expect(wrapper.state().breed).toBe("breed");
+            expect(wrapper.state().breed).toBe("breed")
         })
     })
 
     describe("filterPets", () => {
         it("returns all items when no filter is selected", () => {
             const pet = {
-                location: 'Tenerife',
-                breed: 'Pastor aleman'
+                location: "Tenerife",
+                breed: "Pastor aleman"
             }
             const pet1 = {
-                location: 'Las palmas',
-                breed: 'pitbull'
+                location: "Las palmas",
+                breed: "pitbull"
             }
             wrapper.setState({ pets: [pet, pet1] })
             
@@ -98,12 +95,12 @@ describe("PetsResult", () => {
 
         it("returns one items when only one item match the filter", () => {
             const pet = {
-                location: 'Tenerife',
-                breed: 'Pastor aleman'
+                location: "Tenerife",
+                breed: "Pastor aleman"
             }
             const pet1 = {
-                location: 'Las palmas',
-                breed: 'pitbull'
+                location: "Las palmas",
+                breed: "pitbull"
             }
             wrapper.setState({ pets: [pet, pet1] })
 
@@ -113,12 +110,12 @@ describe("PetsResult", () => {
 
         it("returns no items when search doesnt match the filter", () => {
             const pet = {
-                location: 'Tenerife',
-                breed: 'Pastor aleman'
+                location: "Tenerife",
+                breed: "Pastor aleman"
             }
             const pet1 = {
-                location: 'Las palmas',
-                breed: 'pitbull'
+                location: "Las palmas",
+                breed: "pitbull"
             }
             wrapper.setState({ pets: [pet, pet1] })
 

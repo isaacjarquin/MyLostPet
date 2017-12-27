@@ -1,27 +1,23 @@
 import "react-native"
 import React from "react"
 import SecondaryMenuModal from "../../../components/customized-picker"
-import { shallow } from 'enzyme'
-import toJSON from 'enzyme-to-json'
-
-import renderer from "react-test-renderer"
+import { shallow } from "enzyme"
+import toJSON from "enzyme-to-json"
 
 describe("SecondaryMenuModal", () => {
-    const navigate = jest.fn()
-
     const props = {
         handler: jest.fn(),
         hidePetTypeModal: jest.fn(),
         items: []
-    };
+    }
 
     beforeEach(() => {
-        wrapper = shallow(<SecondaryMenuModal {...props} />);
-    });
+        wrapper = shallow(<SecondaryMenuModal {...props} />)
+    })
 
     it("renders correctly", () => {
         expect(wrapper).toBeDefined()
-        expect(toJSON(wrapper)).toMatchSnapshot();
+        expect(toJSON(wrapper)).toMatchSnapshot()
     })
 
     describe("handleSelected", () => {

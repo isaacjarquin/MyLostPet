@@ -1,11 +1,8 @@
 import "react-native"
 import React from "react"
 import HomeScreenDrawer from "../../../components/home-screen-drawer"
-
-import { shallow } from 'enzyme'
-import toJSON from 'enzyme-to-json'
-
-import renderer from "react-test-renderer"
+import { shallow } from "enzyme"
+import toJSON from "enzyme-to-json"
 
 describe("HomeScreenDrawer", () => {
     const navigate = jest.fn()
@@ -14,19 +11,19 @@ describe("HomeScreenDrawer", () => {
         navigation: {
             navigate: navigate
         }
-    };
+    }
 
     beforeEach(() => {
-        wrapper = shallow(<HomeScreenDrawer {...props} />);
-    });
+        wrapper = shallow(<HomeScreenDrawer {...props} />)
+    })
 
     afterEach(() => {
         navigate.mockReset()
-    });
+    })
 
     it("renders correctly", () => {
         expect(wrapper).toBeDefined()
-        expect(toJSON(wrapper)).toMatchSnapshot();
+        expect(toJSON(wrapper)).toMatchSnapshot()
     })
 
     describe("_whoWeAre", () => {
@@ -35,7 +32,7 @@ describe("HomeScreenDrawer", () => {
         })
 
         it("navigate to WhoWeAre", () => {
-            expect(navigate).toHaveBeenCalledTimes(1);
+            expect(navigate).toHaveBeenCalledTimes(1)
             expect(navigate).toHaveBeenCalledWith("WhoWeAre")
         })
     })
@@ -46,7 +43,7 @@ describe("HomeScreenDrawer", () => {
         })
 
         it("navigate to WhoWeAre", () => {
-            expect(navigate).toHaveBeenCalledTimes(1);
+            expect(navigate).toHaveBeenCalledTimes(1)
             expect(navigate).toHaveBeenCalledWith("TermsAndConditions")
         })
     })
@@ -57,7 +54,7 @@ describe("HomeScreenDrawer", () => {
         })
 
         it("navigate to WhoWeAre", () => {
-            expect(navigate).toHaveBeenCalledTimes(1);
+            expect(navigate).toHaveBeenCalledTimes(1)
             expect(navigate).toHaveBeenCalledWith("HowToUse")
         })
     })

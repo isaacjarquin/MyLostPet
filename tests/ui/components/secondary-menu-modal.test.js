@@ -1,28 +1,26 @@
 import "react-native"
 import React from "react"
 import SecondaryMenyModal from "../../../components/secondary-menu-modal"
-import { shallow } from 'enzyme'
-import toJSON from 'enzyme-to-json'
-
-import renderer from "react-test-renderer"
+import { shallow } from "enzyme"
+import toJSON from "enzyme-to-json"
 
 describe("SecondaryMenyModal", () => {
     const props = {}
 
     beforeEach(() => {
-        wrapper = shallow(<SecondaryMenyModal {...props} />);
+        wrapper = shallow(<SecondaryMenyModal {...props} />)
     })
 
     it("renders correctly", () => {
         expect(wrapper).toBeDefined()
-        expect(toJSON(wrapper)).toMatchSnapshot();
+        expect(toJSON(wrapper)).toMatchSnapshot()
     })
 
     describe("_showModal", () => {
         it("shows modal", () => {
             wrapper.setState({ isModalVisible: false })
             wrapper.instance()._showModal()
-            expect(wrapper.state().isModalVisible).toBe(true);
+            expect(wrapper.state().isModalVisible).toBe(true)
         })
     })
 
@@ -30,7 +28,7 @@ describe("SecondaryMenyModal", () => {
         it("hides modal", () => {
             wrapper.setState({ isModalVisible: true })
             wrapper.instance()._hideModal()
-            expect(wrapper.state().isModalVisible).toBe(false);
+            expect(wrapper.state().isModalVisible).toBe(false)
         })
     })
 
@@ -38,7 +36,7 @@ describe("SecondaryMenyModal", () => {
         it("shows modal", () => {
             wrapper.setState({ isPetTypeModalVisible: false })
             wrapper.instance()._showPetTypeModal()
-            expect(wrapper.state().isPetTypeModalVisible).toBe(true);
+            expect(wrapper.state().isPetTypeModalVisible).toBe(true)
         })
     })
 
@@ -46,7 +44,7 @@ describe("SecondaryMenyModal", () => {
         it("hides modal", () => {
             wrapper.setState({ isPetTypeModalVisible: true })
             wrapper.instance()._hidePetTypeModal()
-            expect(wrapper.state().isPetTypeModalVisible).toBe(false);
+            expect(wrapper.state().isPetTypeModalVisible).toBe(false)
         })
     })
 
@@ -54,7 +52,7 @@ describe("SecondaryMenyModal", () => {
         it("shows modal", () => {
             wrapper.setState({ isAutonomousComunityModalVisible: false })
             wrapper.instance()._showAutonomousComunityModal()
-            expect(wrapper.state().isAutonomousComunityModalVisible).toBe(true);
+            expect(wrapper.state().isAutonomousComunityModalVisible).toBe(true)
         })
     })
 
@@ -62,7 +60,7 @@ describe("SecondaryMenyModal", () => {
         it("hides modal", () => {
             wrapper.setState({ isAutonomousComunityModalVisible: true })
             wrapper.instance()._hideAutonomousComunityModal()
-            expect(wrapper.state().isAutonomousComunityModalVisible).toBe(false);
+            expect(wrapper.state().isAutonomousComunityModalVisible).toBe(false)
         })
     })
 
@@ -70,7 +68,7 @@ describe("SecondaryMenyModal", () => {
         it("shows modal", () => {
             wrapper.setState({ isProvinceModalVisible: false })
             wrapper.instance()._showProvinceModal()
-            expect(wrapper.state().isProvinceModalVisible).toBe(true);
+            expect(wrapper.state().isProvinceModalVisible).toBe(true)
         })
     })
 
