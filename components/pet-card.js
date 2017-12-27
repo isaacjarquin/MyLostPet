@@ -2,7 +2,7 @@ import React from "react"
 import { StyleSheet, Text, View, Share, ScrollView, Dimensions } from "react-native"
 import { Card } from "react-native-elements"
 import ContactDetailModal from "./contact-details-modal"
-import { isIphoneX } from 'react-native-iphone-x-helper'
+import { isIphoneX } from "react-native-iphone-x-helper"
 
 export default class PetCard extends React.Component {
     constructor (props) {

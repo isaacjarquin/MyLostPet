@@ -14,7 +14,7 @@ import termsAndConditions from "./components/terms-and-conditions"
 import howToUse from "./components/how-to-use"
 import { Icon } from "react-native-elements"
 import { Share, Dimensions, Platform } from "react-native"
-import { isIphoneX } from 'react-native-iphone-x-helper'
+import { isIphoneX } from "react-native-iphone-x-helper"
 
 const shareOptions = {
     message: "http://www.mylostpet.es/",
