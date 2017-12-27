@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
     },
     fieldsIcons: {
         borderColor: "#d6d7da",
-        borderWidth: 0.5,
+        borderWidth: StyleSheet.hairlineWidth,
         paddingTop: 14,
         paddingLeft: 4,
         width: 40,
@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
         backgroundColor: "black",
         width: window.width - 78,
         borderColor: "#d6d7da",
-        borderWidth: 0.5,
+        borderWidth: StyleSheet.hairlineWidth,
         opacity: 0.5
     },
     optionListStyle: {
@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
         backgroundColor: "black",
         opacity: 0.5,
         borderColor: "#d6d7da",
-        borderWidth: 0.5
+        borderWidth: StyleSheet.hairlineWidth
     },
     selectText: {
         color: "white",
@@ -330,6 +330,6 @@ const styles = StyleSheet.create({
         opacity: 0.8,
         padding: 15,
         borderColor: "#d6d7da",
-        borderWidth: 0.5
+        borderWidth: StyleSheet.hairlineWidth
     }
 })

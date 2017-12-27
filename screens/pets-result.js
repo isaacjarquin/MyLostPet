@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View, ListView, Text, ScrollView, TextInput, Dimensions, KeyboardAvoidingView, Image, TouchableHighlight } from "react-native"
+import { StyleSheet, View, ListView, Text, ScrollView, TextInput, Dimensions, KeyboardAvoidingView, Image, TouchableHighlight, SafeAreaView } from "react-native"
 import { Icon } from "react-native-elements"
 
 const window = Dimensions.get("window")
@@ -133,6 +133,7 @@ export default class SearchResultPage extends React.Component {
                         <Icon style={styles.fieldsIcons} color={this.state.breedFocusColor} type="MaterialIcons" name="place" size={25} />
                     </View>
                 </View>
+                <SafeAreaView />
             </KeyboardAvoidingView>
         )
     }

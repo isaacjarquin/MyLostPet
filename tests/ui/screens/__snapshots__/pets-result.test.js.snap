@@ -103,7 +103,6 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={true}
-                    disabled={false}
                     ellipsizeMode="tail"
                     numberOfLines={1}
                     style={
@@ -120,7 +119,6 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={true}
-                    disabled={false}
                     ellipsizeMode="tail"
                     numberOfLines={2}
                     style={
@@ -154,7 +152,6 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={false}
-                    disabled={false}
                     ellipsizeMode="tail"
                     style={
                       Array [
@@ -212,7 +209,6 @@ exports[`renders correctly 1`] = `
         <Text
           accessible={true}
           allowFontScaling={false}
-          disabled={false}
           ellipsizeMode="tail"
           style={
             Array [
@@ -238,6 +234,7 @@ exports[`renders correctly 1`] = `
         </Text>
       </View>
       <TextInput
+        allowFontScaling={true}
         onChangeText={[Function]}
         onFocus={[Function]}
         placeholder="Ciudad/Municipio..."
@@ -283,7 +280,6 @@ exports[`renders correctly 1`] = `
         <Text
           accessible={true}
           allowFontScaling={false}
-          disabled={false}
           ellipsizeMode="tail"
           style={
             Array [
@@ -336,7 +332,6 @@ exports[`renders correctly 1`] = `
         <Text
           accessible={true}
           allowFontScaling={false}
-          disabled={false}
           ellipsizeMode="tail"
           style={
             Array [
@@ -362,6 +357,7 @@ exports[`renders correctly 1`] = `
         </Text>
       </View>
       <TextInput
+        allowFontScaling={true}
         onChangeText={[Function]}
         onFocus={[Function]}
         placeholder="Raza..."
@@ -407,7 +403,6 @@ exports[`renders correctly 1`] = `
         <Text
           accessible={true}
           allowFontScaling={false}
-          disabled={false}
           ellipsizeMode="tail"
           style={
             Array [
@@ -434,5 +429,6 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
+  <RCTSafeAreaView />
 </View>
 `;

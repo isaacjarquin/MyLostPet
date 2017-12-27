@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from "react-native"
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ImageBackground, SafeAreaView } from "react-native"
 import { Icon } from "react-native-elements"
 import SecondaryMenuModal from "../components/secondary-menu-modal"
 
@@ -33,7 +33,7 @@ export default class Home extends React.Component {
     render () {
         return (
             <View style={styles.container}>
-                <Image
+                <ImageBackground
                     source={require("../assets/images/home.jpg")}
                     style={styles.image}
                 >
@@ -54,7 +54,8 @@ export default class Home extends React.Component {
 
                         <SecondaryMenuModal navigate={this.props.navigation.navigate} />
                     </View>
-                </Image>
+                    <SafeAreaView style={{marginTop: 10}}/>
+                </ImageBackground>
             </View>
         )
     }

@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native"
+import { StyleSheet, Text, View, ScrollView, ImageBackground } from "react-native"
 
 export default class WhoWeAre extends React.Component {
     constructor (props) {
@@ -10,7 +10,7 @@ export default class WhoWeAre extends React.Component {
         return (
 
             <View style={styles.container}>
-                <Image
+                <ImageBackground
                     source={require("../assets/images/tirma.jpg")}
                     style={styles.image}
                 >
@@ -19,7 +19,7 @@ export default class WhoWeAre extends React.Component {
 	            <Text style={styles.description}>My lost pet es una organización sin fines de lucro compuesta por un grupo de voluntarios unidos por el amor hacia los animales y la convicción de que, juntos, podemos hacer mucho por ellos.</Text>
 	            <Text style={styles.description}>Esta iniciativa fue creada con el objetivo de facilitar todo lo posible la búsqueda de nuestras mascotas cuando éstas se encuentran extraviadas.</Text>
                     </ScrollView>
-                </Image>
+                </ImageBackground>
             </View>
         )
     }

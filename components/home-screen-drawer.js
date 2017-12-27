@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
+import { StyleSheet, Text, View, TouchableOpacity, ImageBackground } from "react-native"
 
 export default class HomeScreenDrawer extends React.Component {
     constructor (props) {
@@ -23,7 +23,7 @@ export default class HomeScreenDrawer extends React.Component {
     render () {
         return (
             <View style={styles.container}>
-                <Image
+                <ImageBackground
                     source={require("../assets/images/xira.jpg")}
                     style={styles.image}
                 >
@@ -39,7 +39,7 @@ export default class HomeScreenDrawer extends React.Component {
                     <TouchableOpacity style={styles.modalOptionsButton} onPress={this._termsAndConditions} >
                         <Text style={styles.shareText} >Términos y condiciones</Text>
                     </TouchableOpacity>
-                </Image>
+                </ImageBackground>
             </View>
         )
     }
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     },
     modalOptionsButton: {
         opacity: 0.6,
-        borderWidth: 0.5,
+        borderWidth: StyleSheet.hairlineWidth,
         backgroundColor: "grey",
         padding: 20,
         borderColor: "#d6d7da"
