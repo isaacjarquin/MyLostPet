@@ -22,11 +22,7 @@ exports[`renders correctly 1`] = `
     }
   >
     <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/tirma.jpg",
-        }
-      }
+      source={1}
       style={
         Array [
           Object {

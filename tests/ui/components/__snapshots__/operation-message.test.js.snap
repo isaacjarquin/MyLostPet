@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OperationMessage renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "height": "100%",
+      "paddingBottom": 30,
+      "paddingTop": 30,
+      "position": "absolute",
+      "top": "85%",
+      "width": "100%",
+    }
+  }
+>
+  <DropdownAlert
+    activeStatusBarBackgroundColor="black"
+    activeStatusBarStyle="light-content"
+    cancelBtnImageSrc={1}
+    cancelBtnImageStyle={
+      Object {
+        "alignSelf": "center",
+        "height": 36,
+        "padding": 8,
+        "width": 36,
+      }
+    }
+    closeInterval={6000}
+    containerStyle={
+      Object {
+        "flexDirection": "row",
+        "padding": 16,
+      }
+    }
+    defaultContainer={
+      Object {
+        "flexDirection": "row",
+        "padding": 8,
+        "paddingTop": 20,
+      }
+    }
+    defaultTextContainer={
+      Object {
+        "flex": 1,
+        "padding": 8,
+      }
+    }
+    elevation={1}
+    endDelta={20}
+    errorColor="#ff3333"
+    imageSrc={null}
+    imageStyle={
+      Object {
+        "alignSelf": "center",
+        "height": 36,
+        "padding": 8,
+        "width": 36,
+      }
+    }
+    inactiveStatusBarBackgroundColor="black"
+    inactiveStatusBarStyle="default"
+    infoColor="#2B73B6"
+    messageNumOfLines={3}
+    messageStyle={
+      Object {
+        "backgroundColor": "transparent",
+        "color": "white",
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "textAlign": "left",
+      }
+    }
+    onCancel={null}
+    onClose={[Function]}
+    panResponderEnabled={true}
+    replaceEnabled={true}
+    sensitivity={20}
+    showCancel={false}
+    startDelta={200}
+    successColor="#77DD77"
+    tapToCloseEnabled={true}
+    titleNumOfLines={1}
+    titleStyle={
+      Object {
+        "backgroundColor": "transparent",
+        "color": "white",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "textAlign": "left",
+      }
+    }
+    translucent={false}
+    updateStatusBar={true}
+    warnColor="#cd853f"
+    zIndex={null}
+  />
+</View>
+`;

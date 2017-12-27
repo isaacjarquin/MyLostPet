@@ -12,11 +12,14 @@
     "fixjs": "eslint ../MyLostPet/ --fix"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "jest-expo",
+    "setupTestFrameworkScriptFile": "./tests/jest.config.js",
+    "transformIgnorePatterns": []
   },
   "dependencies": {
     "expo": "^23.0.0",
-    "react": "16.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
     "react-native-background-upload": "^4.1.0",
     "react-native-chooser": "^1.6.3",
@@ -33,6 +36,9 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.0",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-standard": "^10.2.1",
@@ -44,6 +50,7 @@
     "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^21.2.1",
+    "jest-expo": "^24.0.0",
     "react-test-renderer": "^16.0.0"
   }
 }

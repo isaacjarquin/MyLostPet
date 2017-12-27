@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`HomeScreenDrawer renders correctly 1`] = `
 <View
   style={
     Object {
@@ -10,7 +10,8 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
+  <ImageBackground
+    source={1}
     style={
       Object {
         "flex": 1,
@@ -20,45 +21,9 @@ exports[`renders correctly 1`] = `
       }
     }
   >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/xira.jpg",
-        }
-      }
-      style={
-        Array [
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          },
-          Object {
-            "height": "100%",
-            "width": "100%",
-          },
-          undefined,
-        ]
-      }
-    />
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
       style={
         Object {
           "backgroundColor": "grey",
@@ -68,8 +33,6 @@ exports[`renders correctly 1`] = `
           "padding": 20,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
         accessible={true}
@@ -85,23 +48,10 @@ exports[`renders correctly 1`] = `
       >
         Quienes somos
       </Text>
-    </View>
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+    </TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
       style={
         Object {
           "backgroundColor": "grey",
@@ -111,8 +61,6 @@ exports[`renders correctly 1`] = `
           "padding": 20,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
         accessible={true}
@@ -128,23 +76,9 @@ exports[`renders correctly 1`] = `
       >
         Como usar la aplicación
       </Text>
-    </View>
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+    </TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.2}
       style={
         Object {
           "backgroundColor": "grey",
@@ -154,8 +88,6 @@ exports[`renders correctly 1`] = `
           "padding": 20,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
         accessible={true}
@@ -171,23 +103,10 @@ exports[`renders correctly 1`] = `
       >
         Contacto
       </Text>
-    </View>
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+    </TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
       style={
         Object {
           "backgroundColor": "grey",
@@ -197,8 +116,6 @@ exports[`renders correctly 1`] = `
           "padding": 20,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <Text
         accessible={true}
@@ -214,7 +131,7 @@ exports[`renders correctly 1`] = `
       >
         Términos y condiciones
       </Text>
-    </View>
-  </View>
+    </TouchableOpacity>
+  </ImageBackground>
 </View>
 `;
