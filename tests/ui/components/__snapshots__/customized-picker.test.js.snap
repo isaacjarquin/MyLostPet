@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SecondaryMenuModal renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "flex-start",
+    }
+  }
+>
+  <ReactNativeModal
+    animationIn="slideInUp"
+    animationInTiming={300}
+    animationOut="slideOutDown"
+    animationOutTiming={300}
+    avoidKeyboard={false}
+    backdropColor="black"
+    backdropOpacity={0.7}
+    backdropTransitionInTiming={300}
+    backdropTransitionOutTiming={300}
+    isVisible={false}
+    onBackButtonPress={[Function]}
+    onBackdropPress={[Function]}
+    onModalHide={[Function]}
+    onModalShow={[Function]}
+    style={
+      Object {
+        "backgroundColor": "white",
+        "marginTop": "75%",
+      }
+    }
+    useNativeDriver={false}
+  >
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
+    >
+      <Icon
+        color="grey"
+        name="keyboard-arrow-down"
+        raised={false}
+        reverse={false}
+        reverseColor="white"
+        size={30}
+        type="MaterialIcons"
+        underlayColor="white"
+      />
+    </TouchableOpacity>
+    <Picker
+      mode="dialog"
+      onValueChange={[Function]}
+      selectedValue=""
+      style={
+        Object {
+          "borderColor": "grey",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "margin": 10,
+        }
+      }
+    />
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
+      style={
+        Object {
+          "backgroundColor": "grey",
+          "borderRadius": 10,
+          "margin": 10,
+          "padding": 20,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "white",
+          }
+        }
+      >
+        Confirmar
+      </Text>
+    </TouchableOpacity>
+  </ReactNativeModal>
+</View>
+`;
