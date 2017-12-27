@@ -6,10 +6,6 @@ import PetsResult from "../../../screens/pets-result"
 import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import renderer from "react-test-renderer"
-import { configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-
-configure({ adapter: new Adapter() })
 
 describe("PetsResult", () => {
     const navigate = jest.fn()

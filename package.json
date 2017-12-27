@@ -12,7 +12,8 @@
     "fixjs": "eslint ../MyLostPet/ --fix"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "setupTestFrameworkScriptFile": "./tests/jest.config.js"
   },
   "dependencies": {
     "expo": "^23.0.0",
