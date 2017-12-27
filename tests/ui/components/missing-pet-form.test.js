@@ -2,7 +2,6 @@ import "react-native"
 import React from "react"
 import MissingPetForm from "../../../components/missing-pet-form"
 import { shallow } from "enzyme"
-import toJSON from "enzyme-to-json"
 
 describe("MissingPetForm", () => {
     const navigate = jest.fn()
