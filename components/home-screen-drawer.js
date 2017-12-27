@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground } from "react-native"
+import { StyleSheet, Text, View, TouchableOpacity, ImageBackground } from "react-native"
 
 export default class HomeScreenDrawer extends React.Component {
     constructor (props) {

@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, ScrollView, ImageBackground } from "react-native"
+import { StyleSheet, Text, View, ScrollView, ImageBackground } from "react-native"
 
 export default class HowToUse extends React.Component {
     constructor (props) {
