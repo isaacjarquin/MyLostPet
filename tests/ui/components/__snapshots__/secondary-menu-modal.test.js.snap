@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`SecondaryMenyModal renders correctly 1`] = `
 <View
   style={
     Object {
@@ -9,22 +9,9 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
     style={
       Object {
         "backgroundColor": "#333333",
@@ -35,45 +22,22 @@ exports[`renders correctly 1`] = `
         "padding": 15,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
-    <View
-      onPress={undefined}
+    <Icon
+      color="white"
+      name="search"
+      raised={false}
+      reverse={false}
+      reverseColor="white"
+      size={30}
       style={
         Object {
           "marginLeft": "20%",
         }
       }
+      type="evilIcons"
       underlayColor="white"
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "white",
-              "fontSize": 30,
-            },
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ],
-            Object {
-              "fontFamily": "Material Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }
-      >
-        
-      </Text>
-    </View>
+    />
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -88,1204 +52,589 @@ exports[`renders correctly 1`] = `
     >
       Buscar mascota
     </Text>
-  </View>
-  <Modal
-    animationType="none"
-    hardwareAccelerated={false}
+  </TouchableOpacity>
+  <ReactNativeModal
+    animationIn="slideInUp"
+    animationInTiming={300}
+    animationOut="slideOutDown"
+    animationOutTiming={300}
+    avoidKeyboard={false}
+    backdropColor="black"
+    backdropOpacity={0.7}
+    backdropTransitionInTiming={300}
+    backdropTransitionOutTiming={300}
+    isVisible={false}
+    onBackButtonPress={[Function]}
+    onBackdropPress={[Function]}
     onModalHide={[Function]}
-    onRequestClose={[Function]}
-    transparent={true}
-    visible={false}
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "backgroundColor": "black",
-          "bottom": 0,
-          "height": 1334,
-          "left": 0,
-          "opacity": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "width": 750,
-        }
+    onModalShow={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#333333",
+        "borderTopLeftRadius": 3,
+        "borderTopRightRadius": 3,
+        "flexDirection": "column",
+        "marginTop": 1034,
       }
-      testID={undefined}
-    />
-    <View
-      collapsable={undefined}
-      onModalHide={[Function]}
-      pointerEvents="box-none"
+    }
+    useNativeDriver={false}
+  >
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
       style={
         Object {
-          "backgroundColor": "#333333",
+          "alignSelf": "center",
+          "backgroundColor": "transparent",
           "borderTopLeftRadius": 3,
           "borderTopRightRadius": 3,
-          "flex": 1,
-          "flexDirection": "column",
-          "justifyContent": "center",
-          "margin": 37.5,
-          "marginTop": 1034,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
+          "flexDirection": "row",
+          "marginBottom": 10,
+          "marginLeft": 15,
+          "marginRight": 15,
+          "marginTop": 10,
+          "opacity": 0.8,
         }
       }
     >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Icon
+        color="grey"
+        name="keyboard-arrow-down"
+        raised={false}
+        reverse={false}
+        reverseColor="white"
+        size={30}
+        type="MaterialIcons"
+        underlayColor="white"
+      />
+    </TouchableOpacity>
+    <View>
+      <TouchableOpacity
+        activeOpacity={0.2}
+        onPress={[Function]}
         style={
           Object {
-            "alignSelf": "center",
-            "backgroundColor": "transparent",
-            "borderTopLeftRadius": 3,
-            "borderTopRightRadius": 3,
+            "backgroundColor": "black",
+            "borderColor": "#d6d7da",
+            "borderWidth": 0.5,
             "flexDirection": "row",
-            "marginBottom": 10,
-            "marginLeft": 15,
-            "marginRight": 15,
-            "marginTop": 10,
-            "opacity": 0.8,
+            "opacity": 0.5,
+            "padding": 15,
+            "width": "100%",
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
-        <View
-          onPress={undefined}
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
           style={
-            Array [
-              false,
-              false,
-              false,
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "justifyContent": "center",
-              },
-              undefined,
-            ]
+            Object {
+              "color": "white",
+              "width": "95%",
+            }
           }
+        >
+          Tipo de mascota
+        </Text>
+        <Icon
+          color="white"
+          name="keyboard-arrow-down"
+          raised={false}
+          reverse={false}
+          reverseColor="white"
+          size={20}
+          type="MaterialIcons"
           underlayColor="white"
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "grey",
-                  "fontSize": 30,
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  undefined,
-                ],
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
-      </View>
-      <View
-        style={undefined}
+        />
+      </TouchableOpacity>
+      <SecondaryMenuModal
+        handler={[Function]}
+        hidePetTypeModal={[Function]}
+        isVisible={false}
+        items={
+          Array [
+            Object {
+              "id": 1,
+              "value": "perro",
+            },
+            Object {
+              "id": 2,
+              "value": "gato",
+            },
+            Object {
+              "id": 3,
+              "value": "conejo",
+            },
+            Object {
+              "id": 4,
+              "value": "hamster",
+            },
+            Object {
+              "id": 5,
+              "value": "iguana",
+            },
+            Object {
+              "id": 6,
+              "value": "hurón",
+            },
+            Object {
+              "id": 7,
+              "value": "tortuga",
+            },
+          ]
+        }
+      />
+      <TouchableOpacity
+        activeOpacity={0.2}
+        onPress={[Function]}
+        style={
+          Object {
+            "backgroundColor": "black",
+            "borderColor": "#d6d7da",
+            "borderWidth": 0.5,
+            "flexDirection": "row",
+            "opacity": 0.5,
+            "padding": 15,
+            "width": "100%",
+          }
+        }
       >
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+        <Text
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
           style={
             Object {
-              "backgroundColor": "black",
-              "borderColor": "#d6d7da",
-              "borderWidth": 0.5,
-              "flexDirection": "row",
-              "opacity": 0.5,
-              "padding": 15,
-              "width": "100%",
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "white",
-                "width": "95%",
-              }
-            }
-          >
-            Tipo de mascota
-          </Text>
-          <View
-            onPress={undefined}
-            style={undefined}
-            underlayColor="white"
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 20,
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    undefined,
-                  ],
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "flex": 1,
-              "justifyContent": "flex-start",
+              "color": "white",
+              "width": "95%",
             }
           }
         >
-          <Modal
-            animationType="none"
-            hardwareAccelerated={false}
-            onModalHide={[Function]}
-            onRequestClose={[Function]}
-            transparent={true}
-            visible={false}
-          >
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              collapsable={undefined}
-              hitSlop={undefined}
-              nativeID={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
+          Comunidad autónoma
+        </Text>
+        <Icon
+          color="white"
+          name="keyboard-arrow-down"
+          raised={false}
+          reverse={false}
+          reverseColor="white"
+          size={20}
+          type="MaterialIcons"
+          underlayColor="white"
+        />
+      </TouchableOpacity>
+      <SecondaryMenuModal
+        handler={[Function]}
+        hidePetTypeModal={[Function]}
+        isVisible={false}
+        items={
+          Array [
+            Object {
+              "id": "andalucia",
+              "provincias": Array [
                 Object {
-                  "backgroundColor": "black",
-                  "bottom": 0,
-                  "height": 1334,
-                  "left": 0,
-                  "opacity": 0,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
-                  "width": 750,
-                }
-              }
-              testID={undefined}
-            />
-            <View
-              collapsable={undefined}
-              onModalHide={[Function]}
-              pointerEvents="box-none"
-              style={
+                  "id": 1,
+                  "value": "Almería",
+                },
                 Object {
-                  "backgroundColor": "white",
-                  "flex": 1,
-                  "justifyContent": "center",
-                  "margin": 37.5,
-                  "marginTop": "75%",
-                  "transform": Array [
-                    Object {
-                      "translateY": 0,
-                    },
-                  ],
-                }
-              }
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                collapsable={undefined}
-                hitSlop={undefined}
-                isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-                testID={undefined}
-                tvParallaxProperties={undefined}
-              >
-                <View
-                  onPress={undefined}
-                  style={
-                    Array [
-                      false,
-                      false,
-                      false,
-                      Object {
-                        "alignItems": "center",
-                        "backgroundColor": "transparent",
-                        "justifyContent": "center",
-                      },
-                      undefined,
-                    ]
-                  }
-                  underlayColor="white"
-                >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={false}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "grey",
-                          "fontSize": 30,
-                        },
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          undefined,
-                        ],
-                        Object {
-                          "fontFamily": "Material Icons",
-                          "fontStyle": "normal",
-                          "fontWeight": "normal",
-                        },
-                      ]
-                    }
-                  >
-                    
-                  </Text>
-                </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "borderColor": "grey",
-                    "borderRadius": 10,
-                    "borderWidth": 1,
-                    "margin": 10,
-                  }
-                }
-              >
-                <RCTPicker
-                  items={
-                    Array [
-                      Object {
-                        "label": "perro",
-                        "textColor": undefined,
-                        "value": "perro",
-                      },
-                      Object {
-                        "label": "gato",
-                        "textColor": undefined,
-                        "value": "gato",
-                      },
-                      Object {
-                        "label": "conejo",
-                        "textColor": undefined,
-                        "value": "conejo",
-                      },
-                      Object {
-                        "label": "hamster",
-                        "textColor": undefined,
-                        "value": "hamster",
-                      },
-                      Object {
-                        "label": "iguana",
-                        "textColor": undefined,
-                        "value": "iguana",
-                      },
-                      Object {
-                        "label": "hurón",
-                        "textColor": undefined,
-                        "value": "hurón",
-                      },
-                      Object {
-                        "label": "tortuga",
-                        "textColor": undefined,
-                        "value": "tortuga",
-                      },
-                    ]
-                  }
-                  onChange={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  selectedIndex={0}
-                  style={
-                    Array [
-                      Object {
-                        "height": 216,
-                      },
-                      undefined,
-                    ]
-                  }
-                />
-              </View>
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                collapsable={undefined}
-                hitSlop={undefined}
-                isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "backgroundColor": "grey",
-                    "borderRadius": 10,
-                    "margin": 10,
-                    "opacity": 1,
-                    "padding": 20,
-                  }
-                }
-                testID={undefined}
-                tvParallaxProperties={undefined}
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "alignSelf": "center",
-                      "color": "white",
-                    }
-                  }
-                >
-                  Confirmar
-                </Text>
-              </View>
-            </View>
-          </Modal>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+                  "id": 2,
+                  "value": "Cádiz",
+                },
+                Object {
+                  "id": 3,
+                  "value": "Córdoba",
+                },
+                Object {
+                  "id": 4,
+                  "value": "Granada",
+                },
+                Object {
+                  "id": 5,
+                  "value": "Huelva",
+                },
+                Object {
+                  "id": 6,
+                  "value": "Jaen",
+                },
+                Object {
+                  "id": 7,
+                  "value": "Málaga",
+                },
+                Object {
+                  "id": 8,
+                  "value": "Sevilla",
+                },
+              ],
+              "value": "Andalucia",
+            },
+            Object {
+              "id": "aragon",
+              "provincias": Array [
+                Object {
+                  "id": 9,
+                  "value": "Huesca",
+                },
+                Object {
+                  "id": 10,
+                  "value": "Teruel",
+                },
+                Object {
+                  "id": 11,
+                  "value": "Zaragoza",
+                },
+              ],
+              "value": "Aragon",
+            },
+            Object {
+              "id": "canarias",
+              "provincias": Array [
+                Object {
+                  "id": 12,
+                  "value": "Las Palmas",
+                },
+                Object {
+                  "id": 13,
+                  "value": "Santa Cruz de Tenerife",
+                },
+              ],
+              "value": "Canarias",
+            },
+            Object {
+              "id": "cantabria",
+              "provincias": Array [
+                Object {
+                  "id": 14,
+                  "value": "Cantabria",
+                },
+              ],
+              "value": "Cantabria",
+            },
+            Object {
+              "id": "castilla_la_mancha",
+              "provincias": Array [
+                Object {
+                  "id": 15,
+                  "value": "Albacete",
+                },
+                Object {
+                  "id": 16,
+                  "value": "Ciudad Real",
+                },
+                Object {
+                  "id": 17,
+                  "value": "Cuenca",
+                },
+                Object {
+                  "id": 18,
+                  "value": "Guadalajara",
+                },
+                Object {
+                  "id": 19,
+                  "value": "Toledo",
+                },
+              ],
+              "value": "Castilla la Mancha",
+            },
+            Object {
+              "id": "castilla_y_leon",
+              "provincias": Array [
+                Object {
+                  "id": 20,
+                  "value": "Ávila",
+                },
+                Object {
+                  "id": 21,
+                  "value": "Burgos",
+                },
+                Object {
+                  "id": 22,
+                  "value": "Leon",
+                },
+                Object {
+                  "id": 23,
+                  "value": "Palencia",
+                },
+                Object {
+                  "id": 24,
+                  "value": "Salamanca",
+                },
+                Object {
+                  "id": 25,
+                  "value": "Segovia",
+                },
+                Object {
+                  "id": 26,
+                  "value": "Soria",
+                },
+                Object {
+                  "id": 27,
+                  "value": "Valladolid",
+                },
+                Object {
+                  "id": 28,
+                  "value": "Zamora",
+                },
+              ],
+              "value": "Castilla y Leon",
+            },
+            Object {
+              "id": "cataluna",
+              "provincias": Array [
+                Object {
+                  "id": 29,
+                  "value": "Barcelona",
+                },
+                Object {
+                  "id": 30,
+                  "value": "Gerona",
+                },
+                Object {
+                  "id": 31,
+                  "value": "Lerida",
+                },
+                Object {
+                  "id": 32,
+                  "value": "Tarragona",
+                },
+              ],
+              "value": "Cataluña",
+            },
+            Object {
+              "id": "ceuta",
+              "provincias": Array [
+                Object {
+                  "id": 33,
+                  "value": "Ceuta",
+                },
+              ],
+              "value": "Ceuta",
+            },
+            Object {
+              "id": "valencia",
+              "provincias": Array [
+                Object {
+                  "id": 34,
+                  "value": "Alicante",
+                },
+                Object {
+                  "id": 35,
+                  "value": "Castellón",
+                },
+                Object {
+                  "id": 36,
+                  "value": "Valencia",
+                },
+              ],
+              "value": "Comunidad Valenciana",
+            },
+            Object {
+              "id": "extremadura",
+              "provincias": Array [
+                Object {
+                  "id": 37,
+                  "value": "Badajoz",
+                },
+                Object {
+                  "id": 38,
+                  "value": "Cáceres",
+                },
+              ],
+              "value": "Extremadura",
+            },
+            Object {
+              "id": "baleares",
+              "provincias": Array [
+                Object {
+                  "id": 39,
+                  "value": "Islas Baleares",
+                },
+              ],
+              "value": "Islas Baleares",
+            },
+            Object {
+              "id": "galicia",
+              "provincias": Array [
+                Object {
+                  "id": 40,
+                  "value": "La Coruña",
+                },
+                Object {
+                  "id": 41,
+                  "value": "Lugo",
+                },
+                Object {
+                  "id": 42,
+                  "value": "Orense",
+                },
+                Object {
+                  "id": 43,
+                  "value": "Pontevedra",
+                },
+              ],
+              "value": "Galicia",
+            },
+            Object {
+              "id": "madrid",
+              "provincias": Array [
+                Object {
+                  "id": 44,
+                  "value": "Comunidad de Madrid",
+                },
+              ],
+              "value": "Madrid",
+            },
+            Object {
+              "id": "melilla",
+              "provincias": Array [
+                Object {
+                  "id": 45,
+                  "value": "Melilla",
+                },
+              ],
+              "value": "Melilla",
+            },
+            Object {
+              "id": "murcia",
+              "provincias": Array [
+                Object {
+                  "id": 46,
+                  "value": "Región de Murcia",
+                },
+              ],
+              "value": "Murcia",
+            },
+            Object {
+              "id": "navarra",
+              "provincias": Array [
+                Object {
+                  "id": 47,
+                  "value": "Comunidad foral de Navarra",
+                },
+              ],
+              "value": "Navarra",
+            },
+            Object {
+              "id": "pais_vasco",
+              "provincias": Array [
+                Object {
+                  "id": 48,
+                  "value": "Álava",
+                },
+                Object {
+                  "id": 49,
+                  "value": "Gipúzcoa",
+                },
+                Object {
+                  "id": 50,
+                  "value": "Vizcaya",
+                },
+              ],
+              "value": "País Vasco",
+            },
+            Object {
+              "id": "asturias",
+              "provincias": Array [
+                Object {
+                  "id": 51,
+                  "value": "Principado de Asturias",
+                },
+              ],
+              "value": "Principado de asturias",
+            },
+          ]
+        }
+      />
+      <TouchableOpacity
+        activeOpacity={0.2}
+        onPress={[Function]}
+        style={
+          Object {
+            "backgroundColor": "black",
+            "borderColor": "#d6d7da",
+            "borderWidth": 0.5,
+            "flexDirection": "row",
+            "opacity": 0.5,
+            "padding": 15,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
           style={
             Object {
-              "backgroundColor": "black",
-              "borderColor": "#d6d7da",
-              "borderWidth": 0.5,
-              "flexDirection": "row",
-              "opacity": 0.5,
-              "padding": 15,
-              "width": "100%",
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "white",
-                "width": "95%",
-              }
-            }
-          >
-            Comunidad autónoma
-          </Text>
-          <View
-            onPress={undefined}
-            style={undefined}
-            underlayColor="white"
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 20,
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    undefined,
-                  ],
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "flex": 1,
-              "justifyContent": "flex-start",
+              "color": "white",
+              "width": "95%",
             }
           }
         >
-          <Modal
-            animationType="none"
-            hardwareAccelerated={false}
-            onModalHide={[Function]}
-            onRequestClose={[Function]}
-            transparent={true}
-            visible={false}
-          >
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              collapsable={undefined}
-              hitSlop={undefined}
-              nativeID={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "backgroundColor": "black",
-                  "bottom": 0,
-                  "height": 1334,
-                  "left": 0,
-                  "opacity": 0,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
-                  "width": 750,
-                }
-              }
-              testID={undefined}
-            />
-            <View
-              collapsable={undefined}
-              onModalHide={[Function]}
-              pointerEvents="box-none"
-              style={
-                Object {
-                  "backgroundColor": "white",
-                  "flex": 1,
-                  "justifyContent": "center",
-                  "margin": 37.5,
-                  "marginTop": "75%",
-                  "transform": Array [
-                    Object {
-                      "translateY": 0,
-                    },
-                  ],
-                }
-              }
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                collapsable={undefined}
-                hitSlop={undefined}
-                isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-                testID={undefined}
-                tvParallaxProperties={undefined}
-              >
-                <View
-                  onPress={undefined}
-                  style={
-                    Array [
-                      false,
-                      false,
-                      false,
-                      Object {
-                        "alignItems": "center",
-                        "backgroundColor": "transparent",
-                        "justifyContent": "center",
-                      },
-                      undefined,
-                    ]
-                  }
-                  underlayColor="white"
-                >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={false}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "grey",
-                          "fontSize": 30,
-                        },
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          undefined,
-                        ],
-                        Object {
-                          "fontFamily": "Material Icons",
-                          "fontStyle": "normal",
-                          "fontWeight": "normal",
-                        },
-                      ]
-                    }
-                  >
-                    
-                  </Text>
-                </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "borderColor": "grey",
-                    "borderRadius": 10,
-                    "borderWidth": 1,
-                    "margin": 10,
-                  }
-                }
-              >
-                <RCTPicker
-                  items={
-                    Array [
-                      Object {
-                        "label": "Andalucia",
-                        "textColor": undefined,
-                        "value": "Andalucia",
-                      },
-                      Object {
-                        "label": "Aragon",
-                        "textColor": undefined,
-                        "value": "Aragon",
-                      },
-                      Object {
-                        "label": "Canarias",
-                        "textColor": undefined,
-                        "value": "Canarias",
-                      },
-                      Object {
-                        "label": "Cantabria",
-                        "textColor": undefined,
-                        "value": "Cantabria",
-                      },
-                      Object {
-                        "label": "Castilla la Mancha",
-                        "textColor": undefined,
-                        "value": "Castilla la Mancha",
-                      },
-                      Object {
-                        "label": "Castilla y Leon",
-                        "textColor": undefined,
-                        "value": "Castilla y Leon",
-                      },
-                      Object {
-                        "label": "Cataluña",
-                        "textColor": undefined,
-                        "value": "Cataluña",
-                      },
-                      Object {
-                        "label": "Ceuta",
-                        "textColor": undefined,
-                        "value": "Ceuta",
-                      },
-                      Object {
-                        "label": "Comunidad Valenciana",
-                        "textColor": undefined,
-                        "value": "Comunidad Valenciana",
-                      },
-                      Object {
-                        "label": "Extremadura",
-                        "textColor": undefined,
-                        "value": "Extremadura",
-                      },
-                      Object {
-                        "label": "Islas Baleares",
-                        "textColor": undefined,
-                        "value": "Islas Baleares",
-                      },
-                      Object {
-                        "label": "Galicia",
-                        "textColor": undefined,
-                        "value": "Galicia",
-                      },
-                      Object {
-                        "label": "Madrid",
-                        "textColor": undefined,
-                        "value": "Madrid",
-                      },
-                      Object {
-                        "label": "Melilla",
-                        "textColor": undefined,
-                        "value": "Melilla",
-                      },
-                      Object {
-                        "label": "Murcia",
-                        "textColor": undefined,
-                        "value": "Murcia",
-                      },
-                      Object {
-                        "label": "Navarra",
-                        "textColor": undefined,
-                        "value": "Navarra",
-                      },
-                      Object {
-                        "label": "País Vasco",
-                        "textColor": undefined,
-                        "value": "País Vasco",
-                      },
-                      Object {
-                        "label": "Principado de asturias",
-                        "textColor": undefined,
-                        "value": "Principado de asturias",
-                      },
-                    ]
-                  }
-                  onChange={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  selectedIndex={0}
-                  style={
-                    Array [
-                      Object {
-                        "height": 216,
-                      },
-                      undefined,
-                    ]
-                  }
-                />
-              </View>
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                collapsable={undefined}
-                hitSlop={undefined}
-                isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "backgroundColor": "grey",
-                    "borderRadius": 10,
-                    "margin": 10,
-                    "opacity": 1,
-                    "padding": 20,
-                  }
-                }
-                testID={undefined}
-                tvParallaxProperties={undefined}
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "alignSelf": "center",
-                      "color": "white",
-                    }
-                  }
-                >
-                  Confirmar
-                </Text>
-              </View>
-            </View>
-          </Modal>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          Provincia
+        </Text>
+        <Icon
+          color="white"
+          name="keyboard-arrow-down"
+          raised={false}
+          reverse={false}
+          reverseColor="white"
+          size={20}
+          type="MaterialIcons"
+          underlayColor="white"
+        />
+      </TouchableOpacity>
+      <SecondaryMenuModal
+        handler={[Function]}
+        hidePetTypeModal={[Function]}
+        isVisible={false}
+        items={Array []}
+      />
+      <TouchableOpacity
+        activeOpacity={0.2}
+        onPress={[Function]}
+        style={
+          Object {
+            "backgroundColor": "grey",
+            "borderColor": "#d6d7da",
+            "borderWidth": 0.5,
+            "flexDirection": "row",
+            "opacity": 0.8,
+            "padding": 15,
+          }
+        }
+      >
+        <Icon
+          color="white"
+          name="search"
+          raised={false}
+          reverse={false}
+          reverseColor="white"
+          size={30}
+          style={
+            Object {
+              "marginLeft": "35%",
+            }
+          }
+          type="evilIcons"
+          underlayColor="white"
+        />
+        <Text
           accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
           style={
             Object {
-              "backgroundColor": "black",
-              "borderColor": "#d6d7da",
-              "borderWidth": 0.5,
-              "flexDirection": "row",
-              "opacity": 0.5,
-              "padding": 15,
-              "width": "100%",
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "white",
-                "width": "95%",
-              }
-            }
-          >
-            Provincia
-          </Text>
-          <View
-            onPress={undefined}
-            style={undefined}
-            underlayColor="white"
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 20,
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    undefined,
-                  ],
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "flex": 1,
-              "justifyContent": "flex-start",
+              "alignSelf": "center",
+              "color": "white",
+              "fontSize": 16,
             }
           }
         >
-          <Modal
-            animationType="none"
-            hardwareAccelerated={false}
-            onModalHide={[Function]}
-            onRequestClose={[Function]}
-            transparent={true}
-            visible={false}
-          >
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              collapsable={undefined}
-              hitSlop={undefined}
-              nativeID={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "backgroundColor": "black",
-                  "bottom": 0,
-                  "height": 1334,
-                  "left": 0,
-                  "opacity": 0,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
-                  "width": 750,
-                }
-              }
-              testID={undefined}
-            />
-            <View
-              collapsable={undefined}
-              onModalHide={[Function]}
-              pointerEvents="box-none"
-              style={
-                Object {
-                  "backgroundColor": "white",
-                  "flex": 1,
-                  "justifyContent": "center",
-                  "margin": 37.5,
-                  "marginTop": "75%",
-                  "transform": Array [
-                    Object {
-                      "translateY": 0,
-                    },
-                  ],
-                }
-              }
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                collapsable={undefined}
-                hitSlop={undefined}
-                isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-                testID={undefined}
-                tvParallaxProperties={undefined}
-              >
-                <View
-                  onPress={undefined}
-                  style={
-                    Array [
-                      false,
-                      false,
-                      false,
-                      Object {
-                        "alignItems": "center",
-                        "backgroundColor": "transparent",
-                        "justifyContent": "center",
-                      },
-                      undefined,
-                    ]
-                  }
-                  underlayColor="white"
-                >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={false}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "grey",
-                          "fontSize": 30,
-                        },
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          undefined,
-                        ],
-                        Object {
-                          "fontFamily": "Material Icons",
-                          "fontStyle": "normal",
-                          "fontWeight": "normal",
-                        },
-                      ]
-                    }
-                  >
-                    
-                  </Text>
-                </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "borderColor": "grey",
-                    "borderRadius": 10,
-                    "borderWidth": 1,
-                    "margin": 10,
-                  }
-                }
-              >
-                <RCTPicker
-                  items={Array []}
-                  onChange={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  selectedIndex={0}
-                  style={
-                    Array [
-                      Object {
-                        "height": 216,
-                      },
-                      undefined,
-                    ]
-                  }
-                />
-              </View>
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                collapsable={undefined}
-                hitSlop={undefined}
-                isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "backgroundColor": "grey",
-                    "borderRadius": 10,
-                    "margin": 10,
-                    "opacity": 1,
-                    "padding": 20,
-                  }
-                }
-                testID={undefined}
-                tvParallaxProperties={undefined}
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "alignSelf": "center",
-                      "color": "white",
-                    }
-                  }
-                >
-                  Confirmar
-                </Text>
-              </View>
-            </View>
-          </Modal>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "grey",
-              "borderColor": "#d6d7da",
-              "borderWidth": 0.5,
-              "flexDirection": "row",
-              "opacity": 0.8,
-              "padding": 15,
-            }
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
-            onPress={undefined}
-            style={
-              Object {
-                "marginLeft": "35%",
-              }
-            }
-            underlayColor="white"
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 30,
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    undefined,
-                  ],
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "alignSelf": "center",
-                "color": "white",
-                "fontSize": 16,
-              }
-            }
-          >
-            Buscar
-          </Text>
-        </View>
-      </View>
+          Buscar
+        </Text>
+      </TouchableOpacity>
     </View>
-  </Modal>
+  </ReactNativeModal>
 </View>
 `;

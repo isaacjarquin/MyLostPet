@@ -35,7 +35,7 @@ describe("Home", () => {
 
         it("navigate to MissingPetForm", () => {
             expect(navigate).toHaveBeenCalledTimes(1);
-            expect(navigate).toHaveBeenCalledWith("MissingPetForm");
+            expect(navigate).toHaveBeenCalledWith("MissingPetForm")
         })
     })
 
@@ -46,7 +46,7 @@ describe("Home", () => {
 
         it("navigate to MissingPetForm", () => {
             expect(navigate).toHaveBeenCalledTimes(1);
-            expect(navigate).toHaveBeenCalledWith("SearchForm");
+            expect(navigate).toHaveBeenCalledWith("SearchForm")
         })
     })
 
@@ -54,7 +54,7 @@ describe("Home", () => {
         it("modify isModalVisible state when called", () => {
             wrapper.setState({ isModalVisible: false })
             wrapper.instance()._showModal()
-            expect(wrapper.state().isModalVisible).toBe(true);
+            expect(wrapper.state().isModalVisible).toBe(true)
         })
     })
 })
